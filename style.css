@@ -500,6 +500,75 @@ html[dir="rtl"] .msg-user { border-top-right-radius: 16px; border-top-left-radiu
   color: var(--gray-500);
 }
 
+/* ---------- Article page ---------- */
+.article-page { padding-top: 56px; }
+.article-container { max-width: 780px; }
+.article-back {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-600);
+  margin-bottom: 24px;
+  transition: color .15s;
+}
+.article-back:hover { color: var(--green-700); }
+.article-header { margin-bottom: 28px; }
+.article-header .pill { background: #FFE4E6; color: #BE123C; }
+.article-title {
+  margin-top: 14px;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--navy-700);
+  letter-spacing: -0.01em;
+}
+.article-meta {
+  margin-top: 14px;
+  display: flex;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--gray-500);
+}
+.article-cover {
+  aspect-ratio: 16 / 7;
+  border-radius: var(--radius-lg);
+  margin-bottom: 36px;
+  position: relative;
+  overflow: hidden;
+}
+.article-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.article-lead {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--gray-700);
+  margin-bottom: 28px;
+}
+.article-tips {
+  list-style: decimal;
+  padding-inline-start: 22px;
+  display: grid;
+  gap: 18px;
+}
+.article-tips li {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--gray-700);
+  padding-inline-start: 6px;
+}
+.article-tips li strong {
+  color: var(--navy-700);
+  font-weight: 600;
+  margin-inline-end: 6px;
+}
+
 /* ---------- About / Founder ---------- */
 .about-section { background: var(--gray-50); }
 .about-grid {
