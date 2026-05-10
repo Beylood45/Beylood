@@ -53,6 +53,15 @@
       artBack: '← Dib ugu noqo maqaallada',
       catBack: '← Dib ugu noqo qaybaha',
       viewAll: 'Dhammaan eeg →',
+      // Chat
+      chatWelcome: 'Salaan! Anigu waxaan ahay Beylood AI. Su\'aal kasta oo ku saabsan beeraha — waydii i waydii.',
+      chatPlaceholder: 'Halkan ku qor su\'aashaada…',
+      chatHint: 'Tani waa AI — fadlan u tixraac khabiir beeraha haddii arrintu ay caafimaadka dhirta saameyn weyn ku leedahay.',
+      chatChip1: 'Sidee baan u beerin karaa galleyda xilliga jiilaalka?',
+      chatChip2: 'Maxaa daawo u ah cudurka caleenta yaanyada?',
+      chatChip3: 'Sidee biyaha si hufan loogu isticmaalaa beerta?',
+      chatErrGeneric: 'Cudur darro, khalad ayaa dhacay. Fadlan mar kale isku day.',
+      chatErrRate: 'Waxaad gaadhay xadka fariimaha. Fadlan mar kale isku day daqiiqado kadib.',
       artPill: 'Cudurrada & Cayayaanka',
       artTitle: 'Ka Hortagga Cudurrada Yaanyada',
       artReadTime: '7 daqiiqo',
@@ -132,6 +141,15 @@
       artBack: '← Back to articles',
       catBack: '← Back to categories',
       viewAll: 'View all →',
+      // Chat
+      chatWelcome: "Hello! I'm Beylood AI. Ask me anything about agriculture.",
+      chatPlaceholder: 'Type your question here…',
+      chatHint: 'This is an AI — please consult a local agronomist for serious crop-health issues.',
+      chatChip1: 'How do I grow tomatoes in dry climates?',
+      chatChip2: 'What is the best fertilizer for sorghum?',
+      chatChip3: 'How do I detect crop diseases early?',
+      chatErrGeneric: 'Something went wrong. Please try again.',
+      chatErrRate: "You have reached the message limit. Please try again later.",
       artPill: 'Pests & Disease',
       artTitle: 'Preventing Diseases in Tomato Farms',
       artReadTime: '7 min read',
@@ -211,6 +229,15 @@
       artBack: '→ العودة إلى المقالات',
       catBack: '→ العودة إلى الفئات',
       viewAll: '← عرض الكل',
+      // Chat
+      chatWelcome: 'مرحباً! أنا بيلود AI. اسألني أي شيء عن الزراعة.',
+      chatPlaceholder: 'اكتب سؤالك هنا…',
+      chatHint: 'هذا ذكاء اصطناعي — استشر مهندساً زراعياً محلياً في الحالات الخطيرة.',
+      chatChip1: 'كيف أزرع الذرة في المناطق الجافة؟',
+      chatChip2: 'ما هو أفضل سماد للخضروات؟',
+      chatChip3: 'كيف أعالج أمراض النباتات؟',
+      chatErrGeneric: 'حدث خطأ. يرجى المحاولة مرة أخرى.',
+      chatErrRate: 'لقد وصلت إلى حد الرسائل. يرجى المحاولة لاحقاً.',
       artPill: 'الآفات والأمراض',
       artTitle: 'الوقاية من أمراض الطماطم',
       artReadTime: '7 دقائق',
@@ -265,6 +292,12 @@
     document.querySelectorAll('[data-key]').forEach(el => {
       const k = el.getAttribute('data-key');
       if (t[k] != null) el.textContent = t[k];
+    });
+
+    // data-key-placeholder updates input placeholders (e.g. chat input)
+    document.querySelectorAll('[data-key-placeholder]').forEach(el => {
+      const k = el.getAttribute('data-key-placeholder');
+      if (t[k] != null) el.setAttribute('placeholder', t[k]);
     });
 
     try { localStorage.setItem('beylood_lang', code); } catch (e) {}
@@ -331,5 +364,158 @@
     // Year stamp
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Chat (only on the Ask Beylood page)
+    initChat();
   });
+
+  /* ---------- Ask Beylood chat ---------- */
+  function initChat() {
+    const form = document.getElementById('chatForm');
+    const input = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('chatSend');
+    const messagesEl = document.getElementById('chatMessages');
+    const suggestionsEl = document.getElementById('chatSuggestions');
+    if (!form || !input || !messagesEl) return; // not on this page
+
+    const history = []; // {role, content}
+    let pending = false;
+
+    function getLangDict() {
+      const code = document.documentElement.lang || 'so';
+      return dict[code] || dict.so;
+    }
+
+    function scrollToBottom() {
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function bubble(role, text) {
+      const wrap = document.createElement('div');
+      wrap.className = 'bubble' + (role === 'user' ? ' bubble-right' : '');
+      const avatar = document.createElement('span');
+      avatar.className = 'avatar ' + (role === 'user' ? 'avatar-user' : 'avatar-bot');
+      avatar.textContent = role === 'user' ? 'U' : 'B';
+      const msg = document.createElement('span');
+      msg.className = 'msg ' + (role === 'user' ? 'msg-user' : 'msg-bot');
+      msg.textContent = text;
+      if (role === 'user') {
+        wrap.appendChild(msg);
+        wrap.appendChild(avatar);
+      } else {
+        wrap.appendChild(avatar);
+        wrap.appendChild(msg);
+      }
+      messagesEl.appendChild(wrap);
+      scrollToBottom();
+      return msg;
+    }
+
+    function typingIndicator() {
+      const wrap = document.createElement('div');
+      wrap.className = 'bubble typing';
+      wrap.innerHTML =
+        '<span class="avatar avatar-bot">B</span>' +
+        '<span class="msg msg-bot"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>';
+      messagesEl.appendChild(wrap);
+      scrollToBottom();
+      return wrap;
+    }
+
+    function setPending(on) {
+      pending = on;
+      input.disabled = on;
+      sendBtn.disabled = on;
+      sendBtn.classList.toggle('is-loading', on);
+    }
+
+    function autosize() {
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 160) + 'px';
+    }
+
+    async function send(text) {
+      const trimmed = (text || '').trim();
+      if (!trimmed || pending) return;
+
+      // Hide starter chips after the first user message.
+      if (suggestionsEl) suggestionsEl.style.display = 'none';
+
+      bubble('user', trimmed);
+      history.push({ role: 'user', content: trimmed });
+      input.value = '';
+      autosize();
+
+      setPending(true);
+      const typing = typingIndicator();
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: history }),
+        });
+
+        typing.remove();
+
+        if (res.status === 429) {
+          const t = getLangDict();
+          bubble('assistant', t.chatErrRate || 'You have reached the message limit. Please try again later.');
+          history.pop(); // don't keep the user message in history if it didn't go through
+          return;
+        }
+
+        if (!res.ok) {
+          const t = getLangDict();
+          bubble('assistant', t.chatErrGeneric || 'An error occurred. Please try again.');
+          history.pop();
+          return;
+        }
+
+        const data = await res.json().catch(() => ({}));
+        const reply = (data && data.reply) || '';
+        if (!reply) {
+          const t = getLangDict();
+          bubble('assistant', t.chatErrGeneric || 'An error occurred. Please try again.');
+          history.pop();
+          return;
+        }
+
+        bubble('assistant', reply);
+        history.push({ role: 'assistant', content: reply });
+      } catch (err) {
+        typing.remove();
+        const t = getLangDict();
+        bubble('assistant', t.chatErrGeneric || 'An error occurred. Please try again.');
+        history.pop();
+      } finally {
+        setPending(false);
+        input.focus();
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      send(input.value);
+    });
+
+    input.addEventListener('keydown', (e) => {
+      // Enter sends, Shift+Enter inserts a newline.
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        send(input.value);
+      }
+    });
+
+    input.addEventListener('input', autosize);
+
+    // Starter chips: clicking one sends the message immediately.
+    if (suggestionsEl) {
+      suggestionsEl.addEventListener('click', (e) => {
+        const chip = e.target.closest('.chip');
+        if (!chip) return;
+        send(chip.textContent);
+      });
+    }
+  }
 })();
