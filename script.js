@@ -270,8 +270,29 @@
     try { localStorage.setItem('beylood_lang', code); } catch (e) {}
   }
 
+  /* ---------- Theme (light / dark) ---------- */
+  function applyTheme(t) {
+    if (t !== 'dark') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem('beylood_theme', t); } catch (e) {}
+  }
+
   /* ---------- Init ---------- */
   document.addEventListener('DOMContentLoaded', () => {
+    // Restore saved theme or fall back to light
+    let savedTheme = 'light';
+    try { savedTheme = localStorage.getItem('beylood_theme') || 'light'; } catch (e) {}
+    applyTheme(savedTheme);
+
+    // Theme toggle button — switches light ↔ dark
+    const themeBtn = document.getElementById('themeBtn');
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(current);
+      });
+    }
+
     // Restore saved language or fall back to Somali
     let saved = 'so';
     try { saved = localStorage.getItem('beylood_lang') || 'so'; } catch (e) {}
