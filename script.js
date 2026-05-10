@@ -51,6 +51,8 @@
       readTime6: '6 daqiiqo', readTime4: '4 daqiiqo', readTime5: '5 daqiiqo',
       // Featured article: Preventing Tomato Diseases
       artBack: '← Dib ugu noqo maqaallada',
+      catBack: '← Dib ugu noqo qaybaha',
+      viewAll: 'Dhammaan eeg →',
       artPill: 'Cudurrada & Cayayaanka',
       artTitle: 'Ka Hortagga Cudurrada Yaanyada',
       artReadTime: '7 daqiiqo',
@@ -128,6 +130,8 @@
       readTime6: '6 min read', readTime4: '4 min read', readTime5: '5 min read',
       // Featured article: Preventing Tomato Diseases
       artBack: '← Back to articles',
+      catBack: '← Back to categories',
+      viewAll: 'View all →',
       artPill: 'Pests & Disease',
       artTitle: 'Preventing Diseases in Tomato Farms',
       artReadTime: '7 min read',
@@ -205,6 +209,8 @@
       readTime6: '6 دقائق', readTime4: '4 دقائق', readTime5: '5 دقائق',
       // Featured article: Preventing Tomato Diseases
       artBack: '→ العودة إلى المقالات',
+      catBack: '→ العودة إلى الفئات',
+      viewAll: '← عرض الكل',
       artPill: 'الآفات والأمراض',
       artTitle: 'الوقاية من أمراض الطماطم',
       artReadTime: '7 دقائق',

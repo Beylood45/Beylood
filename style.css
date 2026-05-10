@@ -306,6 +306,17 @@ html[dir="rtl"] .stat:last-child { border-left: none; }
   flex-wrap: wrap;
   gap: 12px;
 }
+.view-all {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green-600);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--green-100);
+  transition: all .15s;
+  white-space: nowrap;
+}
+.view-all:hover { background: var(--green-50); color: var(--green-700); }
 
 /* ---------- Categories ---------- */
 .grid-cats {
@@ -474,6 +485,10 @@ html[dir="rtl"] .msg-user { border-top-right-radius: 16px; border-top-left-radiu
 .cover-1 { background: linear-gradient(135deg, #0F3F7E 0%, #3BA935 100%); }
 .cover-2 { background: linear-gradient(135deg, #3BA935 0%, #7BC142 100%); }
 .cover-3 { background: linear-gradient(135deg, #1E55A1 0%, #5DB73E 100%); }
+.cover-tomato {
+  background: #BE123C url('assets/tomato.jpg') center/cover no-repeat;
+}
+.cover-tomato::after { content: none; }
 
 .card-body { padding: 22px; }
 .pill {
