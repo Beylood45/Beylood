@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Beylood — Aqoonta Beeraha. Madal trilingual ah oo siisa beeralayda waxbarid, war, cilmi-baadhis iyo caawiye AI ah." />
+  <meta name="theme-color" content="#0F3F7E" />
+
+  <title>Beylood — Aqoonta Beeraha</title>
+
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Beylood — Smart Agriculture Knowledge" />
+  <meta property="og:description" content="Trilingual agricultural platform — education, news, research, and AI-powered assistance for farmers." />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="#top" class="logo" aria-label="Beylood home">
+      <img src="assets/logo.png" alt="Beylood" />
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#home" data-key="navHome">Bogga Hore</a>
+      <a href="#categories" data-key="navCats">Qaybaha</a>
+      <a href="#ask" data-key="navAsk">WAYDII BEYLOOD</a>
+      <a href="#articles" data-key="navArticles">Maqaallo</a>
+      <a href="#about" data-key="navAbout">Naga</a>
+      <a href="#contact" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="#ask" class="btn btn-ask">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/>
+        </svg>
+        <span data-key="askBtn">WAYDII BEYLOOD</span>
+      </a>
+
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/>
+        </svg>
+        <span id="langLabel">Soomaali</span>
+      </button>
+
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="home" class="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l2.39 7.36H22l-6.18 4.49L18.21 22 12 17.27 5.79 22l2.39-8.15L2 9.36h7.61z"/></svg>
+      <span data-key="heroEy">Madal Beeraha Soomaalida</span>
+    </span>
+
+    <h1 data-key="heroTitle">Aqoonta Beeraha — laguma kala maarmo, waxaad la wadaagi kartaa.</h1>
+    <p data-key="heroSub">Beylood waa madal trilingual ah oo siisa beeralayda iyo agribusiness-ka aqoon, war, cilmi-baadhis, iyo caawiye AI ah.</p>
+
+    <div class="hero-ctas">
+      <a href="#ask" class="btn btn-accent">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.39 7.36H22l-6.18 4.49L18.21 22 12 17.27 5.79 22l2.39-8.15L2 9.36h7.61z"/></svg>
+        <span data-key="ctaPrimary">Waydii Beylood AI</span>
+      </a>
+      <a href="#articles" class="btn btn-ghost-white">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span data-key="ctaSecondary">Daawo waxbarashada</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATS ===================== -->
+<section class="stats" aria-label="Stats">
+  <div class="container">
+    <div class="stats-card">
+      <div class="stat">
+        <div class="stat-value">1,200+</div>
+        <div class="stat-label" data-key="stArticles">Maqaallo</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">320+</div>
+        <div class="stat-label" data-key="stResearch">Cilmi-baadhis</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">8,500+</div>
+        <div class="stat-label" data-key="stUsers">Isticmaalayaal</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">14</div>
+        <div class="stat-label" data-key="stCountries">Wadamo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CATEGORIES ===================== -->
+<section id="categories" class="section">
+  <div class="container">
+    <span class="section-eyebrow" data-key="catEy">QAYBAHA AQOONTA</span>
+    <h2 class="section-title" data-key="catTitle">Qaybaha aqoonta</h2>
+    <p class="section-sub" data-key="catSub">Dooro qaybta ku habboon waxa aad u baahan tahay</p>
+
+    <div class="grid-cats">
+      <article class="card-cat">
+        <div class="cat-icon cat-green">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8M12 8c0-2 1-4 3-5M12 8c0-2-1-4-3-5M12 14c-2-1-4-1-6 0M12 14c2-1 4-1 6 0M12 20c-2-1-4-1-6 0M12 20c2-1 4-1 6 0"/></svg>
+        </div>
+        <h3 data-key="catCrops">Dalagga</h3>
+        <p data-key="catCropsDesc">Galleyda, masagga, bariiska, khudradda iyo wax kasta oo la beero.</p>
+      </article>
+
+      <article class="card-cat">
+        <div class="cat-icon cat-navy">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        </div>
+        <h3 data-key="catIrr">Waraabinta</h3>
+        <p data-key="catIrrDesc">Sida loo isticmaalo biyaha si hufan, biyo-mareenka iyo qoyaanka.</p>
+      </article>
+
+      <article class="card-cat">
+        <div class="cat-icon cat-amber">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l3 4 3-4 3 4 3-4 3 4 3-4M5 14h14M7 14v6M17 14v6"/></svg>
+        </div>
+        <h3 data-key="catLive">Xoolaha</h3>
+        <p data-key="catLiveDesc">Daryeelka xoolaha, cuntada, iyo cudurrada caadiga ah.</p>
+      </article>
+
+      <article class="card-cat">
+        <div class="cat-icon cat-sky">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+        </div>
+        <h3 data-key="catCli">Cimilada</h3>
+        <p data-key="catCliDesc">Saadaasha hawada iyo isbeddelka cimilada beerta.</p>
+      </article>
+
+      <article class="card-cat">
+        <div class="cat-icon cat-orange">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,3 22,21 2,21"/></svg>
+        </div>
+        <h3 data-key="catSoil">Carrada</h3>
+        <p data-key="catSoilDesc">Daawaynta, shidaalka iyo nashqada carrada.</p>
+      </article>
+
+      <article class="card-cat">
+        <div class="cat-icon cat-rose">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg>
+        </div>
+        <h3 data-key="catPest">Cudurrada & Cayayaanka</h3>
+        <p data-key="catPestDesc">Aqoonsiga iyo daawaynta cudurrada dalagga.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ASK CTA ===================== -->
+<section id="ask" class="ask-section">
+  <div class="container">
+    <div class="ask-card">
+      <div class="ask-grid">
+        <div>
+          <span class="eyebrow eyebrow-on-color">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l2.39 7.36H22l-6.18 4.49L18.21 22 12 17.27 5.79 22l2.39-8.15L2 9.36h7.61z"/></svg>
+            <span data-key="askEy">AI CASRI AH</span>
+          </span>
+          <h2 data-key="askTitle">Waydii Beylood — wax kasta oo ku saabsan beeraha, oo ku qoran luuqaddaada</h2>
+          <p data-key="askSub">Su'aalo ku qor Soomaali, Ingiriis ama Carabi — waxaad helaysaa jawaab dhaqso ah, oo ku saleysan xog cilmi ah.</p>
+          <a href="mailto:mohamedshafiemohamed@gmail.com" class="btn btn-white">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span data-key="askCta">Hadda bilow</span>
+          </a>
+        </div>
+
+        <div class="chat-preview" aria-hidden="true">
+          <div class="bubble">
+            <span class="avatar avatar-bot">B</span>
+            <span class="msg msg-bot" data-key="cb1">Salaan! Su'aal ayaad qabtaa beeraha?</span>
+          </div>
+          <div class="bubble bubble-right">
+            <span class="msg msg-user" data-key="cb2">Sidee galleyda loo beeraa?</span>
+            <span class="avatar avatar-user">U</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ARTICLES ===================== -->
+<section id="articles" class="section">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <span class="section-eyebrow" data-key="feEy">MAQAALLO LA DOORTAY</span>
+        <h2 class="section-title" data-key="feTitle">Maqaallo la doortay</h2>
+      </div>
+    </div>
+
+    <div class="grid-articles">
+      <article class="card-article">
+        <div class="card-cover cover-1"></div>
+        <div class="card-body">
+          <span class="pill" data-key="aPill1">Dalagga</span>
+          <h3 data-key="aTitle1">Sida loo beero galleyda xilliga jiilaalka</h3>
+          <div class="card-meta">
+            <span>2026-04-18</span>
+            <span data-key="readTime6">6 daqiiqo</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-article">
+        <div class="card-cover cover-2"></div>
+        <div class="card-body">
+          <span class="pill" data-key="aPill2">Waraabinta</span>
+          <h3 data-key="aTitle2">Habab cusub oo lagu kaydiyo biyaha beerta</h3>
+          <div class="card-meta">
+            <span>2026-04-12</span>
+            <span data-key="readTime4">4 daqiiqo</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-article">
+        <div class="card-cover cover-3"></div>
+        <div class="card-body">
+          <span class="pill" data-key="aPill3">Cudurrada</span>
+          <h3 data-key="aTitle3">Calaamadaha hore ee cudurka caleenta yaanyada</h3>
+          <div class="card-meta">
+            <span>2026-04-05</span>
+            <span data-key="readTime5">5 daqiiqo</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT / FOUNDER ===================== -->
+<section id="about" class="section about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="section-eyebrow" data-key="abEy">NAGA</span>
+        <h2 class="section-title" data-key="abTitle">Aasaasaha Beylood</h2>
+        <p class="about-bio" data-key="abBio">Mohamed Shafie Mohamed waa aasaasaha Beylood. Waxaa ka go'an inuu beeralayda Soomaalida soo gaadhsiiyo aqoonta beeraha ee casriga ah, isagoo isku daraya tignoolajiyada AI iyo aqoonta dhaqanka.</p>
+        <p class="about-bio" data-key="abMission">Hadafkayagu waa madasha ugu weyn ee aqoonta beeraha ee Soomaalida, Geeska Afrika iyo Carabiga.</p>
+      </div>
+
+      <div class="founder-card">
+        <div class="founder-photo">
+          <img src="assets/founder.jpg" alt="Mohamed Shafie Mohamed" />
+        </div>
+        <p class="founder-eyebrow" data-key="fEy">Aasaasaha</p>
+        <h3 class="founder-name">Mohamed Shafie Mohamed</h3>
+        <p class="founder-role" data-key="fRole">Aasaasaha & CEO ee Beylood</p>
+        <div class="socials">
+          <a href="mailto:mohamedshafiemohamed@gmail.com" class="soc" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/mohamedshafiemohamed" target="_blank" rel="noopener noreferrer" class="soc" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13M7.12 20.45H3.56V9h3.56z"/></svg>
+          </a>
+          <a href="https://x.com/mohamedshafiemohamed" target="_blank" rel="noopener noreferrer" class="soc" aria-label="X">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://facebook.com/mohamedshafiemohamed" target="_blank" rel="noopener noreferrer" class="soc" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+          </a>
+          <a href="https://instagram.com/mohamedshafiemohamed" target="_blank" rel="noopener noreferrer" class="soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <span class="section-eyebrow" data-key="ctEy">NALA SOO XIDHIIDH</span>
+    <h2 class="section-title" data-key="ctTitle">Nala soo xidhiidh</h2>
+    <p class="section-sub" data-key="ctSub">Su'aalo, taageero ama wadashaqayn — waxaa noo qori kara halkan.</p>
+
+    <div class="contact-grid">
+      <a href="mailto:mohamedshafiemohamed@gmail.com" class="contact-card">
+        <div class="contact-icon contact-green">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <p class="contact-label">Email</p>
+          <p class="contact-value">mohamedshafiemohamed@gmail.com</p>
+        </div>
+      </a>
+
+      <a href="https://linkedin.com/in/mohamedshafiemohamed" target="_blank" rel="noopener noreferrer" class="contact-card">
+        <div class="contact-icon contact-navy">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13M7.12 20.45H3.56V9h3.56z"/></svg>
+        </div>
+        <div>
+          <p class="contact-label">LinkedIn</p>
+          <p class="contact-value">linkedin.com/in/mohamedshafiemohamed</p>
+        </div>
+      </a>
+
+      <a href="https://x.com/mohamedshafiemohamed" target="_blank" rel="noopener noreferrer" class="contact-card">
+        <div class="contact-icon contact-gray">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <div>
+          <p class="contact-label">X (Twitter)</p>
+          <p class="contact-value">@mohamedshafiemohamed</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/logo-transparent.png" alt="Beylood" />
+          <div>
+            <p class="footer-name">Beylood</p>
+            <p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p>
+          </div>
+        </div>
+        <p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p>
+      </div>
+
+      <div>
+        <p class="footer-title" data-key="fExplore">Sahmin</p>
+        <ul class="footer-list">
+          <li><a href="#categories" data-key="navCats">Qaybaha</a></li>
+          <li><a href="#articles" data-key="navArticles">Maqaallo</a></li>
+          <li><a href="#ask" data-key="navAsk">WAYDII BEYLOOD</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-title" data-key="fCompany">Shirkadda</p>
+        <ul class="footer-list">
+          <li><a href="#about" data-key="navAbout">Naga</a></li>
+          <li><a href="#contact" data-key="navContact">Nala soo xidhiidh</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p>
+      <p data-key="fBuilt">Aqoonta Beeraha</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
