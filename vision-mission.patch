@@ -1,0 +1,147 @@
+diff --git a/about.html b/about.html
+index 0bc8c0e..f4b28cd 100644
+--- a/about.html
++++ b/about.html
+@@ -109,6 +109,74 @@
+   </div>
+ </section>
+
++<!-- ===================== VISION & MISSION ===================== -->
++<section class="section">
++  <div class="container">
++    <div style="text-align:center;max-width:700px;margin:0 auto 52px;">
++      <span class="section-eyebrow" data-key="vmEy">ARAGTI & HADAF</span>
++      <h2 class="section-title" data-key="vmTitle">Aragtidayada & Hadafkayaga</h2>
++    </div>
++
++    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
++
++      <div class="card-cat" style="padding:36px;">
++        <div class="cat-icon cat-navy">
++          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
++            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/>
++          </svg>
++        </div>
++        <h3 style="margin-top:20px;font-size:22px;font-weight:700;color:var(--navy-700);" data-key="visionTitle">Aragtida</h3>
++        <p style="margin-top:14px;font-size:15px;line-height:1.75;color:var(--gray-600);" data-key="visionText">Inaan noqono madasha aqoonta beeraha ee ugu weyn Geeska Afrika iyo dunida Carabiga — goob ay beeralaydu ka helaan macluumaadka ugu cusub, cilmi-baadhista, iyo xalka AI ee ku haboon dhulkooda.</p>
++      </div>
++
++      <div class="card-cat" style="padding:36px;">
++        <div class="cat-icon cat-green">
++          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
++            <path d="M12 22V12M12 12C12 12 7 9.5 4 6c7 0 8 6 8 6zM12 12c0 0 5-2.5 8-6-7 0-8 6-8 6z"/><path d="M5 20c2-2 4-4 7-8"/>
++          </svg>
++        </div>
++        <h3 style="margin-top:20px;font-size:22px;font-weight:700;color:var(--navy-700);" data-key="missionTitle">Hadafka</h3>
++        <p style="margin-top:14px;font-size:15px;line-height:1.75;color:var(--gray-600);" data-key="missionText">In aan beeralayda Soomaalida, Geeska Afrika, iyo Carabiga soo gaadhsiiyo aqoonta beeraha ee casriga ah — isagoo isku daraya tignoolajiyada AI, wargeynta, iyo waxbarashada si shaqsiyeed loo gaadhi karo.</p>
++      </div>
++
++    </div>
++
++    <div style="margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
++
++      <div class="card-cat" style="padding:28px;text-align:center;">
++        <div class="cat-icon cat-amber" style="margin:0 auto 16px;">
++          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
++            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
++          </svg>
++        </div>
++        <h4 style="font-size:16px;font-weight:700;color:var(--navy-700);" data-key="val1Title">Beeralayda Hormood</h4>
++        <p style="margin-top:8px;font-size:13px;line-height:1.65;color:var(--gray-600);" data-key="val1Text">Dhammaan go'aannadayada iyo adeegyadayada waxaa ugu horreeya baahida beeralayda.</p>
++      </div>
++
++      <div class="card-cat" style="padding:28px;text-align:center;">
++        <div class="cat-icon cat-sky" style="margin:0 auto 16px;">
++          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
++            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/>
++          </svg>
++        </div>
++        <h4 style="font-size:16px;font-weight:700;color:var(--navy-700);" data-key="val2Title">Tignoolajiyada AI</h4>
++        <p style="margin-top:8px;font-size:13px;line-height:1.65;color:var(--gray-600);" data-key="val2Text">Isticmaalka AI casriga ah si loogu fududeeyo helitaanka aqoonta beeraha.</p>
++      </div>
++
++      <div class="card-cat" style="padding:28px;text-align:center;">
++        <div class="cat-icon cat-rose" style="margin:0 auto 16px;">
++          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
++            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
++          </svg>
++        </div>
++        <h4 style="font-size:16px;font-weight:700;color:var(--navy-700);" data-key="val3Title">Xog Saxan</h4>
++        <p style="margin-top:8px;font-size:13px;line-height:1.65;color:var(--gray-600);" data-key="val3Text">Waxaan bixinaa oo keliya xog la xaqiijiyay oo laga yaabo inay beeralayda ugu waxtari.</p>
++      </div>
++
++    </div>
++  </div>
++</section>
++
+ <!-- ===================== FOOTER ===================== -->
+ <footer class="site-footer">
+   <div class="container">
+diff --git a/script.js b/script.js
+index f9be003..291fdb7 100644
+--- a/script.js
++++ b/script.js
+@@ -108,7 +108,15 @@
+       n3Title: 'Xoolaha & Beeraha: Iskaashi Cusub', n3Pill: 'Xoolaha', n3ReadTime: '4 daqiiqo',
+       n4Title: 'Cimilada: Saadaasha Xilliga Dambe', n4Pill: 'Cimilada', n4ReadTime: '5 daqiiqo',
+       n5Title: 'Tignoolajiyada Cusub oo Gaadhay Beeralayda', n5Pill: 'Tignoolajiyada', n5ReadTime: '6 daqiiqo',
+-      n6Title: 'Sida Loo Xoojiyo Carrada: Hagaha Buuxa', n6Pill: 'Carrada', n6ReadTime: '7 daqiiqo'
++      n6Title: 'Sida Loo Xoojiyo Carrada: Hagaha Buuxa', n6Pill: 'Carrada', n6ReadTime: '7 daqiiqo',
++      vmEy: 'ARAGTI & HADAF', vmTitle: 'Aragtidayada & Hadafkayaga',
++      visionTitle: 'Aragtida',
++      visionText: 'Inaan noqono madasha aqoonta beeraha ee ugu weyn Geeska Afrika iyo dunida Carabiga — goob ay beeralaydu ka helaan macluumaadka ugu cusub, cilmi-baadhista, iyo xalka AI ee ku haboon dhulkooda.',
++      missionTitle: 'Hadafka',
++      missionText: 'In aan beeralayda Soomaalida, Geeska Afrika, iyo Carabiga soo gaadhsiiyo aqoonta beeraha ee casriga ah — isagoo isku daraya tignoolajiyada AI, wargeynta, iyo waxbarashada si shaqsiyeed loo gaadhi karo.',
++      val1Title: 'Beeralayda Hormood', val1Text: 'Dhammaan go\'aannadayada iyo adeegyadayada waxaa ugu horreeya baahida beeralayda.',
++      val2Title: 'Tignoolajiyada AI', val2Text: 'Isticmaalka AI casriga ah si loogu fududeeyo helitaanka aqoonta beeraha.',
++      val3Title: 'Xog Saxan', val3Text: 'Waxaan bixinaa oo keliya xog la xaqiijiyay oo laga yaabo inay beeralayda ugu waxtari.'
+     },
+
+     en: {
+@@ -208,7 +216,15 @@
+       n3Title: 'Livestock & Farming: A New Partnership', n3Pill: 'Livestock', n3ReadTime: '4 min read',
+       n4Title: 'Climate Forecast for the Coming Season', n4Pill: 'Climate', n4ReadTime: '5 min read',
+       n5Title: 'New Technology Reaches Smallholder Farmers', n5Pill: 'Technology', n5ReadTime: '6 min read',
+-      n6Title: 'How to Strengthen Your Soil: A Complete Guide', n6Pill: 'Soil', n6ReadTime: '7 min read'
++      n6Title: 'How to Strengthen Your Soil: A Complete Guide', n6Pill: 'Soil', n6ReadTime: '7 min read',
++      vmEy: 'VISION & MISSION', vmTitle: 'Our Vision & Mission',
++      visionTitle: 'Vision',
++      visionText: 'To become the leading agricultural knowledge platform in the Horn of Africa and the Arab world — a place where farmers access the latest information, research, and AI-powered solutions tailored to their land.',
++      missionTitle: 'Mission',
++      missionText: 'To bring modern agricultural knowledge to Somali, Horn-of-Africa, and Arab farmers — combining AI technology, news, and education in a way that is personally accessible to every farmer.',
++      val1Title: 'Farmers First', val1Text: 'Every decision and service we build starts with the needs of farmers.',
++      val2Title: 'AI Technology', val2Text: 'Using modern AI to make agricultural knowledge easier to access for everyone.',
++      val3Title: 'Verified Knowledge', val3Text: 'We only publish verified, science-based information that is genuinely useful for farmers.'
+     },
+
+     ar: {
+@@ -308,7 +324,15 @@
+       n3Title: 'الثروة الحيوانية والزراعة: شراكة جديدة', n3Pill: 'الثروة الحيوانية', n3ReadTime: '4 دقائق',
+       n4Title: 'توقعات المناخ للموسم القادم', n4Pill: 'المناخ', n4ReadTime: '5 دقائق',
+       n5Title: 'التكنولوجيا الجديدة تصل إلى المزارعين', n5Pill: 'التكنولوجيا', n5ReadTime: '6 دقائق',
+-      n6Title: 'كيف تقوّي تربتك: الدليل الشامل', n6Pill: 'التربة', n6ReadTime: '7 دقائق'
++      n6Title: 'كيف تقوّي تربتك: الدليل الشامل', n6Pill: 'التربة', n6ReadTime: '7 دقائق',
++      vmEy: 'الرؤية والرسالة', vmTitle: 'رؤيتنا ورسالتنا',
++      visionTitle: 'الرؤية',
++      visionText: 'أن نصبح المنصة الرائدة لمعرفة الزراعة في القرن الأفريقي والعالم العربي — مكان يجد فيه المزارعون أحدث المعلومات والأبحاث وحلول الذكاء الاصطناعي المناسبة لأراضيهم.',
++      missionTitle: 'الرسالة',
++      missionText: 'إيصال المعرفة الزراعية الحديثة إلى المزارعين الصوماليين وأبناء القرن الأفريقي والعرب — من خلال دمج تقنية الذكاء الاصطناعي والأخبار والتعليم بطريقة يسهل الوصول إليها شخصياً.',
++      val1Title: 'المزارع أولاً', val1Text: 'كل قرار وخدمة نبنيها تبدأ من احتياجات المزارع.',
++      val2Title: 'تقنية الذكاء الاصطناعي', val2Text: 'نستخدم الذكاء الاصطناعي الحديث لتسهيل الوصول إلى المعرفة الزراعية للجميع.',
++      val3Title: 'معرفة موثوقة', val3Text: 'نقدم فقط معلومات موثقة ومبنية على العلم تفيد المزارعين فعلاً.'
+     }
+   };
+
+diff --git a/style.css b/style.css
+index 6ea57e2..9249307 100644
+--- a/style.css
++++ b/style.css
+@@ -1028,6 +1028,8 @@ html[dir="rtl"] .chat-messages .msg-user { border-top-right-radius: 16px; border
+   html[dir="rtl"] .stat:nth-child(odd) { border-right: none; border-left: 1px solid var(--gray-100); }
+   html[dir="rtl"] .stat:nth-child(2) { border-left: none; }
+   .grid-cats, .grid-articles, .contact-grid { grid-template-columns: 1fr; }
++  .vm-grid-2 { grid-template-columns: 1fr !important; }
++  .vm-grid-3 { grid-template-columns: 1fr !important; }
+   .ask-card { padding: 36px 26px; }
+   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+   .footer-grid > div:first-child { grid-column: 1 / -1; }
