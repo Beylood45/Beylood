@@ -1,0 +1,770 @@
+From a706f255a323b58b054c7edaa8515f4b684aaf9f Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 12 May 2026 12:49:52 +0000
+Subject: [PATCH] Add News section: news.html, news-1.html, nav updates,
+ translations
+- Created news.html (6-card news grid, trilingual)
+- Created news-1.html (full article: Rainy Season, 3 languages)
+- Added navNews key to script.js dictionary (so/en/ar)
+- Added news cover CSS classes to style.css
+- Updated nav + footer on all 9 existing pages
+https://claude.ai/code/session_01SYsj7md8mxgPh3y94MuNqs
+---
+ about.html                              |   2 +
+ article-10-lessons-farmers.html         |   2 +
+ article-preventing-tomato-diseases.html |   2 +
+ articles.html                           |   2 +
+ ask.html                                |   2 +
+ categories.html                         |   2 +
+ category-pests.html                     |   2 +
+ contact.html                            |   2 +
+ index.html                              |   2 +
+ news-1.html                             | 237 ++++++++++++++++++++++++
+ news.html                               | 204 ++++++++++++++++++++
+ script.js                               |  48 ++++-
+ style.css                               |   7 +
+ 13 files changed, 508 insertions(+), 6 deletions(-)
+ create mode 100644 news-1.html
+ create mode 100644 news.html
+diff --git a/about.html b/about.html
+index 8612c88..0bc8c0e 100644
+--- a/about.html
++++ b/about.html
+@@ -32,6 +32,7 @@
+       <a href="categories.html" data-key="navCats">Qaybaha</a>
+       <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+       <a href="articles.html" data-key="navArticles">Maqaallo</a>
++      <a href="news.html" data-key="navNews">Wararka</a>
+       <a href="about.html" class="is-active" aria-current="page" data-key="navAbout">Naga</a>
+       <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+     </nav>
+@@ -128,6 +129,7 @@
+         <ul class="footer-list">
+           <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+           <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
++          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+           <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+         </ul>
+       </div>
+diff --git a/article-10-lessons-farmers.html b/article-10-lessons-farmers.html
+index e67bbf6..c3a5ff7 100644
+--- a/article-10-lessons-farmers.html
++++ b/article-10-lessons-farmers.html
+@@ -32,6 +32,7 @@
+       <a href="categories.html" data-key="navCats">Qaybaha</a>
+       <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+       <a href="articles.html" class="is-active" aria-current="page" data-key="navArticles">Maqaallo</a>
++      <a href="news.html" data-key="navNews">Wararka</a>
+       <a href="about.html" data-key="navAbout">Naga</a>
+       <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+     </nav>
+@@ -167,6 +168,7 @@
+         <ul class="footer-list">
+           <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+           <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
++          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+           <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+         </ul>
+       </div>
+diff --git a/article-preventing-tomato-diseases.html b/article-preventing-tomato-diseases.html
+index 9eb108e..41863a4 100644
+--- a/article-preventing-tomato-diseases.html
++++ b/article-preventing-tomato-diseases.html
+@@ -32,6 +32,7 @@
+       <a href="categories.html" data-key="navCats">Qaybaha</a>
+       <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+       <a href="articles.html" class="is-active" aria-current="page" data-key="navArticles">Maqaallo</a>
++      <a href="news.html" data-key="navNews">Wararka</a>
+       <a href="about.html" data-key="navAbout">Naga</a>
+       <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+     </nav>
+@@ -153,6 +154,7 @@
+         <ul class="footer-list">
+           <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+           <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
++          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+           <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+         </ul>
+       </div>
+diff --git a/articles.html b/articles.html
+index af690e4..242bfe1 100644
+--- a/articles.html
++++ b/articles.html
+@@ -32,6 +32,7 @@
+       <a href="categories.html" data-key="navCats">Qaybaha</a>
+       <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+       <a href="articles.html" class="is-active" aria-current="page" data-key="navArticles">Maqaallo</a>
++      <a href="news.html" data-key="navNews">Wararka</a>
+       <a href="about.html" data-key="navAbout">Naga</a>
+       <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+     </nav>
+@@ -150,6 +151,7 @@
+         <ul class="footer-list">
+           <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+           <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
++          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+           <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+         </ul>
+       </div>
+diff --git a/ask.html b/ask.html
+index ff33922..06fd619 100644
+--- a/ask.html
++++ b/ask.html
+@@ -32,6 +32,7 @@
+       <a href="categories.html" data-key="navCats">Qaybaha</a>
+       <a href="ask.html" class="is-active" aria-current="page" data-key="navAsk">WAYDII BEYLOOD</a>
+       <a href="articles.html" data-key="navArticles">Maqaallo</a>
++      <a href="news.html" data-key="navNews">Wararka</a>
+       <a href="about.html" data-key="navAbout">Naga</a>
+       <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+     </nav>
+@@ -133,6 +134,7 @@
+         <ul class="footer-list">
+           <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+           <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
++          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+           <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+         </ul>
+       </div>
+diff --git a/categories.html b/categories.html
+index 6167ff1..0a7e61c 100644
+--- a/categories.html
++++ b/categories.html
+@@ -32,6 +32,7 @@
+       <a href="categories.html" class="is-active" aria-current="page" data-key="navCats">Qaybaha</a>
+       <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+       <a href="articles.html" data-key="navArticles">Maqaallo</a>
++      <a href="news.html" data-key="navNews">Wararka</a>
+       <a href="about.html" data-key="navAbout">Naga</a>
+       <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+     </nav>
+@@ -147,6 +148,7 @@
+         <ul class="footer-list">
+           <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+           <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
++          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+           <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+         </ul>
+       </div>
+diff --git a/category-pests.html b/category-pests.html
+index 2061507..2d99a34 100644
+--- a/category-pests.html
++++ b/category-pests.html
+@@ -32,6 +32,7 @@
+       <a href="categories.html" class="is-active" aria-current="page" data-key="navCats">Qaybaha</a>
+       <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+       <a href="articles.html" data-key="navArticles">Maqaallo</a>
++      <a href="news.html" data-key="navNews">Wararka</a>
+       <a href="about.html" data-key="navAbout">Naga</a>
+       <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+     </nav>
+@@ -113,6 +114,7 @@
+         <ul class="footer-list">
+           <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+           <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
++          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+           <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+         </ul>
+       </div>
+diff --git a/contact.html b/contact.html
+index 59680a5..9de64ce 100644
+--- a/contact.html
++++ b/contact.html
+@@ -32,6 +32,7 @@
+       <a href="categories.html" data-key="navCats">Qaybaha</a>
+       <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+       <a href="articles.html" data-key="navArticles">Maqaallo</a>
++      <a href="news.html" data-key="navNews">Wararka</a>
+       <a href="about.html" data-key="navAbout">Naga</a>
+       <a href="contact.html" class="is-active" aria-current="page" data-key="navContact">Nala soo xidhiidh</a>
+     </nav>
+@@ -129,6 +130,7 @@
+         <ul class="footer-list">
+           <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+           <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
++          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+           <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+         </ul>
+       </div>
+diff --git a/index.html b/index.html
+index 11b06e3..e06f834 100644
+--- a/index.html
++++ b/index.html
+@@ -33,6 +33,7 @@
+       <a href="categories.html" data-key="navCats">Qaybaha</a>
+       <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+       <a href="articles.html" data-key="navArticles">Maqaallo</a>
++      <a href="news.html" data-key="navNews">Wararka</a>
+       <a href="about.html" data-key="navAbout">Naga</a>
+       <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+     </nav>
+@@ -200,6 +201,7 @@
+         <ul class="footer-list">
+           <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+           <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
++          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+           <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+         </ul>
+       </div>
+diff --git a/news-1.html b/news-1.html
+new file mode 100644
+index 0000000..2cae0a4
+--- /dev/null
++++ b/news-1.html
+@@ -0,0 +1,237 @@
++<!DOCTYPE html>
++<html lang="so" dir="ltr">
++<head>
++  <meta charset="UTF-8" />
++  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++  <meta name="description" content="Xilliga Roobka: Sidee Beeralaydu u Diyaar Garoobaan — warbixin ku saabsan diyaargarowga xilliga roobka." />
++  <meta name="theme-color" content="#0F3F7E" />
++
++  <title>Xilliga Roobka — Beylood</title>
++
++  <link rel="icon" href="assets/icon.png" />
++  <link rel="apple-touch-icon" href="assets/icon.png" />
++
++  <meta property="og:title" content="Beylood — Rainy Season: How Farmers Are Preparing" />
++  <meta property="og:description" content="A report on how Somali farmers prepare for the rainy season." />
++  <meta property="og:image" content="assets/news-1.jpg" />
++  <meta property="og:type" content="article" />
++
++  <link rel="stylesheet" href="style.css" />
++</head>
++<body>
++
++<!-- ===================== HEADER ===================== -->
++<header class="site-header" id="siteHeader">
++  <div class="container nav">
++    <a href="index.html" class="logo" aria-label="Beylood home">
++      <img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span>
++    </a>
++
++    <nav class="nav-links" aria-label="Primary">
++      <a href="index.html" data-key="navHome">Bogga Hore</a>
++      <a href="categories.html" data-key="navCats">Qaybaha</a>
++      <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
++      <a href="articles.html" data-key="navArticles">Maqaallo</a>
++      <a href="news.html" class="is-active" aria-current="page" data-key="navNews">Wararka</a>
++      <a href="about.html" data-key="navAbout">Naga</a>
++      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
++    </nav>
++
++    <div class="nav-right">
++      <a href="ask.html" class="btn btn-ask">
++        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
++          <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/>
++        </svg>
++        <span data-key="askBtn">WAYDII BEYLOOD</span>
++      </a>
++
++      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
++        <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
++          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
++        </svg>
++        <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
++          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
++        </svg>
++      </button>
++      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
++        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
++          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/>
++        </svg>
++        <span id="langLabel">Soomaali</span>
++      </button>
++
++      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
++        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
++          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
++        </svg>
++      </button>
++    </div>
++  </div>
++</header>
++
++<!-- ===================== ARTICLE ===================== -->
++<article class="section article-page">
++  <div class="container article-container">
++    <a href="news.html" class="article-back" data-key="newsBack">← Dib ugu noqo wararka</a>
++
++    <header class="article-header">
++      <span class="pill" style="background:#ECF8E9;color:#246C20;" data-key="n1Pill">Beeraha</span>
++      <h1 class="article-title">
++        <span data-lang="so">Xilliga Roobka: Sidee Beeralaydu u Diyaar Garoobaan</span>
++        <span data-lang="en" style="display:none;">Rainy Season: How Farmers Are Preparing</span>
++        <span data-lang="ar" style="display:none;">موسم الأمطار: كيف يستعد المزارعون</span>
++      </h1>
++      <div class="article-meta">
++        <span>2026-05-10</span>
++        <span data-key="n1ReadTime">6 daqiiqo</span>
++      </div>
++    </header>
++
++    <div class="article-cover cover-news-1"></div>
++
++    <div class="article-body">
++
++      <p class="article-lead">
++        <span data-lang="so">Xilliga roobka waa fursad weyn oo beeralayda Soomaalida ah. Si kastaba, diyaargarowga horeba ayaa go'aan u ah guusha. Warbixintan waxay kaa caawin doontaa inaad si fiican u diyaargaroowdo.</span>
++        <span data-lang="en" style="display:none;">The rainy season is a major opportunity for Somali farmers. However, early preparation is the key to success. This report will help you get ready.</span>
++        <span data-lang="ar" style="display:none;">يُعدّ موسم الأمطار فرصة كبيرة للمزارعين الصوماليين، إلا أن الاستعداد المبكر هو مفتاح النجاح. هذا التقرير سيساعدك على الاستعداد الجيد.</span>
++      </p>
++
++      <!-- SOMALI -->
++      <div data-lang="so">
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Soomaaliya waxay leedahay laba xilli roob oo weyn — Gu' (Abriil–Juun) iyo Deyr (Oktoobar–Nofambar). Xilliyadaan ayaa ah wakhtiga ugu muhiimsan beeralayda, sababtoo ah biyaha roobku waa lifaaqaha ugu weyn ee beerta.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Sanadkaan, meteorologists-ku waxay saadaalinayaan roob dheeri ah oo ka dhacaya xariiqa dhexe ee Soomaaliya, gaar ahaan gobolada Hiiraan, Bakool, iyo Bay. Tan waxay ka dhigan tahay fursad weyn oo loogu talagalay beeralayda dhulkaa degan.
++        </p>
++        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">Diyaargarowga Ugu Muhiimsan</h2>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Beeralayda aqoonta leh waxay bilaabaan diyaargarowgooda bilaha ka hor xilliga roobka. Tallaabada koowaad waa nadiifinta dhulka beerta — ka saar dhirta duugga ah, xididada hore, iyo cawska xun. Dhulka nadiif ah ayaa si fudud biyaha u qaata oo dhirta u ogola inay si fiican u koraan.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Tallaabada labaad waa hubinta biyahooda. Roobku marmar si dhakhso ah ayuu u yimaadaa, mana jiraan dammaanad qaadyo. Sidaas darteed, beeralayda caqliga leh waxay samaystaan xero yar oo biyaha lagu kaydiyo si ay uga faa'iideystaan marka roobku joogsado.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Tallaabada saddexaad waa doorsashada noocyada beerta. Xilliga roobka, beeralayda waxaa lagula talinayaa inay beerto noocyada si dhakhso ah u kora oo laga gooyo marka roobku socdo. Galleyda, digirta, iyo bariiska yar-yar waa noocyada ugu fiican xilligan.
++        </p>
++        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">Digniinta Beeralayda</h2>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Inkasta oo roobku fursad weyn yahay, waxaa jira khatarooyinka ku xidhan roobka badan. Biyaha badan waxay keeni karaan cudurrada fungal ee dhirta, gaar ahaan marka hawo wanaagsan la'aanta ay dhirta kala fogaan weeyaan. Beeralayda waa in ay ka taxadiraan isla markaana u diyaariyaan nidaamka biyo-mareenka.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Khubaradu waxay ku talinayaan beeralayda inay isticmaalaan mulch si ay uga hortagi karaan erosion-ka ciidda marka roobku da'o si xoog leh. Sidoo kale, terracing (sameysta marxalado dhulka ku yaal) ayaa si weyn u xoojiya ciidda oo uga hortagta dhumucda roobka.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Ugu dambayntii, xilliga roobka waa wakhtiga ugu qiimaha badan ee sanadka beeraleyga. Diyaargarow fiican, aqoon ku filan, iyo dadaal joogto ah ayaa keena guul waara. Beylood waxay taageertaa beeralayda habka xilliga kasta — waydii Beylood AI su'aal kasta oo ku saabsan beertaada.
++        </p>
++      </div>
++
++      <!-- ENGLISH -->
++      <div data-lang="en" style="display:none;">
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Somalia has two major rainy seasons — Gu' (April–June) and Deyr (October–November). These seasons represent the most critical time for farmers, as rainfall is the primary source of water for agriculture.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          This year, meteorologists are forecasting above-average rainfall across central Somalia, particularly in the regions of Hiiraan, Bakool, and Bay. This represents a significant opportunity for farmers in these areas.
++        </p>
++        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">Key Preparation Steps</h2>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Experienced farmers begin their preparations months before the rains arrive. The first step is clearing the farmland — removing old plants, roots, and weeds. Clean soil absorbs water more effectively and gives crops the best chance to thrive.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          The second step is securing water storage. Rain can be unpredictable and inconsistent. Smart farmers build small water catchment areas to store excess rainwater for use during dry spells between showers.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          The third step is selecting the right crop varieties. During the rainy season, farmers are advised to plant fast-growing varieties that can be harvested before the rains end. Maize, beans, and fast-maturing rice are among the best choices for this season.
++        </p>
++        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">Warnings for Farmers</h2>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Despite the opportunities, there are real risks associated with heavy rainfall. Excess moisture can promote fungal diseases in crops, especially when plants are crowded together with poor air circulation. Farmers must be vigilant and ensure proper drainage systems are in place.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Experts advise farmers to apply mulch to protect against soil erosion during heavy downpours. Additionally, terracing hillside fields significantly strengthens the soil and prevents rain-induced damage.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          Ultimately, the rainy season is the most valuable time of the farming year. Proper preparation, adequate knowledge, and consistent effort lead to lasting success. Beylood supports farmers every season — ask Beylood AI any question about your farm.
++        </p>
++      </div>
++
++      <!-- ARABIC -->
++      <div data-lang="ar" style="display:none;" dir="rtl">
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          تمتلك الصومال موسمَين رئيسيَّين للأمطار — غو (أبريل–يونيو) وديير (أكتوبر–نوفمبر). تمثّل هذه المواسم الوقت الأهم للمزارعين، إذ تُعدّ مياه الأمطار المصدر الرئيسي للري الزراعي.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          هذا العام، يتوقع علماء الأرصاد الجوية هطول أمطار فوق المتوسط في وسط الصومال، ولا سيما في مناطق هيران وباكول وباي. ويمثّل ذلك فرصة كبيرة للمزارعين في هذه المناطق.
++        </p>
++        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">خطوات الاستعداد الأساسية</h2>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          يبدأ المزارعون ذوو الخبرة استعداداتهم قبل أشهر من وصول الأمطار. تتمثّل الخطوة الأولى في تنظيف الأرض الزراعية — إزالة النباتات القديمة والجذور والأعشاب الضارة. إذ تمتص التربة النظيفة الماء بفعالية أكبر، وتمنح المحاصيل أفضل فرصة للنمو.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          أما الخطوة الثانية فهي تأمين خزانات المياه، نظرًا لأن الأمطار قد تكون غير منتظمة. لذا، يحرص المزارعون الأذكياء على بناء أحواض صغيرة لتجميع مياه الأمطار الزائدة، لاستخدامها خلال فترات الجفاف بين الأمطار.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          وتتمثّل الخطوة الثالثة في اختيار أصناف المحاصيل المناسبة. يُنصح المزارعون خلال موسم الأمطار بزراعة أصناف سريعة النمو يمكن حصادها قبل انتهاء الموسم، ومن أبرزها الذرة والفاصولياء والأرز سريع النضج.
++        </p>
++        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">تحذيرات للمزارعين</h2>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          على الرغم من الفرص، ثمة مخاطر حقيقية مرتبطة بالأمطار الغزيرة. إذ قد تؤدي الرطوبة الزائدة إلى انتشار الأمراض الفطرية في المحاصيل، خاصةً عند تكدّس النباتات مع ضعف التهوية. لذا يجب على المزارعين توفير أنظمة صرف مناسبة.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          ينصح الخبراء المزارعين باستخدام الغطاء الأرضي (Mulch) للحماية من تآكل التربة خلال الأمطار الغزيرة. كما أن تسوية الأراضي المنحدرة على شكل مدرّجات يُعزّز التربة بشكل ملحوظ ويحمي من أضرار المطر.
++        </p>
++        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
++          في نهاية المطاف, يُعدّ موسم الأمطار أثمن وقت في السنة الزراعية. ويقود الاستعداد الجيد والمعرفة الكافية والجهد المستمر إلى النجاح الدائم. تدعم بيلود المزارعين في كل موسم — اسأل بيلود الذكي أي سؤال عن مزرعتك.
++        </p>
++      </div>
++    </div>
++  </div>
++</article>
++
++<!-- ===================== FOOTER ===================== -->
++<footer class="site-footer">
++  <div class="container">
++    <div class="footer-grid">
++      <div>
++        <div class="footer-brand">
++          <img src="assets/logo-transparent.png" alt="Beylood" />
++          <div>
++            <p class="footer-name">Beylood</p>
++            <p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p>
++          </div>
++        </div>
++        <p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p>
++      </div>
++
++      <div>
++        <p class="footer-title" data-key="fExplore">Sahmin</p>
++        <ul class="footer-list">
++          <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
++          <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
++          <li><a href="news.html" data-key="navNews">Wararka</a></li>
++          <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
++        </ul>
++      </div>
++
++      <div>
++        <p class="footer-title" data-key="fCompany">Shirkadda</p>
++        <ul class="footer-list">
++          <li><a href="about.html" data-key="navAbout">Naga</a></li>
++          <li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li>
++        </ul>
++      </div>
++    </div>
++
++    <div class="footer-bottom">
++      <p>© <span id="year"></span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p>
++      <p data-key="fBuilt">Aqoonta Beeraha</p>
++    </div>
++  </div>
++</footer>
++
++<script src="script.js"></script>
++</body>
++</html>
+diff --git a/news.html b/news.html
+new file mode 100644
+index 0000000..aaf961c
+--- /dev/null
++++ b/news.html
+@@ -0,0 +1,204 @@
++<!DOCTYPE html>
++<html lang="so" dir="ltr">
++<head>
++  <meta charset="UTF-8" />
++  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++  <meta name="description" content="Beylood — Wararka u dambeeyey ee ku saabsan beeraha iyo xoolaha." />
++  <meta name="theme-color" content="#0F3F7E" />
++
++  <title>Wararka — Beylood</title>
++
++  <link rel="icon" href="assets/icon.png" />
++  <link rel="apple-touch-icon" href="assets/icon.png" />
++
++  <meta property="og:title" content="Beylood — Agriculture News" />
++  <meta property="og:description" content="Latest agriculture news for farmers and agribusinesses." />
++  <meta property="og:image" content="assets/logo.png" />
++  <meta property="og:type" content="website" />
++
++  <link rel="stylesheet" href="style.css" />
++</head>
++<body>
++
++<!-- ===================== HEADER ===================== -->
++<header class="site-header" id="siteHeader">
++  <div class="container nav">
++    <a href="index.html" class="logo" aria-label="Beylood home">
++      <img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span>
++    </a>
++
++    <nav class="nav-links" aria-label="Primary">
++      <a href="index.html" data-key="navHome">Bogga Hore</a>
++      <a href="categories.html" data-key="navCats">Qaybaha</a>
++      <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
++      <a href="articles.html" data-key="navArticles">Maqaallo</a>
++      <a href="news.html" class="is-active" aria-current="page" data-key="navNews">Wararka</a>
++      <a href="about.html" data-key="navAbout">Naga</a>
++      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
++    </nav>
++
++    <div class="nav-right">
++      <a href="ask.html" class="btn btn-ask">
++        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
++          <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/>
++        </svg>
++        <span data-key="askBtn">WAYDII BEYLOOD</span>
++      </a>
++
++      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
++        <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
++          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
++        </svg>
++        <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
++          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
++        </svg>
++      </button>
++      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
++        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
++          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/>
++        </svg>
++        <span id="langLabel">Soomaali</span>
++      </button>
++
++      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
++        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
++          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
++        </svg>
++      </button>
++    </div>
++  </div>
++</header>
++
++<!-- ===================== NEWS ===================== -->
++<section id="news" class="section">
++  <div class="container">
++    <div class="section-head-row">
++      <div>
++        <span class="section-eyebrow" data-key="newsEy">WARARKA BEERAHA</span>
++        <h2 class="section-title" data-key="newsTitle">Wararka Beeraha</h2>
++        <p class="section-sub" data-key="newsSub">Wararka u dambeeyey ee ku saabsan beeraha, xoolaha, iyo agribusiness-ka.</p>
++      </div>
++    </div>
++
++    <div class="grid-articles">
++
++      <a href="news-1.html" class="card-article">
++        <div class="card-cover cover-news-1"></div>
++        <div class="card-body">
++          <span class="pill" data-key="n1Pill">Beeraha</span>
++          <h3 data-key="n1Title">Xilliga Roobka: Sidee Beeralaydu u Diyaar Garoobaan</h3>
++          <div class="card-meta">
++            <span>2026-05-10</span>
++            <span data-key="n1ReadTime">6 daqiiqo</span>
++          </div>
++        </div>
++      </a>
++
++      <a href="news-2.html" class="card-article">
++        <div class="card-cover cover-news-2"></div>
++        <div class="card-body">
++          <span class="pill" data-key="n2Pill">Ganacsiga</span>
++          <h3 data-key="n2Title">Lacag-celinta Beeraha: Sida Loogu Faa'iido Badnaan Karo</h3>
++          <div class="card-meta">
++            <span>2026-05-08</span>
++            <span data-key="n2ReadTime">5 daqiiqo</span>
++          </div>
++        </div>
++      </a>
++
++      <a href="news-3.html" class="card-article">
++        <div class="card-cover cover-news-3"></div>
++        <div class="card-body">
++          <span class="pill" data-key="n3Pill">Xoolaha</span>
++          <h3 data-key="n3Title">Xoolaha & Beeraha: Iskaashi Cusub</h3>
++          <div class="card-meta">
++            <span>2026-05-06</span>
++            <span data-key="n3ReadTime">4 daqiiqo</span>
++          </div>
++        </div>
++      </a>
++
++      <a href="news-4.html" class="card-article">
++        <div class="card-cover cover-news-4"></div>
++        <div class="card-body">
++          <span class="pill" data-key="n4Pill">Cimilada</span>
++          <h3 data-key="n4Title">Cimilada: Saadaasha Xilliga Dambe</h3>
++          <div class="card-meta">
++            <span>2026-05-04</span>
++            <span data-key="n4ReadTime">5 daqiiqo</span>
++          </div>
++        </div>
++      </a>
++
++      <a href="news-5.html" class="card-article">
++        <div class="card-cover cover-news-5"></div>
++        <div class="card-body">
++          <span class="pill" data-key="n5Pill">Tignoolajiyada</span>
++          <h3 data-key="n5Title">Tignoolajiyada Cusub oo Gaadhay Beeralayda</h3>
++          <div class="card-meta">
++            <span>2026-05-02</span>
++            <span data-key="n5ReadTime">6 daqiiqo</span>
++          </div>
++        </div>
++      </a>
++
++      <a href="news-6.html" class="card-article">
++        <div class="card-cover cover-news-6"></div>
++        <div class="card-body">
++          <span class="pill" data-key="n6Pill">Carrada</span>
++          <h3 data-key="n6Title">Sida Loo Xoojiyo Carrada: Hagaha Buuxa</h3>
++          <div class="card-meta">
++            <span>2026-04-30</span>
++            <span data-key="n6ReadTime">7 daqiiqo</span>
++          </div>
++        </div>
++      </a>
++    </div>
++  </div>
++</section>
++
++<!-- ===================== FOOTER ===================== -->
++<footer class="site-footer">
++  <div class="container">
++    <div class="footer-grid">
++      <div>
++        <div class="footer-brand">
++          <img src="assets/logo-transparent.png" alt="Beylood" />
++          <div>
++            <p class="footer-name">Beylood</p>
++            <p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p>
++          </div>
++        </div>
++        <p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p>
++      </div>
++
++      <div>
++        <p class="footer-title" data-key="fExplore">Sahmin</p>
++        <ul class="footer-list">
++          <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
++          <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
++          <li><a href="news.html" data-key="navNews">Wararka</a></li>
++          <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
++        </ul>
++      </div>
++
++      <div>
++        <p class="footer-title" data-key="fCompany">Shirkadda</p>
++        <ul class="footer-list">
++          <li><a href="about.html" data-key="navAbout">Naga</a></li>
++          <li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li>
++        </ul>
++      </div>
++    </div>
++    <div class="footer-bottom">
++      <p>© <span id="year"></span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p>
++      <p data-key="fBuilt">Aqoonta Beeraha</p>
++    </div>
++  </div>
++</footer>
++
++<script src="script.js"></script>
++</body>
++</html>
+diff --git a/script.js b/script.js
+index d6a3825..f9be003 100644
+--- a/script.js
++++ b/script.js
+@@ -15,7 +15,7 @@
+       label: 'Soomaali',
+       dir: 'ltr',
+       navHome: 'Bogga Hore', navCats: 'Qaybaha', navAsk: 'WAYDII BEYLOOD',
+-      navArticles: 'Maqaallo', navAbout: 'Naga', navContact: 'Nala soo xidhiidh',
++      navArticles: 'Maqaallo', navNews: 'Wararka', navAbout: 'Naga', navContact: 'Nala soo xidhiidh',
+       askBtn: 'WAYDII BEYLOOD',
+       heroEy: 'Madal Beeraha Soomaalida',
+       heroTitle: 'Aqoonta Beeraha — laguma kala maarmo, waxaad la wadaagi kartaa.',
+@@ -96,14 +96,26 @@
+       fAbout: 'Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.',
+       fExplore: 'Sahmin', fCompany: 'Shirkadda',
+       fRights: 'Dhammaan xuquuqdu way xifdiyey.',
+-      fBuilt: 'Aqoonta Beeraha'
++      fBuilt: 'Aqoonta Beeraha',
++      newsEy: 'WARARKA BEERAHA', newsTitle: 'Wararka Beeraha',
++      newsSub: 'Wararka u dambeeyey ee ku saabsan beeraha, xoolaha, iyo agribusiness-ka.',
++      newsBack: '← Dib ugu noqo wararka',
++      n1Pill: 'Beeraha', n1ReadTime: '6 daqiiqo',
++      n1Title: 'Xilliga Roobka: Sidee Beeralaydu u Diyaar Garoobaan',
++      n1Lead: 'Xilliga roobka waa fursad weyn oo beeralayda Soomaalida ah. Si kastaba, diyaargarowga horeba ayaa go\'aan u ah guusha. Warbixintan waxay kaa caawin doontaa inaad si fiican u diyaargaroowdo.',
++      n2Title: 'Lacag-celinta Beeraha: Sida Loogu Faa\'iido Badnaan Karo',
++      n2Pill: 'Ganacsiga', n2ReadTime: '5 daqiiqo',
++      n3Title: 'Xoolaha & Beeraha: Iskaashi Cusub', n3Pill: 'Xoolaha', n3ReadTime: '4 daqiiqo',
++      n4Title: 'Cimilada: Saadaasha Xilliga Dambe', n4Pill: 'Cimilada', n4ReadTime: '5 daqiiqo',
++      n5Title: 'Tignoolajiyada Cusub oo Gaadhay Beeralayda', n5Pill: 'Tignoolajiyada', n5ReadTime: '6 daqiiqo',
++      n6Title: 'Sida Loo Xoojiyo Carrada: Hagaha Buuxa', n6Pill: 'Carrada', n6ReadTime: '7 daqiiqo'
+     },
+
+     en: {
+       label: 'English',
+       dir: 'ltr',
+       navHome: 'Home', navCats: 'Categories', navAsk: 'ASK BEYLOOD',
+-      navArticles: 'Articles', navAbout: 'About', navContact: 'Contact',
++      navArticles: 'Articles', navNews: 'News', navAbout: 'About', navContact: 'Contact',
+       askBtn: 'ASK BEYLOOD',
+       heroEy: 'Agriculture Platform for the Horn of Africa',
+       heroTitle: 'Agricultural knowledge — built for farmers, ready for the world.',
+@@ -184,14 +196,26 @@
+       fAbout: 'A modern agricultural platform — news, education, and AI-powered guidance.',
+       fExplore: 'Explore', fCompany: 'Company',
+       fRights: 'All rights reserved.',
+-      fBuilt: 'Smart Agriculture Knowledge'
++      fBuilt: 'Smart Agriculture Knowledge',
++      newsEy: 'AGRICULTURE NEWS', newsTitle: 'Agriculture News',
++      newsSub: 'Latest news on crops, livestock, and agribusiness.',
++      newsBack: '← Back to news',
++      n1Pill: 'Crops', n1ReadTime: '6 min read',
++      n1Title: 'Rainy Season: How Farmers Are Preparing',
++      n1Lead: 'The rainy season is a major opportunity for Somali farmers. However, early preparation is the key to success. This report will help you get ready.',
++      n2Title: 'Farm Returns: How to Maximize Profits',
++      n2Pill: 'Business', n2ReadTime: '5 min read',
++      n3Title: 'Livestock & Farming: A New Partnership', n3Pill: 'Livestock', n3ReadTime: '4 min read',
++      n4Title: 'Climate Forecast for the Coming Season', n4Pill: 'Climate', n4ReadTime: '5 min read',
++      n5Title: 'New Technology Reaches Smallholder Farmers', n5Pill: 'Technology', n5ReadTime: '6 min read',
++      n6Title: 'How to Strengthen Your Soil: A Complete Guide', n6Pill: 'Soil', n6ReadTime: '7 min read'
+     },
+
+     ar: {
+       label: 'العربية',
+       dir: 'rtl',
+       navHome: 'الرئيسية', navCats: 'الفئات', navAsk: 'اسأل بيلود',
+-      navArticles: 'المقالات', navAbout: 'من نحن', navContact: 'اتصل بنا',
++      navArticles: 'المقالات', navNews: 'الأخبار', navAbout: 'من نحن', navContact: 'اتصل بنا',
+       askBtn: 'اسأل بيلود',
+       heroEy: 'منصة زراعية للقرن الأفريقي',
+       heroTitle: 'المعرفة الزراعية — مصممة للمزارع، جاهزة للعالم.',
+@@ -272,7 +296,19 @@
+       fAbout: 'منصة زراعية حديثة — أخبار، تعليم، ومساعد ذكاء اصطناعي.',
+       fExplore: 'استكشف', fCompany: 'الشركة',
+       fRights: 'جميع الحقوق محفوظة.',
+-      fBuilt: 'معرفة الزراعة الذكية'
++      fBuilt: 'معرفة الزراعة الذكية',
++      newsEy: 'أخبار الزراعة', newsTitle: 'أخبار الزراعة',
++      newsSub: 'أحدث أخبار المحاصيل والثروة الحيوانية والأعمال الزراعية.',
++      newsBack: '→ العودة إلى الأخبار',
++      n1Pill: 'المحاصيل', n1ReadTime: '6 دقائق',
++      n1Title: 'موسم الأمطار: كيف يستعد المزارعون',
++      n1Lead: 'يُعدّ موسم الأمطار فرصة كبيرة للمزارعين الصوماليين، إلا أن الاستعداد المبكر هو مفتاح النجاح. هذا التقرير سيساعدك على الاستعداد الجيد.',
++      n2Title: 'عوائد المزرعة: كيف تزيد أرباحك',
++      n2Pill: 'الأعمال', n2ReadTime: '5 دقائق',
++      n3Title: 'الثروة الحيوانية والزراعة: شراكة جديدة', n3Pill: 'الثروة الحيوانية', n3ReadTime: '4 دقائق',
++      n4Title: 'توقعات المناخ للموسم القادم', n4Pill: 'المناخ', n4ReadTime: '5 دقائق',
++      n5Title: 'التكنولوجيا الجديدة تصل إلى المزارعين', n5Pill: 'التكنولوجيا', n5ReadTime: '6 دقائق',
++      n6Title: 'كيف تقوّي تربتك: الدليل الشامل', n6Pill: 'التربة', n6ReadTime: '7 دقائق'
+     }
+   };
+
+diff --git a/style.css b/style.css
+index 85d4a72..6ea57e2 100644
+--- a/style.css
++++ b/style.css
+@@ -729,6 +729,13 @@ html[dir="rtl"] .chat-messages .msg-user { border-top-right-radius: 16px; border
+   background: #2F8A2A url('assets/farm-lessons.jpg') center/cover no-repeat;
+ }
+ .cover-farm-lessons::after { content: none; }
++.cover-news-1 { background: #0B3367 url('assets/news-1.jpg') center/cover no-repeat; }
++.cover-news-1::after { content: none; }
++.cover-news-2 { background: linear-gradient(135deg, #B45309 0%, #F59E0B 100%); }
++.cover-news-3 { background: linear-gradient(135deg, #0369A1 0%, #38BDF8 100%); }
++.cover-news-4 { background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); }
++.cover-news-5 { background: linear-gradient(135deg, #BE123C 0%, #FB7185 100%); }
++.cover-news-6 { background: linear-gradient(135deg, #2F8A2A 0%, #7BC142 100%); }
+
+ .card-body { padding: 22px; }
+ .pill {
+--
+2.43.0
