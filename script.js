@@ -300,6 +300,14 @@
       if (t[k] != null) el.setAttribute('placeholder', t[k]);
     });
 
+    // data-lang shows/hides language-specific blocks (used on long articles)
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      const elLang = el.getAttribute('data-lang');
+      if (elLang === 'so' || elLang === 'en' || elLang === 'ar') {
+        el.style.display = (elLang === code) ? '' : 'none';
+      }
+    });
+
     try { localStorage.setItem('beylood_lang', code); } catch (e) {}
   }
 
