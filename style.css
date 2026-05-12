@@ -430,7 +430,6 @@ button {
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
-  order: 3;
 }
 
 .logo img {
