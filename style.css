@@ -1235,7 +1235,7 @@ html[dir="rtl"] .chat-messages .msg-user {
 }
 
 .cover-tomato {
-  background: #BE123C url('assets/tomato.jpg') center/cover no-repeat;
+  background: #BE123C url('assets/preventing-tomato-diseases.jpg') center/cover no-repeat;
 }
 
 .cover-tomato::after {
