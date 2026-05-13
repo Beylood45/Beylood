@@ -1992,4 +1992,77 @@ html[dir="rtl"] .search-field { padding: 0 22px 0 16px; }
   .search-input { font-size: 15px; }
   .search-kbd { display: none; }
   .search-results { grid-template-columns: 1fr; }
+  .basmala-text { font-size: 19px; }
+  .salawat-text { font-size: 13px; }
+}
+
+/* ---------- Basmala Banner ---------- */
+.basmala-banner {
+  width: 100%;
+  background: linear-gradient(135deg, #0B2E5E 0%, #0F3F7E 50%, #0B3367 100%);
+  padding: 14px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.basmala-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%,
+    rgba(59, 169, 53, 0.08) 0%,
+    rgba(212, 175, 55, 0.06) 40%,
+    transparent 70%);
+  pointer-events: none;
+}
+
+.basmala-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  animation: basmalFadeIn 1.4s ease-out both;
+}
+
+@keyframes basmalFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.basmala-text {
+  font-family: 'Cairo', serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  color: #F5F0E8;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.35), 0 1px 3px rgba(0,0,0,0.3);
+  direction: rtl;
+}
+
+.salawat-text {
+  font-family: 'Cairo', serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: rgba(212, 175, 55, 0.85);
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+  direction: rtl;
+}
+
+/* Dark mode — slightly brighter gold */
+[data-theme="dark"] .basmala-banner {
+  background: linear-gradient(135deg, #060F1E 0%, #0A1E3D 50%, #061629 100%);
+}
+[data-theme="dark"] .basmala-text {
+  color: #F0E8D8;
+  text-shadow: 0 0 24px rgba(212, 175, 55, 0.45), 0 1px 4px rgba(0,0,0,0.5);
+}
+[data-theme="dark"] .salawat-text {
+  color: rgba(212, 175, 55, 0.90);
+  text-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
 }
