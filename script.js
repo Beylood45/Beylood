@@ -619,4 +619,241 @@
       });
     }
   }
+
+  /* ---------- Site Search ---------- */
+  const SEARCH_INDEX = [
+    { type: 'crop', url: 'categories.html', keywords: 'galley maize corn ذرة',
+      title: { so: 'Galleyda', en: 'Maize', ar: 'الذرة' },
+      desc:  { so: 'Hagaha beerista galleyda iyo daryeelkeeda.', en: 'Guide to growing and caring for maize.', ar: 'دليل زراعة الذرة والعناية بها.' } },
+    { type: 'crop', url: 'categories.html', keywords: 'tomato yaanyo طماطم',
+      title: { so: 'Yaanyada', en: 'Tomatoes', ar: 'الطماطم' },
+      desc:  { so: 'Beerista yaanyada, biyaynta iyo wakhtiga goosashada.', en: 'Tomato cultivation, watering, and harvest timing.', ar: 'زراعة الطماطم والري ومواعيد الحصاد.' } },
+    { type: 'crop', url: 'categories.html', keywords: 'rice bariis أرز',
+      title: { so: 'Bariiska', en: 'Rice', ar: 'الأرز' },
+      desc:  { so: 'Habab waxtar leh oo lagu beero bariiska.', en: 'Productive methods for growing rice.', ar: 'طرق فعّالة لزراعة الأرز.' } },
+    { type: 'crop', url: 'categories.html', keywords: 'sorghum masago ذرة رفيعة',
+      title: { so: 'Masaggada', en: 'Sorghum', ar: 'الذرة الرفيعة' },
+      desc:  { so: 'Dalag adkaysi leh oo ku habboon abaaraha.', en: 'A drought-resistant crop suited to dry seasons.', ar: 'محصول مقاوم للجفاف ومناسب للمواسم الجافة.' } },
+    { type: 'crop', url: 'categories.html', keywords: 'vegetables khudrad خضروات',
+      title: { so: 'Khudradda', en: 'Vegetables', ar: 'الخضروات' },
+      desc:  { so: 'Khudrad kala duwan oo ku habboon beerta.', en: 'A range of vegetables for the home farm.', ar: 'مجموعة من الخضروات الملائمة للمزرعة.' } },
+    { type: 'guide', url: 'article-preventing-tomato-diseases.html', keywords: 'tomato disease cudur yaanyo مرض طماطم',
+      title: { so: 'Ka Hortagga Cudurrada Yaanyada', en: 'Preventing Tomato Diseases', ar: 'الوقاية من أمراض الطماطم' },
+      desc:  { so: '10 talooyin oo lagu badbaadiyo yaanyada cudurrada.', en: '10 practical tips to keep tomatoes disease-free.', ar: '10 نصائح عملية للوقاية من أمراض الطماطم.' } },
+    { type: 'guide', url: 'article-10-lessons-farmers.html', keywords: 'lessons new farmers cashar beeraley مزارع',
+      title: { so: '10 Cashar oo Loo Gudbinayo Beeraleyda Cusub', en: '10 Lessons for New Farmers', ar: '10 دروس للمزارعين الجدد' },
+      desc:  { so: 'Cashar muhiim ah oo aad u baahan tahay si aad u bilowdo beeritaanka.', en: 'Essential lessons for getting started in farming.', ar: 'دروس أساسية للبدء في الزراعة.' } },
+    { type: 'guide', url: 'category-pests.html', keywords: 'pests cayayaan آفات',
+      title: { so: 'Cudurrada & Cayayaanka', en: 'Pests & Diseases', ar: 'الآفات والأمراض' },
+      desc:  { so: 'Aqoonsiga iyo daawaynta cudurrada dalagga.', en: 'Identify and treat crop diseases and pests.', ar: 'التعرّف على أمراض وآفات المحاصيل وعلاجها.' } },
+    { type: 'guide', url: 'articles.html', keywords: 'irrigation waraab ري',
+      title: { so: 'Habaynta Waraabinta', en: 'Irrigation Best Practices', ar: 'أفضل ممارسات الري' },
+      desc:  { so: 'Sida loo isticmaalo biyaha si hufan iyo biyo-mareenka.', en: 'How to use water efficiently and manage flow.', ar: 'الاستخدام الفعّال للمياه وإدارة التدفق.' } },
+    { type: 'guide', url: 'articles.html', keywords: 'soil carro تربة',
+      title: { so: 'Xoojinta Carrada', en: 'Strengthening Your Soil', ar: 'تقوية التربة' },
+      desc:  { so: 'Sida carrada loo daro nafaqo iyo loo nadiifiyo.', en: 'How to enrich and maintain healthy soil.', ar: 'كيفية إثراء التربة والحفاظ على صحتها.' } },
+    { type: 'service', url: 'ask.html', keywords: 'ai assistant chat caawiye مساعد',
+      title: { so: 'Waydii Beylood AI', en: 'Ask Beylood AI', ar: 'اسأل بَيلود الذكاء الاصطناعي' },
+      desc:  { so: 'Caawiye AI ah oo kuu jawaaba su\'aalaha beeraha.', en: 'AI assistant that answers your farming questions.', ar: 'مساعد ذكاء اصطناعي يجيب على أسئلتك الزراعية.' } },
+    { type: 'service', url: 'categories.html', keywords: 'categories qayb فئات',
+      title: { so: 'Sahmin Qaybaha', en: 'Browse Categories', ar: 'تصفّح الفئات' },
+      desc:  { so: 'Sahmin qaybaha aqoonta beeraha.', en: 'Explore agricultural knowledge categories.', ar: 'استكشف فئات المعرفة الزراعية.' } },
+    { type: 'service', url: 'contact.html', keywords: 'contact xidhiidh اتصال',
+      title: { so: 'Nala Soo Xidhiidh', en: 'Contact Beylood', ar: 'تواصل معنا' },
+      desc:  { so: 'Su\'aalo, taageero ama wadashaqayn.', en: 'Questions, support, or partnership requests.', ar: 'استفسارات أو دعم أو شراكات.' } },
+    { type: 'news', url: 'news-1.html', keywords: 'rainy season roob موسم الأمطار',
+      title: { so: 'Xilliga Roobka: Sidee Beeralaydu u Diyaar Garoobaan', en: 'Rainy Season: How Farmers Prepare', ar: 'موسم الأمطار: كيف يستعدّ المزارعون' },
+      desc:  { so: 'Diyaargarow muhiim ah oo lagu raadinayo guul.', en: 'Essential preparation for a successful season.', ar: 'الاستعداد الأساسي لموسم ناجح.' } },
+    { type: 'news', url: 'news.html', keywords: 'finance lacag تمويل',
+      title: { so: 'Lacag-celinta Beeraha', en: 'Agricultural Financing', ar: 'تمويل الزراعة' },
+      desc:  { so: 'Sida loogu faa\'iido badnaan karo lacag-celinta.', en: 'How to get the most out of agricultural finance.', ar: 'كيفية الاستفادة القصوى من التمويل الزراعي.' } },
+    { type: 'news', url: 'news.html', keywords: 'climate cimilo مناخ',
+      title: { so: 'Cimilada: Saadaasha Xilliga Dambe', en: 'Climate Forecast for the Coming Season', ar: 'توقعات المناخ للموسم القادم' },
+      desc:  { so: 'Saadaasha hawada iyo waxa ay micnaheedu yihiin beeralayda.', en: 'Forecast and what it means for farmers.', ar: 'التوقعات وما تعنيه للمزارعين.' } },
+    { type: 'news', url: 'news.html', keywords: 'technology tignoolajiyada تكنولوجيا',
+      title: { so: 'Tignoolajiyada Cusub oo Gaadhay Beeralayda', en: 'New Technology Reaches Farmers', ar: 'التكنولوجيا الجديدة تصل إلى المزارعين' },
+      desc:  { so: 'Innovation cusub oo wax ka beddelaysa beerta.', en: 'New innovations changing the farm.', ar: 'ابتكارات جديدة تغيّر المزرعة.' } },
+    { type: 'product', url: 'categories.html', keywords: 'seeds iniin بذور',
+      title: { so: 'Iniinaha Tayada Sare', en: 'Premium Seeds', ar: 'بذور ممتازة' },
+      desc:  { so: 'Iniin la xulay si aad u guuleysato.', en: 'Hand-selected seeds for better yields.', ar: 'بذور مختارة بعناية لمحصول أفضل.' } },
+    { type: 'product', url: 'categories.html', keywords: 'fertilizer bacrin سماد',
+      title: { so: 'Bacrinta Casriga ah', en: 'Modern Fertilizers', ar: 'الأسمدة الحديثة' },
+      desc:  { so: 'Bacrin nafaqo leh oo carrada ku habboon.', en: 'Nutrient-rich fertilizer suited to your soil.', ar: 'أسمدة غنية بالعناصر مناسبة لتربتك.' } },
+    { type: 'product', url: 'categories.html', keywords: 'drip irrigation kit waraab tuubo ري بالتنقيط',
+      title: { so: 'Qalabka Drip Irrigation', en: 'Drip Irrigation Kit', ar: 'مجموعة الري بالتنقيط' },
+      desc:  { so: 'Qalab biyaha si hufan u maamula.', en: 'Equipment that uses water efficiently.', ar: 'معدّات تستخدم المياه بكفاءة.' } },
+    { type: 'product', url: 'categories.html', keywords: 'tools qalab أدوات',
+      title: { so: 'Qalabka Beerta', en: 'Farm Tools', ar: 'أدوات المزرعة' },
+      desc:  { so: 'Qalab adkaysi leh oo wax ku ool ah.', en: 'Durable, practical farm tools.', ar: 'أدوات متينة وعملية للمزرعة.' } }
+  ];
+
+  function initSearch() {
+    const input = document.getElementById('siteSearch');
+    const suggest = document.getElementById('searchSuggest');
+    const results = document.getElementById('searchResults');
+    const clearBtn = document.getElementById('searchClear');
+    const filters = document.querySelectorAll('.filter-chip');
+    if (!input || !suggest || !results) return;
+
+    let activeFilter = 'all';
+    let suggestIndex = -1;
+
+    function getLang() {
+      return dict[document.documentElement.lang] || dict.so;
+    }
+    function tagLabel(type) {
+      const t = getLang();
+      return ({ crop: t.srTagCrop, guide: t.srTagGuide, service: t.srTagService, news: t.srTagNews, product: t.srTagProduct })[type] || type;
+    }
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+    }
+    function highlight(text, q) {
+      const safe = escapeHtml(text);
+      if (!q) return safe;
+      const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+      return safe.replace(re, '<mark class="sr-hl">$1</mark>');
+    }
+    function localizedTitle(item) { const code = document.documentElement.lang || 'so'; return item.title[code] || item.title.so; }
+    function localizedDesc(item)  { const code = document.documentElement.lang || 'so'; return item.desc[code]  || item.desc.so; }
+
+    function score(item, q) {
+      const t = (localizedTitle(item) + ' ' + localizedDesc(item) + ' ' + (item.keywords || '')).toLowerCase();
+      const needle = q.toLowerCase();
+      if (!t.includes(needle)) return 0;
+      let s = 1;
+      if (localizedTitle(item).toLowerCase().includes(needle)) s += 5;
+      if (localizedTitle(item).toLowerCase().startsWith(needle)) s += 5;
+      return s;
+    }
+
+    function search(q) {
+      return SEARCH_INDEX
+        .filter(i => activeFilter === 'all' || i.type === activeFilter)
+        .map(i => ({ i, s: score(i, q) }))
+        .filter(x => x.s > 0)
+        .sort((a, b) => b.s - a.s)
+        .map(x => x.i);
+    }
+
+    function iconSvg() {
+      return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>';
+    }
+
+    function renderSuggestions(q) {
+      const matches = search(q).slice(0, 7);
+      suggestIndex = -1;
+      if (!matches.length) {
+        suggest.innerHTML = '<div class="suggest-empty">' + escapeHtml(getLang().srNoResults) + '</div>';
+      } else {
+        suggest.innerHTML = matches.map((m, idx) =>
+          '<a class="suggest-item" role="option" data-idx="' + idx + '" href="' + m.url + '">' +
+            '<span class="suggest-icon">' + iconSvg() + '</span>' +
+            '<span class="suggest-text">' +
+              '<span class="suggest-title">' + highlight(localizedTitle(m), q) + '</span>' +
+              '<span class="suggest-sub">' + highlight(localizedDesc(m), q) + '</span>' +
+            '</span>' +
+            '<span class="suggest-tag">' + escapeHtml(tagLabel(m.type)) + '</span>' +
+          '</a>'
+        ).join('');
+      }
+      suggest.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+    }
+
+    function renderResults(q) {
+      if (!q) { results.innerHTML = ''; return; }
+      const matches = search(q);
+      if (!matches.length) {
+        results.innerHTML = '<div class="suggest-empty" style="grid-column:1/-1;">' + escapeHtml(getLang().srNoResults) + '</div>';
+        return;
+      }
+      results.innerHTML = matches.map(m =>
+        '<a class="result-card" href="' + m.url + '">' +
+          '<span class="result-tag">' + escapeHtml(tagLabel(m.type)) + '</span>' +
+          '<h3 class="result-title">' + highlight(localizedTitle(m), q) + '</h3>' +
+          '<p class="result-desc">' + highlight(localizedDesc(m), q) + '</p>' +
+          '<span class="result-link">' + escapeHtml(getLang().srOpen) + ' →</span>' +
+        '</a>'
+      ).join('');
+    }
+
+    function closeSuggest() {
+      suggest.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      suggestIndex = -1;
+      Array.from(suggest.querySelectorAll('.suggest-item')).forEach(el => el.classList.remove('is-active'));
+    }
+
+    function setActive(idx) {
+      const items = suggest.querySelectorAll('.suggest-item');
+      if (!items.length) return;
+      suggestIndex = (idx + items.length) % items.length;
+      items.forEach((el, i) => el.classList.toggle('is-active', i === suggestIndex));
+      items[suggestIndex].scrollIntoView({ block: 'nearest' });
+    }
+
+    let debounceId;
+    input.addEventListener('input', () => {
+      const q = input.value.trim();
+      clearBtn.hidden = !q;
+      clearTimeout(debounceId);
+      debounceId = setTimeout(() => {
+        if (!q) { closeSuggest(); results.innerHTML = ''; return; }
+        renderSuggestions(q);
+        renderResults(q);
+      }, 90);
+    });
+
+    input.addEventListener('focus', () => {
+      const q = input.value.trim();
+      if (q) renderSuggestions(q);
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); if (suggest.hidden) renderSuggestions(input.value.trim()); setActive(suggestIndex + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(suggestIndex - 1); }
+      else if (e.key === 'Enter') {
+        const items = suggest.querySelectorAll('.suggest-item');
+        if (suggestIndex >= 0 && items[suggestIndex]) {
+          e.preventDefault();
+          window.location.href = items[suggestIndex].getAttribute('href');
+        }
+      } else if (e.key === 'Escape') {
+        closeSuggest();
+        input.blur();
+      }
+    });
+
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      clearBtn.hidden = true;
+      results.innerHTML = '';
+      closeSuggest();
+      input.focus();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.search-shell')) closeSuggest();
+    });
+
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+        activeFilter = btn.getAttribute('data-filter') || 'all';
+        const q = input.value.trim();
+        if (q) { renderSuggestions(q); renderResults(q); }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        input.focus();
+        input.select();
+      }
+    });
+  }
 })();
