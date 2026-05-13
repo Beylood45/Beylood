@@ -115,7 +115,18 @@
       missionText: 'In aan beeralayda Soomaalida, Geeska Afrika, iyo Carabiga soo gaadhsiiyo aqoonta beeraha ee casriga ah — isagoo isku daraya tignoolajiyada AI, wargeynta, iyo waxbarashada si shaqsiyeed loo gaadhi karo.',
       val1Title: 'Beeralayda Hormood', val1Text: 'Dhammaan go\'aannadayada iyo adeegyadayada waxaa ugu horreeya baahida beeralayda.',
       val2Title: 'Tignoolajiyada AI', val2Text: 'Isticmaalka AI casriga ah si loogu fududeeyo helitaanka aqoonta beeraha.',
-      val3Title: 'Xog Saxan', val3Text: 'Waxaan bixinaa oo keliya xog la xaqiijiyay oo laga yaabo inay beeralayda ugu waxtari.'
+      val3Title: 'Xog Saxan', val3Text: 'Waxaan bixinaa oo keliya xog la xaqiijiyay oo laga yaabo inay beeralayda ugu waxtari.',
+      srEy: 'RAADI', srTitle: 'Raadi wax kasta oo Beylood ku jira',
+      srSub: 'Dalagga, hagayaal, adeegyo, wararka iyo alaab — hal goob.',
+      srLabel: 'Raadi shabakadda Beylood',
+      srPlaceholder: 'Raadi dalagga, alaab, adeegyo, wararka, ama macluumaad...',
+      srFAll: 'Dhammaan', srFCrop: 'Dalagga', srFGuide: 'Hagayaal',
+      srFService: 'Adeegyo', srFNews: 'Wararka', srFProduct: 'Alaab',
+      srNoResults: 'Wax natiijo ah lagama helin',
+      srTypeMore: 'Bilaa qor si aad u raadiso…',
+      srOpen: 'Fur',
+      srTagCrop: 'Dalagga', srTagGuide: 'Hage', srTagService: 'Adeeg',
+      srTagNews: 'War', srTagProduct: 'Alaab'
     },
 
     en: {
@@ -222,7 +233,18 @@
       missionText: 'To bring modern agricultural knowledge to Somali, Horn-of-Africa, and Arab farmers — combining AI technology, news, and education in a way that is personally accessible to every farmer.',
       val1Title: 'Farmers First', val1Text: 'Every decision and service we build starts with the needs of farmers.',
       val2Title: 'AI Technology', val2Text: 'Using modern AI to make agricultural knowledge easier to access for everyone.',
-      val3Title: 'Verified Knowledge', val3Text: 'We only publish verified, science-based information that is genuinely useful for farmers.'
+      val3Title: 'Verified Knowledge', val3Text: 'We only publish verified, science-based information that is genuinely useful for farmers.',
+      srEy: 'SEARCH', srTitle: 'Search everything on Beylood',
+      srSub: 'Crops, guides, services, news and products — all in one place.',
+      srLabel: 'Search the Beylood website',
+      srPlaceholder: 'Search crops, products, services, news, or information...',
+      srFAll: 'All', srFCrop: 'Crops', srFGuide: 'Guides',
+      srFService: 'Services', srFNews: 'News', srFProduct: 'Products',
+      srNoResults: 'No results found',
+      srTypeMore: 'Start typing to search…',
+      srOpen: 'Open',
+      srTagCrop: 'Crop', srTagGuide: 'Guide', srTagService: 'Service',
+      srTagNews: 'News', srTagProduct: 'Product'
     },
 
     ar: {
@@ -329,7 +351,18 @@
       missionText: 'إيصال المعرفة الزراعية الحديثة إلى المزارعين الصوماليين وأبناء القرن الأفريقي والعرب — من خلال دمج تقنية الذكاء الاصطناعي والأخبار والتعليم بطريقة يسهل الوصول إليها شخصياً.',
       val1Title: 'المزارع أولاً', val1Text: 'كل قرار وخدمة نبنيها تبدأ من احتياجات المزارع.',
       val2Title: 'تقنية الذكاء الاصطناعي', val2Text: 'نستخدم الذكاء الاصطناعي الحديث لتسهيل الوصول إلى المعرفة الزراعية للجميع.',
-      val3Title: 'معرفة موثوقة', val3Text: 'نقدم فقط معلومات موثقة ومبنية على العلم تفيد المزارعين فعلاً.'
+      val3Title: 'معرفة موثوقة', val3Text: 'نقدم فقط معلومات موثقة ومبنية على العلم تفيد المزارعين فعلاً.',
+      srEy: 'بحث', srTitle: 'ابحث في كل شيء على بَيلود',
+      srSub: 'المحاصيل، الأدلة، الخدمات، الأخبار والمنتجات — في مكان واحد.',
+      srLabel: 'البحث في موقع بَيلود',
+      srPlaceholder: 'ابحث عن المحاصيل أو المنتجات أو الخدمات أو الأخبار أو المعلومات...',
+      srFAll: 'الكل', srFCrop: 'المحاصيل', srFGuide: 'الأدلة',
+      srFService: 'الخدمات', srFNews: 'الأخبار', srFProduct: 'المنتجات',
+      srNoResults: 'لا توجد نتائج',
+      srTypeMore: 'ابدأ الكتابة للبحث…',
+      srOpen: 'فتح',
+      srTagCrop: 'محصول', srTagGuide: 'دليل', srTagService: 'خدمة',
+      srTagNews: 'خبر', srTagProduct: 'منتج'
     }
   };
 
@@ -432,6 +465,9 @@
 
     // Chat (only on the Ask Beylood page)
     initChat();
+
+    // Site search (only on pages that include the search section)
+    initSearch();
   });
 
   /* ---------- Ask Beylood chat ---------- */
