@@ -1250,6 +1250,14 @@ html[dir="rtl"] .chat-messages .msg-user {
   content: none;
 }
 
+.cover-news-1 { background: #0B3367 url('assets/news-1.jpg') center/cover no-repeat; }
+.cover-news-1::after { content: none; }
+.cover-news-2 { background: linear-gradient(135deg, #B45309 0%, #F59E0B 100%); }
+.cover-news-3 { background: linear-gradient(135deg, #0369A1 0%, #38BDF8 100%); }
+.cover-news-4 { background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); }
+.cover-news-5 { background: linear-gradient(135deg, #BE123C 0%, #FB7185 100%); }
+.cover-news-6 { background: linear-gradient(135deg, #2F8A2A 0%, #7BC142 100%); }
+
 .card-body {
   padding: 22px;
 }
@@ -1684,6 +1692,8 @@ html[dir="rtl"] .chat-messages .msg-user {
   .contact-grid {
     grid-template-columns: 1fr;
   }
+  .vm-grid-2 { grid-template-columns: 1fr !important; }
+  .vm-grid-3 { grid-template-columns: 1fr !important; }
 
   .ask-card {
     padding: 36px 26px;
