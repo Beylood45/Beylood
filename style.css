@@ -1557,7 +1557,7 @@ html[dir="rtl"] .chat-messages .msg-user {
 .footer-brand img {
   height: 48px;
   width: auto;
-  filter: brightness(0) invert(1);
+  border-radius: 8px;
 }
 
 .footer-name {
