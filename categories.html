@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="so" dir="ltr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,157 +19,191 @@
 
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<!-- ===================== HEADER ===================== -->
-<header class="site-header" id="siteHeader">
-  <div class="container nav">
-    <a href="index.html" class="logo" aria-label="Beylood home">
-      <img src="assets/logo.png" alt="Beylood" />
-    </a>
-
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html" data-key="navHome">Bogga Hore</a>
-      <a href="categories.html" class="is-active" aria-current="page" data-key="navCats">Qaybaha</a>
-      <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
-      <a href="articles.html" data-key="navArticles">Maqaallo</a>
-      <a href="news.html" data-key="navNews">Wararka</a>
-      <a href="about.html" data-key="navAbout">Naga</a>
-      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
-    </nav>
-
-    <div class="nav-right">
-      <a href="ask.html" class="btn btn-ask">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/>
-        </svg>
-        <span data-key="askBtn">WAYDII BEYLOOD</span>
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a href="index.html" class="logo" aria-label="Beylood home">
+        <img src="assets/logo.png" alt="Beylood" />
       </a>
 
-      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
-        <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-        </svg>
-      </button>
-      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/>
-        </svg>
-        <span id="langLabel">Soomaali</span>
-      </button>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html" data-key="navHome">Bogga Hore</a>
+        <a href="categories.html" class="is-active" aria-current="page" data-key="navCats">Qaybaha</a>
+        <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+        <a href="articles.html" data-key="navArticles">Maqaallo</a>
+        <a href="news.html" data-key="navNews">Wararka</a>
+        <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+        <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+      </nav>
 
-      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
+      <div class="nav-right">
+        <a href="ask.html" class="btn btn-ask">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path
+              d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z" />
+          </svg>
+          <span data-key="askBtn">WAYDII BEYLOOD</span>
+        </a>
+
+        <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
+          <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+        </button>
+        <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z" />
+          </svg>
+          <span id="langLabel">Soomaali</span>
+        </button>
+
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<!-- ===================== CATEGORIES ===================== -->
-<section id="categories" class="section">
-  <div class="container">
-    <span class="section-eyebrow" data-key="catEy">QAYBAHA AQOONTA</span>
-    <h2 class="section-title" data-key="catTitle">Qaybaha aqoonta</h2>
-    <p class="section-sub" data-key="catSub">Dooro qaybta ku habboon waxa aad u baahan tahay</p>
+  <!-- ===================== CATEGORIES ===================== -->
+  <section id="categories" class="section">
+    <div class="container">
+      <span class="section-eyebrow" data-key="catEy">QAYBAHA AQOONTA</span>
+      <h2 class="section-title" data-key="catTitle">Qaybaha aqoonta</h2>
+      <p class="section-sub" data-key="catSub">Dooro qaybta ku habboon waxa aad u baahan tahay</p>
 
-    <div class="grid-cats">
-      <article class="card-cat">
-        <div class="cat-icon cat-green">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8M12 8c0-2 1-4 3-5M12 8c0-2-1-4-3-5M12 14c-2-1-4-1-6 0M12 14c2-1 4-1 6 0M12 20c-2-1-4-1-6 0M12 20c2-1 4-1 6 0"/></svg>
-        </div>
-        <h3 data-key="catCrops">Dalagga</h3>
-        <p data-key="catCropsDesc">Galleyda, masagga, bariiska, khudradda iyo wax kasta oo la beero.</p>
-      </article>
-
-      <article class="card-cat">
-        <div class="cat-icon cat-navy">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-        </div>
-        <h3 data-key="catIrr">Waraabinta</h3>
-        <p data-key="catIrrDesc">Sida loo isticmaalo biyaha si hufan, biyo-mareenka iyo qoyaanka.</p>
-      </article>
-
-      <article class="card-cat">
-        <div class="cat-icon cat-amber">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l3 4 3-4 3 4 3-4 3 4 3-4M5 14h14M7 14v6M17 14v6"/></svg>
-        </div>
-        <h3 data-key="catLive">Xoolaha</h3>
-        <p data-key="catLiveDesc">Daryeelka xoolaha, cuntada, iyo cudurrada caadiga ah.</p>
-      </article>
-
-      <article class="card-cat">
-        <div class="cat-icon cat-sky">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-        </div>
-        <h3 data-key="catCli">Cimilada</h3>
-        <p data-key="catCliDesc">Saadaasha hawada iyo isbeddelka cimilada beerta.</p>
-      </article>
-
-      <article class="card-cat">
-        <div class="cat-icon cat-orange">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,3 22,21 2,21"/></svg>
-        </div>
-        <h3 data-key="catSoil">Carrada</h3>
-        <p data-key="catSoilDesc">Daawaynta, shidaalka iyo nashqada carrada.</p>
-      </article>
-
-      <a href="category-pests.html" class="card-cat">
-        <div class="cat-icon cat-rose">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg>
-        </div>
-        <h3 data-key="catPest">Cudurrada & Cayayaanka</h3>
-        <p data-key="catPestDesc">Aqoonsiga iyo daawaynta cudurrada dalagga.</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FOOTER ===================== -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <img src="assets/logo-transparent.png" alt="Beylood" />
-          <div>
-            <p class="footer-name">Beylood</p>
-            <p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p>
+      <div class="grid-cats">
+        <article class="card-cat">
+          <div class="cat-icon cat-green">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M12 22V8M12 8c0-2 1-4 3-5M12 8c0-2-1-4-3-5M12 14c-2-1-4-1-6 0M12 14c2-1 4-1 6 0M12 20c-2-1-4-1-6 0M12 20c2-1 4-1 6 0" />
+            </svg>
           </div>
+          <h3 data-key="catCrops">Dalagga</h3>
+          <p data-key="catCropsDesc">Galleyda, masagga, bariiska, khudradda iyo wax kasta oo la beero.</p>
+        </article>
+
+        <article class="card-cat">
+          <div class="cat-icon cat-navy">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+            </svg>
+          </div>
+          <h3 data-key="catIrr">Waraabinta</h3>
+          <p data-key="catIrrDesc">Sida loo isticmaalo biyaha si hufan, biyo-mareenka iyo qoyaanka.</p>
+        </article>
+
+        <article class="card-cat">
+          <div class="cat-icon cat-amber">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7l3 4 3-4 3 4 3-4 3 4 3-4M5 14h14M7 14v6M17 14v6" />
+            </svg>
+          </div>
+          <h3 data-key="catLive">Xoolaha</h3>
+          <p data-key="catLiveDesc">Daryeelka xoolaha, cuntada, iyo cudurrada caadiga ah.</p>
+        </article>
+
+        <article class="card-cat">
+          <div class="cat-icon cat-sky">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+            </svg>
+          </div>
+          <h3 data-key="catCli">Cimilada</h3>
+          <p data-key="catCliDesc">Saadaasha hawada iyo isbeddelka cimilada beerta.</p>
+        </article>
+
+        <article class="card-cat">
+          <div class="cat-icon cat-orange">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12,3 22,21 2,21" />
+            </svg>
+          </div>
+          <h3 data-key="catSoil">Carrada</h3>
+          <p data-key="catSoilDesc">Daawaynta, shidaalka iyo nashqada carrada.</p>
+        </article>
+
+        <a href="category-pests.html" class="card-cat">
+          <div class="cat-icon cat-rose">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3" />
+              <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3" />
+            </svg>
+          </div>
+          <h3 data-key="catPest">Cudurrada & Cayayaanka</h3>
+          <p data-key="catPestDesc">Aqoonsiga iyo daawaynta cudurrada dalagga.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="assets/logo-transparent.png" alt="Beylood" />
+            <div>
+              <p class="footer-name">Beylood</p>
+              <p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p>
+            </div>
+          </div>
+          <p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo
+            caawimaad AI ah.</p>
         </div>
-        <p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p>
+
+        <div>
+          <p class="footer-title" data-key="fExplore">Sahmin</p>
+          <ul class="footer-list">
+            <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+            <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
+            <li><a href="news.html" data-key="navNews">Wararka</a></li>
+            <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-title" data-key="fCompany">Shirkadda</p>
+          <ul class="footer-list">
+            <li><a href="about.html" data-key="navAbout">Naga</a></li>
+            <li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li>
+          </ul>
+        </div>
       </div>
 
-      <div>
-        <p class="footer-title" data-key="fExplore">Sahmin</p>
-        <ul class="footer-list">
-          <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
-          <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
-          <li><a href="news.html" data-key="navNews">Wararka</a></li>
-          <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="footer-title" data-key="fCompany">Shirkadda</p>
-        <ul class="footer-list">
-          <li><a href="about.html" data-key="navAbout">Naga</a></li>
-          <li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p>
+        <p data-key="fBuilt">Aqoonta Beeraha</p>
       </div>
     </div>
+  </footer>
 
-    <div class="footer-bottom">
-      <p>© <span id="year"></span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p>
-      <p data-key="fBuilt">Aqoonta Beeraha</p>
-    </div>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
