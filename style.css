@@ -1250,6 +1250,16 @@ html[dir="rtl"] .chat-messages .msg-user {
   content: none;
 }
 
+.cover-tomato-farming {
+  background:
+    linear-gradient(135deg, rgba(190, 18, 60, .55) 0%, rgba(47, 138, 42, .55) 100%),
+    #BE123C url('assets/tomato-farming.jpg') center/cover no-repeat;
+}
+
+.cover-tomato-farming::after {
+  content: none;
+}
+
 .cover-news-1 { background: #0B3367 url('assets/news-1.jpg') center/cover no-repeat; }
 .cover-news-1::after { content: none; }
 .cover-news-2 { background: linear-gradient(135deg, #B45309 0%, #F59E0B 100%); }
@@ -1379,6 +1389,98 @@ html[dir="rtl"] .chat-messages .msg-user {
   color: var(--navy-700);
   font-weight: 600;
   margin-inline-end: 6px;
+}
+
+/* Long-form article body (h2 + p sections) */
+.article-h2 {
+  margin-top: 36px;
+  margin-bottom: 14px;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 700;
+  color: var(--navy-700);
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-inline-start: 14px;
+}
+
+.article-h2::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 4px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--green-500), var(--navy-700));
+}
+
+.article-p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--gray-700);
+  margin-bottom: 6px;
+}
+
+.article-p em {
+  font-style: italic;
+  color: var(--navy-700);
+}
+
+.article-list {
+  list-style: disc;
+  padding-inline-start: 22px;
+  display: grid;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.article-list li {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--gray-700);
+  padding-inline-start: 4px;
+}
+
+.article-list li strong {
+  color: var(--navy-700);
+  font-weight: 600;
+}
+
+[data-theme="dark"] .article-h2 {
+  color: var(--gray-900);
+}
+
+[data-theme="dark"] .article-p,
+[data-theme="dark"] .article-list li {
+  color: var(--gray-600);
+}
+
+[data-theme="dark"] .article-p em,
+[data-theme="dark"] .article-list li strong {
+  color: var(--gray-900);
+}
+
+/* Related articles */
+.related-section {
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.related-title {
+  font-size: clamp(20px, 2.6vw, 24px);
+  font-weight: 700;
+  color: var(--navy-700);
+  margin-bottom: 22px;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="dark"] .related-section {
+  border-top-color: rgba(255, 255, 255, .08);
+}
+
+[data-theme="dark"] .related-title {
+  color: var(--gray-900);
 }
 
 /* ---------- About / Founder ---------- */
