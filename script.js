@@ -394,7 +394,13 @@
     document.querySelectorAll('[data-lang]').forEach(el => {
       const elLang = el.getAttribute('data-lang');
       if (elLang === 'so' || elLang === 'en' || elLang === 'ar') {
-        el.style.display = (elLang === code) ? '' : 'none';
+        if (elLang === code) {
+          el.style.display = '';
+          el.removeAttribute('hidden');
+        } else {
+          el.style.display = 'none';
+          el.setAttribute('hidden', '');
+        }
       }
     });
 
