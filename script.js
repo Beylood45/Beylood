@@ -363,10 +363,127 @@
       srOpen: 'فتح',
       srTagCrop: 'محصول', srTagGuide: 'دليل', srTagService: 'خدمة',
       srTagNews: 'خبر', srTagProduct: 'منتج'
+    },
+
+    sw: {
+      label: 'Kiswahili',
+      dir: 'ltr',
+      navHome: 'Mwanzo', navCats: 'Vikundi', navAsk: 'ULIZA BEYLOOD',
+      navArticles: 'Makala', navNews: 'Habari', navAbout: 'Kuhusu', navContact: 'Wasiliana',
+      askBtn: 'ULIZA BEYLOOD',
+      heroEy: 'Jukwaa la Kilimo la Pembe ya Afrika',
+      heroTitle: 'Maarifa ya kilimo — yaliyojengwa kwa wakulima, tayari kwa dunia.',
+      heroSub: 'Beylood ni jukwaa la lugha nne linalotoa elimu, habari, utafiti, na usaidizi wa AI kwa wakulima na biashara za kilimo.',
+      ctaPrimary: 'Uliza Beylood AI',
+      ctaSecondary: 'Tazama elimu',
+      stArticles: 'Makala', stResearch: 'Karatasi za utafiti',
+      stUsers: 'Watumiaji', stCountries: 'Nchi',
+      catEy: 'VIKUNDI VYA MAARIFA', catTitle: 'Vikundi vya maarifa',
+      catSub: 'Chagua eneo linalokufaa',
+      catCrops: 'Mazao',
+      catCropsDesc: 'Mahindi, mtama, ufuta, mboga na kila kitu unachokuza.',
+      catIrr: 'Umwagiliaji',
+      catIrrDesc: 'Jinsi ya kutumia maji kwa ufanisi, mfumo wa drip na unyevu wa udongo.',
+      catLive: 'Mifugo',
+      catLiveDesc: 'Utunzaji wa wanyama, chakula, na magonjwa ya kawaida.',
+      catCli: 'Hali ya hewa',
+      catCliDesc: 'Utabiri wa hali ya hewa na mabadiliko ya tabianchi.',
+      catSoil: 'Udongo',
+      catSoilDesc: 'Matibabu, mbolea, na muundo wa udongo.',
+      catPest: 'Wadudu na Magonjwa',
+      catPestDesc: 'Tambua na tibu magonjwa na wadudu wa mazao.',
+      askEy: 'AI YA KISASA',
+      askTitle: 'Uliza Beylood — chochote kuhusu kilimo, kwa lugha yako',
+      askSub: 'Andika maswali kwa Kisomali, Kiingereza, Kiarabu au Kiswahili — pata majibu ya haraka yenye msingi wa sayansi.',
+      askCta: 'Anza sasa',
+      cb1: 'Habari! Una swali kuhusu kilimo?',
+      cb2: 'Ninapanda vipi mahindi?',
+      feEy: 'MAKALA TEULE', feTitle: 'Makala teule',
+      aPill1: 'Mazao', aTitle1: 'Jinsi ya kupanda mahindi msimu wa kiangazi',
+      aPill2: 'Umwagiliaji', aTitle2: 'Mbinu mpya za kuokoa maji ya shamba',
+      aPill3: 'Magonjwa', aTitle3: 'Dalili za mwanzo za ugonjwa wa majani ya nyanya',
+      readTime6: 'dakika 6', readTime4: 'dakika 4', readTime5: 'dakika 5',
+      artBack: '← Rudi kwenye makala',
+      catBack: '← Rudi kwenye vikundi',
+      viewAll: 'Tazama zote →',
+      chatWelcome: 'Habari! Mimi ni Beylood AI. Niulize chochote kuhusu kilimo.',
+      chatPlaceholder: 'Andika swali lako hapa…',
+      chatHint: 'Hii ni AI — tafadhali shauriana na mtaalamu wa kilimo kwa masuala makubwa.',
+      chatChip1: 'Ninapanda vipi nyanya katika maeneo ya ukame?',
+      chatChip2: 'Ni mbolea gani bora kwa mtama?',
+      chatChip3: 'Nigundue vipi magonjwa ya mazao mapema?',
+      chatErrGeneric: 'Hitilafu imetokea. Tafadhali jaribu tena.',
+      chatErrRate: 'Umefikia kikomo cha ujumbe. Tafadhali jaribu tena baadaye.',
+      artPill: 'Wadudu na Magonjwa',
+      artTitle: 'Kuzuia Magonjwa ya Nyanya',
+      artReadTime: 'dakika 7',
+      artLead: 'Magonjwa ya nyanya ni ya kawaida, lakini hatua chache rahisi zitaweka mimea yako salama. Hapa kuna vidokezo 10 vilivyojaribiwa.',
+      artTip1Title: 'Zungusha mazao yako.',
+      artTip1: 'Magonjwa mengi ya nyanya yanaishi kwenye udongo. Panda nyanya katika eneo tofauti kila mwaka.',
+      artTip2Title: 'Ondoa majani yaliyo na maradhi mara moja.',
+      artTip2: 'Ukiona majani yenye dalili za magonjwa, yaondoe haraka na uyaweke kwenye taka.',
+      artTip3Title: 'Epuka kufanya kazi na mimea iliyo mvua.',
+      artTip3: 'Usifanye kazi shambani wakati majani ya nyanya ni mvua kwa sababu magonjwa yanaenea kwa urahisi.',
+      artTip4Title: 'Chagua aina sugu kwa magonjwa.',
+      artTip4: 'Chagua aina za nyanya zinazostahimili magonjwa ya kawaida.',
+      artTip5Title: 'Safisha shamba baada ya mavuno.',
+      artTip5: 'Ondoa mabaki yote ya mimea yenye magonjwa. Usiweke mimea iliyoambukizwa kwenye mbolea.',
+      artTip6Title: 'Tumia mimea yenye afya kwa msimu ujao.',
+      artTip6: 'Ukihifadhi mimea kwa msimu mwingine, hakikisha haina magonjwa kabisa.',
+      artTip7Title: 'Toa hewa nzuri.',
+      artTip7: 'Acha nafasi ya kutosha kati ya mimea kuboresha mzunguko wa hewa.',
+      artTip8Title: 'Tumia mulch karibu na mimea.',
+      artTip8: 'Tumia mbolea, majani makavu au nyasi kuzuia magonjwa ya udongo.',
+      artTip9Title: 'Hifadhi majani yakiwa makavu.',
+      artTip9: 'Mwagilia mimea katika mizizi kwa kutumia drip irrigation.',
+      artTip10Title: 'Safisha vyombo vya kupanda.',
+      artTip10: 'Ukikuza nyanya katika sufuria, safisha vyombo kwa myeyusho wa bleach 10%.',
+      abEy: 'KUHUSU', abTitle: 'Mwanzilishi wa Beylood',
+      abBio: 'Mohamed Shafie Mohamed ni mwanzilishi wa Beylood. Amejitolea kuleta maarifa ya kisasa ya kilimo kwa wakulima wa Kisomali, akichanganya teknolojia ya AI na hekima ya jamii.',
+      abMission: 'Dhamira yetu ni kuwa jukwaa kuu la maarifa ya kilimo kwa wakulima wa Kisomali, Pembe ya Afrika na Waarabu.',
+      fEy: 'Mwanzilishi', fRole: 'Mwanzilishi na Mkurugenzi Mkuu wa Beylood',
+      ctEy: 'WASILIANA', ctTitle: 'Wasiliana nasi',
+      ctSub: 'Maswali, msaada au ushirikiano — tungependa kukusikia.',
+      fTag: 'Maarifa ya Kilimo',
+      fAbout: 'Jukwaa la kisasa la kilimo — habari, elimu na mwongozo wa AI.',
+      fExplore: 'Chunguza', fCompany: 'Kampuni',
+      fRights: 'Haki zote zimehifadhiwa.',
+      fBuilt: 'Maarifa ya Kilimo Smart',
+      newsEy: 'HABARI ZA KILIMO', newsTitle: 'Habari za Kilimo',
+      newsSub: 'Habari za hivi karibuni kuhusu mazao, mifugo, na biashara ya kilimo.',
+      newsBack: '← Rudi kwenye habari',
+      n1Pill: 'Mazao', n1ReadTime: 'dakika 6',
+      n1Title: 'Msimu wa Mvua: Jinsi Wakulima Wanavyojiandaa',
+      n1Lead: 'Msimu wa mvua ni fursa kubwa kwa wakulima wa Kisomali. Maandalizi ya mapema ndio ufunguo wa mafanikio.',
+      n2Title: 'Mapato ya Shamba: Jinsi ya Kuongeza Faida',
+      n2Pill: 'Biashara', n2ReadTime: 'dakika 5',
+      n3Title: 'Mifugo na Kilimo: Ushirikiano Mpya', n3Pill: 'Mifugo', n3ReadTime: 'dakika 4',
+      n4Title: 'Utabiri wa Hali ya Hewa wa Msimu Ujao', n4Pill: 'Hali ya hewa', n4ReadTime: 'dakika 5',
+      n5Title: 'Teknolojia Mpya Inawafikia Wakulima', n5Pill: 'Teknolojia', n5ReadTime: 'dakika 6',
+      n6Title: 'Jinsi ya Kuimarisha Udongo Wako: Mwongozo Kamili', n6Pill: 'Udongo', n6ReadTime: 'dakika 7',
+      vmEy: 'MAONO NA DHAMIRA', vmTitle: 'Maono na Dhamira Yetu',
+      visionTitle: 'Maono',
+      visionText: 'Kuwa jukwaa kuu la maarifa ya kilimo katika Pembe ya Afrika na ulimwengu wa Kiarabu — mahali ambapo wakulima wanaweza kupata habari za hivi karibuni, utafiti, na masuluhisho yanayoendeshwa na AI.',
+      missionTitle: 'Dhamira',
+      missionText: 'Kuleta maarifa ya kisasa ya kilimo kwa wakulima wa Kisomali, Pembe ya Afrika na Waarabu — kwa kuchanganya teknolojia ya AI, habari, na elimu kwa njia inayofikika kwa kila mkulima.',
+      val1Title: 'Wakulima Kwanza', val1Text: 'Kila uamuzi na huduma tunayojenga huanza na mahitaji ya wakulima.',
+      val2Title: 'Teknolojia ya AI', val2Text: 'Kutumia AI ya kisasa kufanya maarifa ya kilimo kuwa rahisi kupatikana kwa wote.',
+      val3Title: 'Maarifa Yaliyothibitishwa', val3Text: 'Tunachapisha tu habari iliyothibitishwa, yenye msingi wa sayansi.',
+      srEy: 'TAFUTA', srTitle: 'Tafuta chochote kwenye Beylood',
+      srSub: 'Mazao, miongozo, huduma, habari na bidhaa — mahali pamoja.',
+      srLabel: 'Tafuta tovuti ya Beylood',
+      srPlaceholder: 'Tafuta mazao, bidhaa, huduma, habari, au taarifa...',
+      srFAll: 'Zote', srFCrop: 'Mazao', srFGuide: 'Miongozo',
+      srFService: 'Huduma', srFNews: 'Habari', srFProduct: 'Bidhaa',
+      srNoResults: 'Hakuna matokeo',
+      srTypeMore: 'Anza kuandika kutafuta…',
+      srOpen: 'Fungua',
+      srTagCrop: 'Zao', srTagGuide: 'Mwongozo', srTagService: 'Huduma',
+      srTagNews: 'Habari', srTagProduct: 'Bidhaa'
     }
   };
 
-  const order = ['so', 'en', 'ar'];
+  const order = ['so', 'en', 'ar', 'sw'];
   let current = 0;
 
   function applyLang(code) {
@@ -391,16 +508,27 @@
     });
 
     // data-lang shows/hides language-specific blocks (used on long articles)
+    // If requested lang has no matching span in a group, fall back to Somali.
     document.querySelectorAll('[data-lang]').forEach(el => {
       const elLang = el.getAttribute('data-lang');
-      if (elLang === 'so' || elLang === 'en' || elLang === 'ar') {
-        if (elLang === code) {
-          el.style.display = '';
-          el.removeAttribute('hidden');
-        } else {
-          el.style.display = 'none';
-          el.setAttribute('hidden', '');
-        }
+      const validLangs = ['so', 'en', 'ar', 'sw'];
+      if (!validLangs.includes(elLang)) return;
+
+      let shouldShow = (elLang === code);
+
+      // Fallback: if requested language has no sibling with that data-lang in the
+      // same parent, show the Somali version instead.
+      if (!shouldShow && elLang === 'so' && el.parentElement) {
+        const hasRequested = el.parentElement.querySelector('[data-lang="' + code + '"]');
+        if (!hasRequested) shouldShow = true;
+      }
+
+      if (shouldShow) {
+        el.style.display = '';
+        el.removeAttribute('hidden');
+      } else {
+        el.style.display = 'none';
+        el.setAttribute('hidden', '');
       }
     });
 
