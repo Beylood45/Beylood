@@ -1260,6 +1260,32 @@ html[dir="rtl"] .chat-messages .msg-user {
   content: none;
 }
 
+.cover-onion-farming {
+  background:
+    linear-gradient(135deg, rgba(146, 64, 14, .65) 0%, rgba(217, 119, 6, .65) 100%),
+    #92400E url('assets/onion-farming.jpg') center/cover no-repeat;
+}
+.cover-onion-farming::after { content: none; }
+
+.cover-maize-farming {
+  background:
+    linear-gradient(135deg, rgba(133, 77, 14, .55) 0%, rgba(217, 119, 6, .55) 100%),
+    #854D0E url('assets/maize-farming.jpg') center/cover no-repeat;
+}
+.cover-maize-farming::after { content: none; }
+
+.cover-rice-farming {
+  background:
+    linear-gradient(135deg, rgba(34, 197, 94, .55) 0%, rgba(101, 163, 13, .55) 100%),
+    #65A30D url('assets/rice-farming.jpg') center/cover no-repeat;
+}
+.cover-rice-farming::after { content: none; }
+
+.cover-aphids {
+  background: linear-gradient(135deg, #65A30D 0%, #84CC16 100%);
+}
+.cover-aphids::after { content: none; }
+
 .cover-news-1 { background: #0B3367 url('assets/news-1.jpg') center/cover no-repeat; }
 .cover-news-1::after { content: none; }
 .cover-news-2 { background: linear-gradient(135deg, #B45309 0%, #F59E0B 100%); }
