@@ -126,7 +126,24 @@
       srTypeMore: 'Bilaa qor si aad u raadiso…',
       srOpen: 'Fur',
       srTagCrop: 'Dalagga', srTagGuide: 'Hage', srTagService: 'Adeeg',
-      srTagNews: 'War', srTagProduct: 'Alaab'
+      srTagNews: 'War', srTagProduct: 'Alaab',
+      signInBtn: 'SOO GAL', signUpBtn: 'ISDIWAANGELI',
+      signInTitle: 'Soo dhowow Beylood',
+      signInSub: 'Gal akoonkaaga si aad u hesho aqoonta iyo adeegyada.',
+      signInGoogle: 'Ku gal Google', signInOr: 'Ama isticmaal iimaylkaaga',
+      signInEmail: 'Iimaylka', signInEmailPh: 'aniga@tusaale.com',
+      signInPass: 'Furaha (Password)',
+      signInRemember: 'Igu xasuuso', signInForgot: 'Ma illowday furaha?',
+      signInNoAcc: 'Akoon ma haysid?', signUpLink: 'Isdiwaangeli halkan',
+      signUpTitle: 'Abuur Akoon Cusub',
+      signUpSub: 'Bilow rihla aqooneed oo beero la xidhiidha — bilaash.',
+      signUpGoogle: 'Iska diwaangeli Google',
+      signUpOr: 'Ama abuur akoon iimaylka',
+      signUpName: 'Magaca Buuxa', signUpNamePh: 'Magaca buuxa',
+      signUpPassPh: 'Ugu yaraan 8 xaraf',
+      signUpPass2: 'Xaqiiji Furaha', signUpPass2Ph: 'Mar kale geli furaha',
+      signUpBtnFull: 'Abuur Akoon',
+      signUpHasAcc: 'Mar hore ma akoon haysataa?', signInLink: 'Soo gal halkan'
     },
 
     en: {
@@ -244,7 +261,24 @@
       srTypeMore: 'Start typing to search…',
       srOpen: 'Open',
       srTagCrop: 'Crop', srTagGuide: 'Guide', srTagService: 'Service',
-      srTagNews: 'News', srTagProduct: 'Product'
+      srTagNews: 'News', srTagProduct: 'Product',
+      signInBtn: 'SIGN IN', signUpBtn: 'SIGN UP',
+      signInTitle: 'Welcome to Beylood',
+      signInSub: 'Sign in to access knowledge and services.',
+      signInGoogle: 'Continue with Google', signInOr: 'Or use your email',
+      signInEmail: 'Email', signInEmailPh: 'you@example.com',
+      signInPass: 'Password',
+      signInRemember: 'Remember me', signInForgot: 'Forgot password?',
+      signInNoAcc: "Don't have an account?", signUpLink: 'Sign up here',
+      signUpTitle: 'Create a New Account',
+      signUpSub: 'Start your agricultural knowledge journey — free.',
+      signUpGoogle: 'Sign up with Google',
+      signUpOr: 'Or create an email account',
+      signUpName: 'Full Name', signUpNamePh: 'Your full name',
+      signUpPassPh: 'At least 8 characters',
+      signUpPass2: 'Confirm Password', signUpPass2Ph: 'Re-enter password',
+      signUpBtnFull: 'Create Account',
+      signUpHasAcc: 'Already have an account?', signInLink: 'Sign in here'
     },
 
     ar: {
@@ -362,7 +396,24 @@
       srTypeMore: 'ابدأ الكتابة للبحث…',
       srOpen: 'فتح',
       srTagCrop: 'محصول', srTagGuide: 'دليل', srTagService: 'خدمة',
-      srTagNews: 'خبر', srTagProduct: 'منتج'
+      srTagNews: 'خبر', srTagProduct: 'منتج',
+      signInBtn: 'تسجيل الدخول', signUpBtn: 'إنشاء حساب',
+      signInTitle: 'مرحباً بك في بَيلود',
+      signInSub: 'سجّل الدخول للوصول إلى المعرفة والخدمات.',
+      signInGoogle: 'متابعة عبر Google', signInOr: 'أو استخدم بريدك الإلكتروني',
+      signInEmail: 'البريد الإلكتروني', signInEmailPh: 'you@example.com',
+      signInPass: 'كلمة المرور',
+      signInRemember: 'تذكّرني', signInForgot: 'هل نسيت كلمة المرور؟',
+      signInNoAcc: 'ليس لديك حساب؟', signUpLink: 'سجّل هنا',
+      signUpTitle: 'إنشاء حساب جديد',
+      signUpSub: 'ابدأ رحلتك المعرفية في الزراعة — مجاناً.',
+      signUpGoogle: 'سجّل عبر Google',
+      signUpOr: 'أو أنشئ حساب بريد إلكتروني',
+      signUpName: 'الاسم الكامل', signUpNamePh: 'اسمك الكامل',
+      signUpPassPh: '8 خانات على الأقل',
+      signUpPass2: 'تأكيد كلمة المرور', signUpPass2Ph: 'أعد إدخال كلمة المرور',
+      signUpBtnFull: 'إنشاء الحساب',
+      signUpHasAcc: 'هل لديك حساب بالفعل؟', signInLink: 'سجّل الدخول هنا'
     },
 
     sw: {
@@ -479,7 +530,24 @@
       srTypeMore: 'Anza kuandika kutafuta…',
       srOpen: 'Fungua',
       srTagCrop: 'Zao', srTagGuide: 'Mwongozo', srTagService: 'Huduma',
-      srTagNews: 'Habari', srTagProduct: 'Bidhaa'
+      srTagNews: 'Habari', srTagProduct: 'Bidhaa',
+      signInBtn: 'INGIA', signUpBtn: 'JISAJILI',
+      signInTitle: 'Karibu Beylood',
+      signInSub: 'Ingia kupata maarifa na huduma.',
+      signInGoogle: 'Endelea na Google', signInOr: 'Au tumia barua pepe yako',
+      signInEmail: 'Barua pepe', signInEmailPh: 'wewe@mfano.com',
+      signInPass: 'Nenosiri',
+      signInRemember: 'Nikumbuke', signInForgot: 'Umesahau nenosiri?',
+      signInNoAcc: 'Huna akaunti?', signUpLink: 'Jisajili hapa',
+      signUpTitle: 'Fungua Akaunti Mpya',
+      signUpSub: 'Anza safari yako ya maarifa ya kilimo — bure.',
+      signUpGoogle: 'Jisajili na Google',
+      signUpOr: 'Au fungua akaunti ya barua pepe',
+      signUpName: 'Jina Kamili', signUpNamePh: 'Jina lako kamili',
+      signUpPassPh: 'Angalau herufi 8',
+      signUpPass2: 'Thibitisha Nenosiri', signUpPass2Ph: 'Ingiza nenosiri tena',
+      signUpBtnFull: 'Fungua Akaunti',
+      signUpHasAcc: 'Tayari una akaunti?', signInLink: 'Ingia hapa'
     }
   };
 
