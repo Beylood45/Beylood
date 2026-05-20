@@ -107,6 +107,41 @@
         </div>
       </a>
     </div>
+
+    <div class="contact-form-wrap reveal">
+      <div class="contact-form-head">
+        <span class="section-eyebrow">
+          <span data-lang="so">FARRIIN NOO DIR</span><span data-lang="en" hidden>SEND A MESSAGE</span><span data-lang="ar" hidden>أرسل رسالة</span><span data-lang="sw" hidden>TUMA UJUMBE</span>
+        </span>
+        <h2 class="section-title">
+          <span data-lang="so">Noo soo qor farriintaada</span><span data-lang="en" hidden>Write us a message</span><span data-lang="ar" hidden>اكتب لنا رسالة</span><span data-lang="sw" hidden>Tuandikie ujumbe</span>
+        </h2>
+      </div>
+
+      <form class="contact-form" id="contactForm" autocomplete="on" onsubmit="event.preventDefault(); document.getElementById('contactMsg').textContent = (document.documentElement.lang==='en'?'Thank you! Your message has been received (demo).':document.documentElement.lang==='ar'?'شكراً! تم استلام رسالتك (تجريبي).':document.documentElement.lang==='sw'?'Asante! Ujumbe wako umepokelewa (demo).':'Mahadsanid! Farriintaada waa la helay (demo).'); this.reset();">
+        <div class="contact-form-row">
+          <div>
+            <label class="auth-label" for="cfName"><span data-lang="so">Magaca</span><span data-lang="en" hidden>Name</span><span data-lang="ar" hidden>الاسم</span><span data-lang="sw" hidden>Jina</span></label>
+            <input id="cfName" type="text" class="auth-input" required autocomplete="name" placeholder="..." />
+          </div>
+          <div>
+            <label class="auth-label" for="cfEmail"><span data-lang="so">Iimaylka</span><span data-lang="en" hidden>Email</span><span data-lang="ar" hidden>البريد</span><span data-lang="sw" hidden>Barua pepe</span></label>
+            <input id="cfEmail" type="email" class="auth-input" required autocomplete="email" placeholder="you@example.com" />
+          </div>
+        </div>
+
+        <label class="auth-label" for="cfSubject"><span data-lang="so">Mawduuca</span><span data-lang="en" hidden>Subject</span><span data-lang="ar" hidden>الموضوع</span><span data-lang="sw" hidden>Mada</span></label>
+        <input id="cfSubject" type="text" class="auth-input" required placeholder="..." />
+
+        <label class="auth-label" for="cfMessage"><span data-lang="so">Farriinta</span><span data-lang="en" hidden>Message</span><span data-lang="ar" hidden>الرسالة</span><span data-lang="sw" hidden>Ujumbe</span></label>
+        <textarea id="cfMessage" class="auth-input contact-textarea" rows="5" required placeholder="..."></textarea>
+
+        <button type="submit" class="auth-submit contact-submit">
+          <span data-lang="so">Dir Farriinta</span><span data-lang="en" hidden>Send Message</span><span data-lang="ar" hidden>إرسال الرسالة</span><span data-lang="sw" hidden>Tuma Ujumbe</span>
+        </button>
+        <p class="auth-msg" id="contactMsg" aria-live="polite"></p>
+      </form>
+    </div>
   </div>
 </section>
 
