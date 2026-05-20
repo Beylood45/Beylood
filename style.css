@@ -1334,7 +1334,7 @@ html[dir="rtl"] .chat-messages .msg-user {
 
 .cover-chili-farming {
   background:
-    linear-gradient(135deg, rgba(153, 27, 27, .45) 0%, rgba(220, 38, 38, .45) 100%),
+    linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
     #B91C1C url('assets/chillipapper-farming.jpg') center/cover no-repeat;
 }
 .cover-chili-farming::after { content: none; }
