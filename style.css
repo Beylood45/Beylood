@@ -1291,7 +1291,7 @@ html[dir="rtl"] .chat-messages .msg-user {
 
 .cover-tomato-farming {
   background:
-    linear-gradient(135deg, rgba(190, 18, 60, .55) 0%, rgba(47, 138, 42, .55) 100%),
+    linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
     #BE123C url('assets/tomato-farming.jpg') center/cover no-repeat;
 }
 
@@ -1301,21 +1301,21 @@ html[dir="rtl"] .chat-messages .msg-user {
 
 .cover-onion-farming {
   background:
-    linear-gradient(135deg, rgba(146, 64, 14, .65) 0%, rgba(217, 119, 6, .65) 100%),
+    linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
     #92400E url('assets/onion-farming.jpg') center/cover no-repeat;
 }
 .cover-onion-farming::after { content: none; }
 
 .cover-maize-farming {
   background:
-    linear-gradient(135deg, rgba(133, 77, 14, .55) 0%, rgba(217, 119, 6, .55) 100%),
+    linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
     #854D0E url('assets/maize-farming.jpg') center/cover no-repeat;
 }
 .cover-maize-farming::after { content: none; }
 
 .cover-rice-farming {
   background:
-    linear-gradient(135deg, rgba(34, 197, 94, .55) 0%, rgba(101, 163, 13, .55) 100%),
+    linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
     #65A30D url('assets/rice-farming.jpg') center/cover no-repeat;
 }
 .cover-rice-farming::after { content: none; }
@@ -1327,15 +1327,15 @@ html[dir="rtl"] .chat-messages .msg-user {
 
 .cover-watermelon-farming {
   background:
-    linear-gradient(135deg, rgba(190, 18, 60, .5) 0%, rgba(34, 197, 94, .5) 100%),
+    linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
     #16A34A url('assets/watermelon-farming.jpg') center/cover no-repeat;
 }
 .cover-watermelon-farming::after { content: none; }
 
 .cover-chili-farming {
   background:
-    linear-gradient(135deg, rgba(153, 27, 27, .55) 0%, rgba(220, 38, 38, .55) 100%),
-    #B91C1C url('assets/chili-farming.jpg') center/cover no-repeat;
+    linear-gradient(135deg, rgba(153, 27, 27, .45) 0%, rgba(220, 38, 38, .45) 100%),
+    #B91C1C url('assets/chillipapper-farming.jpg') center/cover no-repeat;
 }
 .cover-chili-farming::after { content: none; }
 
