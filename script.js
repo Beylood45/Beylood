@@ -17,13 +17,13 @@
       navHome: 'Bogga Hore', navCats: 'Qaybaha', navAsk: 'WAYDII BEYLOOD',
       navArticles: 'Maqaallo', navNews: 'Wararka', navAbout: 'Nagu saabsan', navContact: 'Nala soo xidhiidh',
       askBtn: 'WAYDII BEYLOOD',
-      heroEy: 'Madal Beeraha',
+      heroEy: 'Madal Beereed',
       heroTitle: 'Laga bilaabo Soomaaliya ilaa dunida — horumarinta beeraha iyada oo loo marayo aqoon iyo hal-abuur.',
       heroSub: "Taageeridda beeraleyda iyadoo la siinayo aqoon beeraha oo lagu kalsoon yahay, hagitaanno ilaalinta dalagga, wararka beeraha, iyo xalal casri ah oo horseeda mustaqbal waara.",
       ctaPrimary: 'Waydii Beylood AI',
       ctaSecondary: 'Daawo waxbarashada',
-      stArticles: 'Maqaallo', stResearch: 'Cilmi-baadhis',
-      stUsers: 'Isticmaalayaal', stCountries: 'Wadamo',
+      stArticles: 'Maqaallo', stResearch: 'Qaybo',
+      stUsers: 'Luqadood', stCountries: 'Caawiye AI',
       catEy: 'QAYBAHA AQOONTA', catTitle: 'Qaybaha aqoonta',
       catSub: 'Dooro qaybta ku habboon waxa aad u baahan tahay',
       catCrops: 'Dalagga',
@@ -152,13 +152,13 @@
       navHome: 'Home', navCats: 'Categories', navAsk: 'ASK BEYLOOD',
       navArticles: 'Articles', navNews: 'News', navAbout: 'About', navContact: 'Contact',
       askBtn: 'ASK BEYLOOD',
-      heroEy: 'Agriculture Platform',
+      heroEy: 'Agricultural Platform',
       heroTitle: 'From Somalia to the World — Growing Agriculture Through Knowledge and Innovation.',
       heroSub: 'Empowering farmers with trusted agricultural knowledge, crop protection guidance, farming news, and modern agricultural solutions for a sustainable future.',
       ctaPrimary: 'Ask Beylood AI',
       ctaSecondary: 'Browse education',
-      stArticles: 'Articles', stResearch: 'Research papers',
-      stUsers: 'Registered users', stCountries: 'Countries',
+      stArticles: 'Articles', stResearch: 'Categories',
+      stUsers: 'Languages', stCountries: 'AI Assistant',
       catEy: 'KNOWLEDGE CATEGORIES', catTitle: 'Knowledge categories',
       catSub: 'Pick the area that matches what you need',
       catCrops: 'Crops',
@@ -292,8 +292,8 @@
       heroSub: 'تمكين المزارعين من خلال المعرفة الزراعية الموثوقة، وإرشادات حماية المحاصيل، والأخبار الزراعية، والحلول الحديثة من أجل مستقبل زراعي مستدام.',
       ctaPrimary: 'اسأل بيلود الذكي',
       ctaSecondary: 'تصفح التعليم',
-      stArticles: 'مقالة', stResearch: 'بحث علمي',
-      stUsers: 'مستخدم مسجل', stCountries: 'دولة',
+      stArticles: 'مقالات', stResearch: 'فئات',
+      stUsers: 'لغات', stCountries: 'مساعد ذكي',
       catEy: 'فئات المعرفة', catTitle: 'فئات المعرفة',
       catSub: 'اختر المجال الذي يناسب احتياجك',
       catCrops: 'المحاصيل',
@@ -423,12 +423,12 @@
       navArticles: 'Makala', navNews: 'Habari', navAbout: 'Kuhusu', navContact: 'Wasiliana',
       askBtn: 'ULIZA BEYLOOD',
       heroEy: 'Jukwaa la Kilimo',
-      heroTitle: 'Maarifa ya kilimo — yaliyojengwa kwa wakulima, tayari kwa dunia.',
+      heroTitle: 'Kutoka Somalia hadi Ulimwenguni - Kukuza Kilimo Kupitia Maarifa na Ubunifu.',
       heroSub: 'Beylood ni jukwaa la lugha nne linalotoa elimu, habari, utafiti, na usaidizi wa AI kwa wakulima na biashara za kilimo.',
       ctaPrimary: 'Uliza Beylood AI',
       ctaSecondary: 'Tazama elimu',
-      stArticles: 'Makala', stResearch: 'Karatasi za utafiti',
-      stUsers: 'Watumiaji', stCountries: 'Nchi',
+      stArticles: 'Makala', stResearch: 'Vikundi',
+      stUsers: 'Lugha', stCountries: 'Msaidizi AI',
       catEy: 'VIKUNDI VYA MAARIFA', catTitle: 'Vikundi vya maarifa',
       catSub: 'Chagua eneo linalokufaa',
       catCrops: 'Mazao',
@@ -673,7 +673,30 @@
 
     // Scroll-reveal animations (premium polish)
     initReveal();
+
+    // News category filter
+    initNewsFilter();
   });
+
+  /* ---------- News category filter ---------- */
+  function initNewsFilter() {
+    const chips = document.querySelectorAll('.news-chip');
+    const grid = document.getElementById('newsGrid');
+    if (!chips.length || !grid) return;
+    const cards = grid.querySelectorAll('.card-article');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-selected', 'false'); });
+        chip.classList.add('is-active');
+        chip.setAttribute('aria-selected', 'true');
+        const f = chip.getAttribute('data-nfilter');
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-ncat');
+          card.style.display = (f === 'all' || cat === f) ? '' : 'none';
+        });
+      });
+    });
+  }
 
   /* ---------- Scroll-reveal ---------- */
   function initReveal() {
