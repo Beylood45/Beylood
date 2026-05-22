@@ -118,7 +118,7 @@
         </div>
       </a>
 
-      <a href="news-2.html" class="card-article" data-ncat="business">
+      <a href="news-1.html" class="card-article" data-ncat="business">
         <div class="card-cover cover-news-2"></div>
         <div class="card-body">
           <span class="pill" data-key="n2Pill">Ganacsiga</span>
@@ -135,7 +135,7 @@
         </div>
       </a>
 
-      <a href="news-3.html" class="card-article" data-ncat="crops">
+      <a href="news-1.html" class="card-article" data-ncat="crops">
         <div class="card-cover cover-news-3"></div>
         <div class="card-body">
           <span class="pill" data-key="n3Pill">Xoolaha</span>
@@ -152,7 +152,7 @@
         </div>
       </a>
 
-      <a href="news-4.html" class="card-article" data-ncat="climate">
+      <a href="news-1.html" class="card-article" data-ncat="climate">
         <div class="card-cover cover-news-4"></div>
         <div class="card-body">
           <span class="pill" data-key="n4Pill">Cimilada</span>
@@ -169,7 +169,7 @@
         </div>
       </a>
 
-      <a href="news-5.html" class="card-article" data-ncat="tech">
+      <a href="news-1.html" class="card-article" data-ncat="tech">
         <div class="card-cover cover-news-5"></div>
         <div class="card-body">
           <span class="pill" data-key="n5Pill">Tignoolajiyada</span>
@@ -186,7 +186,7 @@
         </div>
       </a>
 
-      <a href="news-6.html" class="card-article" data-ncat="crops">
+      <a href="news-1.html" class="card-article" data-ncat="crops">
         <div class="card-cover cover-news-6"></div>
         <div class="card-body">
           <span class="pill" data-key="n6Pill">Carrada</span>
@@ -253,6 +253,5 @@
 </footer>
 
 <script src="script.js"></script>
-<script type="module" src="auth.js"></script>
 </body>
 </html>

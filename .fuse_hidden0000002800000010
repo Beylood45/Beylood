@@ -95,42 +95,6 @@
     </p>
 
     <div class="grid-articles">
-      <a href="article-mango-farming.html" class="card-article">
-        <div class="card-cover cover-mango-farming"></div>
-        <div class="card-body">
-          <span class="pill"><span data-lang="so">Dalagga</span><span data-lang="en" hidden>Crops</span><span data-lang="ar" hidden>المحاصيل</span><span data-lang="sw" hidden>Mazao</span></span>
-          <h3><span data-lang="so">Beeritaanka Cambaha — Hagaha Buuxa</span><span data-lang="en" hidden>Mango Farming — The Complete Guide</span><span data-lang="ar" hidden>زراعة المانجو — الدليل الشامل</span><span data-lang="sw" hidden>Kilimo cha Maembe — Mwongozo Kamili</span></h3>
-          <div class="card-meta"><span>2026-05-19</span><span><span data-lang="so">11 daqiiqo</span><span data-lang="en" hidden>11 min</span><span data-lang="ar" hidden>11 دقيقة</span><span data-lang="sw" hidden>dakika 11</span></span></div>
-        </div>
-      </a>
-
-      <a href="article-banana-farming.html" class="card-article">
-        <div class="card-cover cover-banana-farming"></div>
-        <div class="card-body">
-          <span class="pill"><span data-lang="so">Dalagga</span><span data-lang="en" hidden>Crops</span><span data-lang="ar" hidden>المحاصيل</span><span data-lang="sw" hidden>Mazao</span></span>
-          <h3><span data-lang="so">Beeritaanka Mooska — Hagaha Buuxa</span><span data-lang="en" hidden>Banana Farming — The Complete Guide</span><span data-lang="ar" hidden>زراعة الموز — الدليل الشامل</span><span data-lang="sw" hidden>Kilimo cha Ndizi — Mwongozo Kamili</span></h3>
-          <div class="card-meta"><span>2026-05-18</span><span><span data-lang="so">11 daqiiqo</span><span data-lang="en" hidden>11 min</span><span data-lang="ar" hidden>11 دقيقة</span><span data-lang="sw" hidden>dakika 11</span></span></div>
-        </div>
-      </a>
-
-      <a href="article-cabbage-farming.html" class="card-article">
-        <div class="card-cover cover-cabbage-farming"></div>
-        <div class="card-body">
-          <span class="pill"><span data-lang="so">Dalagga</span><span data-lang="en" hidden>Crops</span><span data-lang="ar" hidden>المحاصيل</span><span data-lang="sw" hidden>Mazao</span></span>
-          <h3><span data-lang="so">Beeritaanka Kaabashka — Hagaha Buuxa</span><span data-lang="en" hidden>Cabbage Farming — The Complete Guide</span><span data-lang="ar" hidden>زراعة الملفوف — الدليل الشامل</span><span data-lang="sw" hidden>Kilimo cha Kabichi — Mwongozo Kamili</span></h3>
-          <div class="card-meta"><span>2026-05-18</span><span><span data-lang="so">10 daqiiqo</span><span data-lang="en" hidden>10 min</span><span data-lang="ar" hidden>10 دقيقة</span><span data-lang="sw" hidden>dakika 10</span></span></div>
-        </div>
-      </a>
-
-      <a href="article-cassava-farming.html" class="card-article">
-        <div class="card-cover cover-cassava-farming"></div>
-        <div class="card-body">
-          <span class="pill"><span data-lang="so">Dalagga</span><span data-lang="en" hidden>Crops</span><span data-lang="ar" hidden>المحاصيل</span><span data-lang="sw" hidden>Mazao</span></span>
-          <h3><span data-lang="so">Beeritaanka Cassava — Hagaha Buuxa</span><span data-lang="en" hidden>Cassava Farming — The Complete Guide</span><span data-lang="ar" hidden>زراعة الكسافا — الدليل الشامل</span><span data-lang="sw" hidden>Kilimo cha Mihogo — Mwongozo Kamili</span></h3>
-          <div class="card-meta"><span>2026-05-19</span><span><span data-lang="so">10 daqiiqo</span><span data-lang="en" hidden>10 min</span><span data-lang="ar" hidden>10 دقيقة</span><span data-lang="sw" hidden>dakika 10</span></span></div>
-        </div>
-      </a>
-
       <a href="article-watermelon-farming.html" class="card-article">
         <div class="card-cover cover-watermelon-farming"></div>
         <div class="card-body">
@@ -284,6 +248,5 @@
 </footer>
 
 <script src="script.js"></script>
-<script type="module" src="auth.js"></script>
 </body>
 </html>

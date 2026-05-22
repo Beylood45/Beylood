@@ -1,43 +1,26 @@
 /* ============================================
-   Beylood — Firebase Authentication
+   Beylood — Authentication + dynamic navbar
    --------------------------------------------
-   SETUP (do this once):
-   1. Create a project at https://console.firebase.google.com
-   2. Build → Authentication → Get started
-        • Enable "Email/Password"
-        • Enable "Google" (set a support email)
-   3. Project settings (gear) → Your apps → Web (</>) → Register app
-   4. Copy the firebaseConfig values and REPLACE the placeholders below.
-   5. Authentication → Settings → Authorized domains → add your live domain.
+   • Email/Password + Google sign in / sign up
+   • Saves a profile to the Firestore "users" collection
+   • Renders a profile chip in the navbar on every page
+   • Injects a "Save article" bookmark button on articles
+   Config lives in firebase-init.js (imported below).
    ============================================ */
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
-  GoogleAuthProvider,
   signOut,
   onAuthStateChanged,
   updateProfile
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+  doc, getDoc, setDoc, deleteDoc, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* ----- REPLACE THESE WITH YOUR REAL FIREBASE CONFIG ----- */
-const firebaseConfig = {
-  apiKey: "AIzaSyAs9E6hK2zO-ax7QEhgA9sbhRFRbRX-c1A",
-  authDomain: "beylood-e74d6.firebaseapp.com",
-  projectId: "beylood-e74d6",
-  storageBucket: "beylood-e74d6.firebasestorage.app",
-  messagingSenderId: "262960651820",
-  appId: "1:262960651820:web:2a92f2eff11ba619e43b89",
-  measurementId: "G-YX4ZHPHQDB"
-};
-/* -------------------------------------------------------- */
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider();
+import { auth, db, googleProvider, configReady } from "./firebase-init.js";
 
 /* ---------- Localized helpers ---------- */
 function curLang() { return document.documentElement.lang || 'so'; }
@@ -66,8 +49,22 @@ function setMsg(id, text, isError) {
   el.classList.toggle('is-info', !isError);
 }
 
-function configReady() {
-  return firebaseConfig.apiKey && firebaseConfig.apiKey !== 'REPLACE_ME';
+/* ---------- Firestore: save / update user profile ---------- */
+async function saveUserProfile(user, fallbackName) {
+  try {
+    const ref = doc(db, 'users', user.uid);
+    const snap = await getDoc(ref);
+    const data = {
+      name: user.displayName || fallbackName || '',
+      email: user.email || '',
+      photoURL: user.photoURL || '',
+      lastLogin: serverTimestamp()
+    };
+    if (!snap.exists()) data.createdAt = serverTimestamp();
+    await setDoc(ref, data, { merge: true });
+  } catch (err) {
+    console.warn('Could not save user profile:', err);
+  }
 }
 
 /* ---------- Sign Up ---------- */
@@ -84,13 +81,14 @@ if (signupForm) {
       return;
     }
     if (!configReady()) {
-      setMsg('signupMsg', tr({ so: 'Firebase config weli lama dejin (auth.js).', en: 'Firebase config not set yet (auth.js).', ar: 'لم يتم ضبط إعدادات Firebase بعد.', sw: 'Mipangilio ya Firebase haijawekwa.' }), true);
+      setMsg('signupMsg', tr({ so: 'Firebase config weli lama dejin.', en: 'Firebase config not set yet.', ar: 'لم يتم ضبط إعدادات Firebase بعد.', sw: 'Mipangilio ya Firebase haijawekwa.' }), true);
       return;
     }
     try {
       const cred = await createUserWithEmailAndPassword(auth, email.trim(), p1);
       if (name.trim()) await updateProfile(cred.user, { displayName: name.trim() });
-      window.location.href = 'index.html';
+      await saveUserProfile(cred.user, name.trim());
+      window.location.href = 'dashboard.html';
     } catch (err) {
       setMsg('signupMsg', friendlyError(err.code), true);
     }
@@ -105,12 +103,13 @@ if (signinForm) {
     const email = (document.getElementById('signinEmail') || {}).value || '';
     const pass = (document.getElementById('signinPass') || {}).value || '';
     if (!configReady()) {
-      setMsg('signinMsg', tr({ so: 'Firebase config weli lama dejin (auth.js).', en: 'Firebase config not set yet (auth.js).', ar: 'لم يتم ضبط إعدادات Firebase بعد.', sw: 'Mipangilio ya Firebase haijawekwa.' }), true);
+      setMsg('signinMsg', tr({ so: 'Firebase config weli lama dejin.', en: 'Firebase config not set yet.', ar: 'لم يتم ضبط إعدادات Firebase بعد.', sw: 'Mipangilio ya Firebase haijawekwa.' }), true);
       return;
     }
     try {
-      await signInWithEmailAndPassword(auth, email.trim(), pass);
-      window.location.href = 'index.html';
+      const cred = await signInWithEmailAndPassword(auth, email.trim(), pass);
+      await saveUserProfile(cred.user);
+      window.location.href = 'dashboard.html';
     } catch (err) {
       setMsg('signinMsg', friendlyError(err.code), true);
     }
@@ -122,32 +121,159 @@ document.querySelectorAll('.auth-google').forEach((btn) => {
   btn.addEventListener('click', async () => {
     const msgId = document.getElementById('signupMsg') ? 'signupMsg' : 'signinMsg';
     if (!configReady()) {
-      setMsg(msgId, tr({ so: 'Firebase config weli lama dejin (auth.js).', en: 'Firebase config not set yet (auth.js).', ar: 'لم يتم ضبط إعدادات Firebase بعد.', sw: 'Mipangilio ya Firebase haijawekwa.' }), true);
+      setMsg(msgId, tr({ so: 'Firebase config weli lama dejin.', en: 'Firebase config not set yet.', ar: 'لم يتم ضبط إعدادات Firebase بعد.', sw: 'Mipangilio ya Firebase haijawekwa.' }), true);
       return;
     }
     try {
-      await signInWithPopup(auth, googleProvider);
-      window.location.href = 'index.html';
+      const cred = await signInWithPopup(auth, googleProvider);
+      await saveUserProfile(cred.user);
+      window.location.href = 'dashboard.html';
     } catch (err) {
       setMsg(msgId, friendlyError(err.code), true);
     }
   });
 });
 
-/* ---------- Auth state → header chip + logout ---------- */
+/* ---------- Navbar profile chip ---------- */
+function firstName(name, email) {
+  if (name && name.trim()) return name.trim().split(/\s+/)[0];
+  if (email) return email.split('@')[0];
+  return 'Account';
+}
+function initials(name, email) {
+  const src = (name && name.trim()) || (email ? email.split('@')[0] : '') || 'U';
+  const parts = src.trim().split(/\s+/);
+  const a = parts[0] ? parts[0][0] : 'U';
+  const b = parts[1] ? parts[1][0] : '';
+  return (a + b).toUpperCase();
+}
+
+function avatarMarkup(user) {
+  if (user.photoURL) {
+    return '<img class="auth-avatar-img" src="' + user.photoURL + '" alt="" referrerpolicy="no-referrer" />';
+  }
+  return '<span class="auth-avatar-fallback">' + initials(user.displayName, user.email) + '</span>';
+}
+
+function setAuthLinksVisible(visible) {
+  document.querySelectorAll('.nav-right a[href="signin.html"], .nav-right a[href="signup.html"]').forEach((a) => {
+    a.style.display = visible ? '' : 'none';
+  });
+}
+
+function renderChip(user) {
+  const navRight = document.querySelector('.nav-right');
+  if (!navRight) return;
+  let chip = document.getElementById('authChip');
+  const logoutLabel = tr({ so: 'Ka bax', en: 'Logout', ar: 'خروج', sw: 'Toka' });
+  const html =
+    '<a href="dashboard.html" class="auth-chip-link" title="Dashboard">' +
+      '<span class="auth-avatar">' + avatarMarkup(user) + '</span>' +
+      '<span class="auth-chip-name">' + firstName(user.displayName, user.email) + '</span>' +
+    '</a>' +
+    '<button type="button" id="logoutBtn" class="auth-logout-btn" aria-label="' + logoutLabel + '" title="' + logoutLabel + '">' +
+      '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>' +
+    '</button>';
+  if (!chip) {
+    chip = document.createElement('div');
+    chip.id = 'authChip';
+    chip.className = 'auth-chip';
+    const themeBtn = document.getElementById('themeBtn');
+    navRight.insertBefore(chip, themeBtn || navRight.firstChild);
+  }
+  chip.innerHTML = html;
+  const lo = document.getElementById('logoutBtn');
+  if (lo) lo.addEventListener('click', () => signOut(auth).then(() => { window.location.href = 'index.html'; }));
+}
+
+function removeChip() {
+  const chip = document.getElementById('authChip');
+  if (chip) chip.remove();
+}
+
+/* ---------- Bookmark button on article pages ---------- */
+function pageId() {
+  const file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  return file.replace(/[^a-z0-9._-]/g, '') || 'index.html';
+}
+function pageTitle() {
+  const t = document.querySelector('.article-title');
+  if (t) {
+    const vis = t.querySelector('span:not([hidden])');
+    if (vis && vis.textContent.trim()) return vis.textContent.trim();
+  }
+  return (document.title || 'Article').replace(/\s*[|—-]\s*Beylood.*$/i, '').trim();
+}
+
+function injectBookmarkButton(currentUser) {
+  const page = document.querySelector('.article-page');
+  if (!page) return;
+  const header = page.querySelector('.article-header');
+  if (!header) return;
+  let btn = header.querySelector('.bookmark-btn');
+  if (!btn) {
+    btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'bookmark-btn';
+    header.appendChild(btn);
+  }
+  const id = pageId();
+
+  function paint(saved) {
+    const label = saved
+      ? tr({ so: 'La kaydiyey', en: 'Saved', ar: 'محفوظ', sw: 'Imehifadhiwa' })
+      : tr({ so: 'Kaydi maqaalka', en: 'Save article', ar: 'حفظ المقال', sw: 'Hifadhi makala' });
+    btn.classList.toggle('is-saved', saved);
+    btn.innerHTML =
+      '<svg viewBox="0 0 24 24" width="16" height="16" fill="' + (saved ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>' +
+      '<span>' + label + '</span>';
+  }
+
+  paint(false);
+
+  if (!currentUser) {
+    btn.onclick = () => { window.location.href = 'signin.html'; };
+    return;
+  }
+
+  const ref = doc(db, 'users', currentUser.uid, 'bookmarks', id);
+  getDoc(ref).then((snap) => paint(snap.exists())).catch(() => {});
+
+  btn.onclick = async () => {
+    btn.disabled = true;
+    try {
+      const snap = await getDoc(ref);
+      if (snap.exists()) {
+        await deleteDoc(ref);
+        paint(false);
+      } else {
+        await setDoc(ref, { title: pageTitle(), url: id, savedAt: serverTimestamp() });
+        paint(true);
+      }
+    } catch (err) {
+      console.warn('Bookmark error:', err);
+    } finally {
+      btn.disabled = false;
+    }
+  };
+}
+
+/* ---------- Auth state → drive the whole UI ---------- */
 if (configReady()) {
   onAuthStateChanged(auth, (user) => {
-    const slot = document.getElementById('authSlot');
-    if (!slot) return;
+    const path = (location.pathname.split('/').pop() || '').toLowerCase();
     if (user) {
-      const name = user.displayName || user.email || 'Account';
-      slot.innerHTML =
-        '<span class="auth-user">' +
-        '<span class="auth-user-name">' + name + '</span>' +
-        '<button type="button" id="logoutBtn" class="auth-logout">Logout</button>' +
-        '</span>';
-      const lo = document.getElementById('logoutBtn');
-      if (lo) lo.addEventListener('click', () => signOut(auth).then(() => location.reload()));
+      setAuthLinksVisible(false);
+      renderChip(user);
+      injectBookmarkButton(user);
+      // If a logged-in user lands on the auth pages, send them to the dashboard.
+      if (path === 'signin.html' || path === 'signup.html') {
+        window.location.href = 'dashboard.html';
+      }
+    } else {
+      setAuthLinksVisible(true);
+      removeChip();
+      injectBookmarkButton(null);
     }
   });
 }

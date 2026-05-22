@@ -169,7 +169,7 @@
         </div>
       </a>
 
-      <a href="news-5.html" class="card-article" data-ncat="tech">
+      <a href="news-1.html" class="card-article" data-ncat="tech">
         <div class="card-cover cover-news-5"></div>
         <div class="card-body">
           <span class="pill" data-key="n5Pill">Tignoolajiyada</span>
@@ -186,7 +186,7 @@
         </div>
       </a>
 
-      <a href="news-6.html" class="card-article" data-ncat="crops">
+      <a href="news-1.html" class="card-article" data-ncat="crops">
         <div class="card-cover cover-news-6"></div>
         <div class="card-body">
           <span class="pill" data-key="n6Pill">Carrada</span>

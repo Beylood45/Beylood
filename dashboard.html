@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Beylood — Dashboard-kaaga gaarka ah." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <meta name="robots" content="noindex" />
+  <title>Dashboard — Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo" aria-label="Beylood home"><img src="assets/logo.png" alt="Beylood" /></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+      <a href="articles.html" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
+        <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+        <span id="langLabel">Soomaali</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Loading gate: shown until auth state resolves -->
+<div id="dashLoading" class="dash-loading">
+  <div class="dash-spinner" aria-hidden="true"></div>
+  <p><span data-lang="so">Waa la soo rarayaa…</span><span data-lang="en" hidden>Loading…</span><span data-lang="ar" hidden>جارٍ التحميل…</span><span data-lang="sw" hidden>Inapakia…</span></p>
+</div>
+
+<main id="dashMain" class="section dash-section" hidden>
+  <div class="container">
+
+    <!-- Welcome -->
+    <div class="dash-welcome reveal">
+      <h1 class="dash-title">
+        <span data-lang="so">Ku soo dhowow,</span><span data-lang="en" hidden>Welcome back,</span><span data-lang="ar" hidden>مرحباً بعودتك،</span><span data-lang="sw" hidden>Karibu tena,</span>
+        <span id="welcomeName" class="dash-name">…</span>
+      </h1>
+      <p class="dash-subtitle"><span data-lang="so">Kani waa goobtaada gaarka ah ee Beylood.</span><span data-lang="en" hidden>This is your personal Beylood space.</span><span data-lang="ar" hidden>هذه مساحتك الشخصية في Beylood.</span><span data-lang="sw" hidden>Hapa ni nafasi yako binafsi ya Beylood.</span></p>
+    </div>
+
+    <div class="dash-grid">
+
+      <!-- Profile card -->
+      <section class="dash-card profile-card reveal" aria-labelledby="profHead">
+        <div class="profile-top">
+          <div id="profileAvatar" class="profile-avatar"><span class="auth-avatar-fallback">…</span></div>
+          <div class="profile-id">
+            <h2 id="profHead" class="profile-name">…</h2>
+            <p id="profileEmail" class="profile-email">…</p>
+          </div>
+        </div>
+        <dl class="profile-meta">
+          <div>
+            <dt><span data-lang="so">Xubin ilaa</span><span data-lang="en" hidden>Member since</span><span data-lang="ar" hidden>عضو منذ</span><span data-lang="sw" hidden>Mwanachama tangu</span></dt>
+            <dd id="profileSince">—</dd>
+          </div>
+          <div>
+            <dt><span data-lang="so">Hab gelitaan</span><span data-lang="en" hidden>Sign-in method</span><span data-lang="ar" hidden>طريقة الدخول</span><span data-lang="sw" hidden>Njia ya kuingia</span></dt>
+            <dd id="profileProvider">—</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- Stats strip -->
+      <section class="dash-card stat-card reveal" aria-label="Quick stats">
+        <div class="stat-block">
+          <span class="stat-num" id="statSaved">0</span>
+          <span class="stat-label"><span data-lang="so">Maqaallo la kaydiyey</span><span data-lang="en" hidden>Saved articles</span><span data-lang="ar" hidden>مقالات محفوظة</span><span data-lang="sw" hidden>Makala yaliyohifadhiwa</span></span>
+        </div>
+        <a href="articles.html" class="stat-cta btn btn-ask">
+          <span data-lang="so">Sahmin maqaallada</span><span data-lang="en" hidden>Explore articles</span><span data-lang="ar" hidden>تصفح المقالات</span><span data-lang="sw" hidden>Vinjari makala</span>
+        </a>
+      </section>
+
+      <!-- Saved items -->
+      <section class="dash-card saved-card reveal" aria-labelledby="savedHead">
+        <div class="dash-card-head">
+          <h2 id="savedHead"><span data-lang="so">Maqaallada aad kaydisay</span><span data-lang="en" hidden>Your saved articles</span><span data-lang="ar" hidden>مقالاتك المحفوظة</span><span data-lang="sw" hidden>Makala uliyohifadhi</span></h2>
+        </div>
+        <div id="savedList" class="saved-list"></div>
+        <div id="savedEmpty" class="saved-empty" hidden>
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <p><span data-lang="so">Weli wax maqaal ah ma aadan kaydin. Booqo maqaal kasta oo riix "Kaydi maqaalka".</span><span data-lang="en" hidden>You haven't saved any articles yet. Open any article and tap "Save article".</span><span data-lang="ar" hidden>لم تحفظ أي مقال بعد. افتح أي مقال واضغط "حفظ المقال".</span><span data-lang="sw" hidden>Bado hujahifadhi makala yoyote. Fungua makala lolote ubonyeze "Hifadhi makala".</span></p>
+          <a href="articles.html" class="btn btn-ask"><span data-lang="so">Sahmin maqaallada</span><span data-lang="en" hidden>Browse articles</span><span data-lang="ar" hidden>تصفح المقالات</span><span data-lang="sw" hidden>Vinjari makala</span></a>
+        </div>
+      </section>
+
+      <!-- Account settings -->
+      <section class="dash-card settings-card reveal" aria-labelledby="setHead">
+        <div class="dash-card-head">
+          <h2 id="setHead"><span data-lang="so">Dejinta Akoonka</span><span data-lang="en" hidden>Account settings</span><span data-lang="ar" hidden>إعدادات الحساب</span><span data-lang="sw" hidden>Mipangilio ya akaunti</span></h2>
+        </div>
+        <form id="settingsForm" class="settings-form" autocomplete="off">
+          <label class="auth-label" for="setName"><span data-lang="so">Magaca la muujinayo</span><span data-lang="en" hidden>Display name</span><span data-lang="ar" hidden>الاسم المعروض</span><span data-lang="sw" hidden>Jina la kuonyesha</span></label>
+          <input id="setName" type="text" class="auth-input" maxlength="60" />
+
+          <label class="auth-label" for="setEmail"><span data-lang="so">Iimaylka</span><span data-lang="en" hidden>Email</span><span data-lang="ar" hidden>البريد الإلكتروني</span><span data-lang="sw" hidden>Barua pepe</span></label>
+          <input id="setEmail" type="email" class="auth-input" disabled />
+
+          <button type="submit" class="auth-submit"><span data-lang="so">Kaydi isbeddelka</span><span data-lang="en" hidden>Save changes</span><span data-lang="ar" hidden>حفظ التغييرات</span><span data-lang="sw" hidden>Hifadhi mabadiliko</span></button>
+          <p class="auth-msg" id="settingsMsg" aria-live="polite"></p>
+        </form>
+        <button type="button" id="dashLogout" class="dash-logout">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span data-lang="so">Ka bax akoonka</span><span data-lang="en" hidden>Sign out</span><span data-lang="ar" hidden>تسجيل الخروج</span><span data-lang="sw" hidden>Toka kwenye akaunti</span>
+        </button>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script type="module" src="auth.js"></script>
+<script type="module" src="dashboard.js"></script>
+</body>
+</html>
