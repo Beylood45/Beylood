@@ -1660,6 +1660,43 @@ html[dir="rtl"] .chat-messages .msg-user {
   .contact-form-wrap { padding: 28px 22px; }
 }
 
+/* ---------- Auth user chip (header when logged in) ---------- */
+.auth-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.auth-user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy-700);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+[data-theme="dark"] .auth-user-name { color: var(--gray-900); }
+.auth-logout {
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--gray-200);
+  background: white;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.auth-logout:hover { background: var(--green-50); color: var(--green-700); border-color: var(--green-300); }
+[data-theme="dark"] .auth-logout { background: var(--gray-50); color: var(--gray-700); border-color: var(--gray-100); }
+
+/* Auth message states */
+.auth-msg.is-error { color: #BE123C; }
+.auth-msg.is-info { color: var(--green-700); }
+[data-theme="dark"] .auth-msg.is-error { color: #FCA5C0; }
+[data-theme="dark"] .auth-msg.is-info { color: var(--green-300); }
+
 /* ---------- Premium animations & micro-interactions ---------- */
 @keyframes blFadeUp {
   from { opacity: 0; transform: translateY(24px); }

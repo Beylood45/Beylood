@@ -53,7 +53,7 @@
         <p class="auth-sub" data-key="signInSub">Gal akoonkaaga si aad u hesho aqoonta iyo adeegyada.</p>
       </div>
 
-      <form class="auth-form" id="signinForm" autocomplete="on" onsubmit="event.preventDefault(); document.getElementById('signinMsg').textContent='Tani waa demo. Backend wali ma jirin.';">
+      <form class="auth-form" id="signinForm" autocomplete="on">
         <button type="button" class="auth-google">
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -81,7 +81,7 @@
 
         <div class="auth-row">
           <label class="auth-check"><input type="checkbox" /> <span data-key="signInRemember">Igu xasuuso</span></label>
-          <a href="#" class="auth-forgot" data-key="signInForgot">Ma illowday furaha?</a>
+          <a href="contact.html" class="auth-forgot" data-key="signInForgot">Ma illowday furaha?</a>
         </div>
 
         <button type="submit" class="auth-submit"><span data-key="signInBtn">Gal Akoonka</span></button>
@@ -104,9 +104,10 @@
       <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
       <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><p>© <span id="year"></span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
   </div>
 </footer>
 <script src="script.js"></script>
+<script type="module" src="auth.js"></script>
 </body>
 </html>

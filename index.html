@@ -85,12 +85,14 @@
           <span data-key="askBtn">WAYDII BEYLOOD</span>
         </a>
 
-        <a href="signin.html" class="lang-btn" aria-label="Sign in" title="Sign in / Sign up">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-          </svg>
-          <span data-key="signInBtn">SOO GAL</span>
-        </a>
+        <span id="authSlot">
+          <a href="signin.html" class="lang-btn" aria-label="Sign in" title="Sign in / Sign up">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span data-key="signInBtn">SOO GAL</span>
+          </a>
+        </span>
 
         <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
           <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
@@ -521,13 +523,14 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© <span id="year"></span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu wan xifdiyey.</span></p>
+        <p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p>
         <p data-key="fBuilt">Aqoonta Beeraha</p>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script type="module" src="auth.js"></script>
 </body>
 
 </html>
