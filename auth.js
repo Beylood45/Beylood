@@ -25,10 +25,13 @@ import {
 
 /* ----- REPLACE THESE WITH YOUR REAL FIREBASE CONFIG ----- */
 const firebaseConfig = {
-  apiKey: "REPLACE_ME",
-  authDomain: "REPLACE_ME.firebaseapp.com",
-  projectId: "REPLACE_ME",
-  appId: "REPLACE_ME"
+  apiKey: "AIzaSyAs9E6hK2zO-ax7QEhgA9sbhRFRbRX-c1A",
+  authDomain: "beylood-e74d6.firebaseapp.com",
+  projectId: "beylood-e74d6",
+  storageBucket: "beylood-e74d6.firebasestorage.app",
+  messagingSenderId: "262960651820",
+  appId: "1:262960651820:web:2a92f2eff11ba619e43b89",
+  measurementId: "G-YX4ZHPHQDB"
 };
 /* -------------------------------------------------------- */
 

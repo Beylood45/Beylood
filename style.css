@@ -1347,6 +1347,30 @@ html[dir="rtl"] .chat-messages .msg-user {
 .cover-news-5 { background: linear-gradient(135deg, #BE123C 0%, #FB7185 100%); }
 .cover-news-6 { background: linear-gradient(135deg, #2F8A2A 0%, #7BC142 100%); }
 
+/* New crop covers (gradient placeholders) */
+.cover-cabbage-farming { background: linear-gradient(135deg, #15803D 0%, #4ADE80 100%); }
+.cover-cabbage-farming::after { content: none; }
+.cover-banana-farming { background: linear-gradient(135deg, #CA8A04 0%, #FDE047 100%); }
+.cover-banana-farming::after { content: none; }
+.cover-mango-farming { background: linear-gradient(135deg, #D97706 0%, #FBBF24 100%); }
+.cover-mango-farming::after { content: none; }
+.cover-cassava-farming { background: linear-gradient(135deg, #92400E 0%, #D6A35C 100%); }
+.cover-cassava-farming::after { content: none; }
+
+/* New pest/disease covers (gradient placeholders) */
+.cover-whiteflies { background: linear-gradient(135deg, #64748B 0%, #E2E8F0 100%); }
+.cover-whiteflies::after { content: none; }
+.cover-fall-armyworm { background: linear-gradient(135deg, #57534E 0%, #A8A29E 100%); }
+.cover-fall-armyworm::after { content: none; }
+.cover-early-blight { background: linear-gradient(135deg, #B45309 0%, #FBBF24 100%); }
+.cover-early-blight::after { content: none; }
+.cover-late-blight { background: linear-gradient(135deg, #1E3A2F 0%, #4D7C0F 100%); }
+.cover-late-blight::after { content: none; }
+.cover-powdery-mildew { background: linear-gradient(135deg, #6B7280 0%, #F3F4F6 100%); }
+.cover-powdery-mildew::after { content: none; }
+.cover-root-rot { background: linear-gradient(135deg, #44260F 0%, #92400E 100%); }
+.cover-root-rot::after { content: none; }
+
 .card-body {
   padding: 22px;
 }
