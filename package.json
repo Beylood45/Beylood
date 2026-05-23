@@ -2,11 +2,24 @@
   "name": "beylood",
   "version": "1.0.0",
   "private": true,
-  "description": "Beylood — trilingual agricultural knowledge platform with an AI chat assistant.",
-  "engines": {
-    "node": ">=18"
+  "description": "Beylood - multilingual agriculture knowledge platform (Somali, English, Arabic, Swahili) with an AI chat assistant.",
+  "homepage": "https://github.com/Beylood45/Beylood45",
+  "scripts": {
+    "dev": "npx serve .",
+    "preview": "vercel dev",
+    "deploy": "vercel --prod",
+    "audit": "npm audit",
+    "audit:fix": "npm audit fix",
+    "outdated": "npm outdated"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.30.0"
-  }
+  },
+  "devDependencies": {
+    "firebase": "10.12.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
 }
