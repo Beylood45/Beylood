@@ -3048,13 +3048,18 @@ html[dir="rtl"] .search-field { padding: 0 22px 0 16px; }
     grid-column: 1 / -1;
   }
 
-  .nav .btn-ask span {
-    display: none;
-  }
-
+  /* On phones the header CTAs collapse to icon-only to avoid crowding/overlap */
+  .nav .btn-ask span,
+  .nav .btn-getstarted span,
   .lang-btn span {
     display: none;
   }
+
+  /* Compact, square-ish icon buttons + tighter spacing in the header */
+  .nav-right { gap: 6px; }
+  .nav .btn-ask,
+  .nav .btn-getstarted { padding: 9px 11px; }
+  .lang-btn { padding: 9px 11px; }
 
   .search-field { height: 56px; padding: 0 12px 0 18px; }
   .search-input { font-size: 15px; }
@@ -3123,14 +3128,7 @@ html[dir="rtl"] .search-field { padding: 0 22px 0 16px; }
 }
 
 /* Dark mode — slightly brighter gold */
+
 [data-theme="dark"] .basmala-banner {
-  background: linear-gradient(135deg, #060F1E 0%, #0A1E3D 50%, #061629 100%);
-}
-[data-theme="dark"] .basmala-text {
-  color: #F0E8D8;
-  text-shadow: 0 0 24px rgba(212, 175, 55, 0.45), 0 1px 4px rgba(0,0,0,0.5);
-}
-[data-theme="dark"] .salawat-text {
-  color: rgba(212, 175, 55, 0.90);
-  text-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+  background: linear-gradient(135deg, #060F1E 0%, #0A1E3D 50%, #06203F 100%);
 }
