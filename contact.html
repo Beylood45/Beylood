@@ -118,7 +118,7 @@
         </h2>
       </div>
 
-      <form class="contact-form" id="contactForm" autocomplete="on" onsubmit="event.preventDefault(); var n=encodeURIComponent(document.getElementById('cfName').value), e=encodeURIComponent(document.getElementById('cfEmail').value), s=encodeURIComponent(document.getElementById('cfSubject').value), m=encodeURIComponent(document.getElementById('cfMessage').value); var body='Magaca/Name: '+decodeURIComponent(n)+'%0D%0AIimaylka/Email: '+decodeURIComponent(e)+'%0D%0A%0D%0A'+decodeURIComponent(m); window.location.href='mailto:mohamedshafiemohamed@gmail.com?subject='+s+'&body='+body; document.getElementById('contactMsg').textContent = (document.documentElement.lang==='en'?'Opening your email app to send…':document.documentElement.lang==='ar'?'يتم فتح تطبيق البريد لإرسال رسالتك…':document.documentElement.lang==='sw'?'Inafungua programu yako ya barua pepe…':'Waxaa la furayaa email-kaaga si farriinta loo diro…');">
+      <form class="contact-form" id="contactForm" autocomplete="on" data-mailto="mohamedshafiemohamed@gmail.com">
         <div class="contact-form-row">
           <div>
             <label class="auth-label" for="cfName"><span data-lang="so">Magaca</span><span data-lang="en" hidden>Name</span><span data-lang="ar" hidden>الاسم</span><span data-lang="sw" hidden>Jina</span></label>

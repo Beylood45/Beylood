@@ -1146,3 +1146,78 @@
     });
   }
 })();
+
+/* ============================================================
+   Security: CSP-safe event handlers
+   ------------------------------------------------------------
+   These replace the inline onclick/onsubmit attributes that used
+   to live in the HTML. Removing inline handlers lets us run a
+   strict Content-Security-Policy (script-src 'self' …) with NO
+   'unsafe-inline', which is a strong defense against XSS.
+   ============================================================ */
+(function () {
+  // ---- Password show/hide toggle (was inline onclick) ----
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.auth-pass-toggle[data-toggle]') : null;
+    if (!btn) return;
+    var input = document.getElementById(btn.getAttribute('data-toggle'));
+    if (input) input.type = input.type === 'password' ? 'text' : 'password';
+  });
+
+  // ---- Stop the homepage search form from reloading the page ----
+  document.addEventListener('submit', function (e) {
+    if (e.target && e.target.classList && e.target.classList.contains('search-shell')) {
+      e.preventDefault();
+    }
+  });
+
+  // ---- Contact form: validate + sanitize, then open the mail client ----
+  var cf = document.getElementById('contactForm');
+  if (cf) {
+    var lang = function () { return document.documentElement.lang || 'so'; };
+    var t = function (map) { return map[lang()] || map.en; };
+    var val = function (id) { var el = document.getElementById(id); return el ? el.value : ''; };
+    // Collapse newlines (header-injection safety) and cap length.
+    var clean = function (s, max) { return String(s || '').replace(/[\r\n]+/g, ' ').trim().slice(0, max || 200); };
+    var isEmail = function (x) { x = String(x || '').trim(); return x.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(x); };
+
+    cf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var msg = document.getElementById('contactMsg');
+      var name = clean(val('cfName'), 80);
+      var email = String(val('cfEmail') || '').trim();
+      var subject = clean(val('cfSubject'), 120);
+      var body = String(val('cfMessage') || '').trim().slice(0, 3000);
+
+      if (!name || !isEmail(email) || !body) {
+        if (msg) {
+          msg.classList.add('is-error');
+          msg.textContent = t({
+            so: 'Fadlan buuxi magaca, iimayl sax ah, iyo farriinta.',
+            en: 'Please fill in your name, a valid email, and a message.',
+            ar: 'يرجى إدخال الاسم وبريد صحيح ورسالة.',
+            sw: 'Tafadhali jaza jina, barua pepe sahihi, na ujumbe.'
+          });
+        }
+        return;
+      }
+
+      var to = cf.getAttribute('data-mailto') || '';
+      var mailBody = 'Magaca/Name: ' + name + '\r\nIimaylka/Email: ' + email + '\r\n\r\n' + body;
+      var href = 'mailto:' + to +
+        '?subject=' + encodeURIComponent(subject || ('Beylood — ' + name)) +
+        '&body=' + encodeURIComponent(mailBody);
+
+      if (msg) {
+        msg.classList.remove('is-error');
+        msg.textContent = t({
+          so: 'Waxaa la furayaa email-kaaga si farriinta loo diro…',
+          en: 'Opening your email app to send…',
+          ar: 'يتم فتح تطبيق البريد لإرسال رسالتك…',
+          sw: 'Inafungua programu yako ya barua pepe…'
+        });
+      }
+      window.location.href = href;
+    });
+  }
+})();

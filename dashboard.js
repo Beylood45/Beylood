@@ -20,6 +20,29 @@ function curLang() { return document.documentElement.lang || 'so'; }
 function tr(map) { return map[curLang()] || map.en; }
 function $(id) { return document.getElementById(id); }
 
+/* ---------- Security helpers ---------- */
+// Escape user-controlled text before inserting into innerHTML (anti-XSS).
+function escapeHTML(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+// Only allow https profile-photo URLs.
+function safePhotoURL(url) {
+  return (typeof url === 'string' && /^https:\/\//i.test(url)) ? url : '';
+}
+// Allow only local .html targets for saved-article links (no off-site / javascript: URLs).
+function safeInternalURL(url) {
+  const u = String(url || '');
+  return /^[a-z0-9._-]+\.html$/i.test(u) ? u : 'articles.html';
+}
+function sanitizeName(name) {
+  return String(name || '').replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, 60);
+}
+
 function initials(name, email) {
   const src = (name && name.trim()) || (email ? email.split('@')[0] : '') || 'U';
   const p = src.trim().split(/\s+/);
@@ -81,9 +104,10 @@ function fillProfile(user) {
 
   const av = $('profileAvatar');
   if (av) {
-    av.innerHTML = user.photoURL
-      ? '<img class="auth-avatar-img" src="' + user.photoURL + '" alt="" referrerpolicy="no-referrer" />'
-      : '<span class="auth-avatar-fallback">' + initials(user.displayName, user.email) + '</span>';
+    const photo = safePhotoURL(user.photoURL);
+    av.innerHTML = photo
+      ? '<img class="auth-avatar-img" src="' + escapeHTML(photo) + '" alt="" referrerpolicy="no-referrer" />'
+      : '<span class="auth-avatar-fallback">' + escapeHTML(initials(user.displayName, user.email)) + '</span>';
   }
 
   const provider = (user.providerData && user.providerData[0] && user.providerData[0].providerId) || '';
@@ -150,11 +174,14 @@ async function loadBookmarks(user) {
     items.forEach((it) => {
       const row = document.createElement('div');
       row.className = 'saved-row';
-      const url = it.url || (it.id + (it.id.endsWith('.html') ? '' : '.html'));
+      // Both the link target and the title come from stored data, so
+      // validate the URL and escape the title before rendering.
+      const url = safeInternalURL(it.url || (it.id.endsWith('.html') ? it.id : it.id + '.html'));
+      const title = escapeHTML(it.title || it.id);
       row.innerHTML =
         '<a class="saved-link" href="' + url + '">' +
           '<span class="saved-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></span>' +
-          '<span class="saved-text">' + (it.title || it.id) + '</span>' +
+          '<span class="saved-text">' + title + '</span>' +
         '</a>' +
         '<button type="button" class="saved-remove" aria-label="Remove">' +
           '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
@@ -185,7 +212,7 @@ function wireSettings(user) {
   if (!form) return;
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = ($('setName').value || '').trim();
+    const name = sanitizeName($('setName').value);
     const msg = $('settingsMsg');
     function setMsg(text, isError) {
       if (!msg) return;

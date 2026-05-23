@@ -1,0 +1,66 @@
+rules_version = '2';
+
+// ============================================================
+// Beylood — Firestore Security Rules
+// ------------------------------------------------------------
+// Principle: a signed-in user may read/write ONLY their own
+// document and their own bookmarks. Everything else is denied.
+// Paste these into Firebase Console → Firestore → Rules → Publish.
+// ============================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // True only when the request is authenticated AND the uid in
+    // the path belongs to the caller. This is the core guard.
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    // Validate the shape of a user profile document. Rejecting
+    // unexpected fields and oversized strings stops abuse such as
+    // someone stuffing large/extra data into the database.
+    function validUser() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['name', 'email', 'photoURL', 'createdAt', 'lastLogin'])
+        && d.name is string && d.name.size() <= 80
+        && d.email is string && d.email.size() <= 254
+        && d.photoURL is string && d.photoURL.size() <= 2048;
+    }
+
+    match /users/{uid} {
+      // Read only your own profile.
+      allow read: if isOwner(uid);
+
+      // Create your own profile, with a valid shape.
+      allow create: if isOwner(uid) && validUser();
+
+      // Update your own profile, valid shape, and the email field
+      // can never be changed once set (prevents identity tampering).
+      allow update: if isOwner(uid)
+        && validUser()
+        && request.resource.data.email == resource.data.email;
+
+      // Profiles are never deleted from the client.
+      allow delete: if false;
+
+      // ---- Saved articles (bookmarks) ----
+      match /bookmarks/{docId} {
+        allow read: if isOwner(uid);
+
+        // Create/update a bookmark: only the expected fields, capped sizes.
+        allow create, update: if isOwner(uid)
+          && request.resource.data.keys().hasOnly(['title', 'url', 'savedAt'])
+          && request.resource.data.title is string && request.resource.data.title.size() <= 200
+          && request.resource.data.url is string && request.resource.data.url.size() <= 200;
+
+        allow delete: if isOwner(uid);
+      }
+    }
+
+    // Deny everything not explicitly matched above.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

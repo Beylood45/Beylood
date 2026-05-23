@@ -14,13 +14,45 @@ import {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
-  updateProfile
+  updateProfile,
+  setPersistence,
+  browserLocalPersistence
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   doc, getDoc, setDoc, deleteDoc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 import { auth, db, googleProvider, configReady } from "./firebase-init.js";
+
+// Keep the session in the browser's local persistence (the secure
+// default) so a refresh doesn't log the user out. Made explicit here.
+if (configReady()) {
+  setPersistence(auth, browserLocalPersistence).catch((e) => console.warn('persistence:', e));
+}
+
+/* ---------- Security helpers ---------- */
+// Escape any user-controlled text before putting it into innerHTML.
+// This is the main defense against stored XSS (e.g. a malicious display name).
+function escapeHTML(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+// Only trust https image URLs (Google profile photos). Blocks javascript:, data:, etc.
+function safePhotoURL(url) {
+  return (typeof url === 'string' && /^https:\/\//i.test(url)) ? url : '';
+}
+// Trim, strip angle brackets, and cap the length of a free-text name.
+function sanitizeName(name) {
+  return String(name || '').replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, 80);
+}
+function isValidEmail(email) {
+  const e = String(email || '').trim();
+  return e.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+}
 
 /* ---------- Localized helpers ---------- */
 function curLang() { return document.documentElement.lang || 'so'; }
@@ -72,10 +104,19 @@ const signupForm = document.getElementById('signupForm');
 if (signupForm) {
   signupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = (document.getElementById('suName') || {}).value || '';
-    const email = (document.getElementById('suEmail') || {}).value || '';
+    // Sanitize + validate every input before it ever reaches Firebase.
+    const name = sanitizeName((document.getElementById('suName') || {}).value);
+    const email = ((document.getElementById('suEmail') || {}).value || '').trim();
     const p1 = (document.getElementById('suPass') || {}).value || '';
     const p2 = (document.getElementById('suPass2') || {}).value || '';
+    if (!isValidEmail(email)) {
+      setMsg('signupMsg', tr({ so: 'Iimaylku sax maaha.', en: 'Please enter a valid email.', ar: 'يرجى إدخال بريد صحيح.', sw: 'Tafadhali weka barua pepe sahihi.' }), true);
+      return;
+    }
+    if (p1.length < 8) {
+      setMsg('signupMsg', tr({ so: 'Furaha waa inuu ka kooban yahay ugu yaraan 8 xaraf.', en: 'Password must be at least 8 characters.', ar: 'يجب أن تكون كلمة المرور 8 أحرف على الأقل.', sw: 'Nenosiri liwe na angalau herufi 8.' }), true);
+      return;
+    }
     if (p1 !== p2) {
       setMsg('signupMsg', tr({ so: 'Lambarrada furaha isma egga.', en: 'Passwords do not match.', ar: 'كلمتا المرور غير متطابقتين.', sw: 'Manenosiri hayalingani.' }), true);
       return;
@@ -85,9 +126,9 @@ if (signupForm) {
       return;
     }
     try {
-      const cred = await createUserWithEmailAndPassword(auth, email.trim(), p1);
-      if (name.trim()) await updateProfile(cred.user, { displayName: name.trim() });
-      await saveUserProfile(cred.user, name.trim());
+      const cred = await createUserWithEmailAndPassword(auth, email, p1);
+      if (name) await updateProfile(cred.user, { displayName: name });
+      await saveUserProfile(cred.user, name);
       window.location.href = 'dashboard.html';
     } catch (err) {
       setMsg('signupMsg', friendlyError(err.code), true);
@@ -100,14 +141,18 @@ const signinForm = document.getElementById('signinForm');
 if (signinForm) {
   signinForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = (document.getElementById('signinEmail') || {}).value || '';
+    const email = ((document.getElementById('signinEmail') || {}).value || '').trim();
     const pass = (document.getElementById('signinPass') || {}).value || '';
+    if (!isValidEmail(email) || !pass) {
+      setMsg('signinMsg', tr({ so: 'Geli iimayl iyo furo sax ah.', en: 'Enter a valid email and password.', ar: 'أدخل بريداً وكلمة مرور صحيحين.', sw: 'Weka barua pepe na nenosiri sahihi.' }), true);
+      return;
+    }
     if (!configReady()) {
       setMsg('signinMsg', tr({ so: 'Firebase config weli lama dejin.', en: 'Firebase config not set yet.', ar: 'لم يتم ضبط إعدادات Firebase بعد.', sw: 'Mipangilio ya Firebase haijawekwa.' }), true);
       return;
     }
     try {
-      const cred = await signInWithEmailAndPassword(auth, email.trim(), pass);
+      const cred = await signInWithEmailAndPassword(auth, email, pass);
       await saveUserProfile(cred.user);
       window.location.href = 'dashboard.html';
     } catch (err) {
@@ -149,10 +194,11 @@ function initials(name, email) {
 }
 
 function avatarMarkup(user) {
-  if (user.photoURL) {
-    return '<img class="auth-avatar-img" src="' + user.photoURL + '" alt="" referrerpolicy="no-referrer" />';
+  const photo = safePhotoURL(user.photoURL);
+  if (photo) {
+    return '<img class="auth-avatar-img" src="' + escapeHTML(photo) + '" alt="" referrerpolicy="no-referrer" />';
   }
-  return '<span class="auth-avatar-fallback">' + initials(user.displayName, user.email) + '</span>';
+  return '<span class="auth-avatar-fallback">' + escapeHTML(initials(user.displayName, user.email)) + '</span>';
 }
 
 function setAuthLinksVisible(visible) {
@@ -169,7 +215,7 @@ function renderChip(user) {
   const html =
     '<a href="dashboard.html" class="auth-chip-link" title="Dashboard">' +
       '<span class="auth-avatar">' + avatarMarkup(user) + '</span>' +
-      '<span class="auth-chip-name">' + firstName(user.displayName, user.email) + '</span>' +
+      '<span class="auth-chip-name">' + escapeHTML(firstName(user.displayName, user.email)) + '</span>' +
     '</a>' +
     '<button type="button" id="logoutBtn" class="auth-logout-btn" aria-label="' + logoutLabel + '" title="' + logoutLabel + '">' +
       '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>' +

@@ -74,7 +74,7 @@
         <label class="auth-label" for="signinPass" data-key="signInPass">Furaha (Password)</label>
         <div class="auth-pass-wrap">
           <input id="signinPass" type="password" class="auth-input" required minlength="6" autocomplete="current-password" placeholder="••••••••" />
-          <button type="button" class="auth-pass-toggle" onclick="const i=document.getElementById('signinPass'); i.type=i.type==='password'?'text':'password';">
+          <button type="button" class="auth-pass-toggle" data-toggle="signinPass" aria-label="Show/hide password">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           </button>
         </div>
