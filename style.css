@@ -3159,3 +3159,18 @@ html[dir="rtl"] .search-field { padding: 0 22px 0 16px; }
 @media (max-width: 720px) {
   #authSlot { margin-inline-start: 4px; padding-inline-start: 8px; }
 }
+
+/* ---- Sitewide Sign In ghost link (matches homepage #authSlot look) ---- */
+.btn-signin {
+  border-color: transparent;
+  background: transparent;
+  color: var(--navy-600);
+  font-weight: 600;
+}
+.btn-signin:hover { background: var(--gray-50); color: var(--navy-700); }
+[data-theme="dark"] .btn-signin { color: var(--gray-700); }
+[data-theme="dark"] .btn-signin:hover { background: var(--gray-50); color: var(--gray-900); }
+/* Keep the header from crowding on phones (the wordmark hides; CTAs are icon-only) */
+@media (max-width: 720px) {
+  .logo-name { display: none; }
+}
