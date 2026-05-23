@@ -3132,3 +3132,30 @@ html[dir="rtl"] .search-field { padding: 0 22px 0 16px; }
 [data-theme="dark"] .basmala-banner {
   background: linear-gradient(135deg, #060F1E 0%, #0A1E3D 50%, #06203F 100%);
 }
+
+/* ---- Header Sign In: professional spacing + clean ghost style ---- */
+/* A subtle divider separates the green AI button from the account area,
+   and the Sign In link becomes a quiet ghost link (not a heavy button)
+   so the navy "Get Started" stays the clear primary call-to-action. */
+#authSlot {
+  display: inline-flex;
+  align-items: center;
+  margin-inline-start: 6px;
+  padding-inline-start: 12px;
+  border-inline-start: 1px solid var(--gray-200);
+}
+#authSlot > a {
+  border-color: transparent;
+  background: transparent;
+  color: var(--navy-600);
+  font-weight: 600;
+}
+#authSlot > a:hover {
+  background: var(--gray-50);
+  color: var(--navy-700);
+}
+[data-theme="dark"] #authSlot > a { color: var(--gray-700); }
+[data-theme="dark"] #authSlot > a:hover { background: var(--gray-50); color: var(--gray-900); }
+@media (max-width: 720px) {
+  #authSlot { margin-inline-start: 4px; padding-inline-start: 8px; }
+}
