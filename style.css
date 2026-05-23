@@ -367,6 +367,22 @@ button {
   transform: translateY(-1px);
 }
 
+/* "Get Started" navbar CTA — navy so it stands apart from the green AI button */
+.btn-getstarted {
+  background: var(--navy-600);
+  color: #fff;
+  padding: 10px 18px;
+  box-shadow: var(--shadow-soft);
+}
+.btn-getstarted:hover {
+  background: var(--navy-700);
+  box-shadow: var(--shadow-elev);
+  transform: translateY(-1px);
+}
+/* In dark mode navy blends with the background, so use green there */
+[data-theme="dark"] .btn-getstarted { background: var(--green-500); }
+[data-theme="dark"] .btn-getstarted:hover { background: var(--green-600); }
+
 .btn-accent {
   background: var(--green-500);
   color: white;

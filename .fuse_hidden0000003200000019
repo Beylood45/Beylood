@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Early Blight — aqoonsi iyo xakameyn cudurka fangaska ee yaanyada iyo baradhada." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Early Blight — Cudurka Hore ee Caleemaha | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Early Blight: Identification &amp; Control" />
+  <meta property="og:description" content="Identifying and managing early blight on tomato and potato." />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo" aria-label="Beylood home"><img src="assets/logo.png" alt="Beylood" /></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" class="is-active" aria-current="page" data-key="navCats">Qaybaha</a>
+      <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+      <a href="articles.html" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg>
+        <span data-key="askBtn">WAYDII BEYLOOD</span>
+      </a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
+        <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+        <span id="langLabel">Soomaali</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-pests.html" class="article-back"><span data-lang="so">← Dib ugu noqo cudurrada</span><span data-lang="en" hidden>← Back to pests</span><span data-lang="ar" hidden>← العودة إلى الآفات</span><span data-lang="sw" hidden>← Rudi kwenye wadudu</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Cudurrada &amp; Cayayaanka</span><span data-lang="en" hidden>Pests &amp; Diseases</span><span data-lang="ar" hidden>الآفات والأمراض</span><span data-lang="sw" hidden>Wadudu na Magonjwa</span></span>
+      <h1 class="article-title"><span data-lang="so">Early Blight — Cudurka Hore ee Caleemaha</span><span data-lang="en" hidden>Early Blight — A Common Leaf Disease</span><span data-lang="ar" hidden>اللفحة المبكرة — مرض أوراق شائع</span><span data-lang="sw" hidden>Baka la Mapema — Ugonjwa wa Majani</span></h1>
+      <div class="article-meta"><span>2026-05-20</span><span><span data-lang="so">6 daqiiqo</span><span data-lang="en" hidden>6 min read</span><span data-lang="ar" hidden>6 دقائق</span><span data-lang="sw" hidden>dakika 6</span></span></div>
+    </header>
+    <div class="article-cover cover-early-blight"></div>
+    <div class="article-body">
+      <p class="article-lead"><span data-lang="so">Early Blight (Alternaria solani) waa cudur fangas ah oo caan ku ah yaanyada iyo baradhada. Wuxuu bilaabmaa caleemaha hoose, wuxuuna si dhakhso ah u faafaa cimilada diirimaadka iyo qoyaanka leh.</span><span data-lang="en" hidden>Early Blight (Alternaria solani) is a fungal disease common on tomato and potato. It starts on the lower leaves and spreads fast in warm, humid weather.</span><span data-lang="ar" hidden>اللفحة المبكرة (Alternaria solani) مرض فطري شائع على الطماطم والبطاطس. يبدأ في الأوراق السفلى وينتشر سريعاً في الجو الدافئ الرطب.</span><span data-lang="sw" hidden>Baka la Mapema (Alternaria solani) ni ugonjwa wa fangasi wa kawaida kwa nyanya na viazi. Huanza kwenye majani ya chini na kuenea haraka katika hali ya joto na unyevu.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Calaamadaha</span><span data-lang="en" hidden>Symptoms</span><span data-lang="ar" hidden>الأعراض</span><span data-lang="sw" hidden>Dalili</span></h2>
+      <p class="article-p"><span data-lang="so">Barar bunni oo wareegyo isku dhafan leh (sida bull's-eye) ayaa ka muuqda caleemaha hoose. Caleemaha way huraan oo dhacaan. Miraha iyo jirridda sidoo kale way ku dhici karaan barar madmadow oo godan.</span><span data-lang="en" hidden>Brown spots with concentric rings (a bull's-eye look) appear on lower leaves. Leaves yellow and drop. Fruit and stems can also develop dark, sunken lesions.</span><span data-lang="ar" hidden>بقع بنية بحلقات متحدة المركز (شكل عين الثور) على الأوراق السفلى. تصفرّ الأوراق وتتساقط. قد تظهر آفات داكنة غائرة على الثمار والسيقان.</span><span data-lang="sw" hidden>Madoa ya kahawia yenye duara (kama jicho la ng'ombe) kwenye majani ya chini. Majani hubadilika manjano na kudondoka. Matunda na shina pia hupata vidonda vyeusi.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Dhirta Khasaaray</span><span data-lang="en" hidden>Affected Crops</span><span data-lang="ar" hidden>المحاصيل المتأثرة</span><span data-lang="sw" hidden>Mazao Yaliyoathirika</span></h2>
+      <p class="article-p"><span data-lang="so">Inta badan yaanyada iyo baradhada, laakiin sidoo kale basbaaska iyo bocorka (qoyska solanaceae). Dhirta da'da weyn ee culayska miraha sida ayaa ugu nugul.</span><span data-lang="en" hidden>Mainly tomato and potato, but also pepper and eggplant (the solanaceae family). Older plants stressed by a heavy fruit load are most vulnerable.</span><span data-lang="ar" hidden>أساساً الطماطم والبطاطس، وكذلك الفلفل والباذنجان (الفصيلة الباذنجانية). النباتات الأكبر المجهدة بحمل ثمار كبير الأكثر عرضة.</span><span data-lang="sw" hidden>Hasa nyanya na viazi, lakini pia pilipili na biringanya (familia ya solanaceae). Mimea mikubwa yenye mzigo wa matunda iko hatarini zaidi.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Xaaladaha Faafinta</span><span data-lang="en" hidden>Conditions for Spread</span><span data-lang="ar" hidden>ظروف الانتشار</span><span data-lang="sw" hidden>Hali za Kuenea</span></h2>
+      <p class="article-p"><span data-lang="so">Heerkul 24–29°C, qoyaan caleemaha (roob, sayax, ama waraabin kor ah), iyo ciid liidata. Fangasku wuxuu ku raagaa haraaga dalagga iyo ciidda muddo sannado ah.</span><span data-lang="en" hidden>Temperatures of 24–29°C, leaf wetness (rain, dew, or overhead irrigation), and poor soil. The fungus survives in crop debris and soil for years.</span><span data-lang="ar" hidden>حرارة 24–29°م، بلل الأوراق (مطر، ندى، أو ري علوي)، وتربة فقيرة. يعيش الفطر في بقايا المحصول والتربة لسنوات.</span><span data-lang="sw" hidden>Joto 24–29°C, unyevu wa majani (mvua, umande, au umwagiliaji wa juu), na udongo duni. Fangasi huishi kwenye mabaki ya mazao na udongo kwa miaka.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Xakamayn iyo Daawayn</span><span data-lang="en" hidden>Control &amp; Treatment</span><span data-lang="ar" hidden>المكافحة والعلاج</span><span data-lang="sw" hidden>Udhibiti na Matibabu</span></h2>
+      <ul class="article-list">
+        <li><strong>Cultural</strong> — <span data-lang="so">ka saar oo gub caleemaha cudurka qaba; mulch si aanay ciidda u boodin caleemaha.</span><span data-lang="en" hidden>remove and burn infected leaves; mulch to stop soil splashing onto leaves.</span><span data-lang="ar" hidden>أزل واحرق الأوراق المصابة؛ غطِّ التربة لمنع تطايرها للأوراق.</span><span data-lang="sw" hidden>ondoa na choma majani; tandaza matandazo kuzuia udongo kuruka.</span></li>
+        <li><strong>Fungicide</strong> — <span data-lang="so">chlorothalonil, mancozeb, ama copper; bilow kahor ama markii calaamadaha hore muuqdaan.</span><span data-lang="en" hidden>chlorothalonil, mancozeb, or copper; start before or at first symptoms.</span><span data-lang="ar" hidden>chlorothalonil أو mancozeb أو نحاس؛ ابدأ قبل أو عند أول الأعراض.</span><span data-lang="sw" hidden>chlorothalonil, mancozeb, au shaba; anza kabla au mwanzoni mwa dalili.</span></li>
+        <li><strong>Watering</strong> — <span data-lang="so">waraab salka, ha qoyin caleemaha; ku waraab goor aroor si caleemuhu u qalalaan.</span><span data-lang="en" hidden>water at the base, keep leaves dry; irrigate in the morning so leaves dry.</span><span data-lang="ar" hidden>اروِ القاعدة وأبقِ الأوراق جافة؛ اروِ صباحاً.</span><span data-lang="sw" hidden>mwagilia chini, weka majani makavu; mwagilia asubuhi.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Ka Hortagga</span><span data-lang="en" hidden>Prevention</span><span data-lang="ar" hidden>الوقاية</span><span data-lang="sw" hidden>Kuzuia</span></h2>
+      <ul class="article-list">
+        <li><strong></strong> — <span data-lang="so">Wareeji dalagga 2–3 sano (ha beerin solanaceae meel isku mid ah).</span><span data-lang="en" hidden>Rotate crops for 2–3 years (don't replant solanaceae in the same spot).</span><span data-lang="ar" hidden>دوّر المحاصيل 2–3 سنوات.</span><span data-lang="sw" hidden>Zungusha mazao miaka 2–3.</span></li>
+        <li><strong></strong> — <span data-lang="so">Isticmaal iniin caafimaad qaba iyo noocyo iska caabin u leh.</span><span data-lang="en" hidden>Use healthy seed and resistant varieties.</span><span data-lang="ar" hidden>استخدم بذوراً سليمة وأصنافاً مقاومة.</span><span data-lang="sw" hidden>Tumia mbegu safi na aina sugu.</span></li>
+        <li><strong></strong> — <span data-lang="so">Sii dhirta masaafo ku filan oo hawo wanaagsan leh.</span><span data-lang="en" hidden>Space plants for good airflow.</span><span data-lang="ar" hidden>باعد النباتات لتهوية جيدة.</span><span data-lang="sw" hidden>Acha nafasi kwa hewa nzuri.</span></li>
+      </ul>
+
+    </div>
+
+    <aside class="related-section" aria-labelledby="relatedHeading">
+      <h2 id="relatedHeading" class="related-title"><span data-lang="so">Maqaallo La Xidhiidha</span><span data-lang="en" hidden>Related Articles</span><span data-lang="ar" hidden>مقالات ذات صلة</span><span data-lang="sw" hidden>Makala Yanayohusiana</span></h2>
+      <div class="grid-articles">
+        <a href="pest-aphids.html" class="card-article"><div class="card-cover cover-aphids"></div><div class="card-body"><span class="pill"><span data-lang="so">Cayayaanka</span><span data-lang="en" hidden>Pests</span><span data-lang="ar" hidden>الآفات</span><span data-lang="sw" hidden>Wadudu</span></span><h3><span data-lang="so">Aphids</span><span data-lang="en" hidden>Aphids</span><span data-lang="ar" hidden>المن</span><span data-lang="sw" hidden>Aphids</span></h3><div class="card-meta"><span>2026-05-16</span></div></div></a>
+        <a href="category-pests.html" class="card-article"><div class="card-cover" style="background:linear-gradient(135deg,#BE123C 0%,#F59E0B 100%);"></div><div class="card-body"><span class="pill"><span data-lang="so">Qaybta</span><span data-lang="en" hidden>Category</span><span data-lang="ar" hidden>الفئة</span><span data-lang="sw" hidden>Kategoria</span></span><h3><span data-lang="so">Dhammaan Cudurrada &amp; Cayayaanka</span><span data-lang="en" hidden>All Pests &amp; Diseases</span><span data-lang="ar" hidden>كل الآفات والأمراض</span><span data-lang="sw" hidden>Wadudu na Magonjwa Yote</span></h3><div class="card-meta"><span>2026</span></div></div></a>
+      </div>
+    </aside>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

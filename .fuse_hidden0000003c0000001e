@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Xilliga Roobka: Sidee Beeralaydu u Diyaar Garoobaan — warbixin ku saabsan diyaargarowga xilliga roobka." />
+  <meta name="theme-color" content="#0F3F7E" />
+
+  <title>Xilliga Roobka — Beylood</title>
+
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+
+  <meta property="og:title" content="Beylood — Rainy Season: How Farmers Are Preparing" />
+  <meta property="og:description" content="A report on how Somali farmers prepare for the rainy season." />
+  <meta property="og:image" content="assets/news-1.jpg" />
+  <meta property="og:type" content="article" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo" aria-label="Beylood home">
+      <img src="assets/logo.png" alt="Beylood" />
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a>
+      <a href="articles.html" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" class="is-active" aria-current="page" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Naga</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/>
+        </svg>
+        <span data-key="askBtn">WAYDII BEYLOOD</span>
+      </a>
+
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
+        <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/>
+        </svg>
+        <span id="langLabel">Soomaali</span>
+      </button>
+
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== ARTICLE ===================== -->
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="news.html" class="article-back" data-key="newsBack">← Dib ugu noqo wararka</a>
+
+    <header class="article-header">
+      <span class="pill" style="background:#ECF8E9;color:#246C20;" data-key="n1Pill">Beeraha</span>
+      <h1 class="article-title">
+        <span data-lang="so">Xilliga Roobka: Sidee Beeralaydu u Diyaar Garoobaan</span>
+        <span data-lang="en" style="display:none;">Rainy Season: How Farmers Are Preparing</span>
+        <span data-lang="ar" style="display:none;">موسم الأمطار: كيف يستعد المزارعون</span>
+      </h1>
+      <div class="article-meta">
+        <span>2026-05-10</span>
+        <span data-key="n1ReadTime">6 daqiiqo</span>
+      </div>
+    </header>
+
+    <div class="article-cover cover-news-1"></div>
+
+    <div class="article-body">
+
+      <p class="article-lead">
+        <span data-lang="so">Xilliga roobka waa fursad weyn oo beeralayda Soomaalida ah. Si kastaba, diyaargarowga horeba ayaa go'aan u ah guusha. Warbixintan waxay kaa caawin doontaa inaad si fiican u diyaargaroowdo.</span>
+        <span data-lang="en" style="display:none;">The rainy season is a major opportunity for Somali farmers. However, early preparation is the key to success. This report will help you get ready.</span>
+        <span data-lang="ar" style="display:none;">يُعدّ موسم الأمطار فرصة كبيرة للمزارعين الصوماليين، إلا أن الاستعداد المبكر هو مفتاح النجاح. هذا التقرير سيساعدك على الاستعداد الجيد.</span>
+      </p>
+
+      <!-- SOMALI -->
+      <div data-lang="so">
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Soomaaliya waxay leedahay laba xilli roob oo weyn — Gu' (Abriil–Juun) iyo Deyr (Oktoobar–Nofambar). Xilliyadaan ayaa ah wakhtiga ugu muhiimsan beeralayda, sababtoo ah biyaha roobku waa lifaaqaha ugu weyn ee beerta.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Sanadkaan, meteorologists-ku waxay saadaalinayaan roob dheeri ah oo ka dhacaya xariiqa dhexe ee Soomaaliya, gaar ahaan gobolada Hiiraan, Bakool, iyo Bay. Tan waxay ka dhigan tahay fursad weyn oo loogu talagalay beeralayda dhulkaa degan.
+        </p>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">Diyaargarowga Ugu Muhiimsan</h2>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Beeralayda aqoonta leh waxay bilaabaan diyaargarowgooda bilaha ka hor xilliga roobka. Tallaabada koowaad waa nadiifinta dhulka beerta — ka saar dhirta duugga ah, xididada hore, iyo cawska xun. Dhulka nadiif ah ayaa si fudud biyaha u qaata oo dhirta u ogola inay si fiican u koraan.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Tallaabada labaad waa hubinta biyahooda. Roobku marmar si dhakhso ah ayuu u yimaadaa, mana jiraan dammaanad qaadyo. Sidaas darteed, beeralayda caqliga leh waxay samaystaan xero yar oo biyaha lagu kaydiyo si ay uga faa'iideystaan marka roobku joogsado.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Tallaabada saddexaad waa doorsashada noocyada beerta. Xilliga roobka, beeralayda waxaa lagula talinayaa inay beerto noocyada si dhakhso ah u kora oo laga gooyo marka roobku socdo. Galleyda, digirta, iyo bariiska yar-yar waa noocyada ugu fiican xilligan.
+        </p>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">Digniinta Beeralayda</h2>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Inkasta oo roobku fursad weyn yahay, waxaa jira khatarooyinka ku xidhan roobka badan. Biyaha badan waxay keeni karaan cudurrada fungal ee dhirta, gaar ahaan marka hawo wanaagsan la'aanta ay dhirta kala fogaan weeyaan. Beeralayda waa in ay ka taxadiraan isla markaana u diyaariyaan nidaamka biyo-mareenka.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Khubaradu waxay ku talinayaan beeralayda inay isticmaalaan mulch si ay uga hortagi karaan erosion-ka ciidda marka roobku da'o si xoog leh. Sidoo kale, terracing (sameysta marxalado dhulka ku yaal) ayaa si weyn u xoojiya ciidda oo uga hortagta dhumucda roobka.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Ugu dambayntii, xilliga roobka waa wakhtiga ugu qiimaha badan ee sanadka beeraleyga. Diyaargarow fiican, aqoon ku filan, iyo dadaal joogto ah ayaa keena guul waara. Beylood waxay taageertaa beeralayda habka xilliga kasta — waydii Beylood AI su'aal kasta oo ku saabsan beertaada.
+        </p>
+      </div>
+
+      <!-- ENGLISH -->
+      <div data-lang="en" style="display:none;">
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Somalia has two major rainy seasons — Gu' (April–June) and Deyr (October–November). These seasons represent the most critical time for farmers, as rainfall is the primary source of water for agriculture.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          This year, meteorologists are forecasting above-average rainfall across central Somalia, particularly in the regions of Hiiraan, Bakool, and Bay. This represents a significant opportunity for farmers in these areas.
+        </p>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">Key Preparation Steps</h2>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Experienced farmers begin their preparations months before the rains arrive. The first step is clearing the farmland — removing old plants, roots, and weeds. Clean soil absorbs water more effectively and gives crops the best chance to thrive.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          The second step is securing water storage. Rain can be unpredictable and inconsistent. Smart farmers build small water catchment areas to store excess rainwater for use during dry spells between showers.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          The third step is selecting the right crop varieties. During the rainy season, farmers are advised to plant fast-growing varieties that can be harvested before the rains end. Maize, beans, and fast-maturing rice are among the best choices for this season.
+        </p>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">Warnings for Farmers</h2>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Despite the opportunities, there are real risks associated with heavy rainfall. Excess moisture can promote fungal diseases in crops, especially when plants are crowded together with poor air circulation. Farmers must be vigilant and ensure proper drainage systems are in place.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Experts advise farmers to apply mulch to protect against soil erosion during heavy downpours. Additionally, terracing hillside fields significantly strengthens the soil and prevents rain-induced damage.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          Ultimately, the rainy season is the most valuable time of the farming year. Proper preparation, adequate knowledge, and consistent effort lead to lasting success. Beylood supports farmers every season — ask Beylood AI any question about your farm.
+        </p>
+      </div>
+
+      <!-- ARABIC -->
+      <div data-lang="ar" style="display:none;" dir="rtl">
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          تمتلك الصومال موسمَين رئيسيَّين للأمطار — غو (أبريل–يونيو) وديير (أكتوبر–نوفمبر). تمثّل هذه المواسم الوقت الأهم للمزارعين، إذ تُعدّ مياه الأمطار المصدر الرئيسي للري الزراعي.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          هذا العام، يتوقع علماء الأرصاد الجوية هطول أمطار فوق المتوسط في وسط الصومال، ولا سيما في مناطق هيران وباكول وباي. ويمثّل ذلك فرصة كبيرة للمزارعين في هذه المناطق.
+        </p>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">خطوات الاستعداد الأساسية</h2>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          يبدأ المزارعون ذوو الخبرة استعداداتهم قبل أشهر من وصول الأمطار. تتمثّل الخطوة الأولى في تنظيف الأرض الزراعية — إزالة النباتات القديمة والجذور والأعشاب الضارة. إذ تمتص التربة النظيفة الماء بفعالية أكبر، وتمنح المحاصيل أفضل فرصة للنمو.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          أما الخطوة الثانية فهي تأمين خزانات المياه، نظرًا لأن الأمطار قد تكون غير منتظمة. لذا، يحرص المزارعون الأذكياء على بناء أحواض صغيرة لتجميع مياه الأمطار الزائدة، لاستخدامها خلال فترات الجفاف بين الأمطار.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          وتتمثّل الخطوة الثالثة في اختيار أصناف المحاصيل المناسبة. يُنصح المزارعون خلال موسم الأمطار بزراعة أصناف سريعة النمو يمكن حصادها قبل انتهاء الموسم، ومن أبرزها الذرة والفاصولياء والأرز سريع النضج.
+        </p>
+        <h2 style="font-size:20px;font-weight:700;color:var(--navy-700);margin:28px 0 14px;">تحذيرات للمزارعين</h2>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          على الرغم من الفرص، ثمة مخاطر حقيقية مرتبطة بالأمطار الغزيرة. إذ قد تؤدي الرطوبة الزائدة إلى انتشار الأمراض الفطرية في المحاصيل، خاصةً عند تكدّس النباتات مع ضعف التهوية. لذا يجب على المزارعين توفير أنظمة صرف مناسبة.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          ينصح الخبراء المزارعين باستخدام الغطاء الأرضي (Mulch) للحماية من تآكل التربة خلال الأمطار الغزيرة. كما أن تسوية الأراضي المنحدرة على شكل مدرّجات يُعزّز التربة بشكل ملحوظ ويحمي من أضرار المطر.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--gray-700);margin-bottom:20px;">
+          في نهاية المطاف، يُعدّ موسم الأمطار أثمن وقت في السنة الزراعية. ويقود الاستعداد الجيد والمعرفة الكافية والجهد المستمر إلى النجاح الدائم. تدعم بيلود المزارعين في كل موسم — اسأل بيلود الذكي أي سؤال عن مزرعتك.
+        </p>
+      </div>
+    </div>
+
+    <div class="article-source">
+      <div class="article-source-label">
+        <span data-lang="so">ISHA / SOURCE</span><span data-lang="en" hidden>SOURCE</span><span data-lang="ar" hidden>المصدر</span><span data-lang="sw" hidden>CHANZO</span>
+      </div>
+      <p>
+        <span data-lang="so">Qoraalkani waa kooban oo asal ah oo Beylood u qoray, ku saleysan macluumaad guud oo cilmi-baadhis ah. Tixraac: </span>
+        <span data-lang="en" hidden>This is an original summary written by Beylood, based on general research-backed information. Reference: </span>
+        <span data-lang="ar" hidden>هذا ملخص أصلي كتبه Beylood، بناءً على معلومات بحثية عامة. المرجع: </span>
+        <span data-lang="sw" hidden>Huu ni muhtasari asili ulioandikwa na Beylood, kulingana na taarifa za jumla za utafiti. Marejeo: </span>
+        <strong>Source: FAO</strong> —
+        <a href="https://www.fao.org" target="_blank" rel="noopener noreferrer">fao.org</a>
+      </p>
+    </div>
+  </div>
+</article>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/logo-transparent.png" alt="Beylood" />
+          <div>
+            <p class="footer-name">Beylood</p>
+            <p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p>
+          </div>
+        </div>
+        <p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p>
+      </div>
+
+      <div>
+        <p class="footer-title" data-key="fExplore">Sahmin</p>
+        <ul class="footer-list">
+          <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+          <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
+          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+          <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-title" data-key="fCompany">Shirkadda</p>
+        <ul class="footer-list">
+          <li><a href="about.html" data-key="navAbout">Naga</a></li>
+          <li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p>
+      <p data-key="fBuilt">Aqoonta Beeraha</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>
