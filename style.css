@@ -3193,3 +3193,110 @@ html[dir="rtl"] .search-field { padding: 0 22px 0 16px; }
 .cover-img.is-loaded { opacity: 1; }
 /* Keep the BEYLOOD watermark readable above the photo */
 .card-cover::before, .article-cover::before { z-index: 2; }
+
+/* ============================================================
+   Member badge + Premium lock previews (guest vs member)
+   ------------------------------------------------------------
+   Default state is LOCKED (safe): premium content is blurred and
+   the overlay shows. When auth.js confirms a logged-in user it
+   adds .auth-member to <html>, which unlocks everything.
+   ============================================================ */
+
+/* Member badge in the navbar chip */
+.auth-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-inline-start: 7px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--grad-leaf);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+@media (max-width: 720px) { .auth-badge { display: none; } }
+
+/* Premium section */
+.premium-section { background: var(--gray-50); }
+.premium-eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--green-600); font-weight: 700; letter-spacing: .08em;
+  font-size: 12px; text-transform: uppercase;
+}
+
+/* The lock wrapper */
+.premium-lock { position: relative; border-radius: var(--radius-lg); overflow: hidden; }
+
+/* Premium content: blurred + non-interactive by default (guest) */
+.premium-lock .premium-content {
+  filter: blur(7px);
+  transform: scale(1.02);
+  pointer-events: none;
+  user-select: none;
+  transition: filter .45s ease, transform .45s ease;
+}
+/* Members: unlock smoothly */
+html.auth-member .premium-lock .premium-content {
+  filter: none;
+  transform: none;
+  pointer-events: auto;
+  user-select: auto;
+}
+
+/* Lock overlay (the call-to-action shown to guests) */
+.premium-lock__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.78) 100%);
+  backdrop-filter: blur(2px);
+  opacity: 1;
+  transition: opacity .4s ease;
+}
+[data-theme="dark"] .premium-lock__overlay {
+  background: linear-gradient(180deg, rgba(11,18,32,.55) 0%, rgba(11,18,32,.82) 100%);
+}
+/* Members never see the overlay */
+html.auth-member .premium-lock__overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+.premium-lock__icon {
+  width: 52px; height: 52px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  color: #fff;
+  box-shadow: var(--shadow-elev);
+}
+.premium-lock__title { font-size: 20px; font-weight: 800; color: var(--gray-900); margin: 0; }
+.premium-lock__sub { color: var(--gray-600); max-width: 460px; margin: 0; font-size: 15px; }
+.premium-lock__actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+.premium-lock__signin {
+  display: inline-flex; align-items: center; padding: 10px 18px;
+  border-radius: var(--radius-pill); font-weight: 600; font-size: 14px;
+  color: var(--navy-600); background: transparent; border: 1px solid var(--gray-200);
+  transition: background .2s ease;
+}
+.premium-lock__signin:hover { background: var(--gray-100); }
+
+/* Resource cards inside the premium grid */
+.premium-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 900px) { .premium-grid { grid-template-columns: 1fr; } }
+.premium-card {
+  background: #fff; border: 1px solid var(--gray-100); border-radius: var(--radius-lg);
+  padding: 24px; box-shadow: var(--shadow-soft);
+}
+[data-theme="dark"] .premium-card { background: var(--gray-50); border-color: var(--gray-200); }
+.premium-card .premium-card-ico { color: var(--green-500); margin-bottom: 12px; }
+.premium-card h3 { font-size: 17px; font-weight: 700; color: var(--gray-900); margin: 0 0 6px; }
+.premium-card p { color: var(--gray-600); font-size: 14px; margin: 0; }

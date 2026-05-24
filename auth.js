@@ -212,10 +212,12 @@ function renderChip(user) {
   if (!navRight) return;
   let chip = document.getElementById('authChip');
   const logoutLabel = tr({ so: 'Ka bax', en: 'Logout', ar: 'خروج', sw: 'Toka' });
+  const memberLabel = tr({ so: 'Xubin', en: 'Member', ar: 'عضو', sw: 'Mwanachama' });
   const html =
     '<a href="dashboard.html" class="auth-chip-link" title="Dashboard">' +
       '<span class="auth-avatar">' + avatarMarkup(user) + '</span>' +
       '<span class="auth-chip-name">' + escapeHTML(firstName(user.displayName, user.email)) + '</span>' +
+      '<span class="auth-badge">' + memberLabel + '</span>' +
     '</a>' +
     '<button type="button" id="logoutBtn" class="auth-logout-btn" aria-label="' + logoutLabel + '" title="' + logoutLabel + '">' +
       '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>' +
@@ -308,6 +310,10 @@ function injectBookmarkButton(currentUser) {
 if (configReady()) {
   onAuthStateChanged(auth, (user) => {
     const path = (location.pathname.split('/').pop() || '').toLowerCase();
+    // Tag the document so CSS can switch the whole UI between guest and member
+    // states (.auth-guest / .auth-member) — premium locks, guest-only / member-only.
+    document.documentElement.classList.toggle('auth-member', !!user);
+    document.documentElement.classList.toggle('auth-guest', !user);
     if (user) {
       setAuthLinksVisible(false);
       renderChip(user);
