@@ -3178,3 +3178,18 @@ html[dir="rtl"] .search-field { padding: 0 22px 0 16px; }
 @media (max-width: 380px) {
   .logo-name { display: none; } /* last resort on the very smallest screens */
 }
+
+/* ---- Auto featured images on gradient covers (lazy, responsive, graceful fallback) ---- */
+.cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* uniform crop regardless of source dimensions */
+  z-index: 0;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+.cover-img.is-loaded { opacity: 1; }
+/* Keep the BEYLOOD watermark readable above the photo */
+.card-cover::before, .article-cover::before { z-index: 2; }
