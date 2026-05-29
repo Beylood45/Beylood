@@ -36,7 +36,24 @@
     'cover-late-blight':      { id: '1508313880080-c4bef0730395', topic: { so: 'Cudurka baradhada', en: 'Potato crop disease', ar: 'مرض البطاطس', sw: 'Ugonjwa wa viazi' } },
     'cover-powdery-mildew':   { id: '1530507629858-e3759c1f0e0d', topic: { so: 'Fangaska caleemaha', en: 'Leaf fungal disease', ar: 'مرض فطري للأوراق', sw: 'Ukungu wa majani' } },
     'cover-root-rot':         { id: '1530836369250-ef72a3f5cda8', topic: { so: 'Xididada iyo ciidda', en: 'Roots and soil health', ar: 'صحة الجذور والتربة', sw: 'Afya ya mizizi na udongo' } },
+    // ----- Irrigation -----
+    'cover-drip-irrigation':       { id: '1416664806563-bb6be3b6d7d3', topic: { so: 'Drip irrigation', en: 'Drip irrigation', ar: 'الري بالتنقيط', sw: 'Drip irrigation' } },
+    'cover-rainwater-harvesting':  { id: '1501426026826-31c667bdf23d', topic: { so: 'Kaydinta biyaha roobka', en: 'Rainwater harvesting', ar: 'تجميع مياه الأمطار', sw: 'Kuvuna maji ya mvua' } },
+    'cover-irrigation-scheduling': { id: '1473773508845-188df298d2d1', topic: { so: 'Jadwalka waraabinta', en: 'Irrigation scheduling', ar: 'جدولة الري', sw: 'Ratiba ya umwagiliaji' } },
+    // ----- Soil -----
+    'cover-soil-testing':  { id: '1464226184884-fa280b87c399', topic: { so: 'Tijaabinta ciidda', en: 'Soil testing', ar: 'اختبار التربة', sw: 'Upimaji wa udongo' } },
+    'cover-composting':    { id: '1592078615290-033ee584e267', topic: { so: 'Compost', en: 'Composting', ar: 'الكمبوست', sw: 'Mboji' } },
+    'cover-cover-crops':   { id: '1574943320219-553eb213f72d', topic: { so: 'Cover crops', en: 'Cover crops', ar: 'محاصيل الغطاء', sw: 'Mazao ya kufunika' } },
+    // ----- Climate -----
+    'cover-drought-crops':       { id: '1501785888041-af3ef285b470', topic: { so: 'Dalagga abaaraha', en: 'Drought tolerant crops', ar: 'محاصيل الجفاف', sw: 'Mazao sugu' } },
+    'cover-agroforestry':        { id: '1426604966848-d7adac402bff', topic: { so: 'Agroforestry', en: 'Agroforestry', ar: 'الزراعة الحرجية', sw: 'Kilimo cha misitu' } },
+    'cover-weather-monitoring':  { id: '1561553590-267fc716698a', topic: { so: 'Cimilada la-socodka', en: 'Weather monitoring', ar: 'رصد الطقس', sw: 'Hali ya hewa' } },
+    // ----- Livestock -----
+    'cover-dairy-cattle':     { id: '1605338777890-d6a4d27c89ec', topic: { so: 'Lo\'da caanaha', en: 'Dairy cattle', ar: 'أبقار الحليب', sw: 'Ng\'ombe wa maziwa' } },
+    'cover-poultry-farming':  { id: '1548550023-2bdb3c5beed7', topic: { so: 'Digaagga', en: 'Poultry farming', ar: 'الدواجن', sw: 'Kuku' } },
+    'cover-goat-sheep':       { id: '1533219057257-4bb9ed5d2cc7', topic: { so: 'Riyaha iyo idaha', en: 'Goats and sheep', ar: 'الماعز والأغنام', sw: 'Mbuzi na kondoo' } },
     // ----- News -----
+    'cover-news-1': { id: '1438449805896-28a666819a20', topic: { so: 'Xilliga roobka', en: 'Rainy season farming', ar: 'موسم الأمطار', sw: 'Msimu wa mvua' } },
     'cover-news-2': { id: '1554224155-6726b3ff858f', topic: { so: 'Maaliyadda beeraha', en: 'Agricultural finance', ar: 'التمويل الزراعي', sw: 'Ufadhili wa kilimo' } },
     'cover-news-3': { id: '1500595046743-cd271d694d30', topic: { so: 'Xoolaha iyo beeraha', en: 'Livestock and crops', ar: 'الثروة الحيوانية والمحاصيل', sw: 'Mifugo na mazao' } },
     'cover-news-4': { id: '1561484930-998b6a7b22e8', topic: { so: 'Cimilada beeraha', en: 'Climate and weather', ar: 'المناخ والطقس', sw: 'Hali ya hewa' } },
@@ -56,7 +73,6 @@
       text = ((vis ? vis.textContent : titleEl.textContent) || '').trim();
     }
     if (!text) text = topic[curLang()] || topic.en;
-    // Strip a trailing " — Hagaha Buuxa"/"— The Complete Guide" tail for cleaner alt
     text = text.replace(/\s+[—-]\s+.*(buuxa|complete guide|الشامل|kamili).*$/i, '').trim();
     return text + ' — Beylood';
   }
@@ -66,14 +82,13 @@
   function apply() {
     var covers = document.querySelectorAll('.card-cover, .article-cover');
     covers.forEach(function (cover) {
-      // Find which mapped cover class this element uses
       var key = null;
       for (var i = 0; i < cover.classList.length; i++) {
         if (IMAGE_MAP[cover.classList[i]]) { key = cover.classList[i]; break; }
       }
-      if (!key) return;                          // not a gradient-only cover we manage
-      if (cover.querySelector('.cover-img')) return; // already has an image
-      if (used[key]) return;                     // dedupe: this photo already used on the page
+      if (!key) return;
+      if (cover.querySelector('.cover-img')) return;
+      if (used[key]) return;
 
       var entry = IMAGE_MAP[key];
       var img = document.createElement('img');

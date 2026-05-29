@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Beylood - multilingual agriculture knowledge platform (Somali, English, Arabic, Swahili) with an AI chat assistant.",
-  "homepage": "https://github.com/Beylood45/Beylood45",
+  "homepage": "https://github.com/Beylood45/Beylood",
   "scripts": {
     "dev": "npx serve .",
     "preview": "vercel dev",

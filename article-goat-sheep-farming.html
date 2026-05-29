@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Riyaha iyo Idaha — sida loo dhaqo riyaha iyo idaha Soomaaliyeed; daryeel, cunto, taran iyo ganacsi." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Riyaha iyo Idaha — Hagaha Buuxa | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Goat and Sheep Farming Guide" />
+  <meta property="og:description" content="Professional guide to goat and sheep farming — Somali breeds, feed, health, market." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <a href="signin.html" class="lang-btn btn-signin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span></a>
+      <a href="signup.html" class="btn btn-getstarted"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span></a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-livestock.html" class="article-back"><span data-lang="so">← Dib ugu noqo Xoolaha</span><span data-lang="en" hidden>← Back to Livestock</span><span data-lang="ar" hidden>← العودة إلى الماشية</span><span data-lang="sw" hidden>← Rudi kwa Mifugo</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Xoolaha</span><span data-lang="en" hidden>Livestock</span><span data-lang="ar" hidden>الثروة الحيوانية</span><span data-lang="sw" hidden>Mifugo</span></span>
+      <h1 class="article-title"><span data-lang="so">Riyaha iyo Idaha — Hagaha Buuxa</span><span data-lang="en" hidden>Goats and Sheep — The Complete Guide</span><span data-lang="ar" hidden>الماعز والأغنام — الدليل الشامل</span><span data-lang="sw" hidden>Mbuzi na Kondoo — Mwongozo</span></h1>
+      <div class="article-meta"><span>2026-05-24</span><span><span data-lang="so">9 daqiiqo</span><span data-lang="en" hidden>9 min read</span><span data-lang="ar" hidden>9 دقائق</span><span data-lang="sw" hidden>dakika 9</span></span></div>
+    </header>
+    <div class="article-cover cover-goat-sheep"></div>
+    <div class="article-body">
+
+      <p class="article-lead">
+        <span data-lang="so">Riyaha iyo idaha (Small Ruminants) waa hantida khaasiska ah ee bulshada Soomaaliyeed iyo Geeska Afrika. Waxay siiyaan hilib, caano, dhogor, iyo dakhli ku-takriifid (suuq sare oo Khaliijka ah). Mid riyo ah baan ku noqon karaa hal dameer mid kasta — yarayn maalgashi.</span>
+        <span data-lang="en" hidden>Goats and sheep are the cornerstone wealth of Somali and Horn-of-Africa society. They provide meat, milk, skins, and a strong export market (Gulf states). One pregnant doe pays for two by next season — low capital, high turnover.</span>
+        <span data-lang="ar" hidden>الماعز والأغنام ركيزة الثروة الصومالية. لحم، حليب، جلود، وتصدير للخليج.</span>
+        <span data-lang="sw" hidden>Mbuzi na kondoo ni utajiri muhimu.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Noocyada Soomaaliyeed</span><span data-lang="en" hidden>Somali Breeds</span><span data-lang="ar" hidden>السلالات الصومالية</span><span data-lang="sw" hidden>Aina za Kisomali</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Riyaha Galla (Somali Galla)</strong> — cad oo waaweyn (50–70 kg lab; 40–55 kg dheddig); siisa 2–3 L caano maalintii — hilib + caano-bixin.</span><span data-lang="en" hidden><strong>Galla goat</strong> — white, large (50–70 kg male; 40–55 kg female); 2–3 L milk/day — dual meat + milk.</span><span data-lang="ar" hidden><strong>غالا</strong> — لحم وحليب.</span><span data-lang="sw" hidden><strong>Galla</strong> — nyama na maziwa.</span></li>
+        <li><span data-lang="so"><strong>Black Head Persian Sheep (Idaha madow madaxa)</strong> — adkaystaa kulayl iyo abaaro, hilib tayo sare leh, siisa 1.0–1.2 ilmo dhalashada kasta.</span><span data-lang="en" hidden><strong>Black Head Persian sheep</strong> — heat- and drought-tolerant, premium meat quality, 1.0–1.2 lambs per kidding.</span><span data-lang="ar" hidden><strong>الرأس الأسود الفارسي</strong> — لحم ممتاز.</span><span data-lang="sw" hidden><strong>Black Head Persian</strong>.</span></li>
+        <li><span data-lang="so"><strong>Somali Berbera Blackhead</strong> — qiimo sare oo suuqa Khaliijka, kulayl ka adkaystaa, siisa ilmo 4 jeer 3 sano gudahood (3 dhalashado).</span><span data-lang="en" hidden><strong>Somali Berbera Blackhead</strong> — premium Gulf export price, heat-hardy, 3 lambings in 2–3 years.</span><span data-lang="ar" hidden><strong>بربرة سوداء الرأس</strong> — تصدير ممتاز للخليج.</span><span data-lang="sw" hidden><strong>Berbera Blackhead</strong>.</span></li>
+        <li><span data-lang="so"><strong>Boer (sii dheer)</strong> — riyo hilib (South African); kaboor 35 kg 5 bilood — ku habboon dadka loo dhaqo aagga roobka.</span><span data-lang="en" hidden><strong>Boer (imported)</strong> — meat goat (South African); 35 kg at 5 months — fits wetter zones.</span><span data-lang="ar" hidden><strong>Boer</strong> — للحم.</span><span data-lang="sw" hidden><strong>Boer</strong> — nyama.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Hooyga</span><span data-lang="en" hidden>Housing</span><span data-lang="ar" hidden>المسكن</span><span data-lang="sw" hidden>Banda</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Sadex hab caan ah: <strong>Open paddock</strong> (dhul daaq oo dabar la go'an), <strong>Semi-intensive</strong> (xero lagu hayaa habeenkii), iyo <strong>Intensive (zero-grazing)</strong>. Mitir-laba-jibaaran kasta: 1.5–2 m² riyo ama ido kasta. Sare/dheer: 1.5 m sare. Sagxadda: kor u taagan 30 cm (slatted) si kaadi iyo digo ay u dhacaan — yaraysa parasites-ka.</span>
+        <span data-lang="en" hidden>Three systems: <strong>open paddock</strong> (fenced grazing), <strong>semi-intensive</strong> (housed at night), <strong>intensive zero-grazing</strong>. Per animal: 1.5–2 m². Height: 1.5 m. Use a raised slatted floor (30 cm off ground) so dung and urine drop through — cuts parasites dramatically.</span>
+        <span data-lang="ar" hidden>ثلاثة أنظمة: مفتوح، شبه مكثف، مكثف. 1.5–2 م²/رأس.</span>
+        <span data-lang="sw" hidden>Mifumo mitatu. 1.5–2 m² kwa mnyama.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Cuntada</span><span data-lang="en" hidden>Feed</span><span data-lang="ar" hidden>التغذية</span><span data-lang="sw" hidden>Lishe</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Riyaha iyo idaha waxay cunaan 3–4% miisaankooda jirka oo qalalan maalintii. Riyo 30 kg ah = 1 kg caws qalalan + 200 g ifrale (galleyda, masaggada, sun cake) + biyo 4–6 L + cusbo macdaneed. Riyaha siisa caano: 1 kg ifrale dheeraad ah kalalaad 2 L caano oo soo saari karta.</span>
+        <span data-lang="en" hidden>Goats and sheep eat 3–4% of body weight as dry matter daily. A 30 kg goat: 1 kg dry forage + 200 g concentrate (maize, sorghum, sun cake) + 4–6 L water + mineral salt. A milking doe needs an extra 0.5 kg concentrate per litre of milk produced.</span>
+        <span data-lang="ar" hidden>3–4% من الوزن مادة جافة يومياً.</span>
+        <span data-lang="sw" hidden>3–4% ya uzito.</span>
+      </p>
+      <p class="article-p">
+        <span data-lang="so"><strong>Riyaha</strong> waxay door bidaan caleemaha geedaha (browse) — Acacia, Leucaena, Calliandra. <strong>Idaha</strong> waxay door bidaan caws hooseeya (graze) — Rhodes, Napier.</span>
+        <span data-lang="en" hidden><strong>Goats</strong> prefer browse (tree leaves) — Acacia, Leucaena, Calliandra. <strong>Sheep</strong> prefer ground grass — Rhodes, Napier.</span>
+        <span data-lang="ar" hidden><strong>الماعز</strong> ترعى الأشجار، <strong>الأغنام</strong> ترعى الأعشاب.</span>
+        <span data-lang="sw" hidden><strong>Mbuzi</strong> hupendelea miti, <strong>kondoo</strong> nyasi.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Taranka</span><span data-lang="en" hidden>Breeding</span><span data-lang="ar" hidden>التزاوج</span><span data-lang="sw" hidden>Kuzaa</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Dhalashada ugu horeysa: 12–15 bilood. Uur: 145–155 maalmood (5 bilood). Habayno xilliyada inta u dhaxaysa (kidding interval): 8 bilood. Riyo 1 si caafimaad qabto: 5–6 ilmo (kids) 3 sano gudahood. Hubi inaad raqdid hal raqdo 25–30 dheddig.</span>
+        <span data-lang="en" hidden>First mating: 12–15 months. Gestation: 145–155 days (5 months). Target kidding interval: 8 months. A healthy doe gives 5–6 kids in 3 years. Keep 1 buck per 25–30 does.</span>
+        <span data-lang="ar" hidden>أول تزاوج 12–15 شهراً. الحمل 145–155 يوماً.</span>
+        <span data-lang="sw" hidden>Mara ya kwanza miezi 12–15.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Daryeelka Caafimaadka</span><span data-lang="en" hidden>Health Care</span><span data-lang="ar" hidden>الصحة</span><span data-lang="sw" hidden>Afya</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Deworming:</strong> 3 bilood kasta — Haemonchus contortus (dirxiga dhiig liqa) ayaa khasaariya beero badan.</span><span data-lang="en" hidden><strong>Deworming:</strong> every 3 months — Haemonchus contortus (barber pole worm) kills many small ruminants.</span><span data-lang="ar" hidden><strong>الديدان</strong> — كل 3 أشهر.</span><span data-lang="sw" hidden><strong>Dawa ya minyoo</strong> — kila miezi 3.</span></li>
+        <li><span data-lang="so"><strong>Tallaalka:</strong> PPR (peste des petits ruminants — 'rinderpest yarta') sannadkii, CCPP, anthrax, enterotoxaemia.</span><span data-lang="en" hidden><strong>Vaccinations:</strong> PPR yearly, CCPP, anthrax, enterotoxaemia.</span><span data-lang="ar" hidden><strong>التطعيمات</strong> — PPR، CCPP.</span><span data-lang="sw" hidden><strong>Chanjo</strong>.</span></li>
+        <li><span data-lang="so"><strong>FAMACHA test</strong> — fiiri midabka isha si aad u ogaato cudur-dhiigta (anemia) cudurka dirxiga.</span><span data-lang="en" hidden><strong>FAMACHA test</strong> — check eye colour for worm-induced anaemia.</span><span data-lang="ar" hidden><strong>FAMACHA</strong> — لون العين.</span><span data-lang="sw" hidden><strong>FAMACHA</strong>.</span></li>
+        <li><span data-lang="so"><strong>Foot care</strong> — jar cufnaan kasta 2–3 bilood, ka hortag foot rot.</span><span data-lang="en" hidden><strong>Hoof care</strong> — trim every 2–3 months to prevent foot rot.</span><span data-lang="ar" hidden><strong>العناية بالحوافر</strong>.</span><span data-lang="sw" hidden><strong>Kucha</strong>.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Suuqa iyo Dhaqaalaha</span><span data-lang="en" hidden>Market and Economics</span><span data-lang="ar" hidden>السوق والاقتصاد</span><span data-lang="sw" hidden>Soko na Uchumi</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Suuqyada gudaha (Hargeisa, Mogadishu, Kismaayo): $80–$150 dameer hilib ah. Suuqyada Khaliijka (Saudi, Yemen, Egypt) — siiba xilliga Xajka: $150–$300 dameer kasta. Beero leh 50 riyo waxay soo saari karan 50–80 dameer iibinta sannadkii, sannad-faa'iidada $4,000–$8,000 (oo aan kala saarin kharashka).</span>
+        <span data-lang="en" hidden>Local markets (Hargeisa, Mogadishu, Kismaayo): $80–$150/head. Gulf export markets (Saudi, Yemen, Egypt) — especially Hajj season: $150–$300/head. A 50-doe flock produces 50–80 saleable animals/year — gross income $4,000–$8,000.</span>
+        <span data-lang="ar" hidden>الأسواق المحلية 80–150$، التصدير 150–300$.</span>
+        <span data-lang="sw" hidden>Soko la ndani $80–$150, nje $150–$300.</span>
+      </p>
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

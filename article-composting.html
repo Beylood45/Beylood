@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Compost — habka loo sameeyo bacrinta dabiici ah ee xoogan, ee yarayn isticmaalka kiimikada, kor u qaada wax-soosaarka, oo soo celisa carrada." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Compost — Hagaha Buuxa | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Composting Complete Guide" />
+  <meta property="og:description" content="Professional composting guide — C:N ratio, hot vs cold composting, vermicomposting." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <a href="signin.html" class="lang-btn btn-signin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span></a>
+      <a href="signup.html" class="btn btn-getstarted"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span></a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-soil.html" class="article-back"><span data-lang="so">← Dib ugu noqo Carrada</span><span data-lang="en" hidden>← Back to Soil</span><span data-lang="ar" hidden>← العودة إلى التربة</span><span data-lang="sw" hidden>← Rudi kwa Udongo</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Carrada</span><span data-lang="en" hidden>Soil</span><span data-lang="ar" hidden>التربة</span><span data-lang="sw" hidden>Udongo</span></span>
+      <h1 class="article-title"><span data-lang="so">Compost — Bacrinta Dabiici Ah</span><span data-lang="en" hidden>Composting — Organic Fertiliser</span><span data-lang="ar" hidden>الكمبوست — السماد العضوي</span><span data-lang="sw" hidden>Mboji — Mbolea Asili</span></h1>
+      <div class="article-meta"><span>2026-05-24</span><span><span data-lang="so">8 daqiiqo</span><span data-lang="en" hidden>8 min read</span><span data-lang="ar" hidden>8 دقائق</span><span data-lang="sw" hidden>dakika 8</span></span></div>
+    </header>
+    <div class="article-cover cover-composting"></div>
+    <div class="article-body">
+
+      <p class="article-lead">
+        <span data-lang="so">Compost-ku waa "dahabka madow" — bacrin dabiici ah oo lagu sameeyo qashinka beerta, jikada, iyo digada xoolaha. Wuxuu kor u qaada bacrinta carrada, yareeyaa qiimaha bacrinta kiimikada 50%, oo soo celiyaa nolosha ciidda (bacteria, fungi, worms).</span>
+        <span data-lang="en" hidden>Compost is "black gold" — natural fertiliser made from crop waste, kitchen scraps, and manure. It builds soil fertility, cuts chemical-fertiliser costs by 50%, and restores soil biology (bacteria, fungi, worms).</span>
+        <span data-lang="ar" hidden>الكمبوست "الذهب الأسود" — سماد طبيعي من بقايا المحاصيل والمطبخ والسماد. يخصّب التربة ويوفر 50% من تكلفة الأسمدة.</span>
+        <span data-lang="sw" hidden>Mboji ni "dhahabu nyeusi" — mbolea asili ya taka za shamba.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">C:N Ratio — Sirta Guusha</span><span data-lang="en" hidden>The C:N Ratio — Key to Success</span><span data-lang="ar" hidden>نسبة الكربون للنيتروجين</span><span data-lang="sw" hidden>Uwiano wa C:N</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Compost wuxuu u baahan yahay isku-dheelitir saxan ah oo u dhexeeya kaarboon (C, walxaha bunni qalalan) iyo nitrogen (N, walxaha cagaarka qoyan). Ratio ku habboon waa <strong>30:1 (C:N)</strong>. Aad u badan N: ur xun oo ammonia ah. Aad u badan C: si tartiib ah ayuu u kacaa.</span>
+        <span data-lang="en" hidden>Compost needs balanced carbon (C, brown dry materials) and nitrogen (N, green wet materials). Target a <strong>30:1 C:N ratio</strong>. Too much N: smells of ammonia. Too much C: decomposes very slowly.</span>
+        <span data-lang="ar" hidden>الكمبوست يحتاج توازن الكربون (مواد جافة) والنيتروجين (مواد خضراء). 30:1 مثالية.</span>
+        <span data-lang="sw" hidden>Mboji inahitaji uwiano wa C:N 30:1.</span>
+      </p>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Bunni (Brown / C-high)</strong> — caws qalalan, caleemo qalalan, korog (sawdust), waraaqo, dad (300–500 C:N).</span><span data-lang="en" hidden><strong>Browns (high C)</strong> — dry grass, dry leaves, sawdust, cardboard, straw (300–500 C:N).</span><span data-lang="ar" hidden><strong>البني</strong> — قش وأوراق جافة ونشارة (300–500 C:N).</span><span data-lang="sw" hidden><strong>Kahawia</strong> — nyasi kavu, machujo (300–500).</span></li>
+        <li><span data-lang="so"><strong>Cagaar (Green / N-high)</strong> — qashinka khudaarta, caws cusub, digo, qashinka jikada, digirta (15–20 C:N).</span><span data-lang="en" hidden><strong>Greens (high N)</strong> — vegetable scraps, fresh grass, manure, kitchen waste, legume residues (15–20 C:N).</span><span data-lang="ar" hidden><strong>الأخضر</strong> — قشور الخضار والسماد والقصاصات (15–20).</span><span data-lang="sw" hidden><strong>Kijani</strong> — taka za mboga, samadi (15–20).</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Habka Compost Kulul (Hot Composting)</span><span data-lang="en" hidden>Hot Composting Method</span><span data-lang="ar" hidden>التخمير الحار</span><span data-lang="sw" hidden>Njia ya Mboji ya Joto</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Pile ahaan 1.5 × 1.5 × 1.5 m. Lakab kasta: 10 cm bunni, 5 cm cagaar, 1 cm digada xoolaha (caawisa bacteria-da), iyo qoyaan yar. Ku celi ilaa pile-ku gaadho 1.5 mitir. Daboolaad: dhar madow ama caws qalalan. Heerkulkii pile-ku waa inuu gaadho 55–65°C 3 maalmood gudahood — tani waxay disho miraha cawska iyo cudurrada.</span>
+        <span data-lang="en" hidden>Build a 1.5 × 1.5 × 1.5 m pile. Each layer: 10 cm browns, 5 cm greens, 1 cm manure (microbial starter), light watering. Repeat until 1.5 m tall. Cover with dark cloth or dry grass. The pile should hit 55–65°C within 3 days — kills weed seeds and pathogens.</span>
+        <span data-lang="ar" hidden>كومة 1.5×1.5×1.5 م. طبقات بنية وخضراء وسماد. 55–65°م تقتل البذور.</span>
+        <span data-lang="sw" hidden>Rundi 1.5×1.5×1.5 m. 55–65°C huua mbegu.</span>
+      </p>
+      <p class="article-p">
+        <span data-lang="so"><strong>Rogrogashada:</strong> rog pile-ka 7-da maalmood kasta si oxygen-ka ugu galo. Diyaar 6–10 toddobaad gudahood marka uu pile-ku noqdo bunni madow, oo aan urin caaqil ahaan.</span>
+        <span data-lang="en" hidden><strong>Turning:</strong> turn the pile every 7 days for aeration. Ready in 6–10 weeks when material is dark brown, crumbly, and smells earthy.</span>
+        <span data-lang="ar" hidden>قلّب كل 7 أيام. جاهز خلال 6–10 أسابيع.</span>
+        <span data-lang="sw" hidden>Geuza kila wiki. Tayari wiki 6–10.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Vermicompost (Compost-ka Dirxiga)</span><span data-lang="en" hidden>Vermicomposting (Worm Compost)</span><span data-lang="ar" hidden>الكمبوست الدودي</span><span data-lang="sw" hidden>Mboji ya Minyoo</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Isticmaal dirxiga noocyada Eisenia fetida (red wrigglers). Sanduuq dheer 30 cm: lakab caws ah, 1 kg dirxiyo, qashin jiko jiko. Heerkulka: 18–28°C. Vermicompost wuxuu leeyahay nafaqo 5–10 jeer ka badan compost caadi ah — bacrin sare oo loo isticmaalo khudaarta khasaaba iyo seedling-ka.</span>
+        <span data-lang="en" hidden>Use Eisenia fetida (red wriggler) worms. A 30 cm deep box: layer of bedding grass, 1 kg worms, kitchen scraps. Keep at 18–28°C. Vermicompost contains 5–10× more available nutrients than regular compost — premium for high-value vegetables and seedlings.</span>
+        <span data-lang="ar" hidden>دود Eisenia fetida. صندوق 30 سم. مغذيات أعلى 5–10 أضعاف.</span>
+        <span data-lang="sw" hidden>Minyoo Eisenia fetida. Virutubisho 5–10× zaidi.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Khaladaadka iyo Xalka</span><span data-lang="en" hidden>Problems and Fixes</span><span data-lang="ar" hidden>المشكلات والحلول</span><span data-lang="sw" hidden>Matatizo na Suluhisho</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Ur xun (ammonia)</strong> → N badan; ku dar caleemo qalalan iyo rog.</span><span data-lang="en" hidden><strong>Ammonia smell</strong> → too much N; add dry leaves and turn.</span><span data-lang="ar" hidden><strong>رائحة الأمونيا</strong> → أضف مواد جافة.</span><span data-lang="sw" hidden><strong>Harufu ya amonia</strong> → ongeza kahawia.</span></li>
+        <li><span data-lang="so"><strong>Ma kulayl</strong> → N yar ama qoyaan liita; ku dar caws cusub iyo biyo.</span><span data-lang="en" hidden><strong>Not heating up</strong> → too little N or moisture; add fresh greens and water.</span><span data-lang="ar" hidden><strong>لا يسخن</strong> → أضف أخضر وماء.</span><span data-lang="sw" hidden><strong>Haupashi</strong> → ongeza kijani na maji.</span></li>
+        <li><span data-lang="so"><strong>Dirxiyo + jiir</strong> → ha ku tuurin hilib, caano, ama saliid; rog pile-ka.</span><span data-lang="en" hidden><strong>Maggots / rats</strong> → don't add meat, dairy, or oil; turn the pile.</span><span data-lang="ar" hidden><strong>الفئران</strong> → لا لحوم أو ألبان.</span><span data-lang="sw" hidden><strong>Panya</strong> → epuka nyama na maziwa.</span></li>
+        <li><span data-lang="so"><strong>Aad u qoyan / way leef</strong> → ku dar walxaha qalalan oo dabooli si roobku uusan u helin.</span><span data-lang="en" hidden><strong>Too wet / soggy</strong> → add dry browns and cover from rain.</span><span data-lang="ar" hidden><strong>رطب جداً</strong> → مواد جافة وغطاء.</span><span data-lang="sw" hidden><strong>Mvua mno</strong> → ongeza kavu.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Isticmaalka Compost-ka</span><span data-lang="en" hidden>Using Compost</span><span data-lang="ar" hidden>استخدام الكمبوست</span><span data-lang="sw" hidden>Kutumia Mboji</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Beerta ka hor inta aanad beerin: 10–20 t/ha (1–2 kg/m²) oo dheh ciidda 15 cm hoose. Khudaarta sasanaqa: 100 g godkii. Geedaha: 2–5 kg geed kasta sannadkii. Mulching: lakab 5 cm ah oo dhirta agteeda. Compost-ka wuxuu kor u qaadaa awoodda ciidda inay biyaha qabato 25% oo daciifsadaa cudurrada xididada.</span>
+        <span data-lang="en" hidden>Pre-planting: 10–20 t/ha (1–2 kg/m²) mixed into top 15 cm. Veg seedlings: 100 g per planting hole. Trees: 2–5 kg per tree/year. Mulching: 5 cm layer around plants. Compost increases soil water-holding capacity 25% and suppresses root diseases.</span>
+        <span data-lang="ar" hidden>قبل الزراعة: 10–20 طن/هكتار. الأشجار: 2–5 كغ سنوياً.</span>
+        <span data-lang="sw" hidden>Kabla ya kupanda: tani 10–20/hektari.</span>
+      </p>
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

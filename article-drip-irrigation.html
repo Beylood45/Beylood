@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Drip Irrigation — habka ugu cusub ee waraabinta; kaydiya 40–60% biyaha, kor u qaada wax-soosaarka 20–50%, oo ka hortaga cudurrada caleemaha." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Drip Irrigation — Hagaha Buuxa | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Drip Irrigation Complete Guide" />
+  <meta property="og:description" content="Professional guide to drip irrigation — design, installation, costs, and maintenance for small and medium farms." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo" aria-label="Beylood home"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" aria-current="page" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg>
+        <span data-key="askBtn">WAYDII BEYLOOD</span>
+      </a>
+      <a href="signin.html" class="lang-btn btn-signin" aria-label="Sign in" title="Sign in">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span>
+      </a>
+      <a href="signup.html" class="btn btn-getstarted" aria-label="Get started">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span>
+      </a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
+        <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+        <span id="langLabel">Soomaali</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-irrigation.html" class="article-back"><span data-lang="so">← Dib ugu noqo Waraabinta</span><span data-lang="en" hidden>← Back to Irrigation</span><span data-lang="ar" hidden>← العودة إلى الري</span><span data-lang="sw" hidden>← Rudi kwa Umwagiliaji</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Waraabinta</span><span data-lang="en" hidden>Irrigation</span><span data-lang="ar" hidden>الري</span><span data-lang="sw" hidden>Umwagiliaji</span></span>
+      <h1 class="article-title"><span data-lang="so">Drip Irrigation — Hagaha Buuxa</span><span data-lang="en" hidden>Drip Irrigation — The Complete Guide</span><span data-lang="ar" hidden>الري بالتنقيط — الدليل الشامل</span><span data-lang="sw" hidden>Drip Irrigation — Mwongozo Kamili</span></h1>
+      <div class="article-meta"><span>2026-05-25</span><span><span data-lang="so">9 daqiiqo</span><span data-lang="en" hidden>9 min read</span><span data-lang="ar" hidden>9 دقائق</span><span data-lang="sw" hidden>dakika 9</span></span></div>
+    </header>
+    <div class="article-cover cover-drip-irrigation"></div>
+    <div class="article-body">
+
+      <p class="article-lead">
+        <span data-lang="so">Drip Irrigation (waraabinta dhibcaha) waxay biyaha si toos ah u keentaa xididada dhirta iyada oo la marsiinayo tuubooyin yaryar. Tani waxay kaydisaa 40–60% biyaha marka loo eego waraabinta caadiga ah, oo waxay kor u qaadaa wax-soosaarka 20–50% — hab muhiim u ah deegaannada biyo-yari leh sida Geeska Afrika.</span>
+        <span data-lang="en" hidden>Drip irrigation delivers water directly to crop roots through small tubes. It saves 40–60% water compared to flood irrigation and boosts yields by 20–50% — essential technology for water-scarce regions like the Horn of Africa.</span>
+        <span data-lang="ar" hidden>الري بالتنقيط يوصل الماء مباشرة إلى جذور النباتات عبر أنابيب صغيرة. يوفر 40–60% من المياه مقارنة بالري الغمري ويرفع الإنتاج 20–50% — تقنية أساسية لمناطق ندرة المياه.</span>
+        <span data-lang="sw" hidden>Drip irrigation hupeleka maji moja kwa moja kwenye mizizi ya mazao kupitia mirija midogo. Huokoa maji 40–60% na huongeza mavuno 20–50%.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Faa'iidooyinka</span><span data-lang="en" hidden>Benefits</span><span data-lang="ar" hidden>الفوائد</span><span data-lang="sw" hidden>Faida</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Kaydinta biyaha</strong> — kaydiya 40–60% biyaha sababtoo ah ma jiro qubasho ama uumi badan.</span><span data-lang="en" hidden><strong>Water savings</strong> — 40–60% less water lost to evaporation and runoff.</span><span data-lang="ar" hidden><strong>توفير المياه</strong> — 40–60% أقل تبخراً وجرياناً.</span><span data-lang="sw" hidden><strong>Kuhifadhi maji</strong> — 40–60% chini ya uvukizi.</span></li>
+        <li><span data-lang="so"><strong>Kor u qaadid wax-soosaar</strong> — yaanyada, basbaaska, iyo khudaarta waxay kordhaan 20–50%.</span><span data-lang="en" hidden><strong>Higher yields</strong> — tomatoes, peppers, and vegetables yield 20–50% more.</span><span data-lang="ar" hidden><strong>إنتاج أعلى</strong> — الطماطم والفلفل تزيد 20–50%.</span><span data-lang="sw" hidden><strong>Mavuno zaidi</strong> — nyanya, pilipili huongezeka 20–50%.</span></li>
+        <li><span data-lang="so"><strong>Yarayn cawska</strong> — sababtoo ah biyaha kaliya ayaa ku qoyaan dhirta, dhul-dhexaadku wuu qalalan yahay, sidaas darteed cawsku ma korin karo.</span><span data-lang="en" hidden><strong>Less weeding</strong> — only crop rows are wet; the space between stays dry, so weeds can't grow.</span><span data-lang="ar" hidden><strong>أعشاب أقل</strong> — يبقى ما بين الصفوف جافاً.</span><span data-lang="sw" hidden><strong>Magugu kidogo</strong> — kati ya safu ni kavu.</span></li>
+        <li><span data-lang="so"><strong>Hortagga cudurrada</strong> — caleemaha qoyaan ma noqdaan, marka cudurrada fungaska (early blight, powdery mildew) way yaraadaan.</span><span data-lang="en" hidden><strong>Disease prevention</strong> — leaves stay dry, so fungal diseases (blight, mildew) decrease.</span><span data-lang="ar" hidden><strong>منع الأمراض</strong> — تبقى الأوراق جافة فتقل الأمراض الفطرية.</span><span data-lang="sw" hidden><strong>Kuzuia magonjwa</strong> — majani kavu, magonjwa ya fangasi hupungua.</span></li>
+        <li><span data-lang="so"><strong>Fertigation</strong> — bacrinta waxaa lagu darayaa biyaha, sidaas darteed dhirtu si toos ah ayey u helaan nafaqada.</span><span data-lang="en" hidden><strong>Fertigation</strong> — fertilisers can be dissolved in water for precise, root-zone delivery.</span><span data-lang="ar" hidden><strong>التغذية بالري</strong> — توصيل دقيق للأسمدة عبر الماء.</span><span data-lang="sw" hidden><strong>Fertigation</strong> — mbolea kupitia maji moja kwa moja kwenye mizizi.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Qaybaha Nidaamka</span><span data-lang="en" hidden>System Components</span><span data-lang="ar" hidden>مكونات النظام</span><span data-lang="sw" hidden>Sehemu za Mfumo</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Isha biyaha</strong> — ceel, dhul-tareen, ama haan biyo (waa in la siiyo cadaadis 1–2 bar).</span><span data-lang="en" hidden><strong>Water source</strong> — well, tank, or borehole providing 1–2 bar pressure.</span><span data-lang="ar" hidden><strong>مصدر المياه</strong> — بئر أو خزان بضغط 1–2 بار.</span><span data-lang="sw" hidden><strong>Chanzo cha maji</strong> — kisima au tenki ya shinikizo 1–2 bar.</span></li>
+        <li><span data-lang="so"><strong>Filter</strong> — disc filter ama screen filter (120–200 mesh) si looga hortago xirxirka.</span><span data-lang="en" hidden><strong>Filter</strong> — disc or screen filter (120–200 mesh) to prevent clogging.</span><span data-lang="ar" hidden><strong>المرشح</strong> — قرصي أو شبكي (120–200 ميش).</span><span data-lang="sw" hidden><strong>Kichujio</strong> — disc au screen (120–200 mesh).</span></li>
+        <li><span data-lang="so"><strong>Mainline pipe</strong> — PVC 32–50 mm oo biyaha u qaada beerta.</span><span data-lang="en" hidden><strong>Mainline pipe</strong> — PVC 32–50 mm carries water across the field.</span><span data-lang="ar" hidden><strong>الأنبوب الرئيسي</strong> — PVC 32–50 ملم.</span><span data-lang="sw" hidden><strong>Mfereji mkuu</strong> — PVC 32–50 mm.</span></li>
+        <li><span data-lang="so"><strong>Lateral lines / drip tape</strong> — tuubada yar (16 mm) oo leh dhibco (emitters) 20–40 cm kala fog, 1–4 L/saac.</span><span data-lang="en" hidden><strong>Lateral lines / drip tape</strong> — 16 mm tubing with emitters spaced 20–40 cm, flowing 1–4 L/hr.</span><span data-lang="ar" hidden><strong>الخطوط الجانبية</strong> — أنبوب 16 ملم بقاطرات كل 20–40 سم، 1–4 لتر/ساعة.</span><span data-lang="sw" hidden><strong>Mirija ya pembeni</strong> — mm 16 yenye emitters kila 20–40 sm.</span></li>
+        <li><span data-lang="so"><strong>Pressure regulator iyo valves</strong> — si loo hubiyo in cadaadiska yahay sax (0.8–1.5 bar emitters-ka).</span><span data-lang="en" hidden><strong>Pressure regulator and valves</strong> — ensure correct emitter pressure (0.8–1.5 bar).</span><span data-lang="ar" hidden><strong>منظم الضغط والصمامات</strong> — 0.8–1.5 بار للقاطرات.</span><span data-lang="sw" hidden><strong>Mdhibiti shinikizo na valvu</strong> — 0.8–1.5 bar.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Sida Loo Dejiyo</span><span data-lang="en" hidden>Installation Steps</span><span data-lang="ar" hidden>خطوات التركيب</span><span data-lang="sw" hidden>Hatua za Usakinishaji</span></h2>
+      <p class="article-p">
+        <span data-lang="so"><strong>1.</strong> Sawir beerta oo qiyaas masaafadaha. <strong>2.</strong> Rakib filter-ka iyo pressure regulator-ka isha biyaha agteeda. <strong>3.</strong> Dhig mainline pipe-ka beerta dhinaceeda. <strong>4.</strong> Ku xidh lateral lines safka kasta oo dhirta — masaafada u dhaxaysa safafka (60–90 cm khudaarta, 1.5–3 m geedaha). <strong>5.</strong> Tijaabi nidaamka: hubi in dhibco kasta ay sii daysid biyo isku mid ah.</span>
+        <span data-lang="en" hidden><strong>1.</strong> Map the field and measure distances. <strong>2.</strong> Install the filter and pressure regulator near the water source. <strong>3.</strong> Lay the mainline along the field edge. <strong>4.</strong> Connect lateral lines along each crop row — row spacing 60–90 cm for vegetables, 1.5–3 m for trees. <strong>5.</strong> Test the system: confirm every emitter delivers uniform flow.</span>
+        <span data-lang="ar" hidden><strong>1.</strong> ارسم خريطة الحقل. <strong>2.</strong> ركّب المرشح ومنظم الضغط قرب المصدر. <strong>3.</strong> مدّ الخط الرئيسي. <strong>4.</strong> اربط الخطوط الجانبية مع كل صف. <strong>5.</strong> اختبر التدفق المنتظم.</span>
+        <span data-lang="sw" hidden><strong>1.</strong> Chora ramani ya shamba. <strong>2.</strong> Sakinisha kichujio na mdhibiti. <strong>3.</strong> Weka mfereji mkuu. <strong>4.</strong> Unganisha mirija ya pembeni. <strong>5.</strong> Pima mtiririko.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Qiimaha iyo Faa'iidada Maaliyadeed</span><span data-lang="en" hidden>Cost and Return on Investment</span><span data-lang="ar" hidden>التكلفة والعائد</span><span data-lang="sw" hidden>Gharama na Mapato</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Qiimaha rakibida: $800–$2,500 hektarkii (ku xiran tayada). Nolosha nidaamka: 5–10 sano. Faa'iidada wax-soosaarka iyo kaydinta biyaha caadi ahaan waxay dib ugu soo celisaa lacagta xilliyo 1–2 oo dalag. Hay'adaha FAO iyo USAID waxay siiyaan subsidies beeralayda Soomaaliyeed.</span>
+        <span data-lang="en" hidden>Installation cost: $800–$2,500/ha (depending on quality). System lifespan: 5–10 years. Yield gains and water savings usually pay back the system within 1–2 cropping seasons. Programmes from FAO and USAID often subsidise drip kits for Somali farmers.</span>
+        <span data-lang="ar" hidden>تكلفة التركيب: 800–2,500 دولار/هكتار. عمر النظام: 5–10 سنوات. عادةً ما يسترد رأس المال خلال موسمين. برامج FAO وUSAID تدعم المزارعين الصوماليين.</span>
+        <span data-lang="sw" hidden>Gharama: $800–$2,500/hektari. Maisha: miaka 5–10. Mapato hurudisha gharama ndani ya misimu 1–2.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Daryeelka Nidaamka</span><span data-lang="en" hidden>Maintenance</span><span data-lang="ar" hidden>الصيانة</span><span data-lang="sw" hidden>Matengenezo</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so">Nadiifi filter-ka asbuuc kasta xilliga kulul.</span><span data-lang="en" hidden>Clean the filter weekly during the hot season.</span><span data-lang="ar" hidden>نظّف المرشح أسبوعياً صيفاً.</span><span data-lang="sw" hidden>Safisha kichujio kila wiki.</span></li>
+        <li><span data-lang="so">Bil kasta, ku shub biyo aashitada (chlorine ama acid) si aad u nadiifiso emitters-ka xirxiran.</span><span data-lang="en" hidden>Monthly, flush lines with chlorine or acid solution to dissolve mineral build-up in emitters.</span><span data-lang="ar" hidden>شهرياً، اغسل الخطوط بالكلور أو الحمض.</span><span data-lang="sw" hidden>Kila mwezi, osha mirija na kemikali.</span></li>
+        <li><span data-lang="so">Hubi cadaadiska maalin walba (pressure gauge); cadaadis aad u badan ayaa jejebin kara tuubada.</span><span data-lang="en" hidden>Check pressure daily; over-pressure can burst pipes.</span><span data-lang="ar" hidden>راقب الضغط يومياً.</span><span data-lang="sw" hidden>Angalia shinikizo kila siku.</span></li>
+        <li><span data-lang="so">Xilliga jiilaalka, qarso tuubada ama xidh emitters-ka si qorraxdu ay dhirta uga hortaagto plastic-ga.</span><span data-lang="en" hidden>During off-season, cover or roll up tubing to protect from UV damage.</span><span data-lang="ar" hidden>في غير الموسم، احفظ الأنابيب من الشمس.</span><span data-lang="sw" hidden>Hifadhi mirija mbali na jua.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Khaladaadka Caadiga ah</span><span data-lang="en" hidden>Common Mistakes</span><span data-lang="ar" hidden>الأخطاء الشائعة</span><span data-lang="sw" hidden>Makosa ya Kawaida</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so">Iska dhaafida filter-ka — keenta xirmista emitters-ka.</span><span data-lang="en" hidden>Skipping the filter — leads to clogged emitters.</span><span data-lang="ar" hidden>إهمال المرشح يسد القاطرات.</span><span data-lang="sw" hidden>Kupuuza kichujio husababisha kuziba.</span></li>
+        <li><span data-lang="so">Cadaadis liita — wax-soosaarku waxa uu noqdaa mid aan dheellitirnayn.</span><span data-lang="en" hidden>Wrong pressure — produces uneven water delivery.</span><span data-lang="ar" hidden>ضغط خاطئ يعطي توزيعاً غير متساوٍ.</span><span data-lang="sw" hidden>Shinikizo lisilo sahihi husababisha utoaji usio sawa.</span></li>
+        <li><span data-lang="so">Tuubada qorraxda lagu daayey 12 bilood — waxay u dabacday.</span><span data-lang="en" hidden>Leaving tubing exposed to sun for 12 months — UV degrades it.</span><span data-lang="ar" hidden>تعرّض الأنابيب لأشعة الشمس طويلاً يفسدها.</span><span data-lang="sw" hidden>Mirija jua kwa muda mrefu huharibika.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Gunaanad</span><span data-lang="en" hidden>Conclusion</span><span data-lang="ar" hidden>خاتمة</span><span data-lang="sw" hidden>Hitimisho</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Drip irrigation waa maalgashi muhiim ah beeralayga doonaya inuu wax-soosaarkiisa kordhiyo iyada oo uu yareeyo isticmaalka biyaha. Bilow hal hektar oo tijaab ah, baro nidaamka, oo balaariso markaad fahantid sida loo daryeelo.</span>
+        <span data-lang="en" hidden>Drip irrigation is a strategic investment for farmers wanting to grow more with less water. Start with a 1-hectare pilot, learn the system, and scale up once you've mastered maintenance.</span>
+        <span data-lang="ar" hidden>الري بالتنقيط استثمار استراتيجي للمزارعين الذين يريدون إنتاجاً أعلى بمياه أقل. ابدأ بهكتار تجريبي ثم وسّع.</span>
+        <span data-lang="sw" hidden>Drip irrigation ni uwekezaji muhimu. Anza na hektari moja, kisha panua.</span>
+      </p>
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

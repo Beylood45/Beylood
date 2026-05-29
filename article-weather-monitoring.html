@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cimilada La-socodka — sida loo isticmaalo saadaalka cimilada, alaabta beeralayda, iyo apps si go'aamada saxda ah loo gaadho." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Cimilada La-socodka — Hagaha Buuxa | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Weather Monitoring Guide" />
+  <meta property="og:description" content="Professional guide to weather monitoring for farmers — forecast sources, on-farm stations, mobile apps, decision rules." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <a href="signin.html" class="lang-btn btn-signin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span></a>
+      <a href="signup.html" class="btn btn-getstarted"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span></a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-climate.html" class="article-back"><span data-lang="so">← Dib ugu noqo Cimilada</span><span data-lang="en" hidden>← Back to Climate</span><span data-lang="ar" hidden>← العودة إلى المناخ</span><span data-lang="sw" hidden>← Rudi kwa Hali ya Hewa</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Cimilada</span><span data-lang="en" hidden>Climate</span><span data-lang="ar" hidden>المناخ</span><span data-lang="sw" hidden>Hali ya Hewa</span></span>
+      <h1 class="article-title"><span data-lang="so">Cimilada La-socodka — Saadaal iyo Go'aanno</span><span data-lang="en" hidden>Weather Monitoring for Smart Decisions</span><span data-lang="ar" hidden>رصد الطقس واتخاذ القرار</span><span data-lang="sw" hidden>Kufuatilia Hali ya Hewa</span></h1>
+      <div class="article-meta"><span>2026-05-24</span><span><span data-lang="so">7 daqiiqo</span><span data-lang="en" hidden>7 min read</span><span data-lang="ar" hidden>7 دقائق</span><span data-lang="sw" hidden>dakika 7</span></span></div>
+    </header>
+    <div class="article-cover cover-weather-monitoring"></div>
+    <div class="article-body">
+
+      <p class="article-lead">
+        <span data-lang="so">Beero badan oo lumiyay xilliyo dalag oo dhan ayaa loola jeedaa go'aamo aan ku saleysnayn xog cimilo. Cimilada ka soo saaridda saxda ah waxay yarayn kartaa khasaaraha 30–50%. App-ka mobile-ka iyo isha bilaashka ah ee saadaasha caalamiga waxay ku siiyaan beeralayga awood.</span>
+        <span data-lang="en" hidden>Whole seasons of crops are lost to decisions made without weather data. Reliable monitoring can prevent 30–50% of those losses. Free mobile apps and global forecasts now put professional weather data in every farmer's pocket.</span>
+        <span data-lang="ar" hidden>قرارات بلا بيانات طقس تكلف مواسم كاملة. الرصد الجيد يمنع 30–50% من الخسائر.</span>
+        <span data-lang="sw" hidden>Maamuzi bila data ya hali ya hewa hupoteza misimu mizima.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Isha Saadaasha Bilaashka ah</span><span data-lang="en" hidden>Free Forecast Sources</span><span data-lang="ar" hidden>مصادر التنبؤ المجانية</span><span data-lang="sw" hidden>Vyanzo vya Bure</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>NOAA / NASA POWER</strong> — saadaal 7–14 maalmood, biyo-soo-roob, heerkulka, qoyaanka — bilaash.</span><span data-lang="en" hidden><strong>NOAA / NASA POWER</strong> — 7–14 day rainfall, temperature, humidity — free.</span><span data-lang="ar" hidden><strong>NOAA / NASA</strong> — توقعات 7–14 يوماً مجاناً.</span><span data-lang="sw" hidden><strong>NOAA / NASA</strong> — utabiri wa siku 7–14.</span></li>
+        <li><span data-lang="so"><strong>FEWS NET</strong> — saadaal abaaro-cuntada Geeska Afrika.</span><span data-lang="en" hidden><strong>FEWS NET</strong> — drought and food-security outlooks for the Horn of Africa.</span><span data-lang="ar" hidden><strong>FEWS NET</strong> — جفاف وأمن غذائي.</span><span data-lang="sw" hidden><strong>FEWS NET</strong> — ukame na chakula.</span></li>
+        <li><span data-lang="so"><strong>SWALIM</strong> — biyaha iyo cimilada Soomaaliya — xog hoose.</span><span data-lang="en" hidden><strong>SWALIM (UN)</strong> — Somalia water and land information.</span><span data-lang="ar" hidden><strong>SWALIM</strong> — معلومات الصومال.</span><span data-lang="sw" hidden><strong>SWALIM</strong> — taarifa za Somalia.</span></li>
+        <li><span data-lang="so"><strong>Apps mobile-ka:</strong> Windy, AccuWeather, Yr.no, iyo apps farmer-ka (Plantix, iCow).</span><span data-lang="en" hidden><strong>Mobile apps:</strong> Windy, AccuWeather, Yr.no, plus farmer-focused apps (Plantix, iCow).</span><span data-lang="ar" hidden><strong>تطبيقات</strong> — Windy، AccuWeather، Yr.no.</span><span data-lang="sw" hidden><strong>Programu</strong> — Windy, AccuWeather.</span></li>
+        <li><span data-lang="so"><strong>SMS-ka cimilada</strong> — adeegyo sida iCow (Kenya) iyo iShamba waxay ku siiyaan saadaal SMS ah luqada Soomaaliga ku jirta — qarash yar.</span><span data-lang="en" hidden><strong>SMS weather services</strong> — services like iCow and iShamba deliver SMS forecasts in local languages at low cost.</span><span data-lang="ar" hidden><strong>خدمات SMS</strong> — iCow وiShamba.</span><span data-lang="sw" hidden><strong>SMS</strong> — iCow, iShamba.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Saamaynta Saadaasha Beerta</span><span data-lang="en" hidden>How Forecasts Drive Farm Decisions</span><span data-lang="ar" hidden>قرارات تستند للتوقعات</span><span data-lang="sw" hidden>Maamuzi</span></h2>
+      <p class="article-p">
+        <span data-lang="so"><strong>Beerista:</strong> Ha beerin haddii saadaasha wedaaray (probability of rain) 7-da maalmood la dhameystiraayo &lt;40%. <strong>Waraabinta:</strong> Hadii roob &gt;15 mm uu socdo 48 saac, joog waraabinta. <strong>Bacrinta:</strong> Ha shubin urea ka hor 48 saac roob; nitrogen-ka ayaa lumaya. <strong>Cayayaanka:</strong> Hadii qoyaanka &gt;80% iyo heerkulku 20–25°C, raac fungal alert (early blight, mildew). <strong>Gurashada:</strong> Wax fii ayaa cabsaday roob, dhammaystir gurashada kahor.</span>
+        <span data-lang="en" hidden><strong>Planting:</strong> hold if the 7-day rain probability is &lt;40%. <strong>Irrigation:</strong> skip if &gt;15 mm rain is forecast within 48 hrs. <strong>Fertiliser:</strong> never apply urea less than 48 hrs before rain — nitrogen leaches. <strong>Pests:</strong> when humidity &gt;80% and temp 20–25°C, expect fungal disease (early blight, mildew). <strong>Harvest:</strong> finish ahead of any forecast storm.</span>
+        <span data-lang="ar" hidden><strong>الزراعة</strong> — توقف عند احتمال مطر &lt;40%. <strong>الري</strong> — لا ري قبل المطر.</span>
+        <span data-lang="sw" hidden><strong>Kupanda</strong> — subiri kama uwezekano wa mvua &lt;40%.</span></li>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Saadaal Dhulka ah (On-farm)</span><span data-lang="en" hidden>On-Farm Measurement</span><span data-lang="ar" hidden>قياسات ميدانية</span><span data-lang="sw" hidden>Vipimo Shambani</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Rain gauge</strong> — qiimo yar ($5–$15), oo beerta ku jirta — saadaal sax ah marka loo eego station-yada fog.</span><span data-lang="en" hidden><strong>Rain gauge</strong> — cheap ($5–$15) and on-site — more accurate than distant stations.</span><span data-lang="ar" hidden><strong>مقياس مطر</strong> — رخيص ودقيق.</span><span data-lang="sw" hidden><strong>Mita ya mvua</strong> — bei nafuu.</span></li>
+        <li><span data-lang="so"><strong>Min-max thermometer</strong> — ka qabto heerkulka ugu hoose iyo ugu sare maalin walba.</span><span data-lang="en" hidden><strong>Min-max thermometer</strong> — daily lows and highs.</span><span data-lang="ar" hidden><strong>ثيرمومتر</strong> — درجة الحرارة.</span><span data-lang="sw" hidden><strong>Themometer</strong> — joto.</span></li>
+        <li><span data-lang="so"><strong>Hygrometer</strong> — qoyaanka hawada (muhiim u ah saadaasha cudurrada).</span><span data-lang="en" hidden><strong>Hygrometer</strong> — humidity (key for disease forecasts).</span><span data-lang="ar" hidden><strong>Hygrometer</strong> — الرطوبة.</span><span data-lang="sw" hidden><strong>Hygrometer</strong> — unyevu.</span></li>
+        <li><span data-lang="so"><strong>Weather station digital</strong> — $200–$600 oo soo ururi 10+ qiyaas, ku xidh wifi — sax 95%.</span><span data-lang="en" hidden><strong>Digital weather station</strong> — $200–$600 captures 10+ measurements, connects to wifi — 95% accurate.</span><span data-lang="ar" hidden><strong>محطة طقس رقمية</strong> — 200–600 دولار.</span><span data-lang="sw" hidden><strong>Kituo cha kidijitali</strong> — $200–$600.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Diiwaangelinta Cimilada</span><span data-lang="en" hidden>Keeping Weather Records</span><span data-lang="ar" hidden>سجلات الطقس</span><span data-lang="sw" hidden>Kuhifadhi Rekodi</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Ku qor buug yar maalin walba: heerkulka, roobka, qoyaanka, dabaysha, iyo wax cusub oo aad arkayso (cudur, cayayaan). Sannad ka dib, waxaad heli doontaa qaab cimilo (climate pattern) muujinaaya goorta ugu fiican beerista iyo halista cudurrada — xog laguma helo apps.</span>
+        <span data-lang="en" hidden>Log daily: temperature, rainfall, humidity, wind, plus anything noteworthy (disease, pests). After a year, you'll see a personal climate pattern that no app can match — when to plant, when disease usually strikes.</span>
+        <span data-lang="ar" hidden>سجّل يومياً درجة الحرارة والأمطار والرطوبة.</span>
+        <span data-lang="sw" hidden>Andika kila siku.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Khaladaadka Caadiga ah</span><span data-lang="en" hidden>Common Mistakes</span><span data-lang="ar" hidden>أخطاء شائعة</span><span data-lang="sw" hidden>Makosa</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so">Iska tiirsanaanta hal isha saadaal — isbarbar dhig 2–3 isha.</span><span data-lang="en" hidden>Relying on a single source — compare 2–3 sources.</span><span data-lang="ar" hidden>مصدر واحد لا يكفي.</span><span data-lang="sw" hidden>Kutegemea chanzo kimoja.</span></li>
+        <li><span data-lang="so">Iska iliska saadaalka fog &gt;7 maalmood — kalsoonidu way hoosaysaa.</span><span data-lang="en" hidden>Ignoring uncertainty in long-range forecasts (&gt;7 days are less reliable).</span><span data-lang="ar" hidden>التوقعات الطويلة أقل دقة.</span><span data-lang="sw" hidden>Utabiri wa muda mrefu.</span></li>
+        <li><span data-lang="so">Ku kalsoonaan saadaal hal mar — adeeg saadaalka asbuuc kasta.</span><span data-lang="en" hidden>Checking the forecast once — update at least weekly.</span><span data-lang="ar" hidden>راجع التوقعات أسبوعياً.</span><span data-lang="sw" hidden>Angalia kila wiki.</span></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

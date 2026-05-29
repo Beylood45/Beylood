@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jadwalka Waraabinta — sida loo go'aamiyo goorta iyo inta biyaha ee dalagga loo siiyo si loo helo wax-soosaar ugu sarreeya." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Jadwalka Waraabinta — Hagaha Buuxa | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Irrigation Scheduling Complete Guide" />
+  <meta property="og:description" content="Professional guide to irrigation scheduling — when to water, how much, soil moisture, crop water needs." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <a href="signin.html" class="lang-btn btn-signin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span></a>
+      <a href="signup.html" class="btn btn-getstarted"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span></a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-irrigation.html" class="article-back"><span data-lang="so">← Dib ugu noqo Waraabinta</span><span data-lang="en" hidden>← Back to Irrigation</span><span data-lang="ar" hidden>← العودة إلى الري</span><span data-lang="sw" hidden>← Rudi kwa Umwagiliaji</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Waraabinta</span><span data-lang="en" hidden>Irrigation</span><span data-lang="ar" hidden>الري</span><span data-lang="sw" hidden>Umwagiliaji</span></span>
+      <h1 class="article-title"><span data-lang="so">Jadwalka Waraabinta — Goorta iyo Inta</span><span data-lang="en" hidden>Irrigation Scheduling — When and How Much</span><span data-lang="ar" hidden>جدولة الري — متى وكم</span><span data-lang="sw" hidden>Ratiba ya Umwagiliaji</span></h1>
+      <div class="article-meta"><span>2026-05-23</span><span><span data-lang="so">7 daqiiqo</span><span data-lang="en" hidden>7 min read</span><span data-lang="ar" hidden>7 دقائق</span><span data-lang="sw" hidden>dakika 7</span></span></div>
+    </header>
+    <div class="article-cover cover-irrigation-scheduling"></div>
+    <div class="article-body">
+
+      <p class="article-lead">
+        <span data-lang="so">Wax wakhti badan oo waraabinta ah ma macno samaynayo haddii aysan ahayn jadwal sax ah. Beero badan ayaa biyo aad u badan ku ridda ama lumiya xilliga muhiimka ah ee dhirta. Jadwal saxan wuxuu kor u qaadaa wax-soosaarka 25–40% iyada oo isticmaala isla qadarka biyaha.</span>
+        <span data-lang="en" hidden>Watering at the wrong time wastes water and stunts crops. Most farms over-irrigate at the wrong stage and under-irrigate at critical growth windows. A proper schedule lifts yields 25–40% with the same total water.</span>
+        <span data-lang="ar" hidden>الري في الوقت الخاطئ يهدر الماء ويضرّ المحاصيل. الجدولة الصحيحة ترفع الإنتاج 25–40% بنفس كمية الماء.</span>
+        <span data-lang="sw" hidden>Kumwagilia kwa wakati usio sahihi hupoteza maji.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Saddexda Su'aalood ee Muhiimka ah</span><span data-lang="en" hidden>The Three Key Questions</span><span data-lang="ar" hidden>الأسئلة الثلاثة الأساسية</span><span data-lang="sw" hidden>Maswali Matatu Muhimu</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Goorma?</strong> — Marka 50% biyaha ciidda (Available Water) ay isticmaalaan dhirta. Tijaabi gacanta: hadii ciidda 30 cm hoose ay qalalan tahay, waraabi.</span><span data-lang="en" hidden><strong>When?</strong> — When plants have used 50% of the soil's available water. Hand-test: if soil at 30 cm depth is dry to the touch, irrigate.</span><span data-lang="ar" hidden><strong>متى؟</strong> — عندما تستهلك النباتات 50% من ماء التربة. اختبر باليد.</span><span data-lang="sw" hidden><strong>Lini?</strong> — Mimea ikitumia 50% ya maji ya udongo.</span></li>
+        <li><span data-lang="so"><strong>Inta?</strong> — Awood biyaha ciidda ku jirta (Field Capacity) dib u celi. Caadi ahaan 25–50 mm marka kasta oo aad waraabinayso.</span><span data-lang="en" hidden><strong>How much?</strong> — Refill the soil to Field Capacity. Usually 25–50 mm per application.</span><span data-lang="ar" hidden><strong>كم؟</strong> — أعد التربة إلى السعة الحقلية. عادة 25–50 ملم.</span><span data-lang="sw" hidden><strong>Kiasi gani?</strong> — Hadi Field Capacity. mm 25–50.</span></li>
+        <li><span data-lang="so"><strong>Sidee?</strong> — Drip, sprinkler, ama furrow. Habka kasta wuxuu leeyahay xaqiijin gaar ah.</span><span data-lang="en" hidden><strong>How?</strong> — Drip, sprinkler, or furrow — each method has its own efficiency.</span><span data-lang="ar" hidden><strong>كيف؟</strong> — تنقيط أو رش أو غمر.</span><span data-lang="sw" hidden><strong>Vipi?</strong> — Drip, sprinkler, au mifereji.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Baahida Biyaha ee Dalagga (ETc)</span><span data-lang="en" hidden>Crop Water Need (ETc)</span><span data-lang="ar" hidden>احتياج المحصول للماء</span><span data-lang="sw" hidden>Mahitaji ya Maji</span></h2>
+      <p class="article-p">
+        <span data-lang="so">ETc waa biyaha ay dhirtu isticmaasho maalintii. Waxay ku xidhan tahay: cimilada (heerkulka, qoyaanka, dabaysha), xilliga koritaanka, iyo nooca dalagga (Kc factor). Tusaale: yaanyada xilliga ubaxa, ETc = 6 mm/maalin. Dhul 1 hektar = 60 m³ biyo maalintii.</span>
+        <span data-lang="en" hidden>ETc is daily crop water use. It depends on climate (temperature, humidity, wind), growth stage, and crop type (Kc factor). Example: tomatoes at flowering, ETc = 6 mm/day. One hectare = 60 m³ water/day.</span>
+        <span data-lang="ar" hidden>ETc هو استهلاك المحصول اليومي للماء. مثال: طماطم بالإزهار = 6 ملم/يوم = 60 م³/هكتار يومياً.</span>
+        <span data-lang="sw" hidden>ETc ni matumizi ya maji ya zao kwa siku.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Xilliyada Muhiimka ah ee Dalagga</span><span data-lang="en" hidden>Critical Growth Stages</span><span data-lang="ar" hidden>مراحل النمو الحرجة</span><span data-lang="sw" hidden>Hatua za Ukuaji</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Marka biyaha la dhameeyo xilligan, wax-soosaarku waxaa lagu khasaaray 30–60% — xitaa hadii wax-soosaarku xilliyada kale uu fiicnaa:</span>
+        <span data-lang="en" hidden>Water stress at these stages cuts yield 30–60% — even if other stages were well watered:</span>
+        <span data-lang="ar" hidden>إجهاد المياه في هذه المراحل يقلل الإنتاج 30–60%:</span>
+        <span data-lang="sw" hidden>Ukosefu wa maji katika hatua hizi hupunguza mavuno 30–60%:</span>
+      </p>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Galleyda</strong> — xilliga ubaxa iyo balaadhaynta ifrale (silking + grain fill).</span><span data-lang="en" hidden><strong>Maize</strong> — silking and grain fill.</span><span data-lang="ar" hidden><strong>الذرة</strong> — التزهير وامتلاء الحبوب.</span><span data-lang="sw" hidden><strong>Mahindi</strong> — kutoa miche na kujaza nafaka.</span></li>
+        <li><span data-lang="so"><strong>Yaanyada</strong> — xilliga ubaxa iyo koritaanka miraha.</span><span data-lang="en" hidden><strong>Tomato</strong> — flowering and fruit set.</span><span data-lang="ar" hidden><strong>الطماطم</strong> — التزهير وعقد الثمار.</span><span data-lang="sw" hidden><strong>Nyanya</strong> — kutoa maua na kuzaa.</span></li>
+        <li><span data-lang="so"><strong>Basasha</strong> — xilliga bulbka kororsiga.</span><span data-lang="en" hidden><strong>Onion</strong> — bulb formation.</span><span data-lang="ar" hidden><strong>البصل</strong> — تكوين البصلة.</span><span data-lang="sw" hidden><strong>Vitunguu</strong> — kutengeneza vitunguu.</span></li>
+        <li><span data-lang="so"><strong>Bariiska</strong> — xilliga ubaxa (panicle initiation).</span><span data-lang="en" hidden><strong>Rice</strong> — panicle initiation.</span><span data-lang="ar" hidden><strong>الأرز</strong> — بدء السنابل.</span><span data-lang="sw" hidden><strong>Mchele</strong> — kuanza panicle.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Habab Tijaabo ah</span><span data-lang="en" hidden>Practical Methods</span><span data-lang="ar" hidden>طرق عملية</span><span data-lang="sw" hidden>Mbinu za Vitendo</span></h2>
+      <p class="article-p">
+        <span data-lang="so"><strong>1) Hab gacanta:</strong> Qaad ciid 30 cm hoose. Marka aad gacanta lagu gargooyo: way isku qaban tahay → biyo kaafi ah; way kala daadan → biyo waraabi. <strong>2) Tensiometer:</strong> qalab muujiya cadaadiska biyaha ciidda. Ku saari ciidda 20–40 cm; marka muujiyaha hoosaada 30–50 kPa, waa wakhtigii waraabinta. <strong>3) Saadaalka cimilada + ETc:</strong> Adigoo isticmaalaya FAO CropWat ama mobile app, xisaab biyaha la rabo asbuuc kasta.</span>
+        <span data-lang="en" hidden><strong>1) Hand-feel method:</strong> Take soil from 30 cm depth. If it holds shape, moisture is sufficient; if it crumbles, irrigate. <strong>2) Tensiometer:</strong> measures soil water tension at 20–40 cm depth; irrigate at 30–50 kPa. <strong>3) Weather forecast + ETc:</strong> use FAO CropWat or a mobile app to plan weekly water need.</span>
+        <span data-lang="ar" hidden><strong>1) باليد:</strong> فحص التربة 30 سم. <strong>2) Tensiometer:</strong> اروِ عند 30–50 kPa. <strong>3) التوقعات + ETc:</strong> استخدم CropWat.</span>
+        <span data-lang="sw" hidden><strong>1) Kwa mkono. 2) Tensiometer. 3) Utabiri + ETc kwa CropWat.</strong></span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Wakhtiga Maalinta</span><span data-lang="en" hidden>Time of Day</span><span data-lang="ar" hidden>وقت اليوم</span><span data-lang="sw" hidden>Wakati wa Siku</span></h2>
+      <p class="article-p">
+        <span data-lang="so">Aroor hore (5–9 saac) ama fiidkii dambe (16:00–19:00). Wakhtigan, uumiga (evaporation) waa hoose, oo dabayshu waa fudud. Iska ilaali waraabinta duhurka iyo habeenkii dambe (sababtoo ah caleemaha qoyaan habeenkii waxay keenaan fungaska).</span>
+        <span data-lang="en" hidden>Early morning (5–9 AM) or late afternoon (4–7 PM) are best. Evaporation is low and wind is calm. Avoid midday (water loss) and late night (wet leaves invite fungus).</span>
+        <span data-lang="ar" hidden>الصباح الباكر أو العصر. تجنب الظهر والليل.</span>
+        <span data-lang="sw" hidden>Asubuhi mapema au jioni. Epuka mchana na usiku.</span>
+      </p>
+
+      <h2 class="article-h2"><span data-lang="so">Khaladaadka Caadiga ah</span><span data-lang="en" hidden>Common Mistakes</span><span data-lang="ar" hidden>الأخطاء الشائعة</span><span data-lang="sw" hidden>Makosa</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so">Waraabin maalin kasta wax yar — keenta xididada gaaban iyo dhir daciif ah.</span><span data-lang="en" hidden>Watering a little every day — produces shallow roots and weak plants.</span><span data-lang="ar" hidden>قليل يومياً = جذور ضحلة.</span><span data-lang="sw" hidden>Kidogo kila siku = mizizi mifupi.</span></li>
+        <li><span data-lang="so">Iska indho-tirin saadaasha roobka — waxaad bixisaa biyo bilaash ah maalin yar ka dib roobka.</span><span data-lang="en" hidden>Ignoring rain forecasts — wastes water just before rainfall.</span><span data-lang="ar" hidden>تجاهل التوقعات يهدر الماء.</span><span data-lang="sw" hidden>Kupuuza utabiri.</span></li>
+        <li><span data-lang="so">Hal jadwal oo loo isticmaalo dhammaan dalagga — yaanyada iyo qamadiga ma laha baahi isku mid ah.</span><span data-lang="en" hidden>One schedule for all crops — tomato and wheat have very different needs.</span><span data-lang="ar" hidden>جدول واحد لكل المحاصيل خطأ.</span><span data-lang="sw" hidden>Ratiba moja kwa mazao yote.</span></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

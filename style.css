@@ -1355,7 +1355,7 @@ html[dir="rtl"] .chat-messages .msg-user {
 }
 .cover-chili-farming::after { content: none; }
 
-.cover-news-1 { background: #0B3367 url('assets/news-1.jpg') center/cover no-repeat; }
+.cover-news-1 { background: linear-gradient(135deg, #0B3367 0%, #1E6FAE 100%); }
 .cover-news-1::after { content: none; }
 .cover-news-2 { background: linear-gradient(135deg, #B45309 0%, #F59E0B 100%); }
 .cover-news-3 { background: linear-gradient(135deg, #0369A1 0%, #38BDF8 100%); }

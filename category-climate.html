@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Climate change brings unpredictable weather. Smart farmers adapt using forecasts, resilient crop varieties, and water management to keep thriving." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Climate-Smart Farming — Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Climate-Smart Farming" />
+  <meta property="og:description" content="Climate change brings unpredictable weather. Smart farmers adapt using forecasts, resilient crop varieties, and water management to keep thriving." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo" aria-label="Beylood home"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" class="is-active" aria-current="page" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg>
+        <span data-key="askBtn">WAYDII BEYLOOD</span>
+      </a>
+      <a href="signin.html" class="lang-btn btn-signin" aria-label="Sign in" title="Sign in">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span>
+      </a>
+      <a href="signup.html" class="btn btn-getstarted" aria-label="Get started">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span>
+      </a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
+        <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+        <span id="langLabel">Soomaali</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <a href="categories.html" class="article-back"><span data-lang="so">← Dib ugu noqo qaybaha</span><span data-lang="en" hidden>← Back to categories</span><span data-lang="ar" hidden>← العودة إلى الفئات</span><span data-lang="sw" hidden>← Rudi kwenye kategoria</span></a>
+    <span class="section-eyebrow"><span data-lang="so">CIMILADA</span><span data-lang="en" hidden>CLIMATE</span><span data-lang="ar" hidden>المناخ</span><span data-lang="sw" hidden>HALI YA HEWA</span></span>
+    <h1 class="section-title"><span data-lang="so">Cimilada iyo Beerista Smart</span><span data-lang="en" hidden>Climate-Smart Farming</span><span data-lang="ar" hidden>الزراعة الذكية مناخياً</span><span data-lang="sw" hidden>Kilimo Kinachostahimili Hali ya Hewa</span></h1>
+    <p class="section-sub"><span data-lang="so">Isbeddelka cimiladu wuxuu keenayaa hawo aan la saadaalin karin. Beeralayda smart-ku waxay u qalmiyaan saadaasha cimilada, dalagyo adkaysi leh, iyo maaraynta biyaha si ay u sii horumaraan.</span><span data-lang="en" hidden>Climate change brings unpredictable weather. Smart farmers adapt using forecasts, resilient crop varieties, and water management to keep thriving.</span><span data-lang="ar" hidden>يجلب تغيّر المناخ طقساً غير متوقع. يتكيف المزارعون الأذكياء بالتوقعات وأصناف المقاومة وإدارة المياه لمواصلة الازدهار.</span><span data-lang="sw" hidden>Mabadiliko ya hali ya hewa huleta hali isiyotabirika. Wakulima wenye akili hubadilika kwa kutumia utabiri, aina sugu, na usimamizi wa maji.</span></p>
+
+    <h2 class="article-h2" style="margin-top:32px;"><span data-lang="so">Talooyin Muhiim ah</span><span data-lang="en" hidden>Key Tips</span><span data-lang="ar" hidden>نصائح أساسية</span><span data-lang="sw" hidden>Vidokezo Muhimu</span></h2>
+    <ul class="article-list">
+      <li><span data-lang="so"><strong>Eeg saadaasha hawada</strong> — eeg saadaasha 7-da maalmood kahor inta aanad beerin, waraabin, ama dawooyin ku ridin.</span><span data-lang="en" hidden><strong>Check forecasts</strong> — review 7-day forecasts before planting, irrigating, or spraying.</span><span data-lang="ar" hidden><strong>راجع التوقعات</strong> — تابع توقعات 7 أيام قبل الزراعة أو الري أو الرش.</span><span data-lang="sw" hidden><strong>Angalia utabiri</strong> — soma utabiri wa siku 7 kabla ya kupanda au kunyunyiza.</span></li>
+      <li><span data-lang="so"><strong>Noocyo abaar-adkaysi ah</strong> — masaggada (sorghum), digirta (cowpea), iyo nooc gaar ah oo galley ah (DroughtTEGO) ayaa adkaysta abaaraha.</span><span data-lang="en" hidden><strong>Drought-tolerant varieties</strong> — sorghum, cowpea, pearl millet, and varieties like DroughtTEGO maize endure dry spells.</span><span data-lang="ar" hidden><strong>أصناف مقاومة للجفاف</strong> — الذرة الرفيعة واللوبيا والدخن وذرة DroughtTEGO تتحمل الجفاف.</span><span data-lang="sw" hidden><strong>Aina sugu ya ukame</strong> — mtama, kunde, ulezi, na DroughtTEGO huvumilia ukame.</span></li>
+      <li><span data-lang="so"><strong>Kala-duwanaanta dalagga</strong> — ha ku tiirsanaan hal dalag. Beero 2–3 dalag oo kala duwan si aad u yarayso khatarta cimilada.</span><span data-lang="en" hidden><strong>Diversify crops</strong> — don't rely on one crop. Plant 2–3 different crops to reduce climate risk.</span><span data-lang="ar" hidden><strong>تنويع المحاصيل</strong> — لا تعتمد على محصول واحد. ازرع 2–3 محاصيل مختلفة لتقليل المخاطر.</span><span data-lang="sw" hidden><strong>Mseto wa mazao</strong> — usitegemee zao moja. Panda mazao 2–3 tofauti kupunguza hatari.</span></li>
+      <li><span data-lang="so"><strong>Wakhtiyada beerista</strong> — habayso wakhtiga beerista si waafaqsan saadaasha roobka. Marmar wuxuu doonayaa inaad beero goor hore ama goor dambe.</span><span data-lang="en" hidden><strong>Adjust planting times</strong> — align planting with rainfall forecasts. Sometimes earlier or later planting is the right call.</span><span data-lang="ar" hidden><strong>ضبط مواعيد الزراعة</strong> — وفّق الزراعة مع توقعات الأمطار. أحياناً المبكر أو المتأخر هو الأنسب.</span><span data-lang="sw" hidden><strong>Kurekebisha nyakati za kupanda</strong> — pangilia kupanda na utabiri wa mvua.</span></li>
+      <li><span data-lang="so"><strong>Kaydinta biyaha</strong> — dhis xero biyo (water tanks, zai pits, terraces) si aad u kaydiso biyaha xilliga abaaraha.</span><span data-lang="en" hidden><strong>Water storage</strong> — build water tanks, zai pits, or terraces to store water for dry periods.</span><span data-lang="ar" hidden><strong>تخزين المياه</strong> — ابنِ خزانات أو حفر زاي أو مصاطب لتخزين الماء للجفاف.</span><span data-lang="sw" hidden><strong>Kuhifadhi maji</strong> — jenga matenki, mashimo ya zai, au matuta kuhifadhi maji.</span></li>
+      <li><span data-lang="so"><strong>Beerista geedaha (agroforestry)</strong> — geedaha waxay xoojiyaan ciidda, hooska, iyo cimilada beerta. Beero 10–20 geed hektarkii.</span><span data-lang="en" hidden><strong>Agroforestry</strong> — trees stabilise soil, provide shade, and improve the farm's microclimate. Plant 10–20 trees per hectare.</span><span data-lang="ar" hidden><strong>الزراعة الحرجية</strong> — الأشجار تثبت التربة وتوفر الظل وتحسّن المناخ المحلي.</span><span data-lang="sw" hidden><strong>Misitu shambani</strong> — miti hutuliza udongo, hutoa kivuli, na huboresha hali ya hewa ya shamba.</span></li>
+    </ul>
+
+    <h2 class="article-h2" style="margin-top:40px;"><span data-lang="so">Maqaallada Cimilada</span><span data-lang="en" hidden>Climate Articles</span><span data-lang="ar" hidden>مقالات المناخ</span><span data-lang="sw" hidden>Makala za Hali ya Hewa</span></h2>
+    <div class="grid-articles">
+      <a href="article-drought-tolerant-crops.html" class="card-article">
+        <div class="card-cover cover-drought-crops"></div>
+        <div class="card-body">
+          <span class="pill"><span data-lang="so">Cimilada</span><span data-lang="en" hidden>Climate</span><span data-lang="ar" hidden>المناخ</span><span data-lang="sw" hidden>Hali ya Hewa</span></span>
+          <h3><span data-lang="so">Dalagga Abaaraha ka Adkaysta</span><span data-lang="en" hidden>Drought-Tolerant Crops</span><span data-lang="ar" hidden>المحاصيل المقاومة للجفاف</span><span data-lang="sw" hidden>Mazao Sugu ya Ukame</span></h3>
+          <div class="card-meta"><span>2026-05-26</span><span><span data-lang="so">9 daqiiqo</span><span data-lang="en" hidden>9 min</span><span data-lang="ar" hidden>9 دقائق</span><span data-lang="sw" hidden>dakika 9</span></span></div>
+        </div>
+      </a>
+      <a href="article-agroforestry.html" class="card-article">
+        <div class="card-cover cover-agroforestry"></div>
+        <div class="card-body">
+          <span class="pill"><span data-lang="so">Cimilada</span><span data-lang="en" hidden>Climate</span><span data-lang="ar" hidden>المناخ</span><span data-lang="sw" hidden>Hali ya Hewa</span></span>
+          <h3><span data-lang="so">Agroforestry — Geedaha iyo Beerista</span><span data-lang="en" hidden>Agroforestry — Trees on the Farm</span><span data-lang="ar" hidden>الزراعة الحرجية</span><span data-lang="sw" hidden>Kilimo cha Misitu</span></h3>
+          <div class="card-meta"><span>2026-05-25</span><span><span data-lang="so">8 daqiiqo</span><span data-lang="en" hidden>8 min</span><span data-lang="ar" hidden>8 دقائق</span><span data-lang="sw" hidden>dakika 8</span></span></div>
+        </div>
+      </a>
+      <a href="article-weather-monitoring.html" class="card-article">
+        <div class="card-cover cover-weather-monitoring"></div>
+        <div class="card-body">
+          <span class="pill"><span data-lang="so">Cimilada</span><span data-lang="en" hidden>Climate</span><span data-lang="ar" hidden>المناخ</span><span data-lang="sw" hidden>Hali ya Hewa</span></span>
+          <h3><span data-lang="so">Cimilada La-socodka — Saadaal iyo Go'aanno</span><span data-lang="en" hidden>Weather Monitoring</span><span data-lang="ar" hidden>رصد الطقس</span><span data-lang="sw" hidden>Kufuatilia Hali ya Hewa</span></h3>
+          <div class="card-meta"><span>2026-05-24</span><span><span data-lang="so">7 daqiiqo</span><span data-lang="en" hidden>7 min</span><span data-lang="ar" hidden>7 دقائق</span><span data-lang="sw" hidden>dakika 7</span></span></div>
+        </div>
+      </a>
+      <a href="news-1.html" class="card-article">
+        <div class="card-cover cover-news-1"></div>
+        <div class="card-body">
+          <span class="pill"><span data-lang="so">Wararka</span><span data-lang="en" hidden>News</span><span data-lang="ar" hidden>أخبار</span><span data-lang="sw" hidden>Habari</span></span>
+          <h3><span data-lang="so">Xilliga Roobka</span><span data-lang="en" hidden>The Rainy Season</span><span data-lang="ar" hidden>موسم الأمطار</span><span data-lang="sw" hidden>Msimu wa Mvua</span></h3>
+          <div class="card-meta"><span>2026-05-10</span></div>
+        </div>
+      </a>
+      <a href="news-4.html" class="card-article">
+        <div class="card-cover cover-news-4"></div>
+        <div class="card-body">
+          <span class="pill"><span data-lang="so">Wararka</span><span data-lang="en" hidden>News</span><span data-lang="ar" hidden>أخبار</span><span data-lang="sw" hidden>Habari</span></span>
+          <h3><span data-lang="so">Saadaasha Cimilada</span><span data-lang="en" hidden>Climate Forecast</span><span data-lang="ar" hidden>توقعات المناخ</span><span data-lang="sw" hidden>Utabiri wa Hali ya Hewa</span></h3>
+          <div class="card-meta"><span>2026-05-04</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>
