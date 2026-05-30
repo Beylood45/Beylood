@@ -92,17 +92,40 @@ if (!configReady()) {
     try {
       const adminDoc = await getDoc(doc(db, 'admins', user.uid));
       if (!adminDoc.exists()) {
-        showGate({ title: 'Admin access required', message: 'Your account does not have admin permissions.', showSignIn: false });
+        showGate({
+          title: 'Admin access required',
+          message: 'Your UID (' + user.uid + ') is not in the admins collection. Add a document at /admins/' + user.uid + ' in Firestore.',
+          showSignIn: false
+        });
         return;
       }
     } catch (err) {
-      // Could not check (rules / network) — fail closed
       console.warn('Admin check failed:', err);
-      showGate({ title: 'Access check failed', message: 'Could not verify admin status. Please refresh or try again.', showSignIn: false });
+      let detail = err && err.message ? err.message : 'unknown error';
+      if (err && err.code === 'permission-denied') {
+        detail = 'Permission denied. Publish the new firestore.rules in Firebase Console → Firestore → Rules.';
+      }
+      showGate({
+        title: 'Access check failed',
+        message: detail,
+        showSignIn: false
+      });
       return;
     }
     showDashboard();
-    loadDashboard().catch((e) => console.warn('Dashboard load:', e));
+    loadDashboard().catch((e) => {
+      console.warn('Dashboard load failed:', e);
+      const body = document.getElementById('recentUsersBody');
+      if (body) {
+        const code = (e && e.code) ? e.code : '';
+        let msg = (e && e.message) ? e.message : 'Failed to load.';
+        if (code === 'permission-denied') {
+          msg = 'Permission denied reading /users. Publish the new firestore.rules and confirm /admins/' + (auth.currentUser && auth.currentUser.uid) + ' exists.';
+        }
+        body.innerHTML = '<tr><td colspan="5" class="admin-table__empty" style="color:#ef4444;">' +
+          msg.replace(/</g, '&lt;') + '</td></tr>';
+      }
+    });
   });
 }
 
