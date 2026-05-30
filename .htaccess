@@ -1,0 +1,140 @@
+# ============================================================
+# Beylood — Apache/LiteSpeed configuration (Hostinger)
+# ------------------------------------------------------------
+# This replaces vercel.json. It runs natively on Hostinger's
+# shared hosting and provides:
+#   • HTTPS enforcement
+#   • Custom 404 page
+#   • Security headers (CSP, HSTS, etc.)
+#   • Aggressive caching for static assets
+#   • Gzip / Brotli compression
+# ============================================================
+
+# ---- Default character set ----
+AddDefaultCharset UTF-8
+
+# ---- Custom error pages ----
+ErrorDocument 404 /404.html
+
+# ---- DirectoryIndex (home page) ----
+DirectoryIndex index.html
+
+# ---- Remove www and force HTTPS ----
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP_HOST} !^localhost [NC]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Optional: force non-www (uncomment if you prefer beylood.com over www.beylood.com)
+  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # Block direct access to private files
+  RewriteRule ^\.git - [F,L]
+  RewriteRule ^\.htaccess - [F,L]
+  RewriteRule ^firestore\.rules$ - [F,L]
+  RewriteRule ^firebase\.json$ - [F,L]
+  RewriteRule ^vercel\.json$ - [F,L]
+  RewriteRule ^package(-lock)?\.json$ - [F,L]
+</IfModule>
+
+# ---- Block obvious source files from the web ----
+<FilesMatch "(^\.|\.(rules|md|log|bak|orig|swp)$|^package(-lock)?\.json$|^vercel\.json$|^firebase\.json$|^README)">
+  Require all denied
+</FilesMatch>
+
+# ============================================================
+# Security headers
+# ============================================================
+<IfModule mod_headers.c>
+  # Content Security Policy — same allowlist used on Vercel.
+  # Allows Firebase, GA4, Chart.js CDN, Unsplash images.
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' https://www.gstatic.com https://apis.google.com https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.googleusercontent.com https://www.gstatic.com https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com https://www.googleapis.com https://beylood-e74d6.firebaseapp.com https://www.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.g.doubleclick.net wss://*.firebaseio.com; frame-src 'self' https://beylood-e74d6.firebaseapp.com https://accounts.google.com https://apis.google.com; form-action 'self'; upgrade-insecure-requests"
+
+  # HSTS (after you confirm HTTPS works for every URL).
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+  Header always set X-XSS-Protection "0"
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+</IfModule>
+
+# ============================================================
+# Caching
+# ============================================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # 1 year for images, fonts, audio, video, archives
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/gif                 "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/x-icon              "access plus 1 year"
+  ExpiresByType font/woff                 "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType application/font-woff     "access plus 1 year"
+
+  # 1 month for CSS/JS (still allows quick updates)
+  ExpiresByType text/css                  "access plus 1 month"
+  ExpiresByType application/javascript    "access plus 1 month"
+  ExpiresByType text/javascript           "access plus 1 month"
+
+  # No cache for the HTML — so updates appear immediately
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType application/xml           "access plus 1 hour"
+  ExpiresByType application/json          "access plus 0 seconds"
+</IfModule>
+
+# Cache-Control hints
+<IfModule mod_headers.c>
+  <FilesMatch "\.(woff2|woff|ttf|png|jpg|jpeg|svg|webp|ico|gif)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ============================================================
+# Compression
+# ============================================================
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff
+  AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+# ============================================================
+# MIME types — some shared hosts need explicit declarations
+# ============================================================
+<IfModule mod_mime.c>
+  AddType application/javascript          .js
+  AddType application/json                .json
+  AddType image/svg+xml                   .svg .svgz
+  AddType image/webp                      .webp
+  AddType font/woff                       .woff
+  AddType font/woff2                      .woff2
+  AddType text/css                        .css
+  AddType text/xml                        .xml
+</IfModule>
+
+# ---- Disable directory listing ----
+Options -Indexes

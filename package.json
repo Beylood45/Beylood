@@ -2,12 +2,10 @@
   "name": "beylood",
   "version": "1.0.0",
   "private": true,
-  "description": "Beylood - multilingual agriculture knowledge platform (Somali, English, Arabic, Swahili) with an AI chat assistant.",
-  "homepage": "https://github.com/Beylood45/Beylood",
+  "description": "Beylood - multilingual agriculture knowledge platform (Somali, English, Arabic, Swahili) with an AI chat assistant. Hosted on Hostinger.",
+  "homepage": "https://beylood.com/",
   "scripts": {
     "dev": "npx serve .",
-    "preview": "vercel dev",
-    "deploy": "vercel --prod",
     "audit": "npm audit",
     "audit:fix": "npm audit fix",
     "outdated": "npm outdated"
