@@ -82,6 +82,16 @@ function setMsg(id, text, isError) {
 }
 
 /* ---------- Firestore: save / update user profile ---------- */
+// Map the Firebase auth providerId (e.g. "google.com") to a short
+// label we use everywhere ("google", "password"). Defaults to "password"
+// for email/password, since this is the most common case.
+function providerLabel(user) {
+  const p = (user.providerData && user.providerData[0] && user.providerData[0].providerId) || '';
+  if (/google/i.test(p)) return 'google';
+  if (/password/i.test(p) || /email/i.test(p)) return 'password';
+  return p || 'password';
+}
+
 async function saveUserProfile(user, fallbackName) {
   try {
     const ref = doc(db, 'users', user.uid);
@@ -90,10 +100,17 @@ async function saveUserProfile(user, fallbackName) {
       name: user.displayName || fallbackName || '',
       email: user.email || '',
       photoURL: user.photoURL || '',
+      provider: providerLabel(user),
       lastLogin: serverTimestamp()
     };
     if (!snap.exists()) data.createdAt = serverTimestamp();
     await setDoc(ref, data, { merge: true });
+
+    // Fire-and-forget analytics events so the admin dashboard can show
+    // first sign-ups separately from returning sign-ins.
+    if (typeof window !== 'undefined' && typeof window.beyTrack === 'function') {
+      window.beyTrack(snap.exists() ? 'sign_in' : 'sign_up', { method: data.provider });
+    }
   } catch (err) {
     console.warn('Could not save user profile:', err);
   }

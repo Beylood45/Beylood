@@ -4,7 +4,8 @@ rules_version = '2';
 // Beylood — Firestore Security Rules
 // ------------------------------------------------------------
 // Principle: a signed-in user may read/write ONLY their own
-// document and their own bookmarks. Everything else is denied.
+// document and their own bookmarks. Admins (listed in
+// /admins/{uid}) may read everyone's profile for the dashboard.
 // Paste these into Firebase Console → Firestore → Rules → Publish.
 // ============================================================
 
@@ -17,20 +18,34 @@ service cloud.firestore {
       return request.auth != null && request.auth.uid == uid;
     }
 
+    // Admin = there is a document at /admins/{caller.uid}.
+    // (We never read the body, just the existence.)
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
     // Validate the shape of a user profile document. Rejecting
     // unexpected fields and oversized strings stops abuse such as
     // someone stuffing large/extra data into the database.
     function validUser() {
       let d = request.resource.data;
-      return d.keys().hasOnly(['name', 'email', 'photoURL', 'createdAt', 'lastLogin'])
+      return d.keys().hasOnly(['name', 'email', 'photoURL', 'provider', 'createdAt', 'lastLogin'])
         && d.name is string && d.name.size() <= 80
         && d.email is string && d.email.size() <= 254
-        && d.photoURL is string && d.photoURL.size() <= 2048;
+        && d.photoURL is string && d.photoURL.size() <= 2048
+        && (!('provider' in d) || (d.provider is string && d.provider.size() <= 32));
     }
 
     match /users/{uid} {
-      // Read only your own profile.
-      allow read: if isOwner(uid);
+      // Read your own profile. Admins can read every profile so the
+      // admin dashboard can render charts and counters.
+      allow read: if isOwner(uid) || isAdmin();
+
+      // Listing all users (collection-level query) is admin-only.
+      // (Per-doc reads are still covered by the rule above.)
+      // Firestore evaluates listing via the same `read` rule, so the
+      // OR with isAdmin() handles both cases.
 
       // Create your own profile, with a valid shape.
       allow create: if isOwner(uid) && validUser();
@@ -56,6 +71,27 @@ service cloud.firestore {
 
         allow delete: if isOwner(uid);
       }
+    }
+
+    // ---- Admin registry ----
+    // Each document represents one admin. The doc ID is the user's
+    // uid. Writes must be done in the Firebase Console only — never
+    // from the client.
+    match /admins/{uid} {
+      // The signed-in caller may read their OWN admin doc to
+      // confirm whether they are an admin (used by admin.html).
+      allow read: if isOwner(uid);
+      // Listing the admin registry from the client is denied.
+      // Adding or removing admins must be done in the console.
+      allow write: if false;
+    }
+
+    // ---- Site-wide stats (counters) ----
+    // Public counters (e.g. total page views) that the dashboard
+    // can show without leaking per-user info. Admin-only writes.
+    match /stats/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
     }
 
     // Deny everything not explicitly matched above.

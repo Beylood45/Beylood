@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Beylood — Admin statistics dashboard" />
+  <meta name="theme-color" content="#0F3F7E" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin · Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a href="index.html" class="logo" aria-label="Beylood home">
+        <img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html" data-key="navHome">Bogga Hore</a>
+        <a href="categories.html" data-key="navCats">Qaybaha</a>
+        <a href="articles.html" data-key="navArticles">Maqaallo</a>
+        <a href="news.html" data-key="navNews">Wararka</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="admin.html" class="is-active" aria-current="page">Admin</a>
+      </nav>
+      <div class="nav-right">
+        <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
+          <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== GATE (auth + admin check) ===================== -->
+  <section id="adminGate" class="section admin-gate" hidden>
+    <div class="container">
+      <div class="admin-gate__card">
+        <span class="admin-gate__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </span>
+        <h1 id="adminGateTitle">Restricted area</h1>
+        <p id="adminGateMsg">This page is reserved for Beylood administrators.</p>
+        <div class="admin-gate__actions">
+          <a href="signin.html" class="btn btn-getstarted" id="adminSignInBtn">Sign in</a>
+          <a href="index.html" class="premium-lock__signin">Back to home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DASHBOARD ===================== -->
+  <main id="adminMain" class="section admin-main" hidden>
+    <div class="container">
+
+      <!-- Page header -->
+      <header class="admin-header">
+        <div>
+          <span class="section-eyebrow">ADMIN DASHBOARD</span>
+          <h1 class="admin-title">Beylood Statistics</h1>
+          <p class="admin-sub">Site analytics, user growth, and content performance.</p>
+        </div>
+        <div class="admin-header__meta">
+          <span class="admin-pulse" aria-hidden="true"></span>
+          <span id="adminLastUpdated">—</span>
+        </div>
+      </header>
+
+      <!-- KPI cards -->
+      <section class="admin-kpis" aria-label="Key performance indicators">
+        <div class="admin-card">
+          <div class="admin-card__head">
+            <span class="admin-card__icon admin-icon-navy" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/></svg>
+            </span>
+            <span class="admin-card__title">Total Visitors</span>
+          </div>
+          <div class="admin-card__value" id="kpiVisitors">—</div>
+          <div class="admin-card__hint" id="kpiVisitorsHint">From Google Analytics</div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card__head">
+            <span class="admin-card__icon admin-icon-green" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <span class="admin-card__title">Registered Users</span>
+          </div>
+          <div class="admin-card__value" id="kpiUsers">—</div>
+          <div class="admin-card__hint">
+            <span id="kpiUsersToday">+0</span> today ·
+            <span id="kpiUsersWeek">+0</span> this week
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card__head">
+            <span class="admin-card__icon admin-icon-amber" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            <span class="admin-card__title">Active Users (30d)</span>
+          </div>
+          <div class="admin-card__value" id="kpiActive">—</div>
+          <div class="admin-card__hint">Logged in last 30 days</div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card__head">
+            <span class="admin-card__icon admin-icon-sky" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </span>
+            <span class="admin-card__title">Articles Published</span>
+          </div>
+          <div class="admin-card__value" id="kpiArticles">—</div>
+          <div class="admin-card__hint">Across all categories</div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card__head">
+            <span class="admin-card__icon admin-icon-rose" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </span>
+            <span class="admin-card__title">Categories</span>
+          </div>
+          <div class="admin-card__value">6</div>
+          <div class="admin-card__hint">Crops · Pests · Irrigation · Soil · Climate · Livestock</div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card__head">
+            <span class="admin-card__icon admin-icon-violet" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+            </span>
+            <span class="admin-card__title">Languages</span>
+          </div>
+          <div class="admin-card__value">4</div>
+          <div class="admin-card__hint">Soomaali · English · العربية · Kiswahili</div>
+        </div>
+      </section>
+
+      <!-- Charts -->
+      <section class="admin-charts">
+        <div class="admin-chart-card">
+          <div class="admin-chart-card__head">
+            <h2>Daily visitors</h2>
+            <span class="admin-chart-card__sub">Last 30 days</span>
+          </div>
+          <canvas id="chartDaily" height="120" aria-label="Daily visitors chart"></canvas>
+        </div>
+        <div class="admin-chart-card">
+          <div class="admin-chart-card__head">
+            <h2>User growth</h2>
+            <span class="admin-chart-card__sub">Cumulative sign-ups</span>
+          </div>
+          <canvas id="chartGrowth" height="120" aria-label="User growth chart"></canvas>
+        </div>
+        <div class="admin-chart-card">
+          <div class="admin-chart-card__head">
+            <h2>Weekly visitors</h2>
+            <span class="admin-chart-card__sub">Last 12 weeks</span>
+          </div>
+          <canvas id="chartWeekly" height="120" aria-label="Weekly visitors chart"></canvas>
+        </div>
+        <div class="admin-chart-card">
+          <div class="admin-chart-card__head">
+            <h2>Sign-in method</h2>
+            <span class="admin-chart-card__sub">Google vs Email</span>
+          </div>
+          <canvas id="chartMethods" height="120" aria-label="Sign-in method chart"></canvas>
+        </div>
+      </section>
+
+      <!-- Recent users -->
+      <section class="admin-table-card" aria-labelledby="recentUsersTitle">
+        <div class="admin-table-card__head">
+          <h2 id="recentUsersTitle">Recent registrations</h2>
+          <span class="admin-table-card__sub" id="recentUsersCount">—</span>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th scope="col">User</th>
+                <th scope="col">Email</th>
+                <th scope="col">Method</th>
+                <th scope="col">Joined</th>
+                <th scope="col">Last seen</th>
+              </tr>
+            </thead>
+            <tbody id="recentUsersBody">
+              <tr><td colspan="5" class="admin-table__empty">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Coming soon — scalability slots -->
+      <section class="admin-coming">
+        <h2>Coming soon</h2>
+        <p>These dashboards are wired up but waiting on data sources.</p>
+        <div class="admin-coming__grid">
+          <div class="admin-coming__card">
+            <span class="admin-coming__pill">Premium</span>
+            <h3>Premium memberships</h3>
+            <p>Active subscriptions, churn, MRR, upgrade funnel.</p>
+          </div>
+          <div class="admin-coming__card">
+            <span class="admin-coming__pill">Revenue</span>
+            <h3>Revenue tracking</h3>
+            <p>Monthly revenue, top-grossing tiers, refund rate.</p>
+          </div>
+          <div class="admin-coming__card">
+            <span class="admin-coming__pill">Newsletter</span>
+            <h3>Newsletter subscribers</h3>
+            <p>List size, growth, open / click rates.</p>
+          </div>
+          <div class="admin-coming__card">
+            <span class="admin-coming__pill">AI</span>
+            <h3>AI usage</h3>
+            <p>Conversations / day, tokens, top languages.</p>
+          </div>
+          <div class="admin-coming__card">
+            <span class="admin-coming__pill">Articles</span>
+            <h3>Article performance</h3>
+            <p>Top articles, average dwell time, bounce.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Beylood · Admin Console</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="analytics-config.js"></script>
+  <script src="analytics.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
