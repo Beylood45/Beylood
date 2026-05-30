@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sida loo qodo, loo dhigo, oo loo daryeelo ceelaal iyo borehole-ka beeraha." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Ceelaal iyo Borehole — Hagaha | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Boreholes and Wells" />
+  <meta property="og:description" content="Sida loo qodo, loo dhigo, oo loo daryeelo ceelaal iyo borehole-ka beeraha." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <a href="signin.html" class="lang-btn btn-signin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span></a>
+      <a href="signup.html" class="btn btn-getstarted"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span></a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-irrigation.html" class="article-back"><span data-lang="so">← Dib ugu noqo Waraabinta</span><span data-lang="en" hidden>← Back to Irrigation</span><span data-lang="ar" hidden>← العودة إلى الري</span><span data-lang="sw" hidden>← Rudi kwa Umwagiliaji</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Waraabinta</span><span data-lang="en" hidden>Irrigation</span><span data-lang="ar" hidden>الري</span><span data-lang="sw" hidden>Umwagiliaji</span></span>
+      <h1 class="article-title"><span data-lang="so">Ceelaal iyo Borehole — Hagaha</span><span data-lang="en" hidden>Boreholes and Wells</span><span data-lang="ar" hidden>الآبار</span><span data-lang="sw" hidden>Visima</span></h1>
+      <div class="article-meta"><span>2026-05-19</span><span><span data-lang="so">7 daqiiqo</span><span data-lang="en" hidden>7 min</span><span data-lang="ar" hidden>7 دقائق</span><span data-lang="sw" hidden>dakika 7</span></span></div>
+    </header>
+    <div class="article-cover cover-boreholes-wells"></div>
+    <div class="article-body">
+      <p class="article-lead"><span data-lang="so">Biyaha hoose ee dhulka (groundwater) waa illin badbaado ah xilliga abaaraha. Soomaaliya, biyaha xog-warran ee hoose waxay ku jiraan 5–100 m hoose. Ceel ama borehole oo si fiican u qodan wuxuu siisaa biyo 365 maalmood sannadkii.</span><span data-lang="en" hidden>Groundwater is a drought lifeline. In Somalia, the water table ranges 5–100 m deep. A properly drilled well or borehole provides reliable water year-round.</span><span data-lang="ar" hidden>المياه الجوفية حياة في الجفاف.</span><span data-lang="sw" hidden>Maji ya chini ya ardhi ni uhai.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Hand-dug Well vs Borehole</span><span data-lang="en" hidden>Hand-dug vs Borehole</span><span data-lang="ar" hidden>يدوي مقابل آلي</span><span data-lang="sw" hidden>Kisima vs Borehole</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Hand-dug well:</strong> 3–15 m hoose, baahsan, qiimo $300–$1,500, awood 0.5–2 L/s.</span><span data-lang="en" hidden><strong>Hand-dug well:</strong> 3–15 m, wide diameter, $300–$1,500, yields 0.5–2 L/s.</span><span data-lang="ar" hidden><strong>اليدوي</strong> — 3–15 م.</span><span data-lang="sw" hidden><strong>Kisima cha mkono</strong>.</span></li>
+        <li><span data-lang="so"><strong>Borehole:</strong> 20–150 m, dhuubban, qiimo $2,000–$15,000, awood 1–10 L/s.</span><span data-lang="en" hidden><strong>Borehole:</strong> 20–150 m, narrow, $2,000–$15,000, yields 1–10 L/s.</span><span data-lang="ar" hidden><strong>الآلي</strong> — 20–150 م.</span><span data-lang="sw" hidden><strong>Borehole</strong>.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Tallaabooyinka Qodista</span><span data-lang="en" hidden>Drilling Steps</span><span data-lang="ar" hidden>خطوات الحفر</span><span data-lang="sw" hidden>Kuchimba</span></h2>
+      <p class="article-p"><span data-lang="so">1) Sahmin (hydrogeological survey) — naxariis dhibic biyo. 2) Qod test hole. 3) Hagaaji oo dhig casing (PVC/steel). 4) Geli screen (filter) qaybta biyaha leh. 5) Sii daa gravel pack. 6) Tijaab pumping (yield test) 24 saac. 7) Rakib mootada.</span><span data-lang="en" hidden>1) Hydrogeological survey to locate water. 2) Drill a test hole. 3) Case it (PVC/steel). 4) Install screen in the water-bearing zone. 5) Pack with gravel. 6) Run a 24-hour pumping test. 7) Fit the pump.</span><span data-lang="ar" hidden>خطوات: مسح، حفر، تغليف، شاشة، اختبار ضخ.</span><span data-lang="sw" hidden>Hatua: utafiti, kuchimba, casing, screen, jaribio.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Daryeelka</span><span data-lang="en" hidden>Maintenance</span><span data-lang="ar" hidden>الصيانة</span><span data-lang="sw" hidden>Matengenezo</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so">Hubi heerka biyaha sannad kasta (water level log).</span><span data-lang="en" hidden>Log water level annually.</span><span data-lang="ar" hidden>سجل المستوى سنوياً.</span><span data-lang="sw" hidden>Andika kiwango cha maji.</span></li>
+        <li><span data-lang="so">Chlorinate ceelka 6 bilood kasta si looga hortago bacteria-ga.</span><span data-lang="en" hidden>Chlorinate the well every 6 months to control bacteria.</span><span data-lang="ar" hidden>كلور كل 6 أشهر.</span><span data-lang="sw" hidden>Klorini kila miezi 6.</span></li>
+        <li><span data-lang="so">Hubi mootada — vibration cusub waxay tilmaan tahay xirxir.</span><span data-lang="en" hidden>Inspect the pump — new vibrations signal clogging or wear.</span><span data-lang="ar" hidden>افحص المضخة.</span><span data-lang="sw" hidden>Kagua pampu.</span></li>
+        <li><span data-lang="so">Iska jeed casing-ka hoose ee hoos u dhicisamayn karta — keenta dirt iyo silt.</span><span data-lang="en" hidden>Watch the casing for sinking — can cause sediment infiltration.</span><span data-lang="ar" hidden>راقب التغليف.</span><span data-lang="sw" hidden>Angalia casing.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Sharciyada</span><span data-lang="en" hidden>Regulation</span><span data-lang="ar" hidden>التشريعات</span><span data-lang="sw" hidden>Sheria</span></h2>
+      <p class="article-p"><span data-lang="so">Soomaaliya iyo qaar badan oo deegaano: u baahi ogolaansho ka socda hay'adda biyaha qaranka kahor inta aanad qodin borehole &gt;50 m. Hay'adaha NGO-yada (SWALIM, UNICEF, FAO) waxay caawiyaan beeralayga oo wax bixiyaan tababar.</span><span data-lang="en" hidden>In Somalia (and most countries) drilling beyond ~50 m requires authorisation from the national water authority. NGOs like SWALIM, UNICEF, and FAO provide farmer support.</span><span data-lang="ar" hidden>يتطلب الحفر العميق ترخيصاً.</span><span data-lang="sw" hidden>Kuchimba kuhitaji idhini.</span></p>
+
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

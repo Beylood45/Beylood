@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Furrow irrigation — habka traditional ee waraabinta, sida loo naqshadeeyo si looga hortago khasaaraha biyaha." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Furrow Irrigation — Waraabin Saraar | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Furrow Irrigation" />
+  <meta property="og:description" content="Furrow irrigation — habka traditional ee waraabinta, sida loo naqshadeeyo si looga hortago khasaaraha biyaha." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <a href="signin.html" class="lang-btn btn-signin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span></a>
+      <a href="signup.html" class="btn btn-getstarted"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span></a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-irrigation.html" class="article-back"><span data-lang="so">← Dib ugu noqo Waraabinta</span><span data-lang="en" hidden>← Back to Irrigation</span><span data-lang="ar" hidden>← العودة إلى الري</span><span data-lang="sw" hidden>← Rudi kwa Umwagiliaji</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Waraabinta</span><span data-lang="en" hidden>Irrigation</span><span data-lang="ar" hidden>الري</span><span data-lang="sw" hidden>Umwagiliaji</span></span>
+      <h1 class="article-title"><span data-lang="so">Furrow Irrigation — Waraabin Saraar</span><span data-lang="en" hidden>Furrow Irrigation</span><span data-lang="ar" hidden>الري بالأخاديد</span><span data-lang="sw" hidden>Umwagiliaji wa Mifereji</span></h1>
+      <div class="article-meta"><span>2026-05-22</span><span><span data-lang="so">7 daqiiqo</span><span data-lang="en" hidden>7 min</span><span data-lang="ar" hidden>7 دقائق</span><span data-lang="sw" hidden>dakika 7</span></span></div>
+    </header>
+    <div class="article-cover cover-furrow-irrigation"></div>
+    <div class="article-body">
+      <p class="article-lead"><span data-lang="so">Waraabinta saraarka (furrow) waxay biyaha mariyaa kanaalo yaryar oo u dhexeeya safafka dalagga. Waa habka ugu caansan dunida — qaabkiisu yar yahay, qiimihiisuna hooseeyaa, balse haddii la fiirsan ee uu xidho 25–40% biyaha.</span><span data-lang="en" hidden>Furrow irrigation flows water along small channels between crop rows. The world's most common method — low-cost and easy, but inefficient (25–40% losses) without careful design.</span><span data-lang="ar" hidden>الري بالأخاديد — يوزع الماء بين الصفوف؛ شائع لكنه يفقد 25–40% بلا تصميم جيد.</span><span data-lang="sw" hidden>Umwagiliaji wa mifereji — wa kawaida lakini hupoteza 25–40%.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Goorta Loo Isticmaalo</span><span data-lang="en" hidden>When to Use Furrows</span><span data-lang="ar" hidden>متى تستخدم</span><span data-lang="sw" hidden>Lini Kutumia</span></h2>
+      <p class="article-p"><span data-lang="so">Furrows waxay ku habboon yihiin dalagga safaf ah (galley, basasha, yaanyada, qaraha), dhul sallaxan ama jiif yar (slope &lt;3%), iyo meelaha biyaha laga keeno wabi ama ceel awood sare leh.</span><span data-lang="en" hidden>Furrows suit row crops (maize, onions, tomato, watermelon), flat or gently sloped land (<3% slope), and sites with abundant river or well water.</span><span data-lang="ar" hidden>للمحاصيل الصفية والأراضي المسطحة.</span><span data-lang="sw" hidden>Kwa mazao ya safu.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Tilmaamaha Naqshadda</span><span data-lang="en" hidden>Design Guidelines</span><span data-lang="ar" hidden>معايير التصميم</span><span data-lang="sw" hidden>Vigezo vya Kupanga</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Dhererka saraarka:</strong> 50–200 m (kor u dhererka ciidda ka mid ah).</span><span data-lang="en" hidden><strong>Furrow length:</strong> 50–200 m (longer in heavier clay soils).</span><span data-lang="ar" hidden><strong>الطول</strong> — 50–200 م.</span><span data-lang="sw" hidden><strong>Urefu</strong> — m 50–200.</span></li>
+        <li><span data-lang="so"><strong>Masaafada saraarka:</strong> waafaqsan masaafada dalagga (60–90 cm khudaarta, 75–100 cm galleyda).</span><span data-lang="en" hidden><strong>Spacing:</strong> match crop row spacing (60–90 cm vegetables, 75–100 cm maize).</span><span data-lang="ar" hidden><strong>التباعد</strong> — حسب الصف.</span><span data-lang="sw" hidden><strong>Nafasi</strong> — sawa na safu.</span></li>
+        <li><span data-lang="so"><strong>Slope:</strong> 0.2–0.5% ugu fiican; aad u hooseeya = biyaha taagan, aad u sareeya = nabaad-guur.</span><span data-lang="en" hidden><strong>Slope:</strong> 0.2–0.5% ideal — too flat ponds water, too steep erodes.</span><span data-lang="ar" hidden><strong>الانحدار</strong> — 0.2–0.5%.</span><span data-lang="sw" hidden><strong>Mteremko</strong> — 0.2–0.5%.</span></li>
+        <li><span data-lang="so"><strong>Inflow rate:</strong> 0.5–2 L/s saraar kasta — biyaha gaadhsiisaan dhamaadka 25–50% wakhtiga waraabinta.</span><span data-lang="en" hidden><strong>Inflow rate:</strong> 0.5–2 L/s per furrow — water should reach the end in 25–50% of total irrigation time.</span><span data-lang="ar" hidden><strong>التدفق</strong> — 0.5–2 لتر/ثانية.</span><span data-lang="sw" hidden><strong>Mtiririko</strong>.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Hagaajinta Wax-soosaarka</span><span data-lang="en" hidden>Improving Efficiency</span><span data-lang="ar" hidden>تحسين الكفاءة</span><span data-lang="sw" hidden>Kuboresha</span></h2>
+      <p class="article-p"><span data-lang="so">Saraar kasta oo loo isticmaalo waraabinta, ka tag saraarka kale qalalan (alternate furrow irrigation) — kaydiya 30% biyaha iyada oo aan la dhimin wax-soosaarka. Daboolaad caws qalalan dhulka ka difaaca uumiga. Surge irrigation (biyaha geli dabakhsanaan ah) waxay yarayn kartaa khasaaraha 15–25%.</span><span data-lang="en" hidden>Use alternate-furrow irrigation (water every other furrow) — saves 30% with no yield loss. Mulch dry grass between rows to cut evaporation. Surge irrigation (pulsing water on/off) reduces deep losses 15–25%.</span><span data-lang="ar" hidden>تناوب الأخاديد يوفر 30%.</span><span data-lang="sw" hidden>Mfumo wa kupishana huokoa 30%.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Daryeelka</span><span data-lang="en" hidden>Maintenance</span><span data-lang="ar" hidden>الصيانة</span><span data-lang="sw" hidden>Matengenezo</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so">Dib u sameey saraarka beerta kasta — falaarta yarayn kartaa qotada.</span><span data-lang="en" hidden>Re-form furrows each season — repeated tillage reduces depth.</span><span data-lang="ar" hidden>أعد تشكيل الأخاديد كل موسم.</span><span data-lang="sw" hidden>Tengeneza upya kila msimu.</span></li>
+        <li><span data-lang="so">Iska saar cawska kanaalka biyaha si biyaha si fiican u socdaan.</span><span data-lang="en" hidden>Clear weeds from main channels for steady flow.</span><span data-lang="ar" hidden>أزل الأعشاب من القنوات.</span><span data-lang="sw" hidden>Ondoa magugu mifereji.</span></li>
+        <li><span data-lang="so">Tijaabi hal saraar kahor waraabinta — qiyaas wakhtiga ay biyaha u qaataan gaadhsiinta dhamaadka.</span><span data-lang="en" hidden>Test one furrow first — time how long water takes to reach the end.</span><span data-lang="ar" hidden>اختبر أخدوداً واحداً أولاً.</span><span data-lang="sw" hidden>Jaribu mfereji mmoja.</span></li>
+      </ul>
+
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

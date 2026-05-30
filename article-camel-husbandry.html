@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Geela — sida loo daryeelo geela, caanaha, iyo dakhliga geela." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Geela — Daryeelka iyo Wax-soosaarka | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Camel Husbandry" />
+  <meta property="og:description" content="Geela — sida loo daryeelo geela, caanaha, iyo dakhliga geela." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <a href="signin.html" class="lang-btn btn-signin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span></a>
+      <a href="signup.html" class="btn btn-getstarted"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span></a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-livestock.html" class="article-back"><span data-lang="so">← Dib ugu noqo Xoolaha</span><span data-lang="en" hidden>← Back to Livestock</span><span data-lang="ar" hidden>← العودة إلى الماشية</span><span data-lang="sw" hidden>← Rudi kwa Mifugo</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Xoolaha</span><span data-lang="en" hidden>Livestock</span><span data-lang="ar" hidden>الماشية</span><span data-lang="sw" hidden>Mifugo</span></span>
+      <h1 class="article-title"><span data-lang="so">Geela — Daryeelka iyo Wax-soosaarka</span><span data-lang="en" hidden>Camel Husbandry</span><span data-lang="ar" hidden>الإبل</span><span data-lang="sw" hidden>Ngamia</span></h1>
+      <div class="article-meta"><span>2026-05-21</span><span><span data-lang="so">7 daqiiqo</span><span data-lang="en" hidden>7 min</span><span data-lang="ar" hidden>7 دقائق</span><span data-lang="sw" hidden>dakika 7</span></span></div>
+    </header>
+    <div class="article-cover cover-camel-husbandry"></div>
+    <div class="article-body">
+      <p class="article-lead"><span data-lang="so">Geelu waa hodanka Soomaaliyeed — Soomaaliya leh 7 milyan geel ah, koonteenka ugu badan adduunka. Caanaha geela waxay siiyaan nafaqo, dakhli ($1.5–$3/litir), iyo hilib qiimo leh. Si fiican u qaab-dhismeed ah, geel kasta sannadkii waxay siisaa $400–$1,200.</span><span data-lang="en" hidden>Camels are Somali wealth — Somalia has 7 million camels, the largest population in the world. Camel milk provides nutrition, income ($1.5–$3/L), and quality meat. Properly managed, each camel earns $400–$1,200/year.</span><span data-lang="ar" hidden>الصومال أكبر مربي للإبل عالمياً.</span><span data-lang="sw" hidden>Somalia ina ngamia wengi zaidi.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Cuntada iyo Biyaha</span><span data-lang="en" hidden>Feed and Water</span><span data-lang="ar" hidden>التغذية والماء</span><span data-lang="sw" hidden>Lishe na Maji</span></h2>
+      <p class="article-p"><span data-lang="so">Geelu wuu cuni karaa caws qudh-qudh leh, geedo (Acacia, Salvadora), iyo dhirta leh cusbo. Cunto: 8–12 kg dry matter/maalin. Biyo: geelu wuxuu cabbi karaa 100 litir 10 daqiiqo gudahood, oo wuxuu joogi karaa abaaro 10 maalmood biyo la'aan. Sii biyo 3–4 maalmood kasta.</span><span data-lang="en" hidden>Camels graze tough grasses, browse trees (Acacia, Salvadora), and salt-bushes. Daily intake: 8–12 kg dry matter. Water: they can drink 100 L in 10 min and go 10 days without — water them every 3–4 days.</span><span data-lang="ar" hidden>8–12 كغ علف يومياً.</span><span data-lang="sw" hidden>kg 8–12 kwa siku.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Caanaha Geela</span><span data-lang="en" hidden>Camel Milk</span><span data-lang="ar" hidden>حليب الإبل</span><span data-lang="sw" hidden>Maziwa ya Ngamia</span></h2>
+      <p class="article-p"><span data-lang="so">Geel hooyo ah: 5–15 litir maalintii (305 maalmood). Caano caafimaad sare leh: protein 3%, vit C 5× lo'da, insulin gargaaraha sonkorta. Suuqa gudaha: $1.5/L; Khaliij: $5–$10/L (export). Hubi nadaafadda — caano lo' Soomaaliya iibinaayaa 100,000+ litir Hargeysa keliya maalintii.</span><span data-lang="en" hidden>A milking she-camel produces 5–15 L/day for 305 days. High-nutrition: 3% protein, 5× the vitamin C of cow milk, contains insulin (helps diabetics). Local: $1.5/L; Gulf export: $5–$10/L. Hargeisa alone moves 100,000+ L/day.</span><span data-lang="ar" hidden>5–15 لتر يومياً.</span><span data-lang="sw" hidden>Lita 5–15 kwa siku.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Caafimaadka</span><span data-lang="en" hidden>Health</span><span data-lang="ar" hidden>الصحة</span><span data-lang="sw" hidden>Afya</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so">Trypanosomiasis (Surra) — tsetse-spread; cudurka ugu khatarsan.</span><span data-lang="en" hidden>Trypanosomiasis (Surra) — tsetse-spread; biggest threat.</span><span data-lang="ar" hidden>Surra.</span><span data-lang="sw" hidden>Surra.</span></li>
+        <li><span data-lang="so">Mange (cudur-jirka) — joog ivermectin 2 bilood kasta.</span><span data-lang="en" hidden>Mange — control with ivermectin every 2 months.</span><span data-lang="ar" hidden>الجرب.</span><span data-lang="sw" hidden>Mange.</span></li>
+        <li><span data-lang="so">Camel pox — tallaalka sannadkii.</span><span data-lang="en" hidden>Camel pox — annual vaccination.</span><span data-lang="ar" hidden>جدري الإبل.</span><span data-lang="sw" hidden>Camel pox.</span></li>
+        <li><span data-lang="so">Internal parasites — deworm 3 bilood kasta.</span><span data-lang="en" hidden>Internal parasites — deworm every 3 months.</span><span data-lang="ar" hidden>ديدان داخلية.</span><span data-lang="sw" hidden>Minyoo.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Taranka</span><span data-lang="en" hidden>Breeding</span><span data-lang="ar" hidden>التزاوج</span><span data-lang="sw" hidden>Kuzaa</span></h2>
+      <p class="article-p"><span data-lang="so">Uur: 12–13 bilood (geel-yar 1 sannad kasta gaarka ahaa). Dhalashada ugu horeysa: 4–5 sano. Geel-hooyo nool 25 sano oo waxay siisaa 10–15 dhalashado. Hubi taranka 3 sano kasta si geelaa cusub loo abuuro.</span><span data-lang="en" hidden>Gestation: 12–13 months (one calf every 2 years). First calving: 4–5 years. A she-camel lives 25 years, gives 10–15 calves. Plan generation turnover every 3 years.</span><span data-lang="ar" hidden>الحمل 12–13 شهراً.</span><span data-lang="sw" hidden>Mimba miezi 12–13.</span></p>
+
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

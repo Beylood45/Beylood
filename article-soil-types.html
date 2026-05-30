@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Noocyada ciidda — kala soocida iyo sida loo isticmaalo nooc kasta." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Noocyada Ciidda — Sand, Silt, Clay, Loam | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Soil Types Explained" />
+  <meta property="og:description" content="Noocyada ciidda — kala soocida iyo sida loo isticmaalo nooc kasta." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <a href="signin.html" class="lang-btn btn-signin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span></a>
+      <a href="signup.html" class="btn btn-getstarted"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span></a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-soil.html" class="article-back"><span data-lang="so">← Dib ugu noqo Carrada</span><span data-lang="en" hidden>← Back to Soil</span><span data-lang="ar" hidden>← العودة إلى التربة</span><span data-lang="sw" hidden>← Rudi kwa Udongo</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Carrada</span><span data-lang="en" hidden>Soil</span><span data-lang="ar" hidden>التربة</span><span data-lang="sw" hidden>Udongo</span></span>
+      <h1 class="article-title"><span data-lang="so">Noocyada Ciidda — Sand, Silt, Clay, Loam</span><span data-lang="en" hidden>Soil Types Explained</span><span data-lang="ar" hidden>أنواع التربة</span><span data-lang="sw" hidden>Aina za Udongo</span></h1>
+      <div class="article-meta"><span>2026-05-22</span><span><span data-lang="so">7 daqiiqo</span><span data-lang="en" hidden>7 min</span><span data-lang="ar" hidden>7 دقائق</span><span data-lang="sw" hidden>dakika 7</span></span></div>
+    </header>
+    <div class="article-cover cover-soil-types"></div>
+    <div class="article-body">
+      <p class="article-lead"><span data-lang="so">Ciidda waxay ka kooban tahay saddex qaybood aasaasi ah: sand (gallad weyn), silt (gallad dhexdhexaad), iyo clay (dhoobo). Saamiga ay ku jiraan ayaa go'aamiya sida ciidda ay biyaha u xidho, hawada u baahato, oo dalagga loo beeran karo.</span><span data-lang="en" hidden>Soil has three main mineral fractions: sand (big particles), silt (medium), and clay (tiny). The proportion controls how soil holds water, breathes, and supports crops.</span><span data-lang="ar" hidden>للتربة 3 مكونات: رمل، غرين، طين.</span><span data-lang="sw" hidden>Udongo una vipande vitatu vya msingi.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Sand (Cidda Bacaad)</span><span data-lang="en" hidden>Sandy Soil</span><span data-lang="ar" hidden>التربة الرملية</span><span data-lang="sw" hidden>Mchanga</span></h2>
+      <p class="article-p"><span data-lang="so">Gallad waaweyn (0.05–2 mm). Si dhakhso ah ayey biyaha u sii daysaa, hawo badan, qoyaan yar. Ku habboon: galleyda, basaska, qaraha, geedaha miraha. Khaladaad: bacrin u baahan tahay si joogto ah; nutrients lumiyaan.</span><span data-lang="en" hidden>Big grains (0.05–2 mm). Drains fast, well-aerated, holds little water. Suits maize, onions, watermelon, fruit trees. Weakness: nutrients leach quickly — needs frequent feeding.</span><span data-lang="ar" hidden>حبيبات كبيرة، صرف سريع.</span><span data-lang="sw" hidden>Vipande vikubwa, kupita haraka.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Clay (Cidda Dhoobada)</span><span data-lang="en" hidden>Clay Soil</span><span data-lang="ar" hidden>التربة الطينية</span><span data-lang="sw" hidden>Udongo wa Mfinyanzi</span></h2>
+      <p class="article-p"><span data-lang="so">Gallad aad u yar (&lt;0.002 mm). Biyaha qabsataa si fiican (laakiin si dhakhso ah ayey waxay u biyo-buuxisataa). Hawo yar. Ku habboon: bariiska paddy, qamadiga. Khaladaad: marka qoyaan ay socoto, way adkaataa; marka qalashana, way dhalaal noqotaa.</span><span data-lang="en" hidden>Tiny grains (<0.002 mm). Holds water well (but easily waterlogs). Low aeration. Suits paddy rice, wheat. Weakness: sticky when wet, cracks when dry.</span><span data-lang="ar" hidden>حبيبات صغيرة جداً.</span><span data-lang="sw" hidden>Vipande vidogo sana.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Loam (Cidda Dheelitiran)</span><span data-lang="en" hidden>Loam Soil</span><span data-lang="ar" hidden>الطميية</span><span data-lang="sw" hidden>Loam</span></h2>
+      <p class="article-p"><span data-lang="so">Khalad fiican: 40% sand + 40% silt + 20% clay. Tani waa ciidda ugu fiican dalagga inteeda badan — biyaha qabsataa, hawo leh, oo nafaqo leh. Ku habboon: yaanyada, basbaaska, khudaarta, masaggada.</span><span data-lang="en" hidden>The sweet spot: 40% sand + 40% silt + 20% clay. The ideal soil for most crops — holds water, aerated, fertile. Suits tomatoes, peppers, vegetables, sorghum.</span><span data-lang="ar" hidden>المثالية: 40% رمل + 40% غرين + 20% طين.</span><span data-lang="sw" hidden>Bora: 40-40-20.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Tijaab Texture Aag-aag</span><span data-lang="en" hidden>Quick Texture Test</span><span data-lang="ar" hidden>اختبار سريع</span><span data-lang="sw" hidden>Jaribio la Haraka</span></h2>
+      <p class="article-p"><span data-lang="so">Qabo ciid yar oo qoyan. Ku dadaal samee tuubo. Hadii ay si fudud u sameyso oo aysan jajab samayn → clay. Hadii ay sameyso oo si dhakhso jajab → loam. Hadii aysan sameyn → sandy.</span><span data-lang="en" hidden>Take moist soil. Try to roll a ribbon. Forms easily and bends → clay. Forms but cracks → loam. Won't form → sandy.</span><span data-lang="ar" hidden>اختبر بالاسطوانة.</span><span data-lang="sw" hidden>Sukuma kifindi.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Hagaajinta Ciidda</span><span data-lang="en" hidden>Improving Each Type</span><span data-lang="ar" hidden>تحسين التربة</span><span data-lang="sw" hidden>Kuboresha</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Sandy</strong> — ku dar 30 t/ha compost; nidaam drip + mulch.</span><span data-lang="en" hidden><strong>Sandy</strong> — add 30 t/ha compost; use drip + mulch.</span><span data-lang="ar" hidden><strong>الرملية</strong> — كمبوست وتغطية.</span><span data-lang="sw" hidden><strong>Mchanga</strong> — mboji.</span></li>
+        <li><span data-lang="so"><strong>Clay</strong> — ku dar sand fine + organic matter; gypsum waxay fududeysaa.</span><span data-lang="en" hidden><strong>Clay</strong> — add coarse sand + organic matter; gypsum helps loosen.</span><span data-lang="ar" hidden><strong>الطينية</strong> — رمل وعضوي.</span><span data-lang="sw" hidden><strong>Mfinyanzi</strong> — mchanga.</span></li>
+        <li><span data-lang="so"><strong>Loam</strong> — daryeel: ilaali organic matter &gt;3%, ku celi cover crops.</span><span data-lang="en" hidden><strong>Loam</strong> — maintain: keep organic matter >3%, rotate cover crops.</span><span data-lang="ar" hidden><strong>الطميية</strong> — حافظ.</span><span data-lang="sw" hidden><strong>Loam</strong> — dumisha.</span></li>
+      </ul>
+
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

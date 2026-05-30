@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wareejinta dalagga — sida loo wareejiyo dalagga si bacrinta ciidda loo dhowro." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Wareejinta Dalagga | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Crop Rotation" />
+  <meta property="og:description" content="Wareejinta dalagga — sida loo wareejiyo dalagga si bacrinta ciidda loo dhowro." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <a href="signin.html" class="lang-btn btn-signin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span></a>
+      <a href="signup.html" class="btn btn-getstarted"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span></a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-soil.html" class="article-back"><span data-lang="so">← Dib ugu noqo Carrada</span><span data-lang="en" hidden>← Back to Soil</span><span data-lang="ar" hidden>← العودة إلى التربة</span><span data-lang="sw" hidden>← Rudi kwa Udongo</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Carrada</span><span data-lang="en" hidden>Soil</span><span data-lang="ar" hidden>التربة</span><span data-lang="sw" hidden>Udongo</span></span>
+      <h1 class="article-title"><span data-lang="so">Wareejinta Dalagga</span><span data-lang="en" hidden>Crop Rotation</span><span data-lang="ar" hidden>الدورة الزراعية</span><span data-lang="sw" hidden>Mzunguko wa Mazao</span></h1>
+      <div class="article-meta"><span>2026-05-20</span><span><span data-lang="so">7 daqiiqo</span><span data-lang="en" hidden>7 min</span><span data-lang="ar" hidden>7 دقائق</span><span data-lang="sw" hidden>dakika 7</span></span></div>
+    </header>
+    <div class="article-cover cover-crop-rotation"></div>
+    <div class="article-body">
+      <p class="article-lead"><span data-lang="so">Beerista hal dalag goob isku mid ah sannado badan waxay khaarjisaa nafaqada gaarka ah oo ay keentaa cudurro iyo cayayaan. Wareejinta dalagga waxay yarayn karaa bacrinta kiimikada 30–40% oo cudurrada xididada 50%.</span><span data-lang="en" hidden>Planting the same crop in the same spot year after year strips specific nutrients and breeds pests/diseases. Rotation cuts chemical fertiliser need 30–40% and soil-borne diseases 50%.</span><span data-lang="ar" hidden>نفس المحصول يستنزف المغذيات.</span><span data-lang="sw" hidden>Zao moja huishia virutubisho.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Kalifka Dalagga</span><span data-lang="en" hidden>Crop Families</span><span data-lang="ar" hidden>عائلات المحاصيل</span><span data-lang="sw" hidden>Familia</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Solanaceae</strong> — yaanyada, baradhada, basbaaska, brinjal. Ha ku celcelin hal goob.</span><span data-lang="en" hidden><strong>Solanaceae</strong> — tomato, potato, pepper, eggplant. Don't follow with same family.</span><span data-lang="ar" hidden><strong>الباذنجانية</strong>.</span><span data-lang="sw" hidden><strong>Solanaceae</strong>.</span></li>
+        <li><span data-lang="so"><strong>Brassica</strong> — kaabashka, broccoli, kale, radish.</span><span data-lang="en" hidden><strong>Brassicas</strong> — cabbage, broccoli, kale, radish.</span><span data-lang="ar" hidden><strong>الصليبية</strong>.</span><span data-lang="sw" hidden><strong>Brassica</strong>.</span></li>
+        <li><span data-lang="so"><strong>Cucurbits</strong> — qaraha, cucumber, pumpkin.</span><span data-lang="en" hidden><strong>Cucurbits</strong> — watermelon, cucumber, pumpkin.</span><span data-lang="ar" hidden><strong>القرعيات</strong>.</span><span data-lang="sw" hidden><strong>Cucurbits</strong>.</span></li>
+        <li><span data-lang="so"><strong>Legumes</strong> — digirta, cowpea, lablab — ku biiriyaan N.</span><span data-lang="en" hidden><strong>Legumes</strong> — beans, cowpea, lablab — fix nitrogen.</span><span data-lang="ar" hidden><strong>البقوليات</strong>.</span><span data-lang="sw" hidden><strong>Mikunde</strong>.</span></li>
+        <li><span data-lang="so"><strong>Cereals</strong> — galley, masaggada, qamadi.</span><span data-lang="en" hidden><strong>Cereals</strong> — maize, sorghum, wheat.</span><span data-lang="ar" hidden><strong>الحبوب</strong>.</span><span data-lang="sw" hidden><strong>Nafaka</strong>.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Wareeg 4-Sano Tusaale</span><span data-lang="en" hidden>4-Year Sample Rotation</span><span data-lang="ar" hidden>دورة 4 سنوات</span><span data-lang="sw" hidden>Mzunguko wa Miaka 4</span></h2>
+      <p class="article-p"><span data-lang="so">Sannad 1: Legumes (cowpea — ku biiriyo N). Sannad 2: Cereals (galley — isticmaala N). Sannad 3: Brassicas (kaabash — joojiyo cudurrada). Sannad 4: Solanaceae (yaanyada — leh nafaqo cusub). Ka dib, dib u bilow.</span><span data-lang="en" hidden>Year 1: legumes (cowpea — adds N). Year 2: cereals (maize — uses N). Year 3: brassicas (cabbage — breaks pest cycles). Year 4: solanaceae (tomato — fresh nutrients). Then repeat.</span><span data-lang="ar" hidden>1: بقوليات، 2: حبوب، 3: صليبية، 4: باذنجانية.</span><span data-lang="sw" hidden>1: Mikunde, 2: Nafaka, 3: Brassica, 4: Solanaceae.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Sharciyada Aasaasiga ah</span><span data-lang="en" hidden>Basic Rules</span><span data-lang="ar" hidden>قواعد</span><span data-lang="sw" hidden>Sheria</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so">Ka tag isla qoyska 3 sano hal goob.</span><span data-lang="en" hidden>Don't plant the same family on the same spot for 3 years.</span><span data-lang="ar" hidden>لا تكرر نفس العائلة 3 سنوات.</span><span data-lang="sw" hidden>Familia tofauti kila msimu.</span></li>
+        <li><span data-lang="so">Ku raac dalagga deep-rooted (yaanyada) shallow-rooted ka (basasha).</span><span data-lang="en" hidden>Follow deep-rooted (tomato) with shallow-rooted (onion).</span><span data-lang="ar" hidden>تناوب الجذور.</span><span data-lang="sw" hidden>Mizizi tofauti.</span></li>
+        <li><span data-lang="so">Ku xidh legumes wareegga si ay u soo galaan nitrogen-ka.</span><span data-lang="en" hidden>Always include legumes in the rotation for nitrogen.</span><span data-lang="ar" hidden>أدخل البقوليات.</span><span data-lang="sw" hidden>Jumuisha mikunde.</span></li>
+        <li><span data-lang="so">Ku celi cover crops xilliyada dhexdooda.</span><span data-lang="en" hidden>Use cover crops between cash crops.</span><span data-lang="ar" hidden>محاصيل الغطاء بين الفصول.</span><span data-lang="sw" hidden>Mazao ya kufunika.</span></li>
+      </ul>
+
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lo'da hilibka — sida loo dhaqo, loo quudiyo, oo loo gaadho miisaan suuq." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Lo'da Hilibka — Hagaha Buuxa | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Beef Cattle — The Complete Guide" />
+  <meta property="og:description" content="Lo'da hilibka — sida loo dhaqo, loo quudiyo, oo loo gaadho miisaan suuq." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <a href="signin.html" class="lang-btn btn-signin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span></a>
+      <a href="signup.html" class="btn btn-getstarted"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span></a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-livestock.html" class="article-back"><span data-lang="so">← Dib ugu noqo Xoolaha</span><span data-lang="en" hidden>← Back to Livestock</span><span data-lang="ar" hidden>← العودة إلى الماشية</span><span data-lang="sw" hidden>← Rudi kwa Mifugo</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Xoolaha</span><span data-lang="en" hidden>Livestock</span><span data-lang="ar" hidden>الماشية</span><span data-lang="sw" hidden>Mifugo</span></span>
+      <h1 class="article-title"><span data-lang="so">Lo'da Hilibka — Hagaha Buuxa</span><span data-lang="en" hidden>Beef Cattle — The Complete Guide</span><span data-lang="ar" hidden>أبقار اللحم — الدليل</span><span data-lang="sw" hidden>Ng'ombe wa Nyama</span></h1>
+      <div class="article-meta"><span>2026-05-22</span><span><span data-lang="so">8 daqiiqo</span><span data-lang="en" hidden>8 min</span><span data-lang="ar" hidden>8 دقائق</span><span data-lang="sw" hidden>dakika 8</span></span></div>
+    </header>
+    <div class="article-cover cover-beef-cattle"></div>
+    <div class="article-body">
+      <p class="article-lead"><span data-lang="so">Lo'da hilibka Soomaaliyeed waxay siisa dakhli suuqyada gudaha iyo Khaliijka ($300–$900 lo'da kasta). Maaraynta sax: gudbinta miisaanka (350–450 kg) 24–30 bilood kasta, halkii caadi ahaan 36+.</span><span data-lang="en" hidden>Beef cattle deliver income to Somali and Gulf markets ($300–$900/head). With proper management, reach market weight (350–450 kg) in 24–30 months instead of 36+.</span><span data-lang="ar" hidden>أبقار اللحم — وزن سوقي 350–450 كغ.</span><span data-lang="sw" hidden>Ng'ombe wa nyama — uzito kg 350–450.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Noocyada</span><span data-lang="en" hidden>Breeds</span><span data-lang="ar" hidden>السلالات</span><span data-lang="sw" hidden>Aina</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Boran</strong> — Soomaaliyeed, kulayl ka adkaystaa, miisaan 350–500 kg.</span><span data-lang="en" hidden><strong>Boran</strong> — local, heat-tolerant, 350–500 kg.</span><span data-lang="ar" hidden><strong>Boran</strong>.</span><span data-lang="sw" hidden><strong>Boran</strong>.</span></li>
+        <li><span data-lang="so"><strong>Brahman</strong> — Indian, qoor weyn, kulayl ka adkaystaa.</span><span data-lang="en" hidden><strong>Brahman</strong> — humped, heat-hardy.</span><span data-lang="ar" hidden><strong>Brahman</strong>.</span><span data-lang="sw" hidden><strong>Brahman</strong>.</span></li>
+        <li><span data-lang="so"><strong>Angus, Hereford</strong> — European, hilib tayo sare, qaboow rabaan.</span><span data-lang="en" hidden><strong>Angus, Hereford</strong> — European, premium meat, need cooler climate.</span><span data-lang="ar" hidden><strong>أنجوس</strong>.</span><span data-lang="sw" hidden><strong>Angus</strong>.</span></li>
+        <li><span data-lang="so"><strong>Crossbreds (Boran × Angus)</strong> — kulayl + tayo.</span><span data-lang="en" hidden><strong>Crossbreds</strong> — heat tolerance + meat quality.</span><span data-lang="ar" hidden><strong>هجين</strong>.</span><span data-lang="sw" hidden><strong>Mseto</strong>.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Cuntada</span><span data-lang="en" hidden>Feeding</span><span data-lang="ar" hidden>التغذية</span><span data-lang="sw" hidden>Lishe</span></h2>
+      <p class="article-p"><span data-lang="so">Calves (0–6 bilood): caanaha + creep feed (18% protein). Weaners (6–12): caws + 1 kg concentrate. Growers (12–18): caws + 2 kg concentrate. Finishers (18–24): caws + 3–4 kg concentrate (12–14% protein) si dheef u dheereeyo. Biyo: 30–50 L/maalin.</span><span data-lang="en" hidden>Calves (0–6 mo): milk + creep feed (18% protein). Weaners (6–12 mo): forage + 1 kg concentrate. Growers (12–18): + 2 kg. Finishers (18–24 mo): + 3–4 kg concentrate (12–14% protein) to add fat. Water: 30–50 L/day.</span><span data-lang="ar" hidden>حسب العمر.</span><span data-lang="sw" hidden>Kulingana na umri.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Habab Daraysiga</span><span data-lang="en" hidden>Production Systems</span><span data-lang="ar" hidden>الأنظمة</span><span data-lang="sw" hidden>Mifumo</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so"><strong>Extensive</strong> — daaq oo dabin la go'an; qiimo yar, koritaan tartiib ah.</span><span data-lang="en" hidden><strong>Extensive grazing</strong> — low cost, slow growth.</span><span data-lang="ar" hidden><strong>الرعي</strong>.</span><span data-lang="sw" hidden><strong>Malisho</strong>.</span></li>
+        <li><span data-lang="so"><strong>Semi-intensive</strong> — daaq + supplementary feed; balance qiimo iyo wakhti.</span><span data-lang="en" hidden><strong>Semi-intensive</strong> — grazing + supplements; best balance.</span><span data-lang="ar" hidden><strong>شبه مكثف</strong>.</span><span data-lang="sw" hidden><strong>Nusu-intensive</strong>.</span></li>
+        <li><span data-lang="so"><strong>Feedlot</strong> — gudaha, isku-darka jeexa 90–120 maalmood ka hor iibinta.</span><span data-lang="en" hidden><strong>Feedlot</strong> — intensive 90–120 day finishing for premium prices.</span><span data-lang="ar" hidden><strong>مكثف</strong>.</span><span data-lang="sw" hidden><strong>Feedlot</strong>.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Caafimaadka</span><span data-lang="en" hidden>Health</span><span data-lang="ar" hidden>الصحة</span><span data-lang="sw" hidden>Afya</span></h2>
+      <p class="article-p"><span data-lang="so">Tallaalka: FMD, anthrax, blackleg, lumpy skin disease — sannadkii. Deworming 3 bilood kasta. Tick control bilood kasta. Booqashada vet 6 bilood kasta. Calaamado: cunto-naceyb, indho qoyan, neefsiga adag → la xidhiidh vet isla markaa.</span><span data-lang="en" hidden>Vaccines: FMD, anthrax, blackleg, lumpy skin disease — yearly. Deworm every 3 months. Monthly tick dip. Vet visit every 6 months. Warning signs: loss of appetite, watery eyes, laboured breathing → call vet immediately.</span><span data-lang="ar" hidden>التطعيمات سنوية.</span><span data-lang="sw" hidden>Chanjo kila mwaka.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Suuqa</span><span data-lang="en" hidden>Market</span><span data-lang="ar" hidden>السوق</span><span data-lang="sw" hidden>Soko</span></h2>
+      <p class="article-p"><span data-lang="so">Suuqa gudaha (Mogadishu, Hargeysa): $400–$700/lo'ad. Khaliij (Saudi, UAE) Xilliga Xajka: $600–$900. Ku xidh broker la aamini karo. Iibi 350–450 kg miisaan ah si aad ugu helid qiimaha ugu fiican.</span><span data-lang="en" hidden>Local markets (Mogadishu, Hargeisa): $400–$700/head. Gulf (Saudi, UAE) Hajj season: $600–$900. Work with a trusted broker. Sell at 350–450 kg for top price.</span><span data-lang="ar" hidden>السعر 400–900 دولار.</span><span data-lang="sw" hidden>$400–$900.</span></p>
+
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vermicompost — bacrin sare oo lagu sameeyo dirxiyo gaar ah; faa'iidooyin sare iyo dakhli." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Vermicompost — Compost-ka Dirxiga | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <meta property="og:title" content="Beylood — Vermicomposting — Worm Compost" />
+  <meta property="og:description" content="Vermicompost — bacrin sare oo lagu sameeyo dirxiyo gaar ah; faa'iidooyin sare iyo dakhli." />
+  <meta property="og:image" content="https://beylood45.vercel.app/assets/logo.png" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" class="is-active" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <a href="signin.html" class="lang-btn btn-signin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span></a>
+      <a href="signup.html" class="btn btn-getstarted"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span></a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<article class="section article-page">
+  <div class="container article-container">
+    <a href="category-soil.html" class="article-back"><span data-lang="so">← Dib ugu noqo Carrada</span><span data-lang="en" hidden>← Back to Soil</span><span data-lang="ar" hidden>← العودة إلى التربة</span><span data-lang="sw" hidden>← Rudi kwa Udongo</span></a>
+    <header class="article-header">
+      <span class="pill"><span data-lang="so">Carrada</span><span data-lang="en" hidden>Soil</span><span data-lang="ar" hidden>التربة</span><span data-lang="sw" hidden>Udongo</span></span>
+      <h1 class="article-title"><span data-lang="so">Vermicompost — Compost-ka Dirxiga</span><span data-lang="en" hidden>Vermicomposting — Worm Compost</span><span data-lang="ar" hidden>الكمبوست الدودي</span><span data-lang="sw" hidden>Mboji ya Minyoo</span></h1>
+      <div class="article-meta"><span>2026-05-18</span><span><span data-lang="so">6 daqiiqo</span><span data-lang="en" hidden>6 min</span><span data-lang="ar" hidden>6 دقائق</span><span data-lang="sw" hidden>dakika 6</span></span></div>
+    </header>
+    <div class="article-cover cover-vermicompost"></div>
+    <div class="article-body">
+      <p class="article-lead"><span data-lang="so">Vermicompost — compost-ka uu dirxigu sameeyo — waa bacrin sare oo leh nafaqo 5–10 jeer ka badan compost caadi ah. Wuxuu ka dhigaa dalagga adkaysi leh cudur, biyaha qabsada, oo soo saari karta dakhli ganacsi.</span><span data-lang="en" hidden>Vermicompost — compost made by worms — is premium fertiliser with 5–10× more available nutrients than regular compost. Improves disease resistance, water-holding, and can be sold commercially.</span><span data-lang="ar" hidden>كمبوست الديدان أعلى مغذيات 5–10 أضعاف.</span><span data-lang="sw" hidden>Mboji ya minyoo bora 5–10×.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Noocyada Dirxiga</span><span data-lang="en" hidden>Worm Species</span><span data-lang="ar" hidden>أنواع الديدان</span><span data-lang="sw" hidden>Aina za Minyoo</span></h2>
+      <p class="article-p"><span data-lang="so">Eisenia fetida (Red Wriggler) waa noocyada ugu fiican. Waxay cunaan 50% miisaankooda maalintii oo waxay isku tarmaaan 1 → 1,000 sannad gudahood. Heerkulka ugu fiican: 18–25°C. pH: 6–8.</span><span data-lang="en" hidden>Eisenia fetida (Red Wriggler) is the top species. They eat 50% of their body weight daily and multiply 1,000-fold in a year. Optimal temperature 18–25°C, pH 6–8.</span><span data-lang="ar" hidden>Eisenia fetida أفضل نوع.</span><span data-lang="sw" hidden>Eisenia fetida ni bora.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Dhismaha Bin-ka</span><span data-lang="en" hidden>Setting Up the Bin</span><span data-lang="ar" hidden>إنشاء الصندوق</span><span data-lang="sw" hidden>Kutengeneza Sanduku</span></h2>
+      <p class="article-p"><span data-lang="so">Sanduuq bedding (caws qalalan + waraaqo) 15 cm dheer, daboolaadkii hoose oo daloolada leh oo biyaha sii daysa. Geli 1 kg dirxiyo (2,000 ah) m² kasta. Quudin: qashin khudaarta, jiko, qalfoofka ukunta — laakiin HA cunin hilib, caano, ama saliid.</span><span data-lang="en" hidden>Make a bin: 15 cm of bedding (dry grass + cardboard), bottom drains. Add 1 kg of worms (≈2,000) per m². Feed kitchen scraps, peels, eggshells — but NO meat, dairy, or oil.</span><span data-lang="ar" hidden>صندوق 15 سم.</span><span data-lang="sw" hidden>Sanduku 15 sm.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Daryeelka</span><span data-lang="en" hidden>Care</span><span data-lang="ar" hidden>الرعاية</span><span data-lang="sw" hidden>Utunzaji</span></h2>
+      <ul class="article-list">
+        <li><span data-lang="so">Hubi qoyaanka 70–85% (sida hawada baniga).</span><span data-lang="en" hidden>Keep moisture 70–85% (like a wrung sponge).</span><span data-lang="ar" hidden>الرطوبة 70–85%.</span><span data-lang="sw" hidden>Unyevu 70–85%.</span></li>
+        <li><span data-lang="so">Quudin 2–3 jeer asbuucii, ha cufin in dirxigu badbaadayo.</span><span data-lang="en" hidden>Feed 2–3 times/week, don't overload.</span><span data-lang="ar" hidden>تغذية 2–3 مرات/أسبوع.</span><span data-lang="sw" hidden>Lisha mara 2–3.</span></li>
+        <li><span data-lang="so">Daboolaad bin-ka — dhal qaylaha qabowga iyo qorraxda kulul.</span><span data-lang="en" hidden>Cover bin — block light, shield from cold/heat.</span><span data-lang="ar" hidden>غطِّ الصندوق.</span><span data-lang="sw" hidden>Funika sanduku.</span></li>
+        <li><span data-lang="so">Iska ilaali ammonia: hadii ay uri tahay, ku dar bedding cusub.</span><span data-lang="en" hidden>Avoid ammonia: if it smells, add bedding.</span><span data-lang="ar" hidden>تجنب الأمونيا.</span><span data-lang="sw" hidden>Epuka amonia.</span></li>
+      </ul>
+
+      <h2 class="article-h2"><span data-lang="so">Soo Saarista</span><span data-lang="en" hidden>Harvesting</span><span data-lang="ar" hidden>الحصاد</span><span data-lang="sw" hidden>Kuvuna</span></h2>
+      <p class="article-p"><span data-lang="so">3–6 bilood gudahood, bedding-ku wuxuu noqdaa compost bunni-madow ah. Habka: dhig nuska bin-ka, ku dar cunto cusub dhinaca kale — dirxiyada way u guurayaan. Saac 24 ka dib, hor u soo qaad compost-ka kaydsan.</span><span data-lang="en" hidden>After 3–6 months, bedding becomes dark brown compost. Method: move bedding to one side and add fresh food on the other — worms migrate. After 24 hrs, scoop the finished compost.</span><span data-lang="ar" hidden>احصد بعد 3–6 أشهر.</span><span data-lang="sw" hidden>Vuna baada ya miezi 3–6.</span></p>
+
+      <h2 class="article-h2"><span data-lang="so">Isticmaal iyo Dakhliga</span><span data-lang="en" hidden>Use and Sales</span><span data-lang="ar" hidden>الاستخدام والمبيع</span><span data-lang="sw" hidden>Matumizi</span></h2>
+      <p class="article-p"><span data-lang="so">Isticmaal 5–10 t/ha beerta khudaarta ama 100 g godkii beerista. Suuqa Soomaaliya/Kenya: vermicompost iibinaayaa $200–$500/ton — markka labaad ka faa'iidamayaasha ugu fiican xoolaha yaryar.</span><span data-lang="en" hidden>Apply 5–10 t/ha to vegetable plots or 100 g per planting hole. Market price in Somalia/Kenya: $200–$500/ton — one of the best returns for small enterprises.</span><span data-lang="ar" hidden>السعر 200–500 دولار/طن.</span><span data-lang="sw" hidden>Bei $200–$500/tani.</span></p>
+
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div><p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p></div>
+      <div><p class="footer-title" data-key="fExplore">Sahmin</p><ul class="footer-list"><li><a href="categories.html" data-key="navCats">Qaybaha</a></li><li><a href="articles.html" data-key="navArticles">Maqaallo</a></li><li><a href="news.html" data-key="navNews">Wararka</a></li><li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li></ul></div>
+      <div><p class="footer-title" data-key="fCompany">Shirkadda</p><ul class="footer-list"><li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li><li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="cover-images.js"></script>
+<script type="module" src="auth.js"></script>
+</body>
+</html>
