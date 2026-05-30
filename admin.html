@@ -44,14 +44,29 @@
   <section id="adminGate" class="section admin-gate" hidden>
     <div class="container">
       <div class="admin-gate__card">
+        <div class="admin-gate__brand">
+          <img src="assets/logo.png" alt="Beylood" />
+          <span>BEYLOOD</span>
+        </div>
         <span class="admin-gate__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </span>
-        <h1 id="adminGateTitle">Restricted area</h1>
-        <p id="adminGateMsg">This page is reserved for Beylood administrators.</p>
+        <h1 id="adminGateTitle">Access Restricted</h1>
+        <p id="adminGateMsg">You do not have permission to access this page.</p>
+        <p class="admin-gate__hint">If you believe this is an error, please contact the administrator.</p>
         <div class="admin-gate__actions">
-          <a href="signin.html" class="btn btn-getstarted" id="adminSignInBtn">Sign in</a>
-          <a href="index.html" class="premium-lock__signin">Back to home</a>
+          <a href="index.html" class="btn btn-getstarted" id="adminHomeBtn">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></svg>
+            <span>Return to Home</span>
+          </a>
+          <a href="signin.html" class="admin-gate__signin" id="adminSignInBtn" hidden>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Sign In</span>
+          </a>
+          <button type="button" class="admin-gate__signout" id="adminSignOutBtn" hidden>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <span>Sign Out</span>
+          </button>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@
    ============================================ */
 
 import {
-  onAuthStateChanged
+  onAuthStateChanged, signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   doc, getDoc,
@@ -63,67 +63,76 @@ const SITE_TOTALS = {
 /* ---------- DOM refs ---------- */
 const gate = document.getElementById('adminGate');
 const main = document.getElementById('adminMain');
-const gateMsg = document.getElementById('adminGateMsg');
-const gateTitle = document.getElementById('adminGateTitle');
 const signInBtn = document.getElementById('adminSignInBtn');
+const signOutBtn = document.getElementById('adminSignOutBtn');
 
-function showGate({ title, message, showSignIn }) {
+// Single, professional gate message used for EVERY denial reason.
+// We never expose UIDs, error codes, rule names, or any other internal
+// detail — defense-in-depth principle: silent failure with one face.
+function showGate(state) {
   gate.hidden = false;
   main.hidden = true;
-  if (gateTitle) gateTitle.textContent = title || 'Restricted area';
-  if (gateMsg)   gateMsg.textContent = message || 'This page is reserved for Beylood administrators.';
-  if (signInBtn) signInBtn.hidden = !showSignIn;
+  // `state` is "signed-out" (offer Sign In) or "denied" (offer Sign Out).
+  if (signInBtn)  signInBtn.hidden  = (state !== 'signed-out');
+  if (signOutBtn) signOutBtn.hidden = (state !== 'denied');
 }
 function showDashboard() {
   gate.hidden = true;
   main.hidden = false;
 }
 
-/* ---------- Auth + admin gate ---------- */
+// Wire up the Sign Out button on the gate.
+if (signOutBtn) {
+  signOutBtn.addEventListener('click', () => {
+    signOut(auth).catch(() => {}).finally(() => {
+      window.location.href = 'index.html';
+    });
+  });
+}
+
+/* ---------- Auth + admin gate ----------
+   The gate is intentionally minimal: every failure path shows the SAME
+   "Access Restricted" screen so no internal information (UIDs, rule
+   names, Firestore error codes) ever reaches the user.
+
+   The button state varies only:
+     • signed-out → "Return to Home" + "Sign In"
+     • denied    → "Return to Home" + "Sign Out"
+
+   Detailed errors are kept in the developer console for debugging
+   but are never surfaced in the UI.
+   ============================================ */
 if (!configReady()) {
-  showGate({ title: 'Firebase not configured', message: 'Set your Firebase config in firebase-init.js to continue.', showSignIn: false });
+  showGate('denied');
 } else {
   onAuthStateChanged(auth, async (user) => {
     if (!user) {
-      showGate({ title: 'Sign in required', message: 'Please sign in with an admin account to view the dashboard.', showSignIn: true });
+      showGate('signed-out');
       return;
     }
-    // Is the signed-in user an admin? (i.e. /admins/{uid} exists)
     try {
       const adminDoc = await getDoc(doc(db, 'admins', user.uid));
       if (!adminDoc.exists()) {
-        showGate({
-          title: 'Admin access required',
-          message: 'Your UID (' + user.uid + ') is not in the admins collection. Add a document at /admins/' + user.uid + ' in Firestore.',
-          showSignIn: false
-        });
+        showGate('denied');
         return;
       }
     } catch (err) {
-      console.warn('Admin check failed:', err);
-      let detail = err && err.message ? err.message : 'unknown error';
-      if (err && err.code === 'permission-denied') {
-        detail = 'Permission denied. Publish the new firestore.rules in Firebase Console → Firestore → Rules.';
-      }
-      showGate({
-        title: 'Access check failed',
-        message: detail,
-        showSignIn: false
-      });
+      // Silent — we don't reveal whether the check failed because of
+      // permissions, network, or anything else.
+      console.warn('[admin] gate check error:', err);
+      showGate('denied');
       return;
     }
     showDashboard();
-    loadDashboard().catch((e) => {
-      console.warn('Dashboard load failed:', e);
+    loadDashboard().catch((err) => {
+      // Same principle for data loading: a quiet, generic message in
+      // the table area, no rule names or UIDs.
+      console.warn('[admin] data load error:', err);
       const body = document.getElementById('recentUsersBody');
       if (body) {
-        const code = (e && e.code) ? e.code : '';
-        let msg = (e && e.message) ? e.message : 'Failed to load.';
-        if (code === 'permission-denied') {
-          msg = 'Permission denied reading /users. Publish the new firestore.rules and confirm /admins/' + (auth.currentUser && auth.currentUser.uid) + ' exists.';
-        }
-        body.innerHTML = '<tr><td colspan="5" class="admin-table__empty" style="color:#ef4444;">' +
-          msg.replace(/</g, '&lt;') + '</td></tr>';
+        body.innerHTML = '<tr><td colspan="5" class="admin-table__empty">' +
+          'Could not load data right now. Please try again later.' +
+          '</td></tr>';
       }
     });
   });
