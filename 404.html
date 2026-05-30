@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Beylood — Page not found." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <meta name="robots" content="noindex, follow" />
+  <title>404 — Page Not Found · Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .nf {
+      max-width: 640px; margin: 64px auto; padding: 48px 32px;
+      text-align: center;
+      background: var(--card, #fff);
+      border: 1px solid var(--border, #e5e7eb);
+      border-radius: 18px;
+      box-shadow: 0 18px 60px rgba(15, 63, 126, 0.08);
+      position: relative; overflow: hidden;
+    }
+    .nf::before {
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, #0F3F7E 0%, #3BA935 100%);
+    }
+    .nf__code {
+      font-size: clamp(80px, 18vw, 140px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #0F3F7E, #3BA935);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .nf h1 { margin: 0 0 8px; font-size: 26px; }
+    .nf p  { margin: 0 0 24px; color: var(--muted, #64748b); }
+    .nf__actions {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    }
+    .nf__links {
+      margin-top: 32px; display: flex; flex-wrap: wrap; gap: 8px;
+      justify-content: center;
+    }
+    .nf__links a {
+      padding: 6px 12px; border-radius: 999px;
+      background: rgba(15, 63, 126, 0.08); color: #0F3F7E;
+      text-decoration: none; font-size: 13px; font-weight: 600;
+      transition: background .15s ease;
+    }
+    .nf__links a:hover { background: rgba(15, 63, 126, 0.14); }
+    [data-theme="dark"] .nf__links a { color: #93b6e9; background: rgba(255,255,255,0.06); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a href="index.html" class="logo" aria-label="Beylood home">
+        <img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Bogga Hore</a>
+        <a href="categories.html">Qaybaha</a>
+        <a href="articles.html">Maqaallo</a>
+        <a href="news.html">Wararka</a>
+        <a href="about.html">Nagu saabsan</a>
+        <a href="contact.html">Nala soo xidhiidh</a>
+      </nav>
+      <div class="nav-right">
+        <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
+          <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="nf">
+        <div class="nf__code">404</div>
+        <h1>
+          <span data-lang="so">Bogga lama helin</span>
+          <span data-lang="en" hidden>Page not found</span>
+          <span data-lang="ar" hidden>الصفحة غير موجودة</span>
+          <span data-lang="sw" hidden>Ukurasa haupatikani</span>
+        </h1>
+        <p>
+          <span data-lang="so">Bogga aad raadinayso wuxuu noqday mid laga maarmay ama gabay aan jirin.</span>
+          <span data-lang="en" hidden>The page you're looking for has moved or no longer exists.</span>
+          <span data-lang="ar" hidden>الصفحة التي تبحث عنها انتقلت أو لم تعد موجودة.</span>
+          <span data-lang="sw" hidden>Ukurasa unaoutafuta umehama au hauipatikani tena.</span>
+        </p>
+        <div class="nf__actions">
+          <a href="index.html" class="btn btn-getstarted">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></svg>
+            <span data-lang="so">Bogga Hore</span><span data-lang="en" hidden>Home</span><span data-lang="ar" hidden>الرئيسية</span><span data-lang="sw" hidden>Nyumbani</span>
+          </a>
+          <a href="ask.html" class="btn btn-ask">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg>
+            <span data-lang="so">Waydii Beylood</span><span data-lang="en" hidden>Ask Beylood</span><span data-lang="ar" hidden>اسأل Beylood</span><span data-lang="sw" hidden>Uliza Beylood</span>
+          </a>
+        </div>
+        <div class="nf__links">
+          <a href="categories.html">Qaybaha · Categories</a>
+          <a href="articles.html">Maqaallo · Articles</a>
+          <a href="news.html">Wararka · News</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Beylood · Aqoonta Beeraha</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="analytics-config.js"></script>
+  <script src="analytics.js"></script>
+</body>
+</html>

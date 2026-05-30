@@ -1,0 +1,9 @@
+# Beylood — robots.txt
+# https://beylood.com/
+
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /dashboard.html
+
+Sitemap: https://beylood.com/sitemap.xml

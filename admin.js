@@ -55,7 +55,7 @@ function formatRelative(d) {
 
 /* ---------- Article + category counts (static from site index) ---------- */
 const SITE_TOTALS = {
-  articles: 50,          // updated when new articles are added
+  articles: 59,          // updated when new articles are added
   categories: 6,
   languages: 4
 };
