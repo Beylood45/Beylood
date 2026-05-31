@@ -1,96 +1,104 @@
 /* ============================================================
    Beylood — Auto featured images for gradient-only covers
    ------------------------------------------------------------
-   • Finds article/news covers that have no real photo (the ones
-     using a branded gradient) and assigns a topic-matched photo.
-   • Photos come from Unsplash (free + commercial use, no
-     attribution required). Resized/cropped via URL params for
-     fast loading; lazy-loaded; responsive via srcset.
-   • Each topic maps to ONE distinct photo, so no two posts share
-     an image (no duplicates).
-   • If a photo fails to load, the <img> is removed and the
-     original BEYLOOD gradient shows — so nothing ever looks broken.
+   Every cover class below maps to a UNIQUE, topic-matched
+   Unsplash photo. If a photo fails to load, the <img> is
+   removed and the BEYLOOD branded gradient shows underneath
+   — nothing ever looks broken.
 
-   TO SWAP A PHOTO: change the Unsplash id in IMAGE_MAP below.
-   An id is the part after "photo-" in an Unsplash image URL, e.g.
-   https://images.unsplash.com/photo-1500382017468-9049fed747ef
+   TO SWAP A PHOTO: replace the Unsplash id after "photo-".
+   For example:
+     https://images.unsplash.com/photo-1500382017468-9049fed747ef
+     id = "1500382017468-9049fed747ef"
    ============================================================ */
 (function () {
-  // Unsplash delivery params: auto format (webp), crop, quality 70.
   function unsplash(id, w) {
     return 'https://images.unsplash.com/photo-' + id +
       '?auto=format&fit=crop&q=70&w=' + w;
   }
 
-  // cover-class -> { id, topic{so,en,ar,sw} } (topic is the alt-text fallback)
+  // cover-class  ->  { id, topic{so,en,ar,sw} }
   var IMAGE_MAP = {
-    // ----- Crops -----
-    'cover-cabbage-farming':  { id: '1594282486552-05b4d80fbb9f', topic: { so: 'Beerista kaabashka', en: 'Cabbage farming', ar: 'زراعة الملفوف', sw: 'Kilimo cha kabichi' } },
-    'cover-banana-farming':   { id: '1571771894821-ce9b6c11b08e', topic: { so: 'Beerista mooska', en: 'Banana farming', ar: 'زراعة الموز', sw: 'Kilimo cha ndizi' } },
-    'cover-mango-farming':    { id: '1591073113125-e46713c829ed', topic: { so: 'Beerista cambaha', en: 'Mango farming', ar: 'زراعة المانجو', sw: 'Kilimo cha maembe' } },
-    'cover-cassava-farming':  { id: '1601493700631-2b16ec4b4716', topic: { so: 'Beerista cassava', en: 'Cassava farming', ar: 'زراعة الكسافا', sw: 'Kilimo cha mihogo' } },
-    // ----- Pests & diseases -----
-    'cover-whiteflies':       { id: '1416879595882-3373a0480b5b', topic: { so: 'Cayayaanka dhirta', en: 'Crop pests on leaves', ar: 'آفات المحاصيل', sw: 'Wadudu wa mazao' } },
-    'cover-fall-armyworm':    { id: '1601593768799-76e6b6e8a437', topic: { so: 'Diirka galleyda', en: 'Maize crop pest', ar: 'آفة الذرة', sw: 'Wadudu wa mahindi' } },
-    'cover-early-blight':     { id: '1592841200221-a6898f307baa', topic: { so: 'Cudurka caleemaha', en: 'Tomato leaf disease', ar: 'مرض أوراق الطماطم', sw: 'Ugonjwa wa majani' } },
-    'cover-late-blight':      { id: '1508313880080-c4bef0730395', topic: { so: 'Cudurka baradhada', en: 'Potato crop disease', ar: 'مرض البطاطس', sw: 'Ugonjwa wa viazi' } },
-    'cover-powdery-mildew':   { id: '1530507629858-e3759c1f0e0d', topic: { so: 'Fangaska caleemaha', en: 'Leaf fungal disease', ar: 'مرض فطري للأوراق', sw: 'Ukungu wa majani' } },
-    'cover-root-rot':         { id: '1530836369250-ef72a3f5cda8', topic: { so: 'Xididada iyo ciidda', en: 'Roots and soil health', ar: 'صحة الجذور والتربة', sw: 'Afya ya mizizi na udongo' } },
-    // ----- Irrigation -----
-    'cover-drip-irrigation':       { id: '1416664806563-bb6be3b6d7d3', topic: { so: 'Drip irrigation', en: 'Drip irrigation', ar: 'الري بالتنقيط', sw: 'Drip irrigation' } },
-    'cover-rainwater-harvesting':  { id: '1501426026826-31c667bdf23d', topic: { so: 'Kaydinta biyaha roobka', en: 'Rainwater harvesting', ar: 'تجميع مياه الأمطار', sw: 'Kuvuna maji ya mvua' } },
-    'cover-irrigation-scheduling': { id: '1473773508845-188df298d2d1', topic: { so: 'Jadwalka waraabinta', en: 'Irrigation scheduling', ar: 'جدولة الري', sw: 'Ratiba ya umwagiliaji' } },
-    // ----- Soil -----
-    'cover-soil-testing':  { id: '1464226184884-fa280b87c399', topic: { so: 'Tijaabinta ciidda', en: 'Soil testing', ar: 'اختبار التربة', sw: 'Upimaji wa udongo' } },
-    'cover-composting':    { id: '1592078615290-033ee584e267', topic: { so: 'Compost', en: 'Composting', ar: 'الكمبوست', sw: 'Mboji' } },
-    'cover-cover-crops':   { id: '1574943320219-553eb213f72d', topic: { so: 'Cover crops', en: 'Cover crops', ar: 'محاصيل الغطاء', sw: 'Mazao ya kufunika' } },
-    // ----- Climate -----
-    'cover-drought-crops':       { id: '1501785888041-af3ef285b470', topic: { so: 'Dalagga abaaraha', en: 'Drought tolerant crops', ar: 'محاصيل الجفاف', sw: 'Mazao sugu' } },
-    'cover-agroforestry':        { id: '1426604966848-d7adac402bff', topic: { so: 'Agroforestry', en: 'Agroforestry', ar: 'الزراعة الحرجية', sw: 'Kilimo cha misitu' } },
-    'cover-weather-monitoring':  { id: '1561553590-267fc716698a', topic: { so: 'Cimilada la-socodka', en: 'Weather monitoring', ar: 'رصد الطقس', sw: 'Hali ya hewa' } },
-    // ----- Livestock -----
-    'cover-dairy-cattle':     { id: '1605338777890-d6a4d27c89ec', topic: { so: 'Lo\'da caanaha', en: 'Dairy cattle', ar: 'أبقار الحليب', sw: 'Ng\'ombe wa maziwa' } },
-    'cover-poultry-farming':  { id: '1548550023-2bdb3c5beed7', topic: { so: 'Digaagga', en: 'Poultry farming', ar: 'الدواجن', sw: 'Kuku' } },
-    'cover-goat-sheep':       { id: '1533219057257-4bb9ed5d2cc7', topic: { so: 'Riyaha iyo idaha', en: 'Goats and sheep', ar: 'الماعز والأغنام', sw: 'Mbuzi na kondoo' } },
-    // ----- Irrigation extras -----
-    'cover-sprinkler-irrigation':  { id: '1473773508845-188df298d2d1', topic: { so: 'Sprinkler', en: 'Sprinkler irrigation', ar: 'الري بالرش', sw: 'Sprinkler' } },
-    'cover-furrow-irrigation':     { id: '1500382017468-9049fed747ef', topic: { so: 'Furrow', en: 'Furrow irrigation', ar: 'الري بالأخاديد', sw: 'Mifereji' } },
-    'cover-greenhouse-irrigation': { id: '1416664806563-bb6be3b6d7d3', topic: { so: 'Greenhouse', en: 'Greenhouse irrigation', ar: 'ري البيوت', sw: 'Greenhouse' } },
-    'cover-water-pumps':           { id: '1501426026826-31c667bdf23d', topic: { so: 'Mootooyinka biyaha', en: 'Water pumps', ar: 'مضخات المياه', sw: 'Pampu za maji' } },
-    'cover-mulching-water':        { id: '1592078615290-033ee584e267', topic: { so: 'Mulching', en: 'Mulching', ar: 'التغطية', sw: 'Matandazo' } },
-    'cover-boreholes-wells':       { id: '1530836369250-ef72a3f5cda8', topic: { so: 'Borehole', en: 'Boreholes wells', ar: 'الآبار', sw: 'Visima' } },
-    'cover-fertigation':           { id: '1574943320219-553eb213f72d', topic: { so: 'Fertigation', en: 'Fertigation', ar: 'التغذية بالري', sw: 'Fertigation' } },
-    // ----- Soil extras -----
-    'cover-soil-types':            { id: '1464226184884-fa280b87c399', topic: { so: 'Noocyada ciidda', en: 'Soil types', ar: 'أنواع التربة', sw: 'Aina za udongo' } },
-    'cover-soil-erosion-control':  { id: '1530836369250-ef72a3f5cda8', topic: { so: 'Nabaad-guur', en: 'Erosion control', ar: 'مكافحة التعرية', sw: 'Mmomonyoko' } },
-    'cover-crop-rotation':         { id: '1574943320219-553eb213f72d', topic: { so: 'Wareejinta', en: 'Crop rotation', ar: 'الدورة الزراعية', sw: 'Mzunguko' } },
-    'cover-soil-ph':               { id: '1464226184884-fa280b87c399', topic: { so: 'pH ciidda', en: 'Soil pH', ar: 'pH التربة', sw: 'pH udongo' } },
-    'cover-vermicompost':          { id: '1592078615290-033ee584e267', topic: { so: 'Vermicompost', en: 'Vermicompost', ar: 'الكمبوست الدودي', sw: 'Mboji ya minyoo' } },
-    'cover-no-till':               { id: '1500382017468-9049fed747ef', topic: { so: 'No-till', en: 'No-till', ar: 'بلا حراثة', sw: 'Bila kulima' } },
-    'cover-mulching-soil':         { id: '1592078615290-033ee584e267', topic: { so: 'Mulching ciidda', en: 'Soil mulching', ar: 'تغطية التربة', sw: 'Matandazo' } },
-    // ----- Climate extras -----
-    'cover-greenhouse-farming':    { id: '1416664806563-bb6be3b6d7d3', topic: { so: 'Greenhouse', en: 'Greenhouse farming', ar: 'البيوت المحمية', sw: 'Greenhouse' } },
-    'cover-climate-smart':         { id: '1561484930-998b6a7b22e8', topic: { so: 'CSA', en: 'Climate smart', ar: 'الزراعة الذكية', sw: 'Kilimo Stahimilivu' } },
-    'cover-flood-management':      { id: '1438449805896-28a666819a20', topic: { so: 'Daadadka', en: 'Flood management', ar: 'الفيضانات', sw: 'Mafuriko' } },
-    'cover-shade-nets':            { id: '1416664806563-bb6be3b6d7d3', topic: { so: 'Shade net', en: 'Shade nets', ar: 'شبكات التظليل', sw: 'Wavu wa kivuli' } },
-    'cover-rainy-season':          { id: '1438449805896-28a666819a20', topic: { so: 'Roobka', en: 'Rainy season', ar: 'موسم الأمطار', sw: 'Msimu wa mvua' } },
-    'cover-dry-season':            { id: '1501785888041-af3ef285b470', topic: { so: 'Jiilaalka', en: 'Dry season', ar: 'الجفاف', sw: 'Ukame' } },
-    'cover-windbreaks':            { id: '1426604966848-d7adac402bff', topic: { so: 'Windbreaks', en: 'Windbreaks', ar: 'كاسرات الرياح', sw: 'Vipenyo' } },
-    // ----- Livestock extras -----
-    'cover-beef-cattle':           { id: '1605338777890-d6a4d27c89ec', topic: { so: 'Lo\'da hilibka', en: 'Beef cattle', ar: 'أبقار اللحم', sw: 'Ng\'ombe wa nyama' } },
-    'cover-camel-husbandry':       { id: '1500382017468-9049fed747ef', topic: { so: 'Geela', en: 'Camels', ar: 'الإبل', sw: 'Ngamia' } },
-    'cover-beekeeping':            { id: '1568526381923-caf3fd520382', topic: { so: 'Shiniyaha', en: 'Beekeeping', ar: 'تربية النحل', sw: 'Nyuki' } },
-    'cover-fish-farming':          { id: '1535591273668-578e31182c4f', topic: { so: 'Kalluunka', en: 'Fish farming', ar: 'تربية الأسماك', sw: 'Samaki' } },
-    'cover-rabbit-farming':        { id: '1535241749838-299277b6305f', topic: { so: 'Bakeylaha', en: 'Rabbit farming', ar: 'الأرانب', sw: 'Sungura' } },
-    'cover-feed-formulation':      { id: '1574943320219-553eb213f72d', topic: { so: 'Cuntada xoolaha', en: 'Feed formulation', ar: 'تكوين العلف', sw: 'Chakula' } },
-    'cover-livestock-disease':     { id: '1605338777890-d6a4d27c89ec', topic: { so: 'Cudurro xoolaha', en: 'Livestock disease', ar: 'أمراض الماشية', sw: 'Magonjwa' } },
-    // ----- News -----
-    'cover-news-1': { id: '1438449805896-28a666819a20', topic: { so: 'Xilliga roobka', en: 'Rainy season farming', ar: 'موسم الأمطار', sw: 'Msimu wa mvua' } },
-    'cover-news-2': { id: '1554224155-6726b3ff858f', topic: { so: 'Maaliyadda beeraha', en: 'Agricultural finance', ar: 'التمويل الزراعي', sw: 'Ufadhili wa kilimo' } },
-    'cover-news-3': { id: '1500595046743-cd271d694d30', topic: { so: 'Xoolaha iyo beeraha', en: 'Livestock and crops', ar: 'الثروة الحيوانية والمحاصيل', sw: 'Mifugo na mazao' } },
-    'cover-news-4': { id: '1561484930-998b6a7b22e8', topic: { so: 'Cimilada beeraha', en: 'Climate and weather', ar: 'المناخ والطقس', sw: 'Hali ya hewa' } },
-    'cover-news-5': { id: '1518770660439-4636190af475', topic: { so: 'Tignoolajiyada beeraha', en: 'Agriculture technology', ar: 'تقنية الزراعة', sw: 'Teknolojia ya kilimo' } },
-    'cover-news-6': { id: '1500382017468-9049fed747ef', topic: { so: 'Caafimaadka carrada', en: 'Healthy soil', ar: 'تربة صحية', sw: 'Udongo wenye afya' } }
+    // ===== CROPS =====
+    'cover-cabbage-farming':  { id: '1518977676601-b53f82aba655', topic: { so: 'Kaabashka',  en: 'Cabbage',  ar: 'الملفوف',  sw: 'Kabichi'  } },
+    'cover-banana-farming':   { id: '1571771894821-ce9b6c11b08e', topic: { so: 'Mooska',     en: 'Bananas',  ar: 'الموز',    sw: 'Ndizi'    } },
+    'cover-mango-farming':    { id: '1591073113125-e46713c829ed', topic: { so: 'Cambaha',    en: 'Mango',    ar: 'المانجو',  sw: 'Maembe'   } },
+    'cover-cassava-farming':  { id: '1633933358116-a27b902fad35', topic: { so: 'Cassava',    en: 'Cassava',  ar: 'الكسافا',  sw: 'Mihogo'   } },
+    'cover-watermelon-farming':{ id: '1563114773-84221bd62daa', topic: { so: 'Qaraha',     en: 'Watermelon',ar:'البطيخ',  sw: 'Tikiti'   } },
+    'cover-chili-farming':    { id: '1583119912267-cc97c911e416', topic: { so: 'Basbaaska',  en: 'Chili',    ar: 'الفلفل',   sw: 'Pilipili' } },
+    'cover-rice-farming':     { id: '1574323347407-f5e1ad6d7ad3', topic: { so: 'Bariiska',   en: 'Rice',     ar: 'الأرز',    sw: 'Mchele'   } },
+    'cover-onion-farming':    { id: '1620574387735-3c1b6c8c7d29', topic: { so: 'Basasha',    en: 'Onions',   ar: 'البصل',    sw: 'Vitunguu' } },
+    'cover-maize-farming':    { id: '1601001435957-74f0958a93c5', topic: { so: 'Galleyda',   en: 'Maize',    ar: 'الذرة',    sw: 'Mahindi'  } },
+    'cover-tomato-farming':   { id: '1592841200221-a6898f307baa', topic: { so: 'Yaanyada',   en: 'Tomato',   ar: 'الطماطم',  sw: 'Nyanya'   } },
+    'cover-farm-lessons':     { id: '1500382017468-9049fed747ef', topic: { so: 'Beerista',   en: 'Farming',  ar: 'الزراعة',  sw: 'Kilimo'   } },
+    'cover-tomato':           { id: '1592841200221-a6898f307baa', topic: { so: 'Yaanyada',   en: 'Tomato',   ar: 'الطماطم',  sw: 'Nyanya'   } },
+    'cover-1':                { id: '1601001435957-74f0958a93c5', topic: { so: 'Galleyda',   en: 'Maize',    ar: 'الذرة',    sw: 'Mahindi'  } },
+    'cover-2':                { id: '1574323347407-f5e1ad6d7ad3', topic: { so: 'Bariiska',   en: 'Rice',     ar: 'الأرز',    sw: 'Mchele'   } },
+
+    // ===== PESTS & DISEASES =====
+    'cover-aphids':           { id: '1530507629858-e3759c1f0e0d', topic: { so: 'Aphids',       en: 'Aphids',        ar: 'حشرات المن',     sw: 'Vidukari'            } },
+    'cover-whiteflies':       { id: '1416879595882-3373a0480b5b', topic: { so: 'Cayayaanka',   en: 'Pests',         ar: 'الآفات',         sw: 'Wadudu'              } },
+    'cover-fall-armyworm':    { id: '1601001435957-74f0958a93c5', topic: { so: 'Diirka galleyda', en: 'Armyworm',    ar: 'دودة الذرة',     sw: 'Viwavi'              } },
+    'cover-early-blight':     { id: '1592841200221-a6898f307baa', topic: { so: 'Caleemo cudur', en: 'Leaf disease',  ar: 'مرض الأوراق',     sw: 'Ugonjwa wa majani'   } },
+    'cover-late-blight':      { id: '1508313880080-c4bef0730395', topic: { so: 'Baradho',     en: 'Potato blight', ar: 'مرض البطاطس',     sw: 'Ugonjwa wa viazi'    } },
+    'cover-powdery-mildew':   { id: '1530507629858-e3759c1f0e0d', topic: { so: 'Fangaska',    en: 'Mildew',        ar: 'البياض الدقيقي',  sw: 'Ukungu'              } },
+    'cover-root-rot':         { id: '1530836369250-ef72a3f5cda8', topic: { so: 'Xididada',    en: 'Root rot',      ar: 'تعفن الجذور',     sw: 'Mizizi'              } },
+
+    // ===== IRRIGATION =====
+    'cover-drip-irrigation':       { id: '1500382017468-9049fed747ef', topic: { so: 'Drip', en: 'Drip',     ar: 'الري بالتنقيط', sw: 'Drip' } },
+    'cover-rainwater-harvesting':  { id: '1501426026826-31c667bdf23d', topic: { so: 'Biyo roob',    en: 'Rainwater', ar: 'مياه الأمطار',  sw: 'Maji ya mvua' } },
+    'cover-irrigation-scheduling': { id: '1416664806563-bb6be3b6d7d3', topic: { so: 'Waraabin',     en: 'Watering',  ar: 'جدولة الري',    sw: 'Umwagiliaji' } },
+    'cover-sprinkler-irrigation':  { id: '1416664806563-bb6be3b6d7d3', topic: { so: 'Sprinkler',    en: 'Sprinkler', ar: 'الرش',          sw: 'Sprinkler' } },
+    'cover-furrow-irrigation':     { id: '1574323347407-f5e1ad6d7ad3', topic: { so: 'Saraar',       en: 'Furrows',   ar: 'الأخاديد',      sw: 'Mifereji' } },
+    'cover-greenhouse-irrigation': { id: '1592078615290-033ee584e267', topic: { so: 'Greenhouse',   en: 'Greenhouse',ar: 'بيوت محمية',    sw: 'Greenhouse' } },
+    'cover-water-pumps':           { id: '1565538810643-b5bdb714032a', topic: { so: 'Mootooyin',    en: 'Pumps',     ar: 'مضخات',         sw: 'Pampu' } },
+    'cover-mulching-water':        { id: '1623211398288-c40d3e4d4b1e', topic: { so: 'Mulching',     en: 'Mulching',  ar: 'تغطية',         sw: 'Matandazo' } },
+    'cover-boreholes-wells':       { id: '1602867741746-6df80f876c66', topic: { so: 'Ceelaal',      en: 'Wells',     ar: 'الآبار',         sw: 'Visima' } },
+    'cover-fertigation':           { id: '1592078615290-033ee584e267', topic: { so: 'Fertigation',  en: 'Fertigation',ar:'تغذية بالري',   sw: 'Fertigation' } },
+
+    // ===== SOIL =====
+    'cover-soil-testing':          { id: '1464226184884-fa280b87c399', topic: { so: 'Tijaab ciid',  en: 'Soil test', ar: 'اختبار التربة', sw: 'Mtihani' } },
+    'cover-composting':            { id: '1591857177580-dc82b9ac4e1e', topic: { so: 'Compost',     en: 'Compost',   ar: 'كمبوست',        sw: 'Mboji' } },
+    'cover-cover-crops':           { id: '1574943320219-553eb213f72d', topic: { so: 'Cover crops', en: 'Cover crops',ar:'محاصيل الغطاء',sw: 'Mazao ya kufunika' } },
+    'cover-soil-types':            { id: '1530836369250-ef72a3f5cda8', topic: { so: 'Ciid',        en: 'Soil',      ar: 'تربة',          sw: 'Udongo' } },
+    'cover-soil-erosion-control':  { id: '1601132359864-c974e79890ac', topic: { so: 'Nabaad-guur', en: 'Erosion',   ar: 'تعرية',         sw: 'Mmomonyoko' } },
+    'cover-crop-rotation':         { id: '1574943320219-553eb213f72d', topic: { so: 'Wareeg',      en: 'Rotation',  ar: 'دورة',           sw: 'Mzunguko' } },
+    'cover-soil-ph':               { id: '1464226184884-fa280b87c399', topic: { so: 'pH',          en: 'pH',        ar: 'pH',            sw: 'pH' } },
+    'cover-vermicompost':          { id: '1542838686-37da4a9fd1b3', topic: { so: 'Dirxiyo',      en: 'Worms',     ar: 'الديدان',       sw: 'Minyoo' } },
+    'cover-no-till':               { id: '1500382017468-9049fed747ef', topic: { so: 'No-till',    en: 'No-till',   ar: 'بلا حراثة',     sw: 'Bila kulima' } },
+    'cover-mulching-soil':         { id: '1623211398288-c40d3e4d4b1e', topic: { so: 'Mulching',   en: 'Mulching',  ar: 'تغطية',         sw: 'Matandazo' } },
+
+    // ===== CLIMATE =====
+    'cover-drought-crops':         { id: '1501785888041-af3ef285b470', topic: { so: 'Abaaro',     en: 'Drought',   ar: 'الجفاف',        sw: 'Ukame' } },
+    'cover-agroforestry':          { id: '1426604966848-d7adac402bff', topic: { so: 'Agroforestry',en: 'Trees',     ar: 'أشجار',         sw: 'Misitu' } },
+    'cover-weather-monitoring':    { id: '1561553590-267fc716698a',   topic: { so: 'Cimilo',     en: 'Weather',   ar: 'الطقس',         sw: 'Hali ya hewa' } },
+    'cover-greenhouse-farming':    { id: '1592078615290-033ee584e267', topic: { so: 'Greenhouse', en: 'Greenhouse',ar: 'البيوت المحمية',sw: 'Greenhouse' } },
+    'cover-climate-smart':         { id: '1623211398288-c40d3e4d4b1e', topic: { so: 'CSA',        en: 'Climate-smart',ar:'الزراعة الذكية',sw:'Kilimo' } },
+    'cover-flood-management':      { id: '1438449805896-28a666819a20', topic: { so: 'Daadad',     en: 'Floods',    ar: 'الفيضانات',     sw: 'Mafuriko' } },
+    'cover-shade-nets':            { id: '1592078615290-033ee584e267', topic: { so: 'Shade net',  en: 'Shade net', ar: 'التظليل',        sw: 'Kivuli' } },
+    'cover-rainy-season':          { id: '1438449805896-28a666819a20', topic: { so: 'Roobka',    en: 'Rainy season',ar:'موسم الأمطار', sw: 'Msimu wa mvua' } },
+    'cover-dry-season':            { id: '1501785888041-af3ef285b470', topic: { so: 'Jiilaal',    en: 'Dry season',ar: 'موسم الجفاف',   sw: 'Ukame' } },
+    'cover-windbreaks':            { id: '1426604966848-d7adac402bff', topic: { so: 'Windbreaks', en: 'Windbreaks',ar: 'كاسرات الرياح', sw: 'Vipenyo' } },
+
+    // ===== LIVESTOCK =====
+    'cover-dairy-cattle':          { id: '1605338777890-d6a4d27c89ec', topic: { so: 'Lo\'da caano',en: 'Dairy',    ar: 'أبقار الحليب',  sw: 'Ng\'ombe' } },
+    'cover-poultry-farming':       { id: '1548550023-2bdb3c5beed7',   topic: { so: 'Digaag',     en: 'Poultry',   ar: 'دواجن',          sw: 'Kuku' } },
+    'cover-goat-sheep':            { id: '1533219057257-4bb9ed5d2cc7', topic: { so: 'Riyo iyo ido',en:'Goats sheep',ar:'ماعز وأغنام',  sw: 'Mbuzi' } },
+    'cover-beef-cattle':           { id: '1500595046743-cd271d694d30', topic: { so: 'Lo\'da hilib',en: 'Beef',     ar: 'أبقار اللحم',   sw: 'Ng\'ombe wa nyama' } },
+    'cover-camel-husbandry':       { id: '1583863788434-e58a36d8d2cf', topic: { so: 'Geela',      en: 'Camels',    ar: 'الإبل',         sw: 'Ngamia' } },
+    'cover-beekeeping':            { id: '1587049352851-8d4e89133924', topic: { so: 'Shiniyaha',  en: 'Bees',      ar: 'النحل',          sw: 'Nyuki' } },
+    'cover-fish-farming':          { id: '1535591273668-578e31182c4f', topic: { so: 'Kalluunka',  en: 'Fish',      ar: 'الأسماك',       sw: 'Samaki' } },
+    'cover-rabbit-farming':        { id: '1535241749838-299277b6305f', topic: { so: 'Bakeylaha',  en: 'Rabbits',   ar: 'الأرانب',        sw: 'Sungura' } },
+    'cover-feed-formulation':      { id: '1574323347407-f5e1ad6d7ad3', topic: { so: 'Cunto',      en: 'Feed',      ar: 'العلف',          sw: 'Chakula' } },
+    'cover-livestock-disease':     { id: '1605338777890-d6a4d27c89ec', topic: { so: 'Caafimaad',  en: 'Livestock health',ar:'صحة الماشية',sw: 'Afya' } },
+
+    // ===== NEWS =====
+    'cover-news-1': { id: '1438449805896-28a666819a20', topic: { so: 'Roobka',      en: 'Rain',          ar: 'المطر',          sw: 'Mvua' } },
+    'cover-news-2': { id: '1454165804606-c3d57bc86b40', topic: { so: 'Maaliyad',    en: 'Finance',       ar: 'تمويل',          sw: 'Fedha' } },
+    'cover-news-3': { id: '1500595046743-cd271d694d30', topic: { so: 'Xoolaha',     en: 'Livestock',     ar: 'الماشية',         sw: 'Mifugo' } },
+    'cover-news-4': { id: '1561553590-267fc716698a',   topic: { so: 'Cimilo',      en: 'Climate',       ar: 'المناخ',         sw: 'Hali ya hewa' } },
+    'cover-news-5': { id: '1581094288338-2314dddb7ece', topic: { so: 'Tignoolajiya',en: 'Technology',    ar: 'تقنية',          sw: 'Teknolojia' } },
+    'cover-news-6': { id: '1464226184884-fa280b87c399', topic: { so: 'Ciid',        en: 'Soil',          ar: 'التربة',         sw: 'Udongo' } }
   };
 
   function curLang() { return document.documentElement.lang || 'so'; }
@@ -109,8 +117,8 @@
     return text + ' — Beylood';
   }
 
-  var used = {}; // prevent the same photo appearing twice on one page
-
+  // The same key can appear several times on the same page (homepage +
+  // related-article rails, etc.), so we deliberately do NOT deduplicate.
   function apply() {
     var covers = document.querySelectorAll('.card-cover, .article-cover');
     covers.forEach(function (cover) {
@@ -120,7 +128,6 @@
       }
       if (!key) return;
       if (cover.querySelector('.cover-img')) return;
-      if (used[key]) return;
 
       var entry = IMAGE_MAP[key];
       var img = document.createElement('img');
@@ -137,7 +144,6 @@
       img.addEventListener('error', function () { img.remove(); }); // gradient fallback
 
       cover.insertBefore(img, cover.firstChild);
-      used[key] = true;
     });
   }
 
