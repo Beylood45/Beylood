@@ -11,6 +11,24 @@
     <xhtml:link rel="alternate" hreflang="sw" href="https://beylood.com/about.html" />
   </url>
   <url>
+    <loc>https://beylood.com/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="so" href="https://beylood.com/terms.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://beylood.com/terms.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://beylood.com/terms.html" />
+    <xhtml:link rel="alternate" hreflang="sw" href="https://beylood.com/terms.html" />
+  </url>
+  <url>
+    <loc>https://beylood.com/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="so" href="https://beylood.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://beylood.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://beylood.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="sw" href="https://beylood.com/privacy.html" />
+  </url>
+  <url>
     <loc>https://beylood.com/article-10-lessons-farmers.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
