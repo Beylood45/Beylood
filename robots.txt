@@ -8,6 +8,7 @@ Disallow: /signin.html
 Disallow: /signup.html
 Disallow: /admin.html
 Disallow: /dashboard.html
+Disallow: /profile.html
 
 # Block AI training crawlers (optional — remove if you want training)
 User-agent: GPTBot

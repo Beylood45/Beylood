@@ -228,17 +228,35 @@ function renderChip(user) {
   const navRight = document.querySelector('.nav-right');
   if (!navRight) return;
   let chip = document.getElementById('authChip');
-  const logoutLabel = tr({ so: 'Ka bax', en: 'Logout', ar: 'خروج', sw: 'Toka' });
-  const memberLabel = tr({ so: 'Xubin', en: 'Member', ar: 'عضو', sw: 'Mwanachama' });
+
+  const memberLabel    = tr({ so: 'Xubin',          en: 'Member',       ar: 'عضو',           sw: 'Mwanachama' });
+  const myProfileLabel = tr({ so: 'Profile-kayga',  en: 'My Profile',   ar: 'ملفي الشخصي',   sw: 'Wasifu wangu' });
+  const dashboardLabel = tr({ so: 'Dashboard',      en: 'Dashboard',    ar: 'لوحة التحكم',   sw: 'Dashibodi' });
+  const logoutLabel    = tr({ so: 'Ka bax',         en: 'Sign out',     ar: 'تسجيل الخروج', sw: 'Toka' });
+
   const html =
-    '<a href="dashboard.html" class="auth-chip-link" title="Dashboard">' +
+    '<button type="button" id="authChipBtn" class="auth-chip-link" aria-haspopup="menu" aria-expanded="false" title="' + escapeHTML(myProfileLabel) + '">' +
       '<span class="auth-avatar">' + avatarMarkup(user) + '</span>' +
       '<span class="auth-chip-name">' + escapeHTML(firstName(user.displayName, user.email)) + '</span>' +
       '<span class="auth-badge">' + memberLabel + '</span>' +
-    '</a>' +
-    '<button type="button" id="logoutBtn" class="auth-logout-btn" aria-label="' + logoutLabel + '" title="' + logoutLabel + '">' +
-      '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>' +
-    '</button>';
+      '<svg class="auth-chip-caret" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>' +
+    '</button>' +
+    '<div id="authMenu" class="auth-menu" role="menu" hidden>' +
+      '<a href="profile.html" class="auth-menu-item" role="menuitem">' +
+        '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>' +
+        '<span>' + escapeHTML(myProfileLabel) + '</span>' +
+      '</a>' +
+      '<a href="dashboard.html" class="auth-menu-item" role="menuitem">' +
+        '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>' +
+        '<span>' + escapeHTML(dashboardLabel) + '</span>' +
+      '</a>' +
+      '<div class="auth-menu-sep"></div>' +
+      '<button type="button" id="logoutBtn" class="auth-menu-item auth-menu-danger" role="menuitem">' +
+        '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>' +
+        '<span>' + escapeHTML(logoutLabel) + '</span>' +
+      '</button>' +
+    '</div>';
+
   if (!chip) {
     chip = document.createElement('div');
     chip.id = 'authChip';
@@ -247,6 +265,29 @@ function renderChip(user) {
     navRight.insertBefore(chip, themeBtn || navRight.firstChild);
   }
   chip.innerHTML = html;
+
+  // Toggle dropdown
+  const btn = document.getElementById('authChipBtn');
+  const menu = document.getElementById('authMenu');
+  function closeMenu() {
+    if (menu) menu.hidden = true;
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  }
+  function openMenu() {
+    if (menu) menu.hidden = false;
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+  }
+  if (btn && menu) {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.hidden ? openMenu() : closeMenu();
+    });
+    document.addEventListener('click', (e) => {
+      if (!chip.contains(e.target)) closeMenu();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+  }
+
   const lo = document.getElementById('logoutBtn');
   if (lo) lo.addEventListener('click', () => signOut(auth).then(() => { window.location.href = 'index.html'; }));
 }

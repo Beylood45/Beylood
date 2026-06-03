@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Profile-kaaga Beylood." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Profile-kayga — Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg><span data-key="askBtn">WAYDII BEYLOOD</span></a>
+      <span id="authSlot"></span>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme"><svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg><span id="langLabel">Soomaali</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- Loading skeleton -->
+<div id="profLoading" class="dash-loading">
+  <div class="container">
+    <div class="dash-loading-brand">
+      <img src="assets/logo.png" alt="Beylood" class="dash-loading-logo" />
+      <span class="dash-loading-name">Beylood</span>
+    </div>
+    <div class="dash-skel-grid">
+      <div class="dash-skel-card dash-skel-card-wide">
+        <div class="dash-skel-row">
+          <div class="skel skel-avatar" style="width:96px;height:96px;"></div>
+          <div class="dash-skel-col">
+            <div class="skel skel-title" style="height:28px;width:50%"></div>
+            <div class="skel skel-line skel-line-2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-skel-card"><div class="skel skel-stat"></div><div class="skel skel-line skel-line-3"></div></div>
+      <div class="dash-skel-card"><div class="skel skel-stat"></div><div class="skel skel-line skel-line-3"></div></div>
+    </div>
+    <div class="dash-loading-status" id="profLoadingStatus" hidden>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p><span data-lang="so">Xidhiidhka internetka wuxuu yahay mid gaabis ah.</span><span data-lang="en" hidden>Connection is slow.</span><span data-lang="ar" hidden>الاتصال بطيء.</span><span data-lang="sw" hidden>Muunganiko ni polepole.</span></p>
+      <button type="button" class="btn btn-ask" onclick="window.location.reload()"><span data-lang="so">Dib u cusboonaysii</span><span data-lang="en" hidden>Reload</span><span data-lang="ar" hidden>إعادة التحميل</span><span data-lang="sw" hidden>Pakia tena</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- Actual profile page -->
+<main id="profMain" class="section profile-section" hidden>
+  <div class="container">
+
+    <!-- HERO CARD: Avatar + Identity + Completion -->
+    <section class="profile-hero reveal">
+      <div class="profile-hero-cover" aria-hidden="true"></div>
+      <div class="profile-hero-body">
+        <div class="profile-avatar-wrap">
+          <div id="profAvatar" class="profile-avatar-lg"></div>
+          <button type="button" id="profEditPhotoBtn" class="profile-avatar-edit" title="Change photo" aria-label="Change photo">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </button>
+        </div>
+        <div class="profile-identity">
+          <h1 class="profile-name" id="profName">…</h1>
+          <p class="profile-email-line" id="profEmail">…</p>
+          <p class="profile-location" id="profLocation">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span id="profLocationText"><span data-lang="so">Goob lama dejin</span><span data-lang="en" hidden>Location not set</span><span data-lang="ar" hidden>الموقع غير محدد</span><span data-lang="sw" hidden>Eneo halijawekwa</span></span>
+          </p>
+        </div>
+        <div class="profile-hero-actions">
+          <button type="button" id="profEditBtn" class="btn btn-getstarted">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4z"/></svg>
+            <span data-lang="so">Wax beddel</span><span data-lang="en" hidden>Edit Profile</span><span data-lang="ar" hidden>تعديل الملف</span><span data-lang="sw" hidden>Hariri Wasifu</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Profile completion -->
+      <div class="profile-completion">
+        <div class="profile-completion-head">
+          <span class="profile-completion-label">
+            <span data-lang="so">Dhamaystirka profile-ka</span><span data-lang="en" hidden>Profile completion</span><span data-lang="ar" hidden>اكتمال الملف</span><span data-lang="sw" hidden>Ukamilifu wa wasifu</span>
+          </span>
+          <span class="profile-completion-pct" id="profCompletionPct">0%</span>
+        </div>
+        <div class="profile-completion-bar">
+          <div class="profile-completion-fill" id="profCompletionFill" style="width:0%"></div>
+        </div>
+        <p class="profile-completion-hint" id="profCompletionHint">
+          <span data-lang="so">Buuxi guriga iyo gobolka si aad u dhameystirto profile-ka.</span>
+          <span data-lang="en" hidden>Add your country and city to complete your profile.</span>
+          <span data-lang="ar" hidden>أضف بلدك ومدينتك لاستكمال الملف الشخصي.</span>
+          <span data-lang="sw" hidden>Ongeza nchi na jiji lako kukamilisha wasifu wako.</span>
+        </p>
+      </div>
+    </section>
+
+    <div class="profile-grid">
+
+      <!-- STATS GRID -->
+      <section class="profile-stats reveal" aria-labelledby="statsHeading">
+        <h2 id="statsHeading" class="profile-h2">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span data-lang="so">Tirakoobka Hawlaha</span><span data-lang="en" hidden>Activity Statistics</span><span data-lang="ar" hidden>إحصائيات النشاط</span><span data-lang="sw" hidden>Takwimu za Shughuli</span>
+        </h2>
+        <div class="profile-stats-grid">
+          <div class="profile-stat-card">
+            <div class="profile-stat-ico profile-stat-ico-green">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <span class="profile-stat-num" id="statArticlesRead">0</span>
+            <span class="profile-stat-label"><span data-lang="so">Maqaallo La Akhriyay</span><span data-lang="en" hidden>Articles Read</span><span data-lang="ar" hidden>المقالات المقروءة</span><span data-lang="sw" hidden>Makala Yaliyosomwa</span></span>
+          </div>
+          <div class="profile-stat-card">
+            <div class="profile-stat-ico profile-stat-ico-navy">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <span class="profile-stat-num" id="statSaved">0</span>
+            <span class="profile-stat-label"><span data-lang="so">Maqaallo La Kaydiyay</span><span data-lang="en" hidden>Saved Articles</span><span data-lang="ar" hidden>المقالات المحفوظة</span><span data-lang="sw" hidden>Makala Yaliyohifadhiwa</span></span>
+          </div>
+          <div class="profile-stat-card">
+            <div class="profile-stat-ico profile-stat-ico-amber">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            </div>
+            <span class="profile-stat-num" id="statLogins">0</span>
+            <span class="profile-stat-label"><span data-lang="so">Marka Aad Gashay</span><span data-lang="en" hidden>Logins</span><span data-lang="ar" hidden>مرات الدخول</span><span data-lang="sw" hidden>Kuingia</span></span>
+          </div>
+          <div class="profile-stat-card">
+            <div class="profile-stat-ico profile-stat-ico-rose">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <span class="profile-stat-num" id="statMemberSince">—</span>
+            <span class="profile-stat-label"><span data-lang="so">Xubin Ilaa</span><span data-lang="en" hidden>Member Since</span><span data-lang="ar" hidden>عضو منذ</span><span data-lang="sw" hidden>Mwanachama Tangu</span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SAVED ARTICLES -->
+      <section class="profile-saved reveal" aria-labelledby="savedHeading">
+        <h2 id="savedHeading" class="profile-h2">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <span data-lang="so">Maqaallada La Kaydiyay</span><span data-lang="en" hidden>Saved Articles</span><span data-lang="ar" hidden>المقالات المحفوظة</span><span data-lang="sw" hidden>Makala Yaliyohifadhiwa</span>
+        </h2>
+        <div id="savedList" class="profile-saved-list"></div>
+        <div id="savedEmpty" class="profile-saved-empty" hidden>
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <p><span data-lang="so">Weli wax maqaal ah ma aadan kaydin. Booqo maqaal kasta oo riix "Kaydi".</span><span data-lang="en" hidden>You haven't saved any articles yet.</span><span data-lang="ar" hidden>لم تحفظ أي مقال بعد.</span><span data-lang="sw" hidden>Bado hujahifadhi makala yoyote.</span></p>
+          <a href="articles.html" class="btn btn-ask"><span data-lang="so">Sahmin maqaallada</span><span data-lang="en" hidden>Browse articles</span><span data-lang="ar" hidden>تصفح المقالات</span><span data-lang="sw" hidden>Vinjari makala</span></a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<!-- EDIT MODAL -->
+<div id="profModal" class="prof-modal" hidden>
+  <div class="prof-modal-overlay" id="profModalClose"></div>
+  <div class="prof-modal-card" role="dialog" aria-labelledby="profModalTitle" aria-modal="true">
+    <header class="prof-modal-head">
+      <h2 id="profModalTitle"><span data-lang="so">Wax beddel profile-ka</span><span data-lang="en" hidden>Edit profile</span><span data-lang="ar" hidden>تعديل الملف</span><span data-lang="sw" hidden>Hariri wasifu</span></h2>
+      <button type="button" class="prof-modal-x" id="profModalCloseBtn" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </header>
+    <form id="profForm" class="prof-modal-body" autocomplete="off">
+      <label class="auth-label" for="formName"><span data-lang="so">Magaca buuxa</span><span data-lang="en" hidden>Full name</span><span data-lang="ar" hidden>الاسم الكامل</span><span data-lang="sw" hidden>Jina kamili</span></label>
+      <input id="formName" type="text" class="auth-input" maxlength="60" />
+
+      <label class="auth-label" for="formPhoto"><span data-lang="so">URL Sawirka (https://…)</span><span data-lang="en" hidden>Profile photo URL (https://…)</span><span data-lang="ar" hidden>رابط الصورة (https://…)</span><span data-lang="sw" hidden>URL ya picha (https://…)</span></label>
+      <input id="formPhoto" type="url" class="auth-input" placeholder="https://…" />
+
+      <div class="prof-form-row">
+        <div>
+          <label class="auth-label" for="formCountry"><span data-lang="so">Waddanka</span><span data-lang="en" hidden>Country</span><span data-lang="ar" hidden>البلد</span><span data-lang="sw" hidden>Nchi</span></label>
+          <select id="formCountry" class="auth-input">
+            <option value=""></option>
+            <option value="Somalia">Somalia</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Ethiopia">Ethiopia</option>
+            <option value="Djibouti">Djibouti</option>
+            <option value="Tanzania">Tanzania</option>
+            <option value="Uganda">Uganda</option>
+            <option value="Sudan">Sudan</option>
+            <option value="Egypt">Egypt</option>
+            <option value="Saudi Arabia">Saudi Arabia</option>
+            <option value="UAE">UAE</option>
+            <option value="Qatar">Qatar</option>
+            <option value="Oman">Oman</option>
+            <option value="Yemen">Yemen</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="United States">United States</option>
+            <option value="Canada">Canada</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="auth-label" for="formCity"><span data-lang="so">Magaalada</span><span data-lang="en" hidden>City</span><span data-lang="ar" hidden>المدينة</span><span data-lang="sw" hidden>Jiji</span></label>
+          <input id="formCity" type="text" class="auth-input" maxlength="60" />
+        </div>
+      </div>
+
+      <label class="auth-label"><span data-lang="so">Iimaylka (read-only)</span><span data-lang="en" hidden>Email (read-only)</span><span data-lang="ar" hidden>البريد (قراءة فقط)</span><span data-lang="sw" hidden>Barua pepe (kusoma tu)</span></label>
+      <input id="formEmail" type="email" class="auth-input" disabled />
+
+      <button type="submit" class="auth-submit" id="formSubmit"><span data-lang="so">Kaydi isbeddelka</span><span data-lang="en" hidden>Save changes</span><span data-lang="ar" hidden>حفظ التغييرات</span><span data-lang="sw" hidden>Hifadhi mabadiliko</span></button>
+      <p class="auth-msg" id="formMsg" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div>
+        <p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p>
+      </div>
+      <div>
+        <p class="footer-title" data-key="fExplore">Sahmin</p>
+        <ul class="footer-list">
+          <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+          <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
+          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+          <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title" data-key="fCompany">Shirkadda</p>
+        <ul class="footer-list">
+          <li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li>
+          <li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li>
+          <li><a href="terms.html"><span data-lang="so">Shuruudaha</span><span data-lang="en" hidden>Terms</span></a></li>
+          <li><a href="privacy.html"><span data-lang="so">Siyaasadda Asturnaanta</span><span data-lang="en" hidden>Privacy</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood</p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script type="module" src="auth.js"></script>
+<script type="module" src="profile.js"></script>
+<script src="analytics-config.js"></script>
+<script src="analytics.js"></script>
+
+</body>
+</html>
