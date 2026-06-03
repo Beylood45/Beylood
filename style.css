@@ -3413,9 +3413,4 @@ html.auth-member .premium-lock__overlay {
   .ai-soon-card::before, .ai-soon-dot, .ai-soon-orb { animation: none; }
 }
 
-/* ============================================
-   Somali-only mode — hide language switcher
-   (Restore by removing this block when multilingual launches)
-   ============================================ */
-#langBtn { display: none !important; }
 
