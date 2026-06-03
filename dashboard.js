@@ -72,7 +72,14 @@ function showError(msg) {
 if (!configReady()) {
   showError(tr({ so: 'Firebase config weli lama dejin.', en: 'Firebase config not set yet.', ar: 'لم يتم ضبط إعدادات Firebase بعد.', sw: 'Mipangilio ya Firebase haijawekwa.' }));
 } else {
+  // Slow-network fallback: if auth doesn't resolve in 6s, show retry banner
+  const slowTimer = setTimeout(() => {
+    const status = $('dashLoadingStatus');
+    if (status) status.hidden = false;
+  }, 6000);
+
   onAuthStateChanged(auth, async (user) => {
+    clearTimeout(slowTimer);
     // Guard: no user → go to sign in
     if (!user) {
       window.location.replace('signin.html');

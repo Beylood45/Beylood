@@ -40,10 +40,60 @@
   </div>
 </header>
 
-<!-- Loading gate: shown until auth state resolves -->
+<!-- Loading gate: branded skeleton shown until auth state resolves -->
 <div id="dashLoading" class="dash-loading">
-  <div class="dash-spinner" aria-hidden="true"></div>
-  <p><span data-lang="so">Waa la soo rarayaa…</span><span data-lang="en" hidden>Loading…</span><span data-lang="ar" hidden>جارٍ التحميل…</span><span data-lang="sw" hidden>Inapakia…</span></p>
+  <div class="container">
+    <!-- Brand mark + tagline -->
+    <div class="dash-loading-brand">
+      <img src="assets/logo.png" alt="Beylood" class="dash-loading-logo" />
+      <span class="dash-loading-name">Beylood</span>
+    </div>
+
+    <!-- Skeleton welcome line -->
+    <div class="dash-skel-welcome">
+      <div class="skel skel-title"></div>
+      <div class="skel skel-subtitle"></div>
+    </div>
+
+    <!-- Skeleton grid mimicking real dashboard -->
+    <div class="dash-skel-grid">
+      <div class="dash-skel-card">
+        <div class="dash-skel-row">
+          <div class="skel skel-avatar"></div>
+          <div class="dash-skel-col">
+            <div class="skel skel-line skel-line-1"></div>
+            <div class="skel skel-line skel-line-2"></div>
+          </div>
+        </div>
+        <div class="skel skel-line skel-line-3"></div>
+        <div class="skel skel-line skel-line-4"></div>
+      </div>
+      <div class="dash-skel-card">
+        <div class="skel skel-stat"></div>
+        <div class="skel skel-line skel-line-3"></div>
+      </div>
+      <div class="dash-skel-card dash-skel-card-wide">
+        <div class="skel skel-line skel-line-1"></div>
+        <div class="skel skel-line skel-line-full"></div>
+        <div class="skel skel-line skel-line-full"></div>
+        <div class="skel skel-line skel-line-3"></div>
+      </div>
+    </div>
+
+    <!-- Status line — visible after 6s only -->
+    <div class="dash-loading-status" id="dashLoadingStatus" hidden>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>
+        <span data-lang="so">Xidhiidhka internetka wuxuu yahay mid gaabis ah. Hubi xidhiidhkaaga ama dib ugu noqo.</span>
+        <span data-lang="en" hidden>Connection is slow. Check your network or try again.</span>
+        <span data-lang="ar" hidden>الاتصال بطيء. تحقّق من الشبكة أو حاول مرة أخرى.</span>
+        <span data-lang="sw" hidden>Muunganiko ni polepole. Angalia muunganiko wako au jaribu tena.</span>
+      </p>
+      <button type="button" class="btn btn-ask" onclick="window.location.reload()">
+        <span data-lang="so">Dib u cusboonaysii</span><span data-lang="en" hidden>Reload</span><span data-lang="ar" hidden>إعادة التحميل</span><span data-lang="sw" hidden>Pakia tena</span>
+      </button>
+    </div>
+  </div>
 </div>
 
 <main id="dashMain" class="section dash-section" hidden>
