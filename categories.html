@@ -12,10 +12,69 @@
   <link rel="icon" href="assets/icon.png" />
   <link rel="apple-touch-icon" href="assets/icon.png" />
 
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
   <meta property="og:title" content="Beylood — Categories" />
   <meta property="og:description" content="Knowledge categories for farmers and agribusinesses." />
   <meta property="og:image" content="https://beylood.com/assets/logo.png" />
   <meta property="og:type" content="website" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Bogga Hore", "item": "https://beylood.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Qaybaha", "item": "https://beylood.com/categories.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Qaybaha Aqoonta Beeraha",
+    "description": "Six specialized agricultural knowledge categories on Beylood.",
+    "numberOfItems": 6,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "url": "https://beylood.com/category-crops.html",
+        "name": "Dalagga"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "url": "https://beylood.com/category-irrigation.html",
+        "name": "Waraabka"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "url": "https://beylood.com/category-livestock.html",
+        "name": "Xoolaha"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "url": "https://beylood.com/category-climate.html",
+        "name": "Cimilada"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "url": "https://beylood.com/category-soil.html",
+        "name": "Carrada"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "url": "https://beylood.com/category-pests.html",
+        "name": "Cayayaanka iyo Cudurrada"
+      }
+    ]
+  }
+  </script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -185,38 +244,4 @@
         </div>
 
         <div>
-          <p class="footer-title" data-key="fExplore">Sahmin</p>
-          <ul class="footer-list">
-            <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
-            <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
-            <li><a href="news.html" data-key="navNews">Wararka</a></li>
-            <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="footer-title" data-key="fCompany">Shirkadda</p>
-          <ul class="footer-list">
-            <li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li>
-            <li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li>
-            <li><a href="terms.html"><span data-lang="so">Shuruudaha</span><span data-lang="en" hidden>Terms</span><span data-lang="ar" hidden>الشروط</span><span data-lang="sw" hidden>Masharti</span></a></li>
-            <li><a href="privacy.html"><span data-lang="so">Siyaasadda Asturnaanta</span><span data-lang="en" hidden>Privacy</span><span data-lang="ar" hidden>الخصوصية</span><span data-lang="sw" hidden>Faragha</span></a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p>
-        <p data-key="fBuilt">Aqoonta Beeraha</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-<script type="module" src="auth.js"></script>
-  <script src="analytics-config.js"></script>
-  <script src="analytics.js"></script>
-
-</body>
-
-</html>
+          <p class="footer-t

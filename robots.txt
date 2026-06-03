@@ -1,9 +1,39 @@
 # Beylood — robots.txt
 # https://beylood.com/
 
+# Default rules — all crawlers
 User-agent: *
 Allow: /
+Disallow: /signin.html
+Disallow: /signup.html
 Disallow: /admin.html
 Disallow: /dashboard.html
 
+# Block AI training crawlers (optional — remove if you want training)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Explicitly allow major search bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Sitemap location
 Sitemap: https://beylood.com/sitemap.xml
