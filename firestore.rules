@@ -30,11 +30,26 @@ service cloud.firestore {
     // someone stuffing large/extra data into the database.
     function validUser() {
       let d = request.resource.data;
-      return d.keys().hasOnly(['name', 'email', 'photoURL', 'provider', 'createdAt', 'lastLogin'])
-        && d.name is string && d.name.size() <= 80
-        && d.email is string && d.email.size() <= 254
-        && d.photoURL is string && d.photoURL.size() <= 2048
-        && (!('provider' in d) || (d.provider is string && d.provider.size() <= 32));
+      let allowed = [
+        'name', 'displayName',
+        'email',
+        'photoURL',
+        'provider',
+        'country', 'city',
+        'createdAt', 'updatedAt', 'lastLogin',
+        'bookmarksCount', 'articlesRead', 'loginCount'
+      ];
+      return d.keys().hasOnly(allowed)
+        && (!('name' in d)         || (d.name is string         && d.name.size() <= 80))
+        && (!('displayName' in d)  || (d.displayName is string  && d.displayName.size() <= 80))
+        && (!('email' in d)        || (d.email is string        && d.email.size() <= 254))
+        && (!('photoURL' in d)     || (d.photoURL is string     && d.photoURL.size() <= 2048))
+        && (!('provider' in d)     || (d.provider is string     && d.provider.size() <= 32))
+        && (!('country' in d)      || (d.country is string      && d.country.size() <= 40))
+        && (!('city' in d)         || (d.city is string         && d.city.size() <= 60))
+        && (!('bookmarksCount' in d) || (d.bookmarksCount is int && d.bookmarksCount >= 0 && d.bookmarksCount <= 100000))
+        && (!('articlesRead' in d)   || (d.articlesRead is int   && d.articlesRead   >= 0 && d.articlesRead   <= 100000))
+        && (!('loginCount' in d)     || (d.loginCount is int     && d.loginCount     >= 0 && d.loginCount     <= 100000));
     }
 
     match /users/{uid} {
@@ -54,7 +69,7 @@ service cloud.firestore {
       // can never be changed once set (prevents identity tampering).
       allow update: if isOwner(uid)
         && validUser()
-        && request.resource.data.email == resource.data.email;
+        && (!('email' in request.resource.data) || !('email' in resource.data) || request.resource.data.email == resource.data.email);
 
       // Profiles are never deleted from the client.
       allow delete: if false;

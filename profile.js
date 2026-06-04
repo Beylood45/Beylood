@@ -82,31 +82,59 @@ if (!configReady()) {
       window.location.replace('signin.html');
       return;
     }
+
+    // Step 1 — Always reveal the page first (auth is confirmed)
+    revealPage();
+
+    // Step 2 — Build a minimal profile object from auth user so the
+    //          page always has SOMETHING to show, even if Firestore
+    //          fails. Then merge any data we manage to load.
+    let profile = {
+      displayName: user.displayName || '',
+      email: user.email || '',
+      photoURL: user.photoURL || '',
+      country: '',
+      city: '',
+      bookmarksCount: 0,
+      articlesRead: 0,
+      loginCount: 0,
+      createdAt: user.metadata && user.metadata.creationTime ? user.metadata.creationTime : null
+    };
+
+    // Step 3 — Try to load Firestore profile. If it fails (permission,
+    //          offline, etc.), keep the defaults from auth.
     try {
-      const profile = await loadProfile(user);
-      revealPage();
-      renderHero(user, profile);
-      renderStats(user, profile);
-      renderCompletion(user, profile);
-      const bookmarks = await loadBookmarks(user);
-      renderSavedList(bookmarks);
-      // sync saved count if it's drifted
-      if (profile.bookmarksCount !== bookmarks.length) {
-        await setDoc(doc(db, 'users', user.uid), { bookmarksCount: bookmarks.length }, { merge: true });
-        const el = $('statSaved');
-        if (el) el.textContent = bookmarks.length;
-      }
-      wireEdit(user, profile);
+      const loaded = await loadProfile(user);
+      profile = Object.assign({}, profile, loaded || {});
     } catch (err) {
-      console.warn('Profile load failed:', err);
-      revealPage();
-      showFatal(tr({
-        so: 'Lama soo qaadi karo xogtaada hadda.',
-        en: 'Could not load your data right now.',
-        ar: 'لم نتمكن من تحميل بياناتك حالياً.',
-        sw: 'Hatukuweza kupakia data yako sasa.'
-      }));
+      console.warn('Firestore profile load failed, using auth defaults:', err);
     }
+
+    // Step 4 — Render whatever we have (always succeeds with defaults)
+    try { renderHero(user, profile); }       catch (e) { console.warn('renderHero:', e); }
+    try { renderStats(user, profile); }      catch (e) { console.warn('renderStats:', e); }
+    try { renderCompletion(user, profile); } catch (e) { console.warn('renderCompletion:', e); }
+
+    // Step 5 — Try bookmarks (best-effort)
+    let bookmarks = [];
+    try {
+      bookmarks = await loadBookmarks(user);
+      renderSavedList(bookmarks);
+      // sync saved count if it's drifted (best-effort, ignore failures)
+      if (profile.bookmarksCount !== bookmarks.length) {
+        try {
+          await setDoc(doc(db, 'users', user.uid), { bookmarksCount: bookmarks.length }, { merge: true });
+          const el = $('statSaved');
+          if (el) el.textContent = bookmarks.length;
+        } catch (e) { console.warn('Could not sync bookmarksCount:', e); }
+      }
+    } catch (err) {
+      console.warn('Bookmarks load failed:', err);
+      renderSavedList([]);
+    }
+
+    // Step 6 — Always wire the edit modal
+    try { wireEdit(user, profile); } catch (e) { console.warn('wireEdit:', e); }
   });
 }
 
@@ -132,24 +160,36 @@ function showFatal(msg) {
 /* ---------- Firestore ---------- */
 async function loadProfile(user) {
   const ref = doc(db, 'users', user.uid);
-  const snap = await getDoc(ref);
-  let data = snap.exists() ? snap.data() : {};
+  let snap;
+  try {
+    snap = await getDoc(ref);
+  } catch (e) {
+    console.warn('Could not read user doc:', e);
+    return {};
+  }
 
-  // Bootstrap doc on first visit
-  if (!snap.exists()) {
-    data = {
-      displayName: user.displayName || '',
-      email: user.email || '',
-      photoURL: user.photoURL || '',
-      country: '',
-      city: '',
-      bookmarksCount: 0,
-      articlesRead: 0,
-      loginCount: 1,
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp()
-    };
-    try { await setDoc(ref, data); } catch (e) { console.warn('Could not bootstrap user doc:', e); }
+  if (snap.exists()) {
+    return snap.data() || {};
+  }
+
+  // Bootstrap doc on first visit — best-effort, never throw
+  const data = {
+    displayName: user.displayName || '',
+    email: user.email || '',
+    photoURL: user.photoURL || '',
+    country: '',
+    city: '',
+    bookmarksCount: 0,
+    articlesRead: 0,
+    loginCount: 1,
+    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp()
+  };
+  try {
+    await setDoc(ref, data);
+  } catch (e) {
+    console.warn('Could not bootstrap user doc (rules may be old):', e);
+    // Return defaults anyway so page renders
   }
   return data;
 }
