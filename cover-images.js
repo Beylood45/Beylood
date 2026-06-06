@@ -17,6 +17,8 @@
     'cover-news-7': { src: 'assets/images/news/news-7-gu-forecast.jpg', topic: { so: "Saadaal roob", en: "Rain forecast", ar: "توقع الأمطار", sw: "Utabiri wa mvua" } },
     'cover-news-8': { src: 'assets/images/news/news-8-hajj-export.jpg', topic: { so: "Xajka", en: "Hajj export", ar: "تصدير الحج", sw: "Mauzo Hajj" } },
     'cover-news-9': { src: 'assets/images/news/news-9-ai-drones.jpg', topic: { so: "AI iyo drones", en: "AI and drones", ar: "AI والطائرات", sw: "AI na drones" } },
+    'cover-news-10': { src: 'assets/images/news/news-10-deyr-forecast.jpg', topic: { so: "Saadaal Deyr", en: "Deyr forecast", ar: "توقعات الديري", sw: "Utabiri Deyr" } },
+    'cover-vertical-farming': { src: 'assets/images/articles/vertical-farming.jpg', topic: { so: "Beerista Taalka", en: "Vertical Farming", ar: "الزراعة العمودية", sw: "Kilimo Wima" } },
     'cover-cabbage-farming': { src: 'assets/images/articles/cabbage-farming.jpg', topic: { so: "Kaabashka", en: "Cabbage", ar: "الملفوف", sw: "Kabichi" } },
     'cover-banana-farming': { src: 'assets/images/articles/banana-farming.jpg', topic: { so: "Mooska", en: "Bananas", ar: "الموز", sw: "Ndizi" } },
     'cover-mango-farming': { src: 'assets/images/articles/mango-farming.jpg', topic: { so: "Cambaha", en: "Mango", ar: "المانجو", sw: "Maembe" } },
