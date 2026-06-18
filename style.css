@@ -3559,6 +3559,84 @@ mark.sr-hl {
 [data-theme="dark"] .result-tag { background: rgba(123,193,66,.16); color: var(--green-300); }
 [data-theme="dark"] .result-link { color: var(--green-300); }
 
+/* ============================================
+   Cover image fallback — branded category covers
+   No image files needed; designed gradients per category.
+   ============================================ */
+.card-cover, .article-cover {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cover-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .3s ease;
+  z-index: 2;
+}
+.cover-img.is-loaded { opacity: 1; }
+
+.cover-fallback {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px;
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  z-index: 1;
+  transition: opacity .3s ease;
+  /* Subtle pattern overlay */
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.12) 0, transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,.08) 0, transparent 40%),
+    var(--cover-grad, linear-gradient(135deg, #0F3F7E 0%, #3BA935 100%));
+}
+.cover-fallback.is-behind { opacity: 0; pointer-events: none; }
+
+.cover-fb-ico {
+  font-size: 36px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
+  line-height: 1;
+}
+.card-cover .cover-fb-ico { font-size: 28px; }
+
+.cover-fb-topic {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  text-shadow: 0 1px 3px rgba(0,0,0,.25);
+  max-width: 80%;
+  word-break: break-word;
+}
+.card-cover .cover-fb-topic { font-size: 14px; }
+
+.cover-fb-brand {
+  position: absolute;
+  bottom: 10px; right: 12px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  opacity: .55;
+}
+.card-cover .cover-fb-brand {
+  bottom: 6px; right: 8px;
+  font-size: 9px;
+}
+
+/* Category-specific gradients */
+.cover-fallback-crops      { --cover-grad: linear-gradient(135deg, #166534 0%, #3BA935 60%, #84CC16 100%); }
+.cover-fallback-irrigation { --cover-grad: linear-gradient(135deg, #0C4A6E 0%, #0369A1 50%, #38BDF8 100%); }
+.cover-fallback-livestock  { --cover-grad: linear-gradient(135deg, #7C2D12 0%, #B45309 50%, #F59E0B 100%); }
+.cover-fallback-climate    { --cover-grad: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #93C5FD 100%); }
+.cover-fallback-soil       { --cover-grad: linear-gradient(135deg, #44403C 0%, #78350F 50%, #B45309 100%); }
+.cover-fallback-pests      { --cover-grad: linear-gradient(135deg, #831843 0%, #BE185D 50%, #F472B6 100%); }
+.cover-fallback-news       { --cover-grad: linear-gradient(135deg, #1F2937 0%, #0F3F7E 50%, #3BA935 100%); }
+.cover-fallback-tech       { --cover-grad: linear-gradient(135deg, #4C1D95 0%, #7C3AED 50%, #A78BFA 100%); }
+
 /* RTL adjustments */
 html[dir="rtl"] .search-field { padding: 0 22px 0 16px; }
 

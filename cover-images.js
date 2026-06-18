@@ -18,7 +18,9 @@
     'cover-news-8': { src: 'assets/images/news/news-8-hajj-export.jpg', topic: { so: "Xajka", en: "Hajj export", ar: "تصدير الحج", sw: "Mauzo Hajj" } },
     'cover-news-9': { src: 'assets/images/news/news-9-ai-drones.jpg', topic: { so: "AI iyo drones", en: "AI and drones", ar: "AI والطائرات", sw: "AI na drones" } },
     'cover-news-10': { src: 'assets/images/news/news-10-deyr-forecast.jpg', topic: { so: "Saadaal Deyr", en: "Deyr forecast", ar: "توقعات الديري", sw: "Utabiri Deyr" } },
+    'cover-news-11': { src: 'assets/images/news/news-11-locust-alert.jpg', topic: { so: "Digniin Ayax", en: "Locust Alert", ar: "تحذير الجراد", sw: "Tahadhari ya Nzige" } },
     'cover-vertical-farming': { src: 'assets/images/articles/vertical-farming.jpg', topic: { so: "Beerista Taalka", en: "Vertical Farming", ar: "الزراعة العمودية", sw: "Kilimo Wima" } },
+    'cover-home-garden': { src: 'assets/images/articles/home-garden.jpg', topic: { so: "Beer-Guri", en: "Home Garden", ar: "حديقة منزلية", sw: "Bustani ya Nyumbani" } },
     'cover-cabbage-farming': { src: 'assets/images/articles/cabbage-farming.jpg', topic: { so: "Kaabashka", en: "Cabbage", ar: "الملفوف", sw: "Kabichi" } },
     'cover-banana-farming': { src: 'assets/images/articles/banana-farming.jpg', topic: { so: "Mooska", en: "Bananas", ar: "الموز", sw: "Ndizi" } },
     'cover-mango-farming': { src: 'assets/images/articles/mango-farming.jpg', topic: { so: "Cambaha", en: "Mango", ar: "المانجو", sw: "Maembe" } },
@@ -102,23 +104,60 @@
     return text.replace(/\s+[\u2014-]\s+.*(buuxa|complete guide|\u0627\u0644\u0634\u0627\u0645\u0644|kamili).*$/i, '').trim() + ' \u2014 Beylood';
   }
 
+  // Category → visual variant (color + emoji). Inferred from slug.
+  function categoryFor(key) {
+    if (/dairy|poultry|goat|sheep|cattle|beef|camel|fish|rabbit|bee|feed|livestock/.test(key)) return { v: 'livestock', ico: '🐄', tag: 'Xoolaha' };
+    if (/irrigation|drip|sprinkler|furrow|borehole|water|rainwater|fertigation|greenhouse-irrig/.test(key)) return { v: 'irrigation', ico: '💧', tag: 'Waraabka' };
+    if (/climate|weather|rainy|dry|drought|flood|windbreak|shade|agroforestry/.test(key)) return { v: 'climate', ico: '☁️', tag: 'Cimilada' };
+    if (/soil|compost|cover-crop|no-till|mulching-soil|vermicompost|soil-test/.test(key)) return { v: 'soil', ico: '🌱', tag: 'Carrada' };
+    if (/pest|disease|aphid|whitefly|blight|mildew|rot|armyworm|preventing/.test(key)) return { v: 'pests', ico: '🐛', tag: 'Cudurrada' };
+    if (/news/.test(key)) return { v: 'news', ico: '📰', tag: 'Wararka' };
+    if (/precision|organic|food-security|vertical-farming|crop-rotation/.test(key)) return { v: 'tech', ico: '🔬', tag: 'Tignoolajiyo' };
+    return { v: 'crops', ico: '🌾', tag: 'Dalagga' };
+  }
+
+  function injectFallback(cover, entry, cat) {
+    if (cover.querySelector('.cover-fallback')) return;
+    var fb = document.createElement('div');
+    fb.className = 'cover-fallback cover-fallback-' + cat.v;
+    var topic = (entry && entry.topic && (entry.topic[curLang()] || entry.topic.en)) || cat.tag;
+    fb.innerHTML =
+      '<span class="cover-fb-ico" aria-hidden="true">' + cat.ico + '</span>' +
+      '<span class="cover-fb-topic">' + topic.replace(/[<>]/g, '') + '</span>' +
+      '<span class="cover-fb-brand">BEYLOOD</span>';
+    cover.appendChild(fb);
+  }
+
   function apply() {
     document.querySelectorAll('.card-cover, .article-cover').forEach(function (cover) {
       var key = null;
       for (var i = 0; i < cover.classList.length; i++) {
         if (IMAGE_MAP[cover.classList[i]]) { key = cover.classList[i]; break; }
+        if (/^cover-/.test(cover.classList[i])) { key = key || cover.classList[i]; }
       }
       if (!key || cover.querySelector('img.cover-img')) return;
       var entry = IMAGE_MAP[key];
-      var img = document.createElement('img');
-      img.className = 'cover-img';
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      img.src = entry.src;
-      img.alt = buildAlt(cover, entry.topic);
-      img.addEventListener('load',  function () { img.classList.add('is-loaded'); });
-      img.addEventListener('error', function () { img.remove(); }); // gradient fallback
-      cover.insertBefore(img, cover.firstChild);
+      var cat = categoryFor(key);
+
+      // Always inject a designed fallback overlay first (visible until image loads)
+      injectFallback(cover, entry, cat);
+
+      // Try to load the real image. If it loads, hide the fallback. If it 404s, fallback stays.
+      if (entry && entry.src) {
+        var img = document.createElement('img');
+        img.className = 'cover-img';
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.src = entry.src;
+        img.alt = buildAlt(cover, entry.topic);
+        img.addEventListener('load', function () {
+          img.classList.add('is-loaded');
+          var fb = cover.querySelector('.cover-fallback');
+          if (fb) fb.classList.add('is-behind');
+        });
+        img.addEventListener('error', function () { img.remove(); }); // fallback stays
+        cover.insertBefore(img, cover.firstChild);
+      }
     });
   }
 
