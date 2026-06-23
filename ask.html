@@ -18,6 +18,7 @@
   <meta property="og:type" content="website" />
 
   <link rel="stylesheet" href="style.css?v=20260618" />
+  <link rel="stylesheet" href="ask.css?v=20260618" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -165,83 +166,104 @@
   </div>
 </header>
 
-<!-- ===================== ASK BEYLOOD AI — COMING SOON ===================== -->
+<!-- ===================== ASK BEYLOOD AI — 100% FREE CHATBOT ===================== -->
 <!--
-  Ask Beylood AI: honest "Coming Soon" experience (no fake chatbot replies).
-  FUTURE INTEGRATION: a serverless function (see /api/chat.js) will call a
-  real model provider (Gemini / Claude / OpenAI). When ready, replace this
-  section with the live chat UI and wire it to that endpoint.
+  Beylood AI: free chatbot that searches the local Beylood knowledge base
+  (chatbot-knowledge.js). No paid APIs, no API keys, no external services.
+  Firestore is used only for chat history + admin stats.
 -->
-<section class="section ai-soon" id="ask">
-  <div class="container">
+<section class="section ai-chat-section" id="ask">
+  <div class="container ai-chat-container">
 
-    <div class="ai-soon-card reveal">
-      <span class="ai-soon-badge">
-        <span class="ai-soon-dot" aria-hidden="true"></span>
-        <span data-lang="so">DHOWAAN — COMING SOON</span><span data-lang="en" hidden>COMING SOON</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>HIVI KARIBUNI</span>
+    <header class="ai-chat-header reveal">
+      <span class="ai-chat-badge">
+        <span class="ai-chat-dot" aria-hidden="true"></span>
+        <span data-lang="so">CAAWIYE AI AH</span><span data-lang="en" hidden>AI ASSISTANT</span><span data-lang="ar" hidden>مساعد AI</span><span data-lang="sw" hidden>MSAIDIZI AI</span>
       </span>
-
-      <div class="ai-soon-orb" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4"/><circle cx="12" cy="3" r="1.4" fill="currentColor"/><circle cx="9" cy="13" r="1.2" fill="currentColor"/><circle cx="15" cy="13" r="1.2" fill="currentColor"/><path d="M9 17h6"/></svg>
-      </div>
-
-      <h1 class="ai-soon-title">
+      <h1 class="ai-chat-title">
         <span data-lang="so">Waydii Beylood AI</span><span data-lang="en" hidden>Ask Beylood AI</span><span data-lang="ar" hidden>اسأل Beylood AI</span><span data-lang="sw" hidden>Uliza Beylood AI</span>
       </h1>
-
-      <p class="ai-soon-sub">
-        <span data-lang="so">Waydii Beylood AI hadda waa la horumarinayaa, waxayna dhawaan soo bixi doontaa iyada oo leh adeegyo casri ah oo beero caqli-gal ah.</span>
-        <span data-lang="en" hidden>Ask Beylood AI is currently under development and will launch soon with advanced smart agriculture features.</span>
-        <span data-lang="ar" hidden>مساعد Beylood AI قيد التطوير حالياً وسيُطلق قريباً بميزات زراعية ذكية ومتقدمة.</span>
-        <span data-lang="sw" hidden>Beylood AI bado inatengenezwa na itazinduliwa hivi karibuni ikiwa na vipengele vya kisasa vya kilimo cha akili.</span>
+      <p class="ai-chat-sub">
+        <span data-lang="so">Waydii wax kasta oo ku saabsan beeraha, xoolaha, cudurrada, biyo-waraab, ama xilliyada Soomaaliya — waxaad ku helaysaa jawaab xirfadeed oo Soomaali ah.</span>
+        <span data-lang="en" hidden>Ask anything about farming, livestock, crop diseases, irrigation, or Somali agricultural seasons — get a professional Somali-language answer.</span>
+        <span data-lang="ar" hidden>اسأل عن الزراعة، الماشية، الأمراض، الري، أو المواسم الزراعية الصومالية — تحصل على إجابة احترافية بالصومالية.</span>
+        <span data-lang="sw" hidden>Uliza kuhusu kilimo, mifugo, magonjwa, umwagiliaji, au misimu ya kilimo Somalia — pata jibu la kitaalamu kwa Kisomali.</span>
       </p>
-
-      <div class="ai-soon-actions">
-        <a href="signup.html" class="btn btn-accent">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          <span data-lang="so">Iga soo wargeli markay diyaar noqoto</span><span data-lang="en" hidden>Notify me at launch</span><span data-lang="ar" hidden>أبلغني عند الإطلاق</span><span data-lang="sw" hidden>Nijulishe itakapozinduliwa</span>
-        </a>
-        <a href="#faq" class="ai-soon-secondary">
-          <span data-lang="so">Inta lagu jiro, eeg su'aalaha</span><span data-lang="en" hidden>Meanwhile, see the FAQ</span><span data-lang="ar" hidden>في هذه الأثناء، اطّلع على الأسئلة</span><span data-lang="sw" hidden>Wakati huo, angalia maswali</span>
-        </a>
+      <div class="ai-chat-toolbar" id="aiChatToolbar">
+        <button type="button" id="aiHistoryBtn" class="ai-tool-btn" hidden aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span data-lang="so">Wadahadalladii hore</span><span data-lang="en" hidden>Past conversations</span><span data-lang="ar" hidden>المحادثات السابقة</span><span data-lang="sw" hidden>Mazungumzo ya awali</span>
+        </button>
+        <button type="button" id="aiNewChatBtn" class="ai-tool-btn ai-tool-btn-primary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span data-lang="so">Wadahadal cusub</span><span data-lang="en" hidden>New chat</span><span data-lang="ar" hidden>محادثة جديدة</span><span data-lang="sw" hidden>Mazungumzo mapya</span>
+        </button>
+        <span class="ai-auth-status" id="aiAuthStatus"></span>
       </div>
-    </div>
+    </header>
 
-    <div class="ai-feature-grid">
-      <div class="ai-feature reveal">
-        <span class="ai-feature-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a4 4 0 0 0 8 0v-1a4 4 0 0 0 0-8V6a4 4 0 0 0-4-4z"/></svg></span>
-        <h3><span data-lang="so">Caawiye Beeraha oo Caqli leh</span><span data-lang="en" hidden>Smart Agriculture Assistant</span><span data-lang="ar" hidden>مساعد زراعي ذكي</span><span data-lang="sw" hidden>Msaidizi wa Kilimo wa Akili</span></h3>
-        <p><span data-lang="so">Jawaabo degdeg ah oo ku saabsan beerista, daryeelka, iyo dhibaatooyinka dalagga.</span><span data-lang="en" hidden>Instant answers on planting, care, and crop problems.</span><span data-lang="ar" hidden>إجابات فورية حول الزراعة والعناية ومشاكل المحاصيل.</span><span data-lang="sw" hidden>Majibu ya papo kwa papo kuhusu kupanda na matatizo ya mazao.</span></p>
-        <span class="ai-feature-soon"><span data-lang="so">Dhowaan</span><span data-lang="en" hidden>Soon</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>Karibuni</span></span>
+    <aside class="ai-history-panel" id="aiHistoryPanel" hidden aria-label="Past conversations">
+      <div class="ai-history-head">
+        <h3>
+          <span data-lang="so">Wadahadalladaadii hore</span><span data-lang="en" hidden>Your conversations</span><span data-lang="ar" hidden>محادثاتك</span><span data-lang="sw" hidden>Mazungumzo yako</span>
+        </h3>
+        <button type="button" class="ai-history-close" id="aiHistoryClose" aria-label="Close">×</button>
+      </div>
+      <ul class="ai-history-list" id="aiHistoryList"></ul>
+      <p class="ai-history-empty" id="aiHistoryEmpty" hidden>
+        <span data-lang="so">Wadahadal hore lama kaydin.</span><span data-lang="en" hidden>No past conversations yet.</span><span data-lang="ar" hidden>لا توجد محادثات سابقة.</span><span data-lang="sw" hidden>Hakuna mazungumzo ya awali.</span>
+      </p>
+    </aside>
+
+    <div class="ai-chat reveal" role="region" aria-label="Beylood AI chat">
+      <div class="ai-chat-window" id="aiChatWindow" aria-live="polite" aria-atomic="false">
+        <!-- Welcome bubble -->
+        <div class="ai-msg ai-msg-bot">
+          <div class="ai-msg-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4"/><circle cx="12" cy="3" r="1.2" fill="currentColor"/><circle cx="9" cy="13" r="1" fill="currentColor"/><circle cx="15" cy="13" r="1" fill="currentColor"/><path d="M9 17h6"/></svg>
+          </div>
+          <div class="ai-msg-body">
+            <p>
+              <span data-lang="so">Salaan! Anigu waxaan ahay <strong>Beylood AI</strong> — caawiye beeralayda Soomaaliyeed. Waxaad iwaydiin kartaa wax kasta oo ku saabsan beeraha, xoolaha, ama cudurrada dalagga.</span>
+              <span data-lang="en" hidden>Hi! I'm <strong>Beylood AI</strong> — assistant for Somali farmers. Ask me anything about farming, livestock, or crop diseases.</span>
+              <span data-lang="ar" hidden>مرحباً! أنا <strong>Beylood AI</strong> — مساعد للمزارعين الصوماليين. اسألني عن أي شيء يخص الزراعة.</span>
+              <span data-lang="sw" hidden>Habari! Mimi ni <strong>Beylood AI</strong> — msaidizi wa wakulima Kisomali.</span>
+            </p>
+            <div class="ai-chips" role="group" aria-label="Suggested questions">
+              <button type="button" class="ai-chip" data-prompt="Sidee loo beero galleyda xilliga Gu' 2026 Soomaaliya?">
+                <span data-lang="so">Beerista Galleyda Gu' 2026</span><span data-lang="en" hidden>Growing maize Gu 2026</span><span data-lang="ar" hidden>زراعة الذرة</span><span data-lang="sw" hidden>Mahindi Gu 2026</span>
+              </button>
+              <button type="button" class="ai-chip" data-prompt="Sidee aan u xakameeya whiteflies-ka yaanyada?">
+                <span data-lang="so">Xakamaynta Whiteflies</span><span data-lang="en" hidden>Whitefly control</span><span data-lang="ar" hidden>الذبابة البيضاء</span><span data-lang="sw" hidden>Whitefly</span>
+              </button>
+              <button type="button" class="ai-chip" data-prompt="Maxay tahay dalagga ugu fiican abaaraha ku habboon?">
+                <span data-lang="so">Dalagga Abaaraha</span><span data-lang="en" hidden>Drought crops</span><span data-lang="ar" hidden>محاصيل الجفاف</span><span data-lang="sw" hidden>Mazao ya ukame</span>
+              </button>
+              <button type="button" class="ai-chip" data-prompt="Sidee aan u bilaabo beer khudaarta gurigayga?">
+                <span data-lang="so">Bilow Beer-Guri</span><span data-lang="en" hidden>Start home garden</span><span data-lang="ar" hidden>حديقة منزلية</span><span data-lang="sw" hidden>Bustani nyumbani</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="ai-feature reveal">
-        <span class="ai-feature-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.39 7.36H22l-6.18 4.49L18.21 22 12 17.27 5.79 22l2.39-8.15L2 9.36h7.61z"/></svg></span>
-        <h3><span data-lang="so">Talooyin Dalag oo AI ah</span><span data-lang="en" hidden>AI Crop Recommendations</span><span data-lang="ar" hidden>توصيات المحاصيل بالذكاء الاصطناعي</span><span data-lang="sw" hidden>Mapendekezo ya Mazao ya AI</span></h3>
-        <p><span data-lang="so">Dalagga kuu habboon gobolkaaga, ciidda, iyo xilliga.</span><span data-lang="en" hidden>The best crops for your region, soil, and season.</span><span data-lang="ar" hidden>أفضل المحاصيل لمنطقتك وتربتك وموسمك.</span><span data-lang="sw" hidden>Mazao bora kwa eneo, udongo, na msimu wako.</span></p>
-        <span class="ai-feature-soon"><span data-lang="so">Dhowaan</span><span data-lang="en" hidden>Soon</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>Karibuni</span></span>
-      </div>
+      <form class="ai-chat-form" id="aiChatForm" autocomplete="off">
+        <label for="aiChatInput" class="visually-hidden">
+          <span data-lang="so">Su'aashaada qor</span><span data-lang="en" hidden>Type your question</span><span data-lang="ar" hidden>اكتب سؤالك</span><span data-lang="sw" hidden>Andika swali lako</span>
+        </label>
+        <textarea id="aiChatInput" name="prompt" rows="1" maxlength="2000" required
+          placeholder="Su'aashaada halkan ku qor..." aria-label="Question input"></textarea>
+        <button type="submit" id="aiChatSend" class="ai-chat-send" aria-label="Send">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
 
-      <div class="ai-feature reveal">
-        <span class="ai-feature-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M19 9l-5 5-4-4-3 3"/></svg></span>
-        <h3><span data-lang="so">Aragtida Suuqa</span><span data-lang="en" hidden>Market Insights</span><span data-lang="ar" hidden>رؤى السوق</span><span data-lang="sw" hidden>Maarifa ya Soko</span></h3>
-        <p><span data-lang="so">Qiimaha iyo dalabka suuqa si aad u iibiso wakhtiga saxda ah.</span><span data-lang="en" hidden>Prices and demand so you sell at the right time.</span><span data-lang="ar" hidden>الأسعار والطلب لتبيع في الوقت المناسب.</span><span data-lang="sw" hidden>Bei na mahitaji ili uuze kwa wakati sahihi.</span></p>
-        <span class="ai-feature-soon"><span data-lang="so">Dhowaan</span><span data-lang="en" hidden>Soon</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>Karibuni</span></span>
-      </div>
-
-      <div class="ai-feature reveal">
-        <span class="ai-feature-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-        <h3><span data-lang="so">Hagitaan Beereed</span><span data-lang="en" hidden>Farming Guidance</span><span data-lang="ar" hidden>إرشاد زراعي</span><span data-lang="sw" hidden>Mwongozo wa Kilimo</span></h3>
-        <p><span data-lang="so">Tallaabo-tallaabo hagitaan ah xilli kasta oo beereed.</span><span data-lang="en" hidden>Step-by-step guidance through every farming season.</span><span data-lang="ar" hidden>إرشاد خطوة بخطوة في كل موسم زراعي.</span><span data-lang="sw" hidden>Mwongozo hatua kwa hatua kila msimu wa kilimo.</span></p>
-        <span class="ai-feature-soon"><span data-lang="so">Dhowaan</span><span data-lang="en" hidden>Soon</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>Karibuni</span></span>
-      </div>
-
-      <div class="ai-feature reveal">
-        <span class="ai-feature-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
-        <h3><span data-lang="so">Qalab AI oo Gaar ah</span><span data-lang="en" hidden>Personalized AI Tools</span><span data-lang="ar" hidden>أدوات ذكاء اصطناعي مخصّصة</span><span data-lang="sw" hidden>Zana za AI Binafsi</span></h3>
-        <p><span data-lang="so">Qalab xisaabineed iyo qorshe gaar ah oo beertaada u eg.</span><span data-lang="en" hidden>Calculators and plans tailored to your farm.</span><span data-lang="ar" hidden>حاسبات وخطط مصمّمة لمزرعتك.</span><span data-lang="sw" hidden>Vikokotoo na mipango maalum kwa shamba lako.</span></p>
-        <span class="ai-feature-soon"><span data-lang="so">Dhowaan</span><span data-lang="en" hidden>Soon</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>Karibuni</span></span>
-      </div>
+      <p class="ai-chat-disclaimer">
+        <span data-lang="so">⚠️ Beylood AI waxay siisaa talooyin guud. Marka aad arrin halis ah la kulanto (cudur faafaya, abaar), la xidhiidh Wasaaradda Beeraha gobolkaaga.</span>
+        <span data-lang="en" hidden>⚠️ Beylood AI gives general guidance. For urgent issues (outbreak, drought) contact your regional Ministry of Agriculture.</span>
+        <span data-lang="ar" hidden>⚠️ Beylood AI يقدم توجيهات عامة. للحالات العاجلة تواصل مع وزارة الزراعة في منطقتك.</span>
+        <span data-lang="sw" hidden>⚠️ Beylood AI inatoa mwongozo wa jumla. Kwa dharura wasiliana na Wizara ya Kilimo.</span>
+      </p>
     </div>
 
   </div>
@@ -442,16 +464,9 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">
-          <img src="assets/logo-transparent.png" alt="Beylood" />
-          <div>
-            <p class="footer-name">Beylood</p>
-            <p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p>
-          </div>
-        </div>
+        <div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div>
         <p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p>
       </div>
-
       <div>
         <p class="footer-title" data-key="fExplore">Sahmin</p>
         <ul class="footer-list">
@@ -461,18 +476,16 @@
           <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
         </ul>
       </div>
-
       <div>
         <p class="footer-title" data-key="fCompany">Shirkadda</p>
         <ul class="footer-list">
           <li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li>
           <li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li>
-            <li><a href="terms.html"><span data-lang="so">Shuruudaha</span><span data-lang="en" hidden>Terms</span><span data-lang="ar" hidden>الشروط</span><span data-lang="sw" hidden>Masharti</span></a></li>
-            <li><a href="privacy.html"><span data-lang="so">Siyaasadda Asturnaanta</span><span data-lang="en" hidden>Privacy</span><span data-lang="ar" hidden>الخصوصية</span><span data-lang="sw" hidden>Faragha</span></a></li>
+          <li><a href="terms.html"><span data-lang="so">Shuruudaha</span><span data-lang="en" hidden>Terms</span><span data-lang="ar" hidden>الشروط</span><span data-lang="sw" hidden>Masharti</span></a></li>
+          <li><a href="privacy.html"><span data-lang="so">Siyaasadda Asturnaanta</span><span data-lang="en" hidden>Privacy</span><span data-lang="ar" hidden>الخصوصية</span><span data-lang="sw" hidden>Faragha</span></a></li>
         </ul>
       </div>
     </div>
-
     <div class="footer-bottom">
       <p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p>
       <p data-key="fBuilt">Aqoonta Beeraha</p>
@@ -483,9 +496,10 @@
 <script src="script.js?v=20260618"></script>
 <script src="cover-images.js?v=20260618"></script>
 <script type="module" src="auth.js?v=20260618"></script>
-  <script src="analytics-config.js?v=20260618"></script>
-  <script src="analytics.js?v=20260618"></script>
+<script src="chatbot-knowledge.js?v=20260618"></script>
+<script type="module" src="ask.js?v=20260618"></script>
+<script src="analytics-config.js?v=20260618"></script>
+<script src="analytics.js?v=20260618"></script>
 
-</body
 </body>
 </html>

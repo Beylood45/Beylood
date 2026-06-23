@@ -161,6 +161,69 @@
         </div>
       </section>
 
+      <!-- ===================== AI CHAT STATS ===================== -->
+      <section class="admin-section" aria-label="AI chat statistics">
+        <h2 class="admin-section__title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4"/><circle cx="12" cy="3" r="1.2" fill="currentColor"/><circle cx="9" cy="13" r="1" fill="currentColor"/><circle cx="15" cy="13" r="1" fill="currentColor"/><path d="M9 17h6"/></svg>
+          AI Chat Statistics
+        </h2>
+        <div class="admin-kpis admin-kpis--ai">
+          <div class="admin-card">
+            <div class="admin-card__head">
+              <span class="admin-card__icon admin-icon-navy" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </span>
+              <span class="admin-card__title">Total Chats</span>
+            </div>
+            <div class="admin-card__value" id="kpiAiChats">—</div>
+            <div class="admin-card__hint">All conversations started</div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card__head">
+              <span class="admin-card__icon admin-icon-green" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="2" y="9" width="20" height="13" rx="2"/></svg>
+              </span>
+              <span class="admin-card__title">Total Messages</span>
+            </div>
+            <div class="admin-card__value" id="kpiAiMessages">—</div>
+            <div class="admin-card__hint">User + bot messages combined</div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card__head">
+              <span class="admin-card__icon admin-icon-amber" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </span>
+              <span class="admin-card__title">Chats Today</span>
+            </div>
+            <div class="admin-card__value" id="kpiAiToday">—</div>
+            <div class="admin-card__hint" id="kpiAiTodayHint">Active users: —</div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card__head">
+              <span class="admin-card__icon admin-icon-sky" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+              </span>
+              <span class="admin-card__title">Avg / Chat</span>
+            </div>
+            <div class="admin-card__value" id="kpiAiAvg">—</div>
+            <div class="admin-card__hint">Messages per conversation</div>
+          </div>
+        </div>
+
+        <div class="admin-chart-card" style="margin-top:24px;">
+          <div class="admin-chart-card__head">
+            <h3>Most Common Topics (last 100 chats)</h3>
+            <p>Top question themes asked by users.</p>
+          </div>
+          <ol class="admin-list" id="aiTopTopics">
+            <li class="admin-list__empty">Awaiting data…</li>
+          </ol>
+        </div>
+      </section>
+
       <!-- Charts -->
       <section class="admin-charts">
         <div class="admin-chart-card">

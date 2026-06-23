@@ -315,3 +315,25 @@
   .admin-card__value { font-size: 30px; }
   .admin-header { align-items: flex-start; }
 }
+
+/* ---------- AI chat stats section ---------- */
+.admin-section { margin-top: 40px; }
+.admin-section__title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 18px; font-weight: 700;
+  color: var(--navy-900, #0F3F7E);
+  margin: 0 0 18px;
+}
+.admin-kpis--ai { margin-bottom: 0; }
+.admin-list {
+  list-style: none; margin: 18px 0 0; padding: 0;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.admin-list li {
+  background: var(--gray-50, #F9FAFB);
+  border: 1px solid var(--gray-200, #E5E7EB);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+.admin-list__empty { color: var(--gray-500, #6B7280); font-style: italic; }

@@ -86,27 +86,58 @@ service cloud.firestore {
 
         allow delete: if isOwner(uid);
       }
+
+      // ---- AI chat conversations ----
+      // Each chat doc holds metadata; messages are stored in a
+      // subcollection. Owner read/write. Admins may read for stats.
+      match /chats/{chatId} {
+        allow read: if isOwner(uid) || isAdmin();
+
+        allow create: if isOwner(uid)
+          && request.resource.data.keys().hasOnly(['title', 'createdAt', 'lastMessageAt', 'messageCount'])
+          && request.resource.data.title is string && request.resource.data.title.size() <= 120;
+
+        allow update: if isOwner(uid)
+          && request.resource.data.keys().hasOnly(['title', 'createdAt', 'lastMessageAt', 'messageCount'])
+          && (!('title' in request.resource.data) || (request.resource.data.title is string && request.resource.data.title.size() <= 120))
+          && (!('messageCount' in request.resource.data) || (request.resource.data.messageCount is int && request.resource.data.messageCount >= 0 && request.resource.data.messageCount <= 10000));
+
+        allow delete: if isOwner(uid);
+
+        match /messages/{msgId} {
+          allow read: if isOwner(uid) || isAdmin();
+
+          allow create: if isOwner(uid)
+            && request.resource.data.keys().hasOnly(['role', 'content', 'createdAt'])
+            && request.resource.data.role in ['user', 'assistant']
+            && request.resource.data.content is string
+            && request.resource.data.content.size() <= 8000;
+
+          // Messages are immutable once written
+          allow update: if false;
+          allow delete: if isOwner(uid);
+        }
+      }
     }
 
     // ---- Admin registry ----
-    // Each document represents one admin. The doc ID is the user's
-    // uid. Writes must be done in the Firebase Console only — never
-    // from the client.
     match /admins/{uid} {
-      // The signed-in caller may read their OWN admin doc to
-      // confirm whether they are an admin (used by admin.html).
       allow read: if isOwner(uid);
-      // Listing the admin registry from the client is denied.
-      // Adding or removing admins must be done in the console.
       allow write: if false;
     }
 
     // ---- Site-wide stats (counters) ----
-    // Public counters (e.g. total page views) that the dashboard
-    // can show without leaking per-user info. Admin-only writes.
+    // Public read. Admin-only writes for arbitrary docs. Signed-in
+    // users may bump approved AI counters via merge:true increments.
     match /stats/{docId} {
       allow read: if true;
       allow write: if isAdmin();
+      allow update, create: if request.auth != null
+        && (docId == 'aiStats' || docId.matches('aiDaily-.*'))
+        && request.resource.data.keys().hasOnly([
+          'totalChats', 'totalMessages', 'lastActivityAt',
+          'date', 'activeUsers', 'chats'
+        ]);
     }
 
     // Deny everything not explicitly matched above.

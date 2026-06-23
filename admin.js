@@ -185,10 +185,122 @@ async function loadDashboard() {
   // ---- Recent users table ----
   renderRecentUsers(users);
 
+  // ---- AI chat stats (best-effort; failure shouldn't break the page) ----
+  loadAiStats().catch((err) => console.warn('AI stats load failed:', err));
+
   // ---- Charts ----
   // Chart.js loads with `defer`. Wait until it's available.
   await waitForChartJS();
   renderCharts(users);
+}
+
+/* ---------- AI chat stats ---------- */
+async function loadAiStats() {
+  // Global counters
+  try {
+    const statsRef = doc(db, 'stats', 'aiStats');
+    const statsSnap = await getDoc(statsRef);
+    const data = statsSnap.exists() ? statsSnap.data() : {};
+    const totalChats    = Number(data.totalChats || 0);
+    const totalMessages = Number(data.totalMessages || 0);
+    setText('kpiAiChats', totalChats);
+    setText('kpiAiMessages', totalMessages);
+    if (totalChats > 0) {
+      setText('kpiAiAvg', (totalMessages / totalChats).toFixed(1));
+    } else {
+      setText('kpiAiAvg', '—');
+    }
+  } catch (e) {
+    setText('kpiAiChats', '—');
+    setText('kpiAiMessages', '—');
+    setText('kpiAiAvg', '—');
+  }
+
+  // Today's counters
+  try {
+    const dayKey = new Date().toISOString().slice(0, 10);
+    const todayRef = doc(db, 'stats', 'aiDaily-' + dayKey);
+    const todaySnap = await getDoc(todayRef);
+    const t = todaySnap.exists() ? todaySnap.data() : {};
+    setText('kpiAiToday', Number(t.chats || 0));
+    setText('kpiAiTodayHint', 'Active users today: ' + Number(t.activeUsers || 0));
+  } catch (e) {
+    setText('kpiAiToday', '—');
+  }
+
+  // Top topics — sample last 100 messages across all users (admin can read)
+  try {
+    const topicsEl = document.getElementById('aiTopTopics');
+    if (!topicsEl) return;
+    const usersSnap = await getDocs(collection(db, 'users'));
+    const allTitles = [];
+    for (const u of usersSnap.docs) {
+      try {
+        const chatsSnap = await getDocs(query(
+          collection(db, 'users', u.id, 'chats'),
+          orderBy('lastMessageAt', 'desc'),
+          limit(20)
+        ));
+        chatsSnap.forEach((c) => { if (c.data().title) allTitles.push(c.data().title); });
+        if (allTitles.length >= 100) break;
+      } catch (_) { /* per-user fetch is best-effort */ }
+    }
+    const top = topTopicsFromTitles(allTitles.slice(0, 100));
+    topicsEl.innerHTML = '';
+    if (!top.length) {
+      const li = document.createElement('li');
+      li.className = 'admin-list__empty';
+      li.textContent = 'No chats yet.';
+      topicsEl.appendChild(li);
+      return;
+    }
+    top.forEach((row) => {
+      const li = document.createElement('li');
+      li.innerHTML = '<strong>' + escapeHTML(row.label) + '</strong> <span style="opacity:.6">— ' + row.count + ' chat' + (row.count === 1 ? '' : 's') + '</span>';
+      topicsEl.appendChild(li);
+    });
+  } catch (e) {
+    console.warn('Top topics skipped:', e);
+  }
+}
+
+function topTopicsFromTitles(titles) {
+  // Heuristic clustering by simple keyword bucketing
+  const buckets = [
+    { key: 'galley|maize|corn',                   label: 'Galley / Maize' },
+    { key: 'yaanyo|tomato',                       label: 'Yaanyo / Tomatoes' },
+    { key: 'bariis|rice',                         label: 'Bariis / Rice' },
+    { key: 'basbaas|chili|pepper',                label: 'Basbaas / Chili' },
+    { key: 'basal|onion',                         label: 'Basal / Onion' },
+    { key: 'moos|banana',                         label: 'Moos / Banana' },
+    { key: 'cambo|mango',                         label: 'Cambo / Mango' },
+    { key: 'beer guri|home garden|khudaar',       label: 'Home garden / Khudaar' },
+    { key: 'irrigation|biyo|drip|waraab',         label: 'Irrigation / Biyo' },
+    { key: 'compost|bacrin|soil|ciid',            label: 'Soil / Compost' },
+    { key: 'cudur|disease|blight|mildew|rot',     label: 'Cudur / Disease' },
+    { key: 'cayayaan|pest|aphid|whitefly|armyworm', label: 'Cayayaan / Pest' },
+    { key: 'lo|cattle|caano|dairy',               label: 'Lo / Cattle' },
+    { key: 'digaag|poultry|chicken',              label: 'Digaag / Poultry' },
+    { key: 'riyo|ido|goat|sheep',                 label: 'Riyo / Ido / Goats' },
+    { key: 'geel|camel',                          label: 'Geel / Camel' },
+    { key: 'cimilo|weather|saadaal|forecast',     label: 'Cimilada / Weather' },
+    { key: 'abaar|drought',                       label: 'Abaaraha / Drought' },
+    { key: 'ayax|locust',                         label: 'Ayax / Locust' },
+    { key: 'suuq|market|qiimo|price',             label: 'Suuq / Market' }
+  ];
+  const counts = new Map();
+  titles.forEach((t) => {
+    const low = String(t).toLowerCase();
+    for (const b of buckets) {
+      const rx = new RegExp(b.key);
+      if (rx.test(low)) { counts.set(b.label, (counts.get(b.label) || 0) + 1); return; }
+    }
+    counts.set('Kale / Other', (counts.get('Kale / Other') || 0) + 1);
+  });
+  return Array.from(counts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([label, count]) => ({ label, count }));
 }
 
 function setText(id, value) {
