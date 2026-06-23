@@ -12,6 +12,7 @@
   var IMAGE_MAP = {
     // ---------- Crops & farming ----------
     'cover-home-garden':              { file: 'home-garden.jpg',              topic: { so: "Beer-Guri",        en: "Home Garden",       ar: "حديقة منزلية",       sw: "Bustani ya Nyumbani" } },
+    'cover-greenhouse-farming':       { file: 'greenhouse-farming.jpg',       topic: { so: "Greenhouse",       en: "Greenhouse",        ar: "البيوت المحمية",     sw: "Greenhouse" } },
     'cover-vertical-farming':         { file: 'vertical-farming.jpg',         topic: { so: "Beerista Taalka",  en: "Vertical Farming",  ar: "الزراعة العمودية",   sw: "Kilimo Wima" } },
     'cover-organic-farming':          { file: 'organic-farming.jpg',          topic: { so: "Beerista Dabiici", en: "Organic Farming",   ar: "الزراعة العضوية",    sw: "Kilimo Asili" } },
     'cover-food-security':            { file: 'food-security.jpg',            topic: { so: "Amniga Cuntada",   en: "Food Security",     ar: "الأمن الغذائي",     sw: "Usalama wa Chakula" } },

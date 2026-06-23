@@ -103,6 +103,23 @@ window.BeyloodKnowledge = (function () {
       keywords: ['vertical','taalka','hydroponic','aeroponic','aquaponic','magaalo','urban','container','technology']
     },
     {
+      slug: 'greenhouse-farming', cat: 'tech', url: 'article-greenhouse-farming.html',
+      title: { so: 'Beerista Daboolan — Greenhouse', en: 'Greenhouse Farming', ar: 'الزراعة في البيوت المحمية', sw: 'Kilimo cha Greenhouse' },
+      summary: {
+        so: 'Greenhouse Soomaaliya: 3–5× wax-soosaar, 70% biyo yar. $1,500–$10,000 bilow, lacag-celin 8–12 bil.',
+        en: 'Greenhouse Somalia: 3–5× output, 70% less water. $1,500–$10,000 start, payback 8–12 months.',
+        ar: 'البيوت المحمية: 3-5× إنتاج، 70% أقل ماء.',
+        sw: 'Greenhouse: mara 3-5 mavuno, 70% maji pungufu.'
+      },
+      answer: {
+        so: '**Beerista Daboolan (Greenhouse) Soomaaliya:**\n\n- Noocyada: Tunnel plastic $1,500–$3,500 · Shade net $800–$2,000 · Polycarbonate $5,000–$10,000 · Hybrid $2,000–$4,000\n- Wax-soosaar: Yaanyo cherry 60 kg/m²/sannad ($2–$3/kg)\n- Biyo: 70% ka yar drip irrigation\n- Bilow: 8m × 24m = $3,500 maalgashi\n- Faa\'iido: $320–$620/bil saafi\n- Lacag-celin: 8–12 bil\n\n**Talo:** Bilow shade net hybrid (cheap, fudud). Iibso hotelyada Muqdisho/Hargeysa.',
+        en: '**Greenhouse farming in Somalia:**\n\n- Types: Plastic tunnel $1,500–$3,500 · Shade net $800–$2,000 · Polycarbonate $5,000–$10,000 · Hybrid $2,000–$4,000\n- Output: Cherry tomatoes 60 kg/m²/year ($2–$3/kg)\n- Water: 70% less with drip\n- Starter: 8m × 24m = $3,500 capital\n- Profit: $320–$620/month net\n- Payback: 8–12 months\n\n**Tip:** Start with hybrid shade-net (cheap, easy). Sell to hotels in Mogadishu/Hargeisa.',
+        ar: '**الزراعة في البيوت المحمية في الصومال:**\n\n- الأنواع: نفق بلاستيكي ($1,500-$3,500) · شبكة تظليل ($800-$2,000) · بولي كربونيت ($5,000-$10,000)\n- إنتاج: طماطم 60 كغ/م²\n- ري بالتنقيط 70% أقل ماء\n- استرداد 8-12 شهراً',
+        sw: '**Kilimo cha greenhouse Somalia:**\n\n- Aina: Tunnel plastiki ($1,500-$3,500) · Wavu wa kivuli ($800-$2,000)\n- Mavuno: Nyanya cherry kg 60/m²\n- Maji 70% pungufu na drip\n- Marejesho miezi 8-12'
+      },
+      keywords: ['greenhouse','greenhouses','daboolan','beer daboolan','protected farming','tunnel','shade net','polycarbonate','yaanyo daboolan','tomato greenhouse','hybrid greenhouse']
+    },
+    {
       slug: 'organic-farming', cat: 'tech', url: 'article-organic-farming.html',
       title: { so: 'Beerista Dabiici', en: 'Organic Farming', ar: 'الزراعة العضوية', sw: 'Kilimo Asili' },
       summary: {
@@ -455,12 +472,10 @@ window.BeyloodKnowledge = (function () {
     var tokens = tokenize(query);
     if (!tokens.length) return { lang: lang, type: 'empty', results: [] };
 
-    // Greeting detection — use word-boundary regex so "hi" doesn't match "whiteflies".
+    // Greeting detection — word-boundary regex
     var lowQ = String(query).toLowerCase().trim();
     function patternMatches(p) {
-      // Escape regex specials, allow Arabic / spaces
       var esc = p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      // Boundary on both sides (start/end OR non-letter)
       var rx = new RegExp('(^|[^\\p{L}])' + esc + '($|[^\\p{L}])', 'iu');
       return rx.test(lowQ);
     }
@@ -471,7 +486,6 @@ window.BeyloodKnowledge = (function () {
       return { lang: lang, type: 'thanks', response: THANKS.response[lang] || THANKS.response.so };
     }
 
-    // Score every article
     var scored = KNOWLEDGE.map(function (a) {
       return { article: a, score: scoreArticle(a, tokens, lang) };
     }).filter(function (x) { return x.score > 0 })
@@ -508,7 +522,6 @@ window.BeyloodKnowledge = (function () {
     return out;
   }
 
-  /* ---------------- PUBLIC API ---------------- */
   return {
     KNOWLEDGE: KNOWLEDGE,
     search: search,
