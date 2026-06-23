@@ -356,12 +356,21 @@ window.BeyloodKnowledge = (function () {
 
   /* ---------------- GREETINGS & CANNED RESPONSES ---------------- */
   var GREETINGS = {
-    patterns: ['salaan','iska warran','sidee','hello','hi','hey','marhaba','salam','habari','jambo','sawubona'],
+    patterns: [
+      // Somali
+      'soo dhawow','salaan','salam','iska warran','war iska','sidee tahay','sideed tahay','subax wanaagsan','galab wanaagsan','habeen wanaagsan','assalamu calaykum','assalamu','aslaamu',
+      // English
+      'hello','hi','hey','good morning','good afternoon','good evening','greetings','howdy',
+      // Arabic
+      'مرحبا','مرحباً','أهلا','أهلاً','السلام','صباح الخير','مساء الخير',
+      // Swahili
+      'habari','jambo','hujambo','sasa','mambo','shikamoo','sawubona'
+    ],
     response: {
-      so: 'Salaan! Anigu waxaan ahay **Beylood AI** — caawiye beero, xoolo, iyo cudurro dalagga. Maxaa ku caawin karaa maanta? Tusaale: "Sidee loo beero galleyda?" ama "Maxaa daawo u ah whiteflies-ka?"',
-      en: 'Hello! I am **Beylood AI** — an assistant for farming, livestock, and crop diseases. What can I help you with? Try: "How to grow maize?" or "What treats whiteflies?"',
-      ar: 'مرحباً! أنا **Beylood AI** — مساعد للزراعة والثروة الحيوانية وأمراض المحاصيل. كيف أساعدك؟',
-      sw: 'Habari! Mimi ni **Beylood AI** — msaidizi wa kilimo na mifugo. Nikusaidie nini?'
+      so: '**Soo dhawow Beylood!** 🌱\n\nAnigu waxaan ahay caawiyahaaga AI ee beeraha, xoolaha, iyo cudurrada dalagga. Su\'aal kasta i waydii — waxaan ku siin doonaa jawaab xirfadeed oo aqoonta Beylood ka soo qaadan.\n\n**Tusaalooyin:**\n- Sidee loo beero galleyda xilliga Gu\' 2026?\n- Maxaa daawo u ah whiteflies-ka yaanyada?\n- Sidee loo sameeyo compost gurigayga?\n- Maxaa loo sameeyaa lo\'da caanaha si waxsoo-saarka u kordho?\n\nMaxaa ku caawin karaa maanta?',
+      en: '**Welcome to Beylood!** 🌱\n\nI\'m your AI assistant for farming, livestock, and crop diseases. Ask me anything — I\'ll give you a professional answer drawn from the Beylood knowledge base.\n\n**Examples:**\n- How do I grow maize for the Gu 2026 season?\n- What treats whiteflies on tomatoes?\n- How do I make compost at home?\n- How can I boost milk production in dairy cows?\n\nHow can I help you today?',
+      ar: '**أهلاً بك في Beylood!** 🌱\n\nأنا مساعدك الذكي للزراعة والثروة الحيوانية وأمراض المحاصيل. اسألني عن أي شيء — سأقدم لك إجابة احترافية من قاعدة معرفة Beylood.\n\n**أمثلة:**\n- كيف أزرع الذرة في موسم غو 2026؟\n- ما علاج الذبابة البيضاء على الطماطم؟\n- كيف أصنع كمبوست في المنزل؟\n\nكيف يمكنني مساعدتك اليوم؟',
+      sw: '**Karibu Beylood!** 🌱\n\nMimi ni msaidizi wako wa AI kwa kilimo, mifugo, na magonjwa ya mazao. Niulize chochote — nitakupa jibu la kitaalamu kutoka kwenye msingi wa maarifa wa Beylood.\n\n**Mifano:**\n- Ninapandaje mahindi msimu wa Gu 2026?\n- Ni nini kinatibu inzi weupe kwenye nyanya?\n- Ninatengenezaje mboji nyumbani?\n\nNiwezeje kukusaidia leo?'
     }
   };
 
@@ -446,12 +455,19 @@ window.BeyloodKnowledge = (function () {
     var tokens = tokenize(query);
     if (!tokens.length) return { lang: lang, type: 'empty', results: [] };
 
-    // Greeting detection
-    var lowQ = String(query).toLowerCase();
-    if (GREETINGS.patterns.some(function (p) { return lowQ.includes(p); }) && tokens.length <= 3) {
+    // Greeting detection — use word-boundary regex so "hi" doesn't match "whiteflies".
+    var lowQ = String(query).toLowerCase().trim();
+    function patternMatches(p) {
+      // Escape regex specials, allow Arabic / spaces
+      var esc = p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      // Boundary on both sides (start/end OR non-letter)
+      var rx = new RegExp('(^|[^\\p{L}])' + esc + '($|[^\\p{L}])', 'iu');
+      return rx.test(lowQ);
+    }
+    if (GREETINGS.patterns.some(patternMatches) && tokens.length <= 4) {
       return { lang: lang, type: 'greeting', response: GREETINGS.response[lang] || GREETINGS.response.so };
     }
-    if (THANKS.patterns.some(function (p) { return lowQ.includes(p); })) {
+    if (THANKS.patterns.some(patternMatches)) {
       return { lang: lang, type: 'thanks', response: THANKS.response[lang] || THANKS.response.so };
     }
 

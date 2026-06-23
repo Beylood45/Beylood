@@ -125,6 +125,25 @@ import {
   }
 
   // -----------------------------------------------------------
+  // Build a wa.me link that pre-fills WhatsApp with the answer
+  // Strips markdown to a clean plain text for sharing.
+  // -----------------------------------------------------------
+  function buildWhatsAppLink(text) {
+    // Remove markdown decorations for readability in WhatsApp
+    var clean = String(text || '')
+      .replace(/\*\*(.+?)\*\*/g, '*$1*')   // **bold** -> *bold* (WhatsApp uses *)
+      .replace(/`([^`]+)`/g, '$1')          // strip inline code backticks
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1: $2') // [text](url) -> text: url
+      .replace(/^[-•] /gm, '• ')            // normalize bullets
+      .trim();
+    var footer = '\n\n— Beylood AI · https://beylood.com/ask.html';
+    var msg = clean + footer;
+    // WhatsApp message length limit ~65k; we cap to 1500 for nicer sharing
+    if (msg.length > 1500) msg = msg.slice(0, 1490) + '…' + footer;
+    return 'https://wa.me/?text=' + encodeURIComponent(msg);
+  }
+
+  // -----------------------------------------------------------
   // Message bubbles + copy button
   // -----------------------------------------------------------
   function addMessage(role, text) {
@@ -141,12 +160,28 @@ import {
       body.appendChild(el('p', null, text));
     } else {
       body.appendChild(renderMarkdown(text));
+
+      // Action toolbar: Copy + WhatsApp
+      var actions = el('div', 'ai-msg-actions');
+
+      // Copy button
       var copyBtn = el('button', 'ai-msg-copy');
       copyBtn.type = 'button';
       copyBtn.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Koobi</span>';
       copyBtn.setAttribute('aria-label', 'Copy answer');
       copyBtn.addEventListener('click', function () { copyToClipboard(text, copyBtn); });
-      body.appendChild(copyBtn);
+      actions.appendChild(copyBtn);
+
+      // WhatsApp share button
+      var waBtn = el('a', 'ai-msg-whatsapp');
+      waBtn.href = buildWhatsAppLink(text);
+      waBtn.target = '_blank';
+      waBtn.rel = 'noopener noreferrer';
+      waBtn.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg><span>WhatsApp</span>';
+      waBtn.setAttribute('aria-label', 'Share via WhatsApp');
+      actions.appendChild(waBtn);
+
+      body.appendChild(actions);
     }
     bubble.appendChild(avatar);
     bubble.appendChild(body);
@@ -317,7 +352,13 @@ import {
     winEl.innerHTML = '';
     currentChatId = null;
     addMessage('bot',
-      'Salaan! Anigu waxaan ahay **Beylood AI**. Iigu adeegso su\'aal kasta oo ku saabsan beero, xoolo, biyo-waraab, ama cudurro. Tusaale: "Sidee loo beero galleyda?" ama "Maxaa daawo u ah whiteflies-ka?"'
+      '**Soo dhawow Beylood!** 🌱\n\n' +
+      'Anigu waxaan ahay caawiyahaaga AI ee beeraha, xoolaha, iyo cudurrada dalagga. Su\'aal kasta i waydii.\n\n' +
+      '**Tusaalooyin:**\n' +
+      '- Sidee loo beero galleyda?\n' +
+      '- Maxaa daawo u ah whiteflies-ka?\n' +
+      '- Sidee loo sameeyo compost?\n\n' +
+      'Maxaa ku caawin karaa maanta?'
     );
   }
 

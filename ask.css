@@ -279,3 +279,50 @@ html[data-theme="dark"] .ai-msg-copy:hover { background: rgba(255,255,255,.18); 
   .ai-chat-toolbar .ai-tool-btn { font-size: 12px; padding: 7px 11px; }
   .ai-history-panel { width: 100vw; }
 }
+
+/* ---------- Action toolbar on bot replies ---------- */
+.ai-msg-actions {
+  position: absolute; top: 8px; right: 8px;
+  display: inline-flex; gap: 6px;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.ai-msg-bot:hover .ai-msg-actions,
+.ai-msg-bot:focus-within .ai-msg-actions { opacity: 1; }
+
+/* Override the standalone .ai-msg-copy positioning when inside .ai-msg-actions */
+.ai-msg-actions .ai-msg-copy {
+  position: static;
+  opacity: 1;
+}
+
+/* WhatsApp share button */
+.ai-msg-whatsapp {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 8px; border-radius: 8px;
+  font-size: 11px; font-weight: 600;
+  background: rgba(37, 211, 102, .12);
+  color: #1FA354;
+  text-decoration: none;
+  border: 0;
+  transition: background .15s ease, color .15s ease;
+}
+.ai-msg-whatsapp:hover {
+  background: #25D366;
+  color: #fff;
+}
+
+/* Dark mode */
+html[data-theme="dark"] .ai-msg-whatsapp {
+  background: rgba(37, 211, 102, .18);
+  color: #4ADE80;
+}
+html[data-theme="dark"] .ai-msg-whatsapp:hover {
+  background: #25D366;
+  color: #fff;
+}
+
+/* Mobile — always visible on touch */
+@media (max-width: 600px) {
+  .ai-msg-actions { opacity: 1; }
+}
