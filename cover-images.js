@@ -26,6 +26,7 @@
     'cover-rice-farming':             { file: 'rice-farming.jpg',             topic: { so: "Bariiska",         en: "Rice",              ar: "الأرز",              sw: "Mchele" } },
     'cover-onion-farming':            { file: 'onion-farming.jpg',            topic: { so: "Basasha",          en: "Onions",            ar: "البصل",              sw: "Vitunguu" } },
     'cover-maize-farming':            { file: 'maize-farming.jpg',            topic: { so: "Galleyda",         en: "Maize",             ar: "الذرة",              sw: "Mahindi" } },
+    'cover-sorghum-farming':          { file: 'sorghum-farming.jpg',          topic: { so: "Masago",           en: "Sorghum",           ar: "الذرة الرفيعة",      sw: "Mtama" } },
     'cover-tomato-farming':           { file: 'tomato-farming.jpg',           topic: { so: "Yaanyada",         en: "Tomato",            ar: "الطماطم",            sw: "Nyanya" } },
     'cover-tomato':                   { file: 'tomato-farming.jpg',           topic: { so: "Yaanyada",         en: "Tomato",            ar: "الطماطم",            sw: "Nyanya" } },
     'cover-preventing-tomato-diseases':{ file: 'preventing-tomato-diseases.jpg', topic: { so: "Cudur ka hortag", en: "Tomato disease prevention", ar: "وقاية الطماطم", sw: "Kuzuia magonjwa" } },

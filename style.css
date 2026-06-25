@@ -1329,6 +1329,13 @@ html[dir="rtl"] .chat-messages .msg-user {
 }
 .cover-maize-farming::after { content: none; }
 
+.cover-sorghum-farming {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
+    #B45309 url('assets/sorghum-farming.jpg') center/cover no-repeat;
+}
+.cover-sorghum-farming::after { content: none; }
+
 .cover-rice-farming {
   background:
     linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
