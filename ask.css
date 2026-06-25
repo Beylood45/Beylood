@@ -326,3 +326,47 @@ html[data-theme="dark"] .ai-msg-whatsapp:hover {
 @media (max-width: 600px) {
   .ai-msg-actions { opacity: 1; }
 }
+
+/* ---------- Typewriter streaming ---------- */
+.ai-stream {
+  white-space: pre-wrap;
+  color: var(--gray-900, #111827);
+  line-height: 1.55;
+}
+.ai-stream.is-streaming::after {
+  content: '';
+  display: inline-block;
+  width: 7px; height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--green-300, #3BA935);
+  border-radius: 1px;
+  animation: aiCaretBlink 1s steps(1) infinite;
+}
+@keyframes aiCaretBlink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+html[data-theme="dark"] .ai-stream { color: #F3F4F6; }
+
+/* ---------- Follow-up suggestion chips ---------- */
+.ai-followups {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--gray-200, #E5E7EB);
+}
+.ai-followup {
+  font: inherit; font-size: 13px;
+  cursor: pointer;
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--green-300, #3BA935);
+  background: rgba(59, 169, 53, .08);
+  color: #2E7B26;
+  transition: background .15s ease, color .15s ease;
+}
+.ai-followup::before { content: '↪ '; opacity: .7; }
+.ai-followup:hover { background: var(--green-300, #3BA935); color: #fff; }
+html[data-theme="dark"] .ai-followups { border-top-color: #374151; }
+html[data-theme="dark"] .ai-followup {
+  background: rgba(59, 169, 53, .14); color: #6EE7B7; border-color: #3BA935;
+}
+html[data-theme="dark"] .ai-followup:hover { background: #3BA935; color: #fff; }

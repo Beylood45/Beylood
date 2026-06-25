@@ -52,6 +52,23 @@ window.BeyloodKnowledge = (function () {
       keywords: ['bariis','bariiska','rice','mchele','shabelle','paddy','nerica','dooga','xilliga']
     },
     {
+      slug: 'sorghum-farming', cat: 'crops', url: 'article-sorghum-farming.html',
+      title: { so: 'Beeritaanka Masago', en: 'Sorghum Farming', ar: 'زراعة الذرة الرفيعة', sw: 'Kilimo cha Mtama' },
+      summary: {
+        so: 'Masago (hadhuudh) waa hadhuudhka ugu adkaysi badan abaaraha. Wuxuu u baahan yahay kaliya 400–600mm biyo, 90–120 maalmood, wuxuuna ku baxaa dhul qallalan oo galley aysan ku bixi karin.',
+        en: 'Sorghum is the most drought-tolerant cereal. It needs only 400–600mm of water, 90–120 days, and grows on dry land where maize cannot.',
+        ar: 'الذرة الرفيعة أكثر الحبوب تحمّلاً للجفاف. تحتاج 400-600 ملم ماء فقط، 90-120 يوماً، وتنمو في الأراضي الجافة.',
+        sw: 'Mtama ni nafaka inayostahimili ukame zaidi. Unahitaji maji 400-600mm tu, siku 90-120, na hukua katika ardhi kavu.'
+      },
+      answer: {
+        so: '**Beeritaanka Masago Soomaaliya:**\n\n- Wakhtiga: Gu\' (Abriil–Juun) ama Deyr (Oktoobar–Nofambar)\n- Heerkul: 25–32°C (wuxuu u dulqaadaa ilaa 40°C)\n- Biyo: 400–600 mm oo keliya — galley ka yar\n- Masaafada: 60–75 cm safafka, 15–20 cm dhirta\n- Qoto iniinaha: 2–4 cm\n- Iniin: 8–12 kg/hektar\n- Gurashada: 90–120 maalmood\n\n**Halista ugu weyn:** *Striga* (cawska sixir) iyo *shimbiraha Quelea*. Striga wareeji digir; shimbiraha isticmaal cabsiiye iyo wada-guris. Masago waa "dalagga ammaanka" — wuu soo saaraa marka galley abaartu burburiso.',
+        en: '**Sorghum farming in Somalia:**\n\n- Timing: Gu\' (April–June) or Deyr (October–November)\n- Temperature: 25–32°C (tolerates up to 40°C)\n- Water: only 400–600 mm — less than maize\n- Spacing: 60–75 cm rows, 15–20 cm plants\n- Seed depth: 2–4 cm\n- Seed rate: 8–12 kg/ha\n- Days to harvest: 90–120\n\n**Biggest threats:** *Striga* (witchweed) and *Quelea birds*. Rotate with legumes against Striga; use scarers and group harvesting against birds. Sorghum is the "insurance crop" — it yields when maize fails in drought.',
+        ar: '**زراعة الذرة الرفيعة في الصومال:**\n\n- التوقيت: غو (أبريل–يونيو) أو ديير (أكتوبر–نوفمبر)\n- الحرارة: 25–32°م (تتحمّل حتى 40°م)\n- المياه: 400–600 ملم فقط — أقل من الذرة\n- المسافة: 60–75 سم بين الصفوف، 15–20 سم بين النباتات\n- عمق البذرة: 2–4 سم\n- معدل البذور: 8–12 كغ/هكتار\n- أيام الحصاد: 90–120\n\n**أكبر تهديد:** الستريجا وطيور الكويليا. ناوب مع البقوليات ضد الستريجا.',
+        sw: '**Kilimo cha Mtama Somalia:**\n\n- Wakati: Gu (Aprili–Juni) au Deyr (Oktoba–Novemba)\n- Joto: 25–32°C (hustahimili hadi 40°C)\n- Maji: 400–600 mm tu — chini ya mahindi\n- Nafasi: 60–75 sm safu, 15–20 sm mimea\n- Kina cha mbegu: 2–4 sm\n- Kiwango: kg 8–12/hektari\n- Siku za mavuno: 90–120\n\n**Tishio kubwa:** Striga na ndege wa Quelea. Badilisha na mikunde dhidi ya Striga.'
+      },
+      keywords: ['masago','masaggada','hadhuudh','durra','sorghum','mtama','abaar','drought','hadhuudhka','suunka masago','baay','bakool','striga','quelea','shimbiro','cereal']
+    },
+    {
       slug: 'tomato-farming', cat: 'crops', url: 'article-tomato-farming.html',
       title: { so: 'Beerista Yaanyada', en: 'Tomato Farming', ar: 'زراعة الطماطم', sw: 'Kilimo cha Nyanya' },
       summary: {
@@ -439,35 +456,105 @@ window.BeyloodKnowledge = (function () {
       .filter(function (w) { return w.length > 1 && !STOP.has(w); });
   }
 
+  /* ---------------- SYNONYMS (cross-language + variants) ----------------
+     Each canonical concept maps to words a user might type in any language.
+     The query is expanded with these so e.g. "maize" matches Somali "galley". */
+  var SYNONYMS = {
+    maize:      ['maize','corn','galley','galleyda','galleey','mahindi','ذرة'],
+    sorghum:    ['sorghum','masago','masaggada','hadhuudh','durra','mtama','ذرة رفيعة'],
+    rice:       ['rice','bariis','bariiska','mchele','أرز','paddy'],
+    tomato:     ['tomato','tomaato','yaanyo','yaanyada','nyanya','طماطم'],
+    irrigation: ['irrigation','waraab','waraabin','waraabinta','biyayn','biyaynta','drip','umwagiliaji','ري','tubo'],
+    water:      ['water','biyo','biyaha','maji','ماء','مياه'],
+    disease:    ['disease','diseases','cudur','cudurro','cudurrada','jirro','magonjwa','blight','مرض','أمراض'],
+    pest:       ['pest','pests','cayayaan','cayayaanka','insect','wadudu','dudu','آفة','آفات'],
+    compost:    ['compost','bacri','bacrin','bacrinta','digo','samad','manure','mboji','mbolea','سماد','كمبوست'],
+    cattle:     ['cattle','cow','cows','lo','loo','lada','dairy','caano','milk','ng’ombe','ngombe','بقر','أبقار'],
+    poultry:    ['poultry','chicken','hen','digaag','digaagga','kuku','دجاج'],
+    goat:       ['goat','goats','sheep','ari','riyo','wan','ido','mbuzi','kondoo','ماعز','غنم'],
+    drought:    ['drought','abaar','abaaro','abaaraha','ukame','dry','جفاف'],
+    soil:       ['soil','carro','carrada','ciid','ciidda','udongo','تربة'],
+    greenhouse: ['greenhouse','dahaaran','manyatta','chafu'],
+    fertilizer: ['fertilizer','bacrin','npk','dap','urea','mbolea','سماد'],
+    harvest:    ['harvest','gurasho','goosasho','goosashada','mavuno','حصاد']
+  };
+  var VARIANT_TO_CANON = (function () {
+    var m = {};
+    Object.keys(SYNONYMS).forEach(function (canon) {
+      SYNONYMS[canon].forEach(function (v) { m[tokenize(v).join(' ')] = canon; m[v.toLowerCase()] = canon; });
+    });
+    return m;
+  })();
+
+  // Expand a token set with canonical concepts + all their variant words.
+  function expandTokens(tokens) {
+    var out = new Set(tokens);
+    tokens.forEach(function (t) {
+      var canon = VARIANT_TO_CANON[t];
+      if (canon) { out.add(canon); SYNONYMS[canon].forEach(function (v) { tokenize(v).forEach(function (w) { out.add(w); }); }); }
+    });
+    return out;
+  }
+
+  // Fuzzy token comparison: exact = 1, prefix/substring (len>=4) = 0.6.
+  function tokenSim(a, b) {
+    if (a === b) return 1;
+    if (a.length >= 4 && b.length >= 4 && (b.indexOf(a) === 0 || a.indexOf(b) === 0)) return 0.6;
+    return 0;
+  }
+  function bestSim(token, set) {
+    var best = 0;
+    set.forEach(function (s) { var v = tokenSim(token, s); if (v > best) best = v; });
+    return best;
+  }
+
   /* ---------------- SCORE ARTICLE vs QUERY ---------------- */
-  function scoreArticle(article, queryTokens, lang) {
+  function scoreArticle(article, queryTokens, lang, contextSlug) {
     var score = 0;
-    var qSet = new Set(queryTokens);
+    var qSet = expandTokens(queryTokens);
 
-    // Title match (heaviest)
+    // Title match (heaviest) — fuzzy
     var titleTokens = tokenize((article.title[lang] || article.title.en) + ' ' + (article.title.en));
-    titleTokens.forEach(function (t) { if (qSet.has(t)) score += 10; });
+    titleTokens.forEach(function (t) { score += 10 * bestSim(t, qSet); });
 
-    // Keywords match (very strong — these are curated)
+    // Keywords match (very strong — these are curated) — fuzzy
     article.keywords.forEach(function (k) {
       var kt = tokenize(k);
-      kt.forEach(function (t) { if (qSet.has(t)) score += 8; });
-      // Phrase match in original query string
-      if (queryTokens.join(' ').includes(k.toLowerCase())) score += 6;
+      kt.forEach(function (t) { score += 8 * bestSim(t, qSet); });
+      // Whole-phrase match in original query string
+      if (queryTokens.join(' ').indexOf(k.toLowerCase()) !== -1) score += 6;
     });
 
-    // Summary match
+    // Summary match — fuzzy, lighter
     var sumTokens = tokenize((article.summary[lang] || article.summary.en));
-    sumTokens.forEach(function (t) { if (qSet.has(t)) score += 2; });
+    sumTokens.forEach(function (t) { score += 2 * bestSim(t, qSet); });
 
     // Category match
     if (qSet.has(article.cat)) score += 3;
 
+    // Conversation context: gently boost the last topic so short follow-ups resolve.
+    if (contextSlug && article.slug === contextSlug) score += 4;
+
     return score;
   }
 
+  /* ---------------- FOLLOW-UP SUGGESTIONS (by category) ----------------
+     Returned to the chat UI so the assistant offers natural next questions. */
+  var FOLLOWUPS = {
+    crops:      { so: ['Cudurro caan ku ah?', 'Intee biyo u baahan tahay?', 'Goormaa la goostaa?'], en: ['Common diseases?', 'How much water?', 'When to harvest?'], ar: ['الأمراض الشائعة؟', 'كم تحتاج ماء؟', 'متى الحصاد؟'], sw: ['Magonjwa ya kawaida?', 'Inahitaji maji kiasi gani?', 'Lini kuvuna?'] },
+    irrigation: { so: ['Sidee biyaha loo kaydiyaa?', 'Drip mise furrow?', 'Intee mar la waraabiyaa?'], en: ['How to store water?', 'Drip or furrow?', 'How often to irrigate?'], ar: ['كيف نخزن الماء؟', 'تنقيط أم أخاديد؟', 'كم مرة نروي؟'], sw: ['Jinsi ya kuhifadhi maji?', 'Drip au mifereji?', 'Mara ngapi kumwagilia?'] },
+    livestock:  { so: ['Cunto noocee ah?', 'Cudurrada caanka ah?', 'Sidee waxsoosaarka loo kordhiyaa?'], en: ['What feed?', 'Common diseases?', 'How to boost yield?'], ar: ['أي علف؟', 'الأمراض الشائعة؟', 'كيف نزيد الإنتاج؟'], sw: ['Chakula gani?', 'Magonjwa ya kawaida?', 'Jinsi ya kuongeza uzalishaji?'] },
+    pests:      { so: ['Daawo dabiici ah?', 'Sidee looga hortagaa?', 'Calaamadaha cudurka?'], en: ['Organic treatment?', 'How to prevent?', 'Disease symptoms?'], ar: ['علاج عضوي؟', 'كيف نمنع؟', 'أعراض المرض؟'], sw: ['Tiba asili?', 'Jinsi ya kuzuia?', 'Dalili za ugonjwa?'] },
+    soil:       { so: ['Sidee pH loo qiyaasaa?', 'Bacrin noocee ah?', 'Compost sidee loo sameeyaa?'], en: ['How to test pH?', 'Which fertilizer?', 'How to make compost?'], ar: ['كيف نختبر الحموضة؟', 'أي سماد؟', 'كيف نصنع الكمبوست؟'], sw: ['Jinsi ya kupima pH?', 'Mbolea gani?', 'Jinsi ya kutengeneza mboji?'] },
+    climate:    { so: ['Dalagyada abaarta u adkaysta?', 'Sidee biyaha loo kaydshaa?', 'Saadaasha xilliga?'], en: ['Drought-tolerant crops?', 'How to conserve water?', 'Seasonal forecast?'], ar: ['محاصيل مقاومة للجفاف؟', 'كيف نحافظ على الماء؟', 'توقعات الموسم؟'], sw: ['Mazao yanayostahimili ukame?', 'Jinsi ya kuhifadhi maji?', 'Utabiri wa msimu?'] }
+  };
+  function getSuggestions(article, lang) {
+    var bank = FOLLOWUPS[article.cat] || FOLLOWUPS.crops;
+    return (bank[lang] || bank.so).slice(0, 3);
+  }
+
   /* ---------------- MAIN SEARCH ---------------- */
-  function search(query, lang) {
+  function search(query, lang, contextSlug) {
     lang = lang || detectLang(query);
     var tokens = tokenize(query);
     if (!tokens.length) return { lang: lang, type: 'empty', results: [] };
@@ -487,18 +574,21 @@ window.BeyloodKnowledge = (function () {
     }
 
     var scored = KNOWLEDGE.map(function (a) {
-      return { article: a, score: scoreArticle(a, tokens, lang) };
-    }).filter(function (x) { return x.score > 0 })
+      return { article: a, score: scoreArticle(a, tokens, lang, contextSlug) };
+    }).filter(function (x) { return x.score > 0.6; })
       .sort(function (a, b) { return b.score - a.score });
 
     if (!scored.length) {
       return { lang: lang, type: 'no_match', response: NO_MATCH[lang] || NO_MATCH.so };
     }
 
+    var results = scored.slice(0, 3).map(function (x) { return x.article; });
     return {
       lang: lang,
       type: 'match',
-      results: scored.slice(0, 3).map(function (x) { return x.article; })
+      results: results,
+      topSlug: results[0].slug,
+      suggestions: getSuggestions(results[0], lang)
     };
   }
 
@@ -526,6 +616,7 @@ window.BeyloodKnowledge = (function () {
     KNOWLEDGE: KNOWLEDGE,
     search: search,
     format: format,
-    detectLang: detectLang
+    detectLang: detectLang,
+    getSuggestions: getSuggestions
   };
 })();
