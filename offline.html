@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0F3F7E" />
+  <title>Offline — Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    :root { --navy:#0F3F7E; --green:#3BA935; --gray:#4B5563; --line:#E5E7EB; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(160deg, #F4F8FF 0%, #FFFFFF 60%);
+      color: #111827; padding: 24px; text-align: center;
+    }
+    .card { max-width: 480px; width: 100%; }
+    .logo { width: 84px; height: 84px; border-radius: 20px; margin: 0 auto 20px; display: block; box-shadow: 0 12px 30px rgba(15,63,126,.18); }
+    .dot { color: var(--green); font-size: 30px; line-height: 1; margin-bottom: 8px; }
+    h1 { font-size: 22px; margin: 0 0 6px; color: var(--navy); }
+    .sub { color: var(--gray); font-size: 14px; line-height: 1.7; margin: 0 0 20px; }
+    .langline { display: block; margin: 3px 0; }
+    .langline[dir="rtl"] { direction: rtl; }
+    .btn {
+      display: inline-block; cursor: pointer; border: 0; border-radius: 999px;
+      padding: 12px 26px; font: inherit; font-weight: 700; font-size: 15px;
+      background: var(--navy); color: #fff; text-decoration: none;
+    }
+    .btn:hover { background: #0c356b; }
+    .saved { margin-top: 26px; text-align: left; }
+    .saved h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: var(--navy); margin: 0 0 10px; }
+    .saved ul { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; }
+    .saved li { border-bottom: 1px solid var(--line); }
+    .saved li:last-child { border-bottom: 0; }
+    .saved a { display: flex; align-items: center; gap: 10px; padding: 13px 16px; color: #111827; text-decoration: none; font-size: 14px; }
+    .saved a:hover { background: #F4F8FF; }
+    .saved a::before { content: '🔖'; }
+    .saved-empty { color: var(--gray); font-size: 13px; padding: 14px 4px; }
+    .links { margin-top: 22px; font-size: 14px; }
+    .links a { color: var(--navy); text-decoration: underline; margin: 0 8px; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="logo" src="assets/icon-192.png" alt="Beylood" />
+    <div class="dot">🌱</div>
+    <h1>Beylood</h1>
+    <p class="sub">
+      <span class="langline">Internet ma jirto hadda. Bogagga aad horay u booqatay iyo kuwa aad kaydisay weli waad eegi kartaa.</span>
+      <span class="langline">You're offline. Visited and saved pages are still available.</span>
+      <span class="langline" dir="rtl">أنت غير متصل. الصفحات التي زرتها وحفظتها ما زالت متاحة.</span>
+      <span class="langline">Hauna intaneti. Kurasa ulizotembelea na kuhifadhi zinapatikana.</span>
+    </p>
+    <a class="btn" href="index.html" onclick="location.reload();return false;">Isku day mar kale · Retry</a>
+
+    <section class="saved" id="savedSection" hidden>
+      <h2>Maqaallada aad kaydisay · Saved articles</h2>
+      <ul id="savedList"></ul>
+    </section>
+
+    <div class="links">
+      <a href="index.html">Bogga Hore</a>
+      <a href="articles.html">Maqaallo</a>
+      <a href="ask.html">Waydii Beylood</a>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var list, section = document.getElementById('savedSection');
+      try { list = JSON.parse(localStorage.getItem('beylood_saved_articles') || '[]'); } catch (e) { list = []; }
+      var ul = document.getElementById('savedList');
+      if (list && list.length) {
+        section.hidden = false;
+        list.slice(0, 30).forEach(function (a) {
+          var li = document.createElement('li');
+          var link = document.createElement('a');
+          link.href = a.url;
+          link.textContent = a.title || a.url;
+          li.appendChild(link);
+          ul.appendChild(li);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

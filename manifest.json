@@ -1,0 +1,49 @@
+{
+  "name": "Beylood — Aqoonta Beeraha",
+  "short_name": "Beylood",
+  "description": "Madal aqoonta beeraha ee Geeska Afrika — maqaallo xirfadeed, warar, caawiye AI, iyo akhris offline ah oo ku shaqeeya 4 luqadood (Soomaali, Ingiriis, Carabi, Swahili).",
+  "lang": "so",
+  "dir": "ltr",
+  "id": "/?source=pwa",
+  "start_url": "index.html?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0F3F7E",
+  "categories": ["education", "agriculture", "productivity", "news", "lifestyle"],
+  "launch_handler": { "client_mode": "navigate-existing" },
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "assets/screenshot-wide.png", "sizes": "1280x720", "type": "image/png", "form_factor": "wide", "label": "Beylood — desktop view" },
+    { "src": "assets/screenshot-narrow.png", "sizes": "720x1280", "type": "image/png", "form_factor": "narrow", "label": "Beylood — mobile view" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Waydii Beylood AI",
+      "short_name": "AI",
+      "description": "Caawiye AI ah oo ka jawaaba su'aalaha beeraha",
+      "url": "ask.html?source=pwa-shortcut",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Maqaallo",
+      "short_name": "Maqaallo",
+      "description": "Maqaallada beeraha ee la doortay",
+      "url": "articles.html?source=pwa-shortcut",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Wararka",
+      "short_name": "Wararka",
+      "description": "Wararka beeraha ee ugu dambeeyay",
+      "url": "news.html?source=pwa-shortcut",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
