@@ -51,6 +51,28 @@ import {
   var inFlight      = false;
   var lastSlug      = null; // conversation context: last matched article
 
+  // Local conversation history (works for EVERYONE, offline, no sign-in needed).
+  // Firestore stays as a cross-device sync for signed-in users (unchanged).
+  var LH_KEY        = 'beylood_chat_history';
+  var localChatId   = null;
+  var historySource = 'local'; // 'local' | 'firestore' — which store the open panel is showing
+  function lhLoad() { try { return JSON.parse(localStorage.getItem(LH_KEY) || '[]'); } catch (e) { return []; } }
+  function lhSave(a) { try { localStorage.setItem(LH_KEY, JSON.stringify(a.slice(0, 50))); } catch (e) {} }
+  function lhSavePair(userMsg, botMsg) {
+    var all = lhLoad(), conv = null, i;
+    for (i = 0; i < all.length; i++) { if (all[i].id === localChatId) { conv = all[i]; break; } }
+    if (!conv) {
+      localChatId = 'c' + Date.now();
+      conv = { id: localChatId, title: (userMsg || 'Wadahadal').slice(0, 80), createdAt: Date.now(), lastAt: Date.now(), msgs: [] };
+    }
+    conv.msgs.push({ role: 'user', content: userMsg });
+    conv.msgs.push({ role: 'assistant', content: botMsg });
+    conv.lastAt = Date.now();
+    all = all.filter(function (c) { return c.id !== conv.id; });
+    all.unshift(conv);
+    lhSave(all);
+  }
+
   // -----------------------------------------------------------
   // Safe DOM helpers
   // -----------------------------------------------------------
@@ -371,52 +393,85 @@ import {
   // -----------------------------------------------------------
   // History side panel
   // -----------------------------------------------------------
-  async function loadHistoryList() {
-    if (!currentUser || !historyList) return;
-    historyList.innerHTML = '';
-    try {
-      var q = query(
-        collection(db, 'users', currentUser.uid, 'chats'),
-        orderBy('lastMessageAt', 'desc'),
-        limit(30)
-      );
-      var snap = await getDocs(q);
-      if (snap.empty) { if (historyEmpty) historyEmpty.hidden = false; return; }
-      if (historyEmpty) historyEmpty.hidden = true;
-      snap.forEach(function (d) {
-        var data = d.data() || {};
-        var li = el('li', 'ai-history-item');
-        li.tabIndex = 0;
-        li.appendChild(el('span', null, data.title || 'Wadahadal'));
-        li.appendChild(el('small', null, formatTimestamp(data.lastMessageAt)));
-        li.addEventListener('click', function () { loadConversation(d.id); });
-        li.addEventListener('keydown', function (e) { if (e.key === 'Enter') loadConversation(d.id); });
-        historyList.appendChild(li);
-      });
-    } catch (e) { console.warn('History load failed', e); }
+  function addHistoryItem(id, title, ts) {
+    var li = el('li', 'ai-history-item');
+    li.tabIndex = 0;
+    li.appendChild(el('span', null, title || 'Wadahadal'));
+    li.appendChild(el('small', null, formatTimestamp(ts)));
+    li.addEventListener('click', function () { loadConversation(id); });
+    li.addEventListener('keydown', function (e) { if (e.key === 'Enter') loadConversation(id); });
+    historyList.appendChild(li);
   }
 
-  async function loadConversation(chatId) {
-    if (!currentUser) return;
-    try {
-      var q = query(
-        collection(db, 'users', currentUser.uid, 'chats', chatId, 'messages'),
-        orderBy('createdAt', 'asc'),
-        limit(100)
-      );
-      var snap = await getDocs(q);
-      winEl.innerHTML = '';
-      lastSlug = null;
-      snap.forEach(function (d) {
-        var data = d.data() || {};
-        if (data.role === 'user' || data.role === 'assistant') {
-          addMessage(data.role === 'user' ? 'user' : 'bot', data.content || '');
+  function renderLocalHistory() {
+    historySource = 'local';
+    var all = lhLoad();
+    if (!all.length) { if (historyEmpty) historyEmpty.hidden = false; return; }
+    if (historyEmpty) historyEmpty.hidden = true;
+    all.forEach(function (c) { addHistoryItem(c.id, c.title, c.lastAt); });
+  }
+
+  // Signed-in → Firestore (cross-device); otherwise (and on any failure) → local.
+  async function loadHistoryList() {
+    if (!historyList) return;
+    historyList.innerHTML = '';
+    if (historyEmpty) historyEmpty.hidden = true;
+    if (currentUser) {
+      try {
+        var q = query(
+          collection(db, 'users', currentUser.uid, 'chats'),
+          orderBy('lastMessageAt', 'desc'),
+          limit(30)
+        );
+        var snap = await getDocs(q);
+        if (!snap.empty) {
+          historySource = 'firestore';
+          snap.forEach(function (d) {
+            var data = d.data() || {};
+            addHistoryItem(d.id, data.title, data.lastMessageAt);
+          });
+          return;
         }
-      });
-      currentChatId = chatId;
-      historyPnl.hidden = true;
-      historyBtn && historyBtn.setAttribute('aria-expanded', 'false');
-    } catch (e) { console.warn('Load conversation failed', e); }
+      } catch (e) { console.warn('Firestore history unavailable, using local', e); }
+    }
+    renderLocalHistory();
+  }
+
+  async function loadConversation(id) {
+    // Firestore-sourced conversation (signed-in view)
+    if (historySource === 'firestore' && currentUser) {
+      try {
+        var q = query(
+          collection(db, 'users', currentUser.uid, 'chats', id, 'messages'),
+          orderBy('createdAt', 'asc'),
+          limit(100)
+        );
+        var snap = await getDocs(q);
+        winEl.innerHTML = '';
+        lastSlug = null;
+        snap.forEach(function (d) {
+          var data = d.data() || {};
+          if (data.role === 'user' || data.role === 'assistant') {
+            addMessage(data.role === 'user' ? 'user' : 'bot', data.content || '');
+          }
+        });
+        currentChatId = id;
+        localChatId = null;
+        historyPnl.hidden = true;
+        historyBtn && historyBtn.setAttribute('aria-expanded', 'false');
+        return;
+      } catch (e) { console.warn('Load Firestore conversation failed', e); }
+    }
+    // Local-sourced conversation (works for everyone, offline)
+    var all = lhLoad(), conv = null, i;
+    for (i = 0; i < all.length; i++) { if (all[i].id === id) { conv = all[i]; break; } }
+    if (!conv) return;
+    winEl.innerHTML = '';
+    lastSlug = null;
+    conv.msgs.forEach(function (m) { addMessage(m.role === 'user' ? 'user' : 'bot', m.content || ''); });
+    localChatId = id;
+    historyPnl.hidden = true;
+    historyBtn && historyBtn.setAttribute('aria-expanded', 'false');
   }
 
   function formatTimestamp(ts) {
@@ -432,6 +487,7 @@ import {
   function newChat() {
     winEl.innerHTML = '';
     currentChatId = null;
+    localChatId = null;
     lastSlug = null;
     addMessage('bot',
       '**Soo dhawow Beylood!** 🌱\n\n' +
@@ -481,6 +537,9 @@ import {
       typing.remove();
       // Type the answer out like a real assistant, then finalize formatting.
       await streamBot(res.reply, res.suggestions);
+      // Save to LOCAL history (works for everyone, offline, no sign-in needed).
+      lhSavePair(text, res.reply);
+      // Signed-in users additionally sync to Firestore (cross-device + admin stats).
       if (currentUser) {
         await persistMessages({ user: text, assistant: res.reply });
         if (wasNewChat) await recordNewChat();
@@ -506,7 +565,8 @@ import {
     });
   });
 
-  // Toolbar
+  // Toolbar — history works locally for everyone, so show the button immediately.
+  if (historyBtn) historyBtn.hidden = false;
   newChatBtn && newChatBtn.addEventListener('click', newChat);
   historyBtn && historyBtn.addEventListener('click', function () {
     if (historyPnl.hidden) {
@@ -528,17 +588,17 @@ import {
   // -----------------------------------------------------------
   onAuthStateChanged(auth, function (user) {
     currentUser = user || null;
+    // History button stays visible for everyone (local history); auth only affects sync.
+    if (historyBtn) historyBtn.hidden = false;
     if (user) {
-      if (historyBtn) historyBtn.hidden = false;
       if (authStatusEl) {
         authStatusEl.classList.add('is-signed-in');
-        authStatusEl.textContent = '✓ Wadahadalladaada wuxuu kaydsanyahay';
+        authStatusEl.textContent = '✓ Wadahadalladaada waa la kaydiyay (isku-xiran aaladaha)';
       }
     } else {
-      if (historyBtn) historyBtn.hidden = true;
       if (authStatusEl) {
         authStatusEl.classList.remove('is-signed-in');
-        authStatusEl.innerHTML = '<a href="signin.html" style="color:inherit;text-decoration:underline">Soo gal si aad u keydiso wadahadalka</a>';
+        authStatusEl.innerHTML = '<a href="signin.html" style="color:inherit;text-decoration:underline">Wadahadalku waa lagu kaydiyaa aaladdan · soo gal si aad ugu kaydiso account-kaaga</a>';
       }
     }
   });
