@@ -27,6 +27,8 @@
     'cover-onion-farming':            { file: 'onion-farming.jpg',            topic: { so: "Basasha",          en: "Onions",            ar: "البصل",              sw: "Vitunguu" } },
     'cover-maize-farming':            { file: 'maize-farming.jpg',            topic: { so: "Galleyda",         en: "Maize",             ar: "الذرة",              sw: "Mahindi" } },
     'cover-sorghum-farming':          { file: 'sorghum-farming.jpg',          topic: { so: "Masago",           en: "Sorghum",           ar: "الذرة الرفيعة",      sw: "Mtama" } },
+    'cover-sesame-farming':           { file: 'sesame-farming.jpg',           topic: { so: "Simsim",           en: "Sesame",            ar: "السمسم",             sw: "Ufuta" } },
+    'cover-cowpea-farming':           { file: 'cowpea-farming.jpg',           topic: { so: "Digir",            en: "Cowpea",            ar: "اللوبيا",            sw: "Kunde" } },
     'cover-tomato-farming':           { file: 'tomato-farming.jpg',           topic: { so: "Yaanyada",         en: "Tomato",            ar: "الطماطم",            sw: "Nyanya" } },
     'cover-tomato':                   { file: 'tomato-farming.jpg',           topic: { so: "Yaanyada",         en: "Tomato",            ar: "الطماطم",            sw: "Nyanya" } },
     'cover-preventing-tomato-diseases':{ file: 'preventing-tomato-diseases.jpg', topic: { so: "Cudur ka hortag", en: "Tomato disease prevention", ar: "وقاية الطماطم", sw: "Kuzuia magonjwa" } },
@@ -106,7 +108,8 @@
     'cover-news-8':                   { file: 'news-8.jpg',  topic: { so: "Xajka",       en: "Hajj Export",   ar: "تصدير الحج",     sw: "Mauzo Hajj" } },
     'cover-news-9':                   { file: 'news-9.jpg',  topic: { so: "AI & Drones", en: "AI & Drones",   ar: "AI والطائرات",  sw: "AI na drones" } },
     'cover-news-10':                  { file: 'news-10.jpg', topic: { so: "Saadaal Deyr",en: "Deyr Forecast", ar: "توقعات الديري", sw: "Utabiri Deyr" } },
-    'cover-news-11':                  { file: 'news-11.jpg', topic: { so: "Digniin Ayax",en: "Locust Alert",  ar: "تحذير الجراد",  sw: "Tahadhari ya Nzige" } }
+    'cover-news-11':                  { file: 'news-11.jpg', topic: { so: "Digniin Ayax",en: "Locust Alert",  ar: "تحذير الجراد",  sw: "Tahadhari ya Nzige" } },
+    'cover-news-12':                  { file: 'news-12.jpg', topic: { so: "Dhoofin",     en: "Export",        ar: "التصدير",       sw: "Usafirishaji" } }
   };
 
   function curLang() { return document.documentElement.lang || 'so'; }
