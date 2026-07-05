@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Beylood — Xisaabiyeyaal beereed: iniin/hektar, bacrin, biyo-waraab, tirada dhirta, iyo faa'iido la filayo. Bilaash, offline shaqeeya." />
+  <meta name="description" content="Beylood — Xisaabiyeyaal beereed bilaash ah: iniin, bacrin, biyo, tirada dhirta, iyo faa'iido. Offline shaqeeya, 4 luqadood." />
   <meta name="theme-color" content="#0F3F7E" />
 
   <title>Xisaabiyaha Beeraha — Beylood</title>
@@ -14,7 +14,7 @@
 
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
   <meta property="og:title" content="Beylood — Farm Calculators" />
-  <meta property="og:description" content="Free farm calculators: seed rate, fertilizer, irrigation water, plant population, and profit." />
+  <meta property="og:description" content="Free farm calculators: seed, fertilizer, water, plant population and profit. More premium tools coming soon." />
   <meta property="og:image" content="https://beylood.com/assets/logo.png" />
   <meta property="og:type" content="website" />
 
@@ -30,9 +30,13 @@
   <style>
     /* Namespaced calculator styles — brand tokens only */
     .calc-wrap { max-width: 1000px; margin: 0 auto; }
-    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-top: 22px; }
-    .calc-card { background: #fff; border: 1px solid var(--gray-200, #E5E7EB); border-radius: 18px; padding: 22px; }
-    .calc-card h3 { margin: 0 0 4px; font-size: 17px; color: var(--navy-900, #0F3F7E); display: flex; align-items: center; gap: 8px; }
+    .calc-tier-head { display: flex; align-items: center; gap: 10px; margin: 30px 0 4px; flex-wrap: wrap; }
+    .calc-tier-head h3 { margin: 0; font-size: 18px; color: var(--navy-900, #0F3F7E); }
+    .tier-badge { font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px; letter-spacing: .03em; }
+    .tier-free { background: #ECF8E9; color: #246C20; }
+    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; margin-top: 16px; }
+    .calc-card { background: #fff; border: 1px solid var(--gray-200, #E5E7EB); border-radius: 18px; padding: 22px; position: relative; }
+    .calc-card h4 { margin: 0 0 4px; font-size: 16px; color: var(--navy-900, #0F3F7E); display: flex; align-items: center; gap: 8px; }
     .calc-card .calc-note { margin: 0 0 14px; font-size: 13px; color: var(--gray-500, #6B7280); }
     .calc-field { margin-bottom: 12px; }
     .calc-field label { display: block; font-size: 13px; font-weight: 600; color: var(--gray-700, #374151); margin-bottom: 5px; }
@@ -40,21 +44,26 @@
       width: 100%; padding: 10px 12px; font: inherit; font-size: 15px;
       border: 1px solid var(--gray-300, #D1D5DB); border-radius: 10px; background: #fff; color: var(--gray-900, #111827);
     }
-    .calc-btn {
-      width: 100%; cursor: pointer; border: 0; border-radius: 999px; margin-top: 6px;
-      padding: 12px 18px; font: inherit; font-weight: 700; font-size: 14px;
-      background: var(--green-300, #3BA935); color: #fff;
-    }
+    .calc-btn { width: 100%; cursor: pointer; border: 0; border-radius: 999px; margin-top: 6px; padding: 12px 18px; font: inherit; font-weight: 700; font-size: 14px; background: var(--green-300, #3BA935); color: #fff; }
     .calc-btn:hover { background: #2f8c2a; }
-    .calc-result {
-      margin-top: 14px; padding: 14px 16px; border-radius: 12px;
-      background: #ECF8E9; color: #1f5132; font-size: 15px; line-height: 1.6; display: none;
-    }
+    .calc-result { margin-top: 14px; padding: 14px 16px; border-radius: 12px; background: #ECF8E9; color: #1f5132; font-size: 15px; line-height: 1.6; display: none; }
     .calc-result.show { display: block; }
     .calc-result b { font-size: 20px; color: #246C20; }
+
+    /* "Premium coming soon" note + teaser cards */
+    .coming-note {
+      display: flex; align-items: center; gap: 10px; margin: 8px 0 2px;
+      padding: 12px 16px; border-radius: 12px;
+      background: #FEF3C7; border: 1px solid #F1C453; color: #92400E; font-size: 14px; font-weight: 600;
+    }
+    .coming-note .cn-ico { font-size: 18px; }
+    .soon-card { opacity: .75; }
+    .soon-badge { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .03em; padding: 3px 10px; border-radius: 999px; background: #FEF3C7; color: #92400E; margin-bottom: 10px; }
     html[data-theme="dark"] .calc-card { background: #111827; border-color: #374151; }
     html[data-theme="dark"] .calc-field input, html[data-theme="dark"] .calc-field select { background: #1f2937; color: #fff; border-color: #374151; }
     html[data-theme="dark"] .calc-result { background: #14321f; color: #cdefd3; }
+    html[data-theme="dark"] .coming-note { background: #1a1710; border-color: #6b5320; color: #f1c453; }
+    html[data-theme="dark"] .soon-badge { background: #1a1710; color: #f1c453; }
   </style>
 </head>
 
@@ -112,17 +121,23 @@
         <span data-lang="so">Xisaabiyaha Beeraha</span><span data-lang="en" hidden>Farm Calculators</span><span data-lang="ar" hidden>حاسبات المزرعة</span><span data-lang="sw" hidden>Vikokotoo vya Shamba</span>
       </h2>
       <p class="section-sub">
-        <span data-lang="so">Ku qiyaas si sax ah iniinaha, bacrinta, biyaha, tirada dhirta, iyo faa'iidada — bilaash, offline shaqeeya.</span>
-        <span data-lang="en" hidden>Estimate seed, fertilizer, water, plant population, and profit accurately — free and works offline.</span>
-        <span data-lang="ar" hidden>احسب البذور والسماد والماء وعدد النباتات والربح بدقة — مجاناً ويعمل دون اتصال.</span>
-        <span data-lang="sw" hidden>Kadiria mbegu, mbolea, maji, idadi ya mimea, na faida kwa usahihi — bure na hufanya kazi nje ya mtandao.</span>
+        <span data-lang="so">Dhammaan xisaabiyeyaashu waa BILAASH — qof walba wuu isticmaali karaa, offline-na way shaqeeyaan.</span>
+        <span data-lang="en" hidden>All calculators are FREE — everyone can use them, and they work offline.</span>
+        <span data-lang="ar" hidden>جميع الحاسبات مجانية — يمكن للجميع استخدامها وتعمل دون اتصال.</span>
+        <span data-lang="sw" hidden>Vikokotoo vyote ni BURE — kila mtu anaweza kuvitumia, na hufanya kazi nje ya mtandao.</span>
       </p>
+
+      <!-- ===== FREE (all) ===== -->
+      <div class="calc-tier-head">
+        <span class="tier-badge tier-free">🟢 <span data-lang="so">BILAASH</span><span data-lang="en" hidden>FREE</span><span data-lang="ar" hidden>مجاني</span><span data-lang="sw" hidden>BURE</span></span>
+        <h3><span data-lang="so">Dhammaan qof walba</span><span data-lang="en" hidden>All free for everyone</span><span data-lang="ar" hidden>الكل مجاني للجميع</span><span data-lang="sw" hidden>Vyote bure kwa wote</span></h3>
+      </div>
 
       <div class="calc-grid">
 
-        <!-- Seed rate -->
+        <!-- Seed -->
         <div class="calc-card">
-          <h3>🌱 <span data-lang="so">Iniinaha loo baahan yahay</span><span data-lang="en" hidden>Seed Required</span><span data-lang="ar" hidden>البذور المطلوبة</span><span data-lang="sw" hidden>Mbegu Zinazohitajika</span></h3>
+          <h4>🌱 <span data-lang="so">Iniinaha loo baahan yahay</span><span data-lang="en" hidden>Seed Required</span><span data-lang="ar" hidden>البذور المطلوبة</span><span data-lang="sw" hidden>Mbegu Zinazohitajika</span></h4>
           <p class="calc-note"><span data-lang="so">Dalag + ballac → tirada iniinaha (kg).</span><span data-lang="en" hidden>Crop + area → seed amount (kg).</span><span data-lang="ar" hidden>المحصول + المساحة → كمية البذور.</span><span data-lang="sw" hidden>Zao + eneo → kiasi cha mbegu.</span></p>
           <div class="calc-field">
             <label><span data-lang="so">Dalagga</span><span data-lang="en" hidden>Crop</span><span data-lang="ar" hidden>المحصول</span><span data-lang="sw" hidden>Zao</span></label>
@@ -145,7 +160,7 @@
 
         <!-- Fertilizer -->
         <div class="calc-card">
-          <h3>🧪 <span data-lang="so">Bacrinta</span><span data-lang="en" hidden>Fertilizer</span><span data-lang="ar" hidden>السماد</span><span data-lang="sw" hidden>Mbolea</span></h3>
+          <h4>🧪 <span data-lang="so">Bacrinta</span><span data-lang="en" hidden>Fertilizer</span><span data-lang="ar" hidden>السماد</span><span data-lang="sw" hidden>Mbolea</span></h4>
           <p class="calc-note"><span data-lang="so">Ballac + heerka (kg/ha) → wadarta iyo joonyadaha.</span><span data-lang="en" hidden>Area + rate → total kg and bags.</span><span data-lang="ar" hidden>المساحة + المعدل → الإجمالي والأكياس.</span><span data-lang="sw" hidden>Eneo + kiwango → jumla na magunia.</span></p>
           <div class="calc-field">
             <label><span data-lang="so">Ballaca (hektar)</span><span data-lang="en" hidden>Area (hectares)</span><span data-lang="ar" hidden>المساحة (هكتار)</span><span data-lang="sw" hidden>Eneo (hekta)</span></label>
@@ -163,9 +178,9 @@
           <div class="calc-result" id="res-fert"></div>
         </div>
 
-        <!-- Irrigation -->
+        <!-- Water -->
         <div class="calc-card">
-          <h3>💧 <span data-lang="so">Biyaha Waraabka</span><span data-lang="en" hidden>Irrigation Water</span><span data-lang="ar" hidden>مياه الري</span><span data-lang="sw" hidden>Maji ya Umwagiliaji</span></h3>
+          <h4>💧 <span data-lang="so">Biyaha Waraabka</span><span data-lang="en" hidden>Irrigation Water</span><span data-lang="ar" hidden>مياه الري</span><span data-lang="sw" hidden>Maji ya Umwagiliaji</span></h4>
           <p class="calc-note"><span data-lang="so">Ballac + qoto (mm) → biyaha (m³ & litir).</span><span data-lang="en" hidden>Area + depth → water (m³ &amp; litres).</span><span data-lang="ar" hidden>المساحة + العمق → الماء (م³ ولتر).</span><span data-lang="sw" hidden>Eneo + kina → maji (m³ na lita).</span></p>
           <div class="calc-field">
             <label><span data-lang="so">Ballaca (hektar)</span><span data-lang="en" hidden>Area (hectares)</span><span data-lang="ar" hidden>المساحة (هكتار)</span><span data-lang="sw" hidden>Eneo (hekta)</span></label>
@@ -181,7 +196,7 @@
 
         <!-- Plant population -->
         <div class="calc-card">
-          <h3>🌾 <span data-lang="so">Tirada Dhirta</span><span data-lang="en" hidden>Plant Population</span><span data-lang="ar" hidden>عدد النباتات</span><span data-lang="sw" hidden>Idadi ya Mimea</span></h3>
+          <h4>🌾 <span data-lang="so">Tirada Dhirta</span><span data-lang="en" hidden>Plant Population</span><span data-lang="ar" hidden>عدد النباتات</span><span data-lang="sw" hidden>Idadi ya Mimea</span></h4>
           <p class="calc-note"><span data-lang="so">Masaafada safka & dhirta → dhir/hektar.</span><span data-lang="en" hidden>Row &amp; plant spacing → plants/hectare.</span><span data-lang="ar" hidden>تباعد الصفوف والنباتات → نباتات/هكتار.</span><span data-lang="sw" hidden>Nafasi ya safu na mimea → mimea/hekta.</span></p>
           <div class="calc-field">
             <label><span data-lang="so">Masaafada safafka (cm)</span><span data-lang="en" hidden>Row spacing (cm)</span><span data-lang="ar" hidden>تباعد الصفوف (سم)</span><span data-lang="sw" hidden>Nafasi ya safu (sm)</span></label>
@@ -195,10 +210,10 @@
           <div class="calc-result" id="res-pop"></div>
         </div>
 
-        <!-- Yield & profit -->
+        <!-- Profit (now free) -->
         <div class="calc-card">
-          <h3>💰 <span data-lang="so">Faa'iidada La Filayo</span><span data-lang="en" hidden>Expected Profit</span><span data-lang="ar" hidden>الربح المتوقع</span><span data-lang="sw" hidden>Faida Inayotarajiwa</span></h3>
-          <p class="calc-note"><span data-lang="so">Wax-soosaar + qiime − kharash → faa'iido.</span><span data-lang="en" hidden>Yield + price − cost → profit.</span><span data-lang="ar" hidden>الإنتاج + السعر − التكلفة → الربح.</span><span data-lang="sw" hidden>Mavuno + bei − gharama → faida.</span></p>
+          <h4>💰 <span data-lang="so">Faa'iidada & ROI</span><span data-lang="en" hidden>Profit & ROI</span><span data-lang="ar" hidden>الربح والعائد</span><span data-lang="sw" hidden>Faida & ROI</span></h4>
+          <p class="calc-note"><span data-lang="so">Wax-soosaar + qiime − kharash → faa'iido & ROI.</span><span data-lang="en" hidden>Yield + price − cost → profit &amp; ROI.</span><span data-lang="ar" hidden>الإنتاج + السعر − التكلفة → الربح.</span><span data-lang="sw" hidden>Mavuno + bei − gharama → faida.</span></p>
           <div class="calc-field">
             <label><span data-lang="so">Ballaca (hektar)</span><span data-lang="en" hidden>Area (hectares)</span><span data-lang="ar" hidden>المساحة (هكتار)</span><span data-lang="sw" hidden>Eneo (hekta)</span></label>
             <input id="proArea" type="number" min="0" step="0.1" inputmode="decimal" placeholder="1.0" />
@@ -219,6 +234,55 @@
           <div class="calc-result" id="res-profit"></div>
         </div>
 
+      </div>
+
+      <!-- ===== Premium coming soon ===== -->
+      <div class="calc-tier-head" style="margin-top:34px">
+        <h3><span data-lang="so">Qalab dheeraad ah</span><span data-lang="en" hidden>More tools</span><span data-lang="ar" hidden>أدوات إضافية</span><span data-lang="sw" hidden>Zana zaidi</span></h3>
+      </div>
+      <div class="coming-note">
+        <span class="cn-ico">✨</span>
+        <span>
+          <span data-lang="so">Astaamaha Premium dhawaan ayay imanayaan.</span><span data-lang="en" hidden>Premium features are coming soon.</span><span data-lang="ar" hidden>ميزات Premium قادمة قريباً.</span><span data-lang="sw" hidden>Vipengele vya Premium vinakuja hivi karibuni.</span>
+        </span>
+      </div>
+
+      <div class="calc-grid">
+        <div class="calc-card soon-card">
+          <span class="soon-badge"><span data-lang="so">Dhawaan</span><span data-lang="en" hidden>Coming soon</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>Hivi karibuni</span></span>
+          <h4>📅 <span data-lang="so">Jadwalka Beerashada</span><span data-lang="en" hidden>Crop Planning Calendar</span><span data-lang="ar" hidden>تقويم الزراعة</span><span data-lang="sw" hidden>Kalenda ya Kupanda</span></h4>
+          <p class="calc-note"><span data-lang="so">Jadwal beerid–gurasho oo ku saleysan dalag & gobol.</span><span data-lang="en" hidden>Plant-to-harvest schedule by crop &amp; region.</span><span data-lang="ar" hidden>جدول الزراعة حتى الحصاد.</span><span data-lang="sw" hidden>Ratiba ya kupanda hadi kuvuna.</span></p>
+        </div>
+
+        <div class="calc-card soon-card">
+          <span class="soon-badge"><span data-lang="so">Dhawaan</span><span data-lang="en" hidden>Coming soon</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>Hivi karibuni</span></span>
+          <h4>📊 <span data-lang="so">Saadaasha Wax-soosaarka</span><span data-lang="en" hidden>Yield Prediction</span><span data-lang="ar" hidden>توقع الإنتاج</span><span data-lang="sw" hidden>Utabiri wa Mavuno</span></h4>
+          <p class="calc-note"><span data-lang="so">Qiyaas wax-soosaar ku saleysan xog & cimilo.</span><span data-lang="en" hidden>Estimate yield from data &amp; weather.</span><span data-lang="ar" hidden>تقدير الإنتاج من البيانات والطقس.</span><span data-lang="sw" hidden>Kadiria mavuno kutoka data na hali ya hewa.</span></p>
+        </div>
+
+        <div class="calc-card soon-card">
+          <span class="soon-badge"><span data-lang="so">Dhawaan</span><span data-lang="en" hidden>Coming soon</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>Hivi karibuni</span></span>
+          <h4>🌦️ <span data-lang="so">Talooyin Cimilo Casri ah</span><span data-lang="en" hidden>Smart Weather Advice</span><span data-lang="ar" hidden>نصائح طقس ذكية</span><span data-lang="sw" hidden>Ushauri wa Hali ya Hewa</span></h4>
+          <p class="calc-note"><span data-lang="so">Talo beerid ku saleysan saadaasha 14-maalmood.</span><span data-lang="en" hidden>Planting advice from 14-day forecasts.</span><span data-lang="ar" hidden>نصائح زراعة من توقعات 14 يوماً.</span><span data-lang="sw" hidden>Ushauri kutoka utabiri wa siku 14.</span></p>
+        </div>
+
+        <div class="calc-card soon-card">
+          <span class="soon-badge"><span data-lang="so">Dhawaan</span><span data-lang="en" hidden>Coming soon</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>Hivi karibuni</span></span>
+          <h4>💵 <span data-lang="so">Qorshaha Miisaaniyadda</span><span data-lang="en" hidden>Farm Budget Planner</span><span data-lang="ar" hidden>مخطط الميزانية</span><span data-lang="sw" hidden>Mpango wa Bajeti</span></h4>
+          <p class="calc-note"><span data-lang="so">Qorshee kharashyada iyo dakhliga beertaada.</span><span data-lang="en" hidden>Plan your farm's costs and income.</span><span data-lang="ar" hidden>خطّط تكاليف ودخل مزرعتك.</span><span data-lang="sw" hidden>Panga gharama na mapato ya shamba.</span></p>
+        </div>
+
+        <div class="calc-card soon-card">
+          <span class="soon-badge"><span data-lang="so">Dhawaan</span><span data-lang="en" hidden>Coming soon</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>Hivi karibuni</span></span>
+          <h4>🌱 <span data-lang="so">Talada Bacrinta AI</span><span data-lang="en" hidden>Fertilizer Recommendation AI</span><span data-lang="ar" hidden>توصية السماد بالذكاء</span><span data-lang="sw" hidden>Pendekezo la Mbolea AI</span></h4>
+          <p class="calc-note"><span data-lang="so">Talo bacrin oo gaar u ah dalaggaaga & ciiddaada.</span><span data-lang="en" hidden>Tailored fertilizer advice for your crop &amp; soil.</span><span data-lang="ar" hidden>توصية سماد مخصصة لمحصولك وتربتك.</span><span data-lang="sw" hidden>Ushauri wa mbolea kwa zao na udongo wako.</span></p>
+        </div>
+
+        <div class="calc-card soon-card">
+          <span class="soon-badge"><span data-lang="so">Dhawaan</span><span data-lang="en" hidden>Coming soon</span><span data-lang="ar" hidden>قريباً</span><span data-lang="sw" hidden>Hivi karibuni</span></span>
+          <h4>📈 <span data-lang="so">Dashboard Falanqaynta Kharashka</span><span data-lang="en" hidden>Cost Analysis Dashboard</span><span data-lang="ar" hidden>لوحة تحليل التكاليف</span><span data-lang="sw" hidden>Dashibodi ya Gharama</span></h4>
+          <p class="calc-note"><span data-lang="so">Falanqee kharashka & faa'iidada muddo dheer.</span><span data-lang="en" hidden>Analyse costs &amp; profit over time.</span><span data-lang="ar" hidden>حلّل التكاليف والأرباح عبر الزمن.</span><span data-lang="sw" hidden>Chambua gharama na faida kwa muda.</span></p>
+        </div>
       </div>
 
       <p class="calc-note" style="margin-top:18px">
@@ -271,7 +335,7 @@
 
 <script src="script.js?v=20260618"></script>
 <script type="module" src="auth.js?v=20260618"></script>
-<script src="calculators.js?v=20260630"></script>
+<script src="calculators.js?v=20260701"></script>
 <script src="analytics-config.js?v=20260618"></script>
 <script src="analytics.js?v=20260618"></script>
 

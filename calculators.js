@@ -23,6 +23,7 @@
     revenue:{ so: 'Dakhliga', en: 'Revenue', ar: 'الإيرادات', sw: 'Mapato' },
     profit:{ so: 'Faa\'iidada', en: 'Profit', ar: 'الربح', sw: 'Faida' },
     loss:  { so: 'Khasaaro', en: 'Loss', ar: 'خسارة', sw: 'Hasara' },
+    roi:   { so: 'ROI', en: 'ROI', ar: 'العائد', sw: 'ROI' },
     fillAll:{ so: 'Fadlan buuxi qiimayaasha.', en: 'Please fill in the values.', ar: 'يرجى إدخال القيم.', sw: 'Tafadhali jaza thamani.' }
   };
   function u(k) { return pick(U[k]); }
@@ -61,9 +62,10 @@
       var revenue = kg * price;
       var profit = revenue - cost;
       var isLoss = profit < 0;
+      var roiTxt = cost > 0 ? ' · ' + u('roi') + ': ' + fmt(profit / cost * 100, 0) + '%' : '';
       show('res-profit',
         u('revenue') + ': $' + fmt(revenue, 0) + ' · ' + fmt(kg, 0) + ' ' + u('kg') + '<br>' +
-        (isLoss ? u('loss') : u('profit')) + ': <b style="color:' + (isLoss ? '#b91c1c' : '#246C20') + '">$' + fmt(Math.abs(profit), 0) + '</b>');
+        (isLoss ? u('loss') : u('profit')) + ': <b style="color:' + (isLoss ? '#b91c1c' : '#246C20') + '">$' + fmt(Math.abs(profit), 0) + '</b>' + roiTxt);
     }
   };
 
