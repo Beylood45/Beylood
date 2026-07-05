@@ -44,6 +44,20 @@
       "description": "Wararka beeraha ee ugu dambeeyay",
       "url": "news.html?source=pwa-shortcut",
       "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Cimilada",
+      "short_name": "Cimilada",
+      "description": "Saadaasha hawada iyo talooyin beereed",
+      "url": "weather.html?source=pwa-shortcut",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Xisaabiyaha Beeraha",
+      "short_name": "Xisaabiye",
+      "description": "Xisaabiyeyaal iniin, bacrin, biyo, iyo faa'iido",
+      "url": "calculators.html?source=pwa-shortcut",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     }
   ]
 }

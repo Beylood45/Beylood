@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Beylood — Xisaabiyeyaal beereed: iniin/hektar, bacrin, biyo-waraab, tirada dhirta, iyo faa'iido la filayo. Bilaash, offline shaqeeya." />
+  <meta name="theme-color" content="#0F3F7E" />
+
+  <title>Xisaabiyaha Beeraha — Beylood</title>
+
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+  <meta property="og:title" content="Beylood — Farm Calculators" />
+  <meta property="og:description" content="Free farm calculators: seed rate, fertilizer, irrigation water, plant population, and profit." />
+  <meta property="og:image" content="https://beylood.com/assets/logo.png" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="style.css?v=20260618" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Beylood" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <script src="pwa.js?v=20260629" defer></script>
+
+  <style>
+    /* Namespaced calculator styles — brand tokens only */
+    .calc-wrap { max-width: 1000px; margin: 0 auto; }
+    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-top: 22px; }
+    .calc-card { background: #fff; border: 1px solid var(--gray-200, #E5E7EB); border-radius: 18px; padding: 22px; }
+    .calc-card h3 { margin: 0 0 4px; font-size: 17px; color: var(--navy-900, #0F3F7E); display: flex; align-items: center; gap: 8px; }
+    .calc-card .calc-note { margin: 0 0 14px; font-size: 13px; color: var(--gray-500, #6B7280); }
+    .calc-field { margin-bottom: 12px; }
+    .calc-field label { display: block; font-size: 13px; font-weight: 600; color: var(--gray-700, #374151); margin-bottom: 5px; }
+    .calc-field input, .calc-field select {
+      width: 100%; padding: 10px 12px; font: inherit; font-size: 15px;
+      border: 1px solid var(--gray-300, #D1D5DB); border-radius: 10px; background: #fff; color: var(--gray-900, #111827);
+    }
+    .calc-btn {
+      width: 100%; cursor: pointer; border: 0; border-radius: 999px; margin-top: 6px;
+      padding: 12px 18px; font: inherit; font-weight: 700; font-size: 14px;
+      background: var(--green-300, #3BA935); color: #fff;
+    }
+    .calc-btn:hover { background: #2f8c2a; }
+    .calc-result {
+      margin-top: 14px; padding: 14px 16px; border-radius: 12px;
+      background: #ECF8E9; color: #1f5132; font-size: 15px; line-height: 1.6; display: none;
+    }
+    .calc-result.show { display: block; }
+    .calc-result b { font-size: 20px; color: #246C20; }
+    html[data-theme="dark"] .calc-card { background: #111827; border-color: #374151; }
+    html[data-theme="dark"] .calc-field input, html[data-theme="dark"] .calc-field select { background: #1f2937; color: #fff; border-color: #374151; }
+    html[data-theme="dark"] .calc-result { background: #14321f; color: #cdefd3; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a href="index.html" class="logo" aria-label="Beylood home">
+        <img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html" data-key="navHome">Bogga Hore</a>
+        <a href="categories.html" data-key="navCats">Qaybaha</a>
+        <a href="articles.html" data-key="navArticles">Maqaallo</a>
+        <a href="news.html" data-key="navNews">Wararka</a>
+        <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+        <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+      </nav>
+      <div class="nav-right">
+        <a href="ask.html" class="btn btn-ask">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg>
+          <span data-key="askBtn">WAYDII BEYLOOD</span>
+        </a>
+        <a href="signin.html" class="lang-btn btn-signin" aria-label="Sign in" title="Sign in">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span>
+        </a>
+        <a href="signup.html" class="btn btn-getstarted" aria-label="Get started">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span>
+        </a>
+        <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
+          <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+          <span id="langLabel">Soomaali</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== CALCULATORS ===================== -->
+  <section class="section">
+    <div class="container calc-wrap">
+      <span class="section-eyebrow">
+        <span data-lang="so">QALABKA BEERALEYDA</span><span data-lang="en" hidden>FARMER TOOLS</span><span data-lang="ar" hidden>أدوات المزارع</span><span data-lang="sw" hidden>ZANA ZA MKULIMA</span>
+      </span>
+      <h2 class="section-title">
+        <span data-lang="so">Xisaabiyaha Beeraha</span><span data-lang="en" hidden>Farm Calculators</span><span data-lang="ar" hidden>حاسبات المزرعة</span><span data-lang="sw" hidden>Vikokotoo vya Shamba</span>
+      </h2>
+      <p class="section-sub">
+        <span data-lang="so">Ku qiyaas si sax ah iniinaha, bacrinta, biyaha, tirada dhirta, iyo faa'iidada — bilaash, offline shaqeeya.</span>
+        <span data-lang="en" hidden>Estimate seed, fertilizer, water, plant population, and profit accurately — free and works offline.</span>
+        <span data-lang="ar" hidden>احسب البذور والسماد والماء وعدد النباتات والربح بدقة — مجاناً ويعمل دون اتصال.</span>
+        <span data-lang="sw" hidden>Kadiria mbegu, mbolea, maji, idadi ya mimea, na faida kwa usahihi — bure na hufanya kazi nje ya mtandao.</span>
+      </p>
+
+      <div class="calc-grid">
+
+        <!-- Seed rate -->
+        <div class="calc-card">
+          <h3>🌱 <span data-lang="so">Iniinaha loo baahan yahay</span><span data-lang="en" hidden>Seed Required</span><span data-lang="ar" hidden>البذور المطلوبة</span><span data-lang="sw" hidden>Mbegu Zinazohitajika</span></h3>
+          <p class="calc-note"><span data-lang="so">Dalag + ballac → tirada iniinaha (kg).</span><span data-lang="en" hidden>Crop + area → seed amount (kg).</span><span data-lang="ar" hidden>المحصول + المساحة → كمية البذور.</span><span data-lang="sw" hidden>Zao + eneo → kiasi cha mbegu.</span></p>
+          <div class="calc-field">
+            <label><span data-lang="so">Dalagga</span><span data-lang="en" hidden>Crop</span><span data-lang="ar" hidden>المحصول</span><span data-lang="sw" hidden>Zao</span></label>
+            <select id="seedCrop">
+              <option value="10">Masago / Sorghum (10 kg/ha)</option>
+              <option value="22">Galley / Maize (22 kg/ha)</option>
+              <option value="60">Bariis / Rice (60 kg/ha)</option>
+              <option value="25">Digir / Cowpea (25 kg/ha)</option>
+              <option value="5">Simsim / Sesame (5 kg/ha)</option>
+              <option value="80">Digiryaal / Beans (80 kg/ha)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label><span data-lang="so">Ballaca (hektar)</span><span data-lang="en" hidden>Area (hectares)</span><span data-lang="ar" hidden>المساحة (هكتار)</span><span data-lang="sw" hidden>Eneo (hekta)</span></label>
+            <input id="seedArea" type="number" min="0" step="0.1" inputmode="decimal" placeholder="1.0" />
+          </div>
+          <button class="calc-btn" data-calc="seed"><span data-lang="so">Xisaabi</span><span data-lang="en" hidden>Calculate</span><span data-lang="ar" hidden>احسب</span><span data-lang="sw" hidden>Kokotoa</span></button>
+          <div class="calc-result" id="res-seed"></div>
+        </div>
+
+        <!-- Fertilizer -->
+        <div class="calc-card">
+          <h3>🧪 <span data-lang="so">Bacrinta</span><span data-lang="en" hidden>Fertilizer</span><span data-lang="ar" hidden>السماد</span><span data-lang="sw" hidden>Mbolea</span></h3>
+          <p class="calc-note"><span data-lang="so">Ballac + heerka (kg/ha) → wadarta iyo joonyadaha.</span><span data-lang="en" hidden>Area + rate → total kg and bags.</span><span data-lang="ar" hidden>المساحة + المعدل → الإجمالي والأكياس.</span><span data-lang="sw" hidden>Eneo + kiwango → jumla na magunia.</span></p>
+          <div class="calc-field">
+            <label><span data-lang="so">Ballaca (hektar)</span><span data-lang="en" hidden>Area (hectares)</span><span data-lang="ar" hidden>المساحة (هكتار)</span><span data-lang="sw" hidden>Eneo (hekta)</span></label>
+            <input id="fertArea" type="number" min="0" step="0.1" inputmode="decimal" placeholder="1.0" />
+          </div>
+          <div class="calc-field">
+            <label><span data-lang="so">Heerka (kg/ha)</span><span data-lang="en" hidden>Rate (kg/ha)</span><span data-lang="ar" hidden>المعدل (كغ/هكتار)</span><span data-lang="sw" hidden>Kiwango (kg/ha)</span></label>
+            <input id="fertRate" type="number" min="0" step="1" inputmode="decimal" placeholder="200" />
+          </div>
+          <div class="calc-field">
+            <label><span data-lang="so">Cabbirka joonyada (kg)</span><span data-lang="en" hidden>Bag size (kg)</span><span data-lang="ar" hidden>حجم الكيس (كغ)</span><span data-lang="sw" hidden>Ukubwa wa gunia (kg)</span></label>
+            <input id="fertBag" type="number" min="1" step="1" inputmode="decimal" placeholder="50" value="50" />
+          </div>
+          <button class="calc-btn" data-calc="fert"><span data-lang="so">Xisaabi</span><span data-lang="en" hidden>Calculate</span><span data-lang="ar" hidden>احسب</span><span data-lang="sw" hidden>Kokotoa</span></button>
+          <div class="calc-result" id="res-fert"></div>
+        </div>
+
+        <!-- Irrigation -->
+        <div class="calc-card">
+          <h3>💧 <span data-lang="so">Biyaha Waraabka</span><span data-lang="en" hidden>Irrigation Water</span><span data-lang="ar" hidden>مياه الري</span><span data-lang="sw" hidden>Maji ya Umwagiliaji</span></h3>
+          <p class="calc-note"><span data-lang="so">Ballac + qoto (mm) → biyaha (m³ & litir).</span><span data-lang="en" hidden>Area + depth → water (m³ &amp; litres).</span><span data-lang="ar" hidden>المساحة + العمق → الماء (م³ ولتر).</span><span data-lang="sw" hidden>Eneo + kina → maji (m³ na lita).</span></p>
+          <div class="calc-field">
+            <label><span data-lang="so">Ballaca (hektar)</span><span data-lang="en" hidden>Area (hectares)</span><span data-lang="ar" hidden>المساحة (هكتار)</span><span data-lang="sw" hidden>Eneo (hekta)</span></label>
+            <input id="irrArea" type="number" min="0" step="0.1" inputmode="decimal" placeholder="1.0" />
+          </div>
+          <div class="calc-field">
+            <label><span data-lang="so">Qoto biyood (mm)</span><span data-lang="en" hidden>Water depth (mm)</span><span data-lang="ar" hidden>عمق الماء (ملم)</span><span data-lang="sw" hidden>Kina cha maji (mm)</span></label>
+            <input id="irrMm" type="number" min="0" step="1" inputmode="decimal" placeholder="25" />
+          </div>
+          <button class="calc-btn" data-calc="irr"><span data-lang="so">Xisaabi</span><span data-lang="en" hidden>Calculate</span><span data-lang="ar" hidden>احسب</span><span data-lang="sw" hidden>Kokotoa</span></button>
+          <div class="calc-result" id="res-irr"></div>
+        </div>
+
+        <!-- Plant population -->
+        <div class="calc-card">
+          <h3>🌾 <span data-lang="so">Tirada Dhirta</span><span data-lang="en" hidden>Plant Population</span><span data-lang="ar" hidden>عدد النباتات</span><span data-lang="sw" hidden>Idadi ya Mimea</span></h3>
+          <p class="calc-note"><span data-lang="so">Masaafada safka & dhirta → dhir/hektar.</span><span data-lang="en" hidden>Row &amp; plant spacing → plants/hectare.</span><span data-lang="ar" hidden>تباعد الصفوف والنباتات → نباتات/هكتار.</span><span data-lang="sw" hidden>Nafasi ya safu na mimea → mimea/hekta.</span></p>
+          <div class="calc-field">
+            <label><span data-lang="so">Masaafada safafka (cm)</span><span data-lang="en" hidden>Row spacing (cm)</span><span data-lang="ar" hidden>تباعد الصفوف (سم)</span><span data-lang="sw" hidden>Nafasi ya safu (sm)</span></label>
+            <input id="popRow" type="number" min="1" step="1" inputmode="decimal" placeholder="75" />
+          </div>
+          <div class="calc-field">
+            <label><span data-lang="so">Masaafada dhirta (cm)</span><span data-lang="en" hidden>Plant spacing (cm)</span><span data-lang="ar" hidden>تباعد النباتات (سم)</span><span data-lang="sw" hidden>Nafasi ya mimea (sm)</span></label>
+            <input id="popPlant" type="number" min="1" step="1" inputmode="decimal" placeholder="25" />
+          </div>
+          <button class="calc-btn" data-calc="pop"><span data-lang="so">Xisaabi</span><span data-lang="en" hidden>Calculate</span><span data-lang="ar" hidden>احسب</span><span data-lang="sw" hidden>Kokotoa</span></button>
+          <div class="calc-result" id="res-pop"></div>
+        </div>
+
+        <!-- Yield & profit -->
+        <div class="calc-card">
+          <h3>💰 <span data-lang="so">Faa'iidada La Filayo</span><span data-lang="en" hidden>Expected Profit</span><span data-lang="ar" hidden>الربح المتوقع</span><span data-lang="sw" hidden>Faida Inayotarajiwa</span></h3>
+          <p class="calc-note"><span data-lang="so">Wax-soosaar + qiime − kharash → faa'iido.</span><span data-lang="en" hidden>Yield + price − cost → profit.</span><span data-lang="ar" hidden>الإنتاج + السعر − التكلفة → الربح.</span><span data-lang="sw" hidden>Mavuno + bei − gharama → faida.</span></p>
+          <div class="calc-field">
+            <label><span data-lang="so">Ballaca (hektar)</span><span data-lang="en" hidden>Area (hectares)</span><span data-lang="ar" hidden>المساحة (هكتار)</span><span data-lang="sw" hidden>Eneo (hekta)</span></label>
+            <input id="proArea" type="number" min="0" step="0.1" inputmode="decimal" placeholder="1.0" />
+          </div>
+          <div class="calc-field">
+            <label><span data-lang="so">Wax-soosaar (tan/ha)</span><span data-lang="en" hidden>Yield (t/ha)</span><span data-lang="ar" hidden>الإنتاج (طن/هكتار)</span><span data-lang="sw" hidden>Mavuno (tani/ha)</span></label>
+            <input id="proYield" type="number" min="0" step="0.1" inputmode="decimal" placeholder="3" />
+          </div>
+          <div class="calc-field">
+            <label><span data-lang="so">Qiimaha ($/kg)</span><span data-lang="en" hidden>Price ($/kg)</span><span data-lang="ar" hidden>السعر ($/كغ)</span><span data-lang="sw" hidden>Bei ($/kg)</span></label>
+            <input id="proPrice" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.40" />
+          </div>
+          <div class="calc-field">
+            <label><span data-lang="so">Kharashka guud ($)</span><span data-lang="en" hidden>Total cost ($)</span><span data-lang="ar" hidden>التكلفة الإجمالية ($)</span><span data-lang="sw" hidden>Gharama jumla ($)</span></label>
+            <input id="proCost" type="number" min="0" step="1" inputmode="decimal" placeholder="300" />
+          </div>
+          <button class="calc-btn" data-calc="profit"><span data-lang="so">Xisaabi</span><span data-lang="en" hidden>Calculate</span><span data-lang="ar" hidden>احسب</span><span data-lang="sw" hidden>Kokotoa</span></button>
+          <div class="calc-result" id="res-profit"></div>
+        </div>
+
+      </div>
+
+      <p class="calc-note" style="margin-top:18px">
+        <span data-lang="so">Fiiro: natiijooyinku waa qiyaas hage ah. U tixraac khabiir beeraha go'aannada waaweyn.</span>
+        <span data-lang="en" hidden>Note: results are guiding estimates. Consult an agronomist for major decisions.</span>
+        <span data-lang="ar" hidden>ملاحظة: النتائج تقديرات إرشادية. استشر مختصاً للقرارات الكبيرة.</span>
+        <span data-lang="sw" hidden>Kumbuka: matokeo ni makadirio ya mwongozo. Shauriana na mtaalamu kwa maamuzi makubwa.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="assets/logo-transparent.png" alt="Beylood" />
+            <div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div>
+          </div>
+          <p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p>
+        </div>
+        <div>
+          <p class="footer-title" data-key="fExplore">Sahmin</p>
+          <ul class="footer-list">
+            <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+            <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
+            <li><a href="news.html" data-key="navNews">Wararka</a></li>
+            <li><a href="weather.html" data-key="navWeather">Cimilada</a></li>
+            <li><a href="calculators.html" data-key="navCalc">Xisaabiyaha Beeraha</a></li>
+            <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title" data-key="fCompany">Shirkadda</p>
+          <ul class="footer-list">
+            <li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li>
+            <li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li>
+            <li><a href="terms.html"><span data-lang="so">Shuruudaha</span><span data-lang="en" hidden>Terms</span><span data-lang="ar" hidden>الشروط</span><span data-lang="sw" hidden>Masharti</span></a></li>
+            <li><a href="privacy.html"><span data-lang="so">Siyaasadda Asturnaanta</span><span data-lang="en" hidden>Privacy</span><span data-lang="ar" hidden>الخصوصية</span><span data-lang="sw" hidden>Faragha</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p>
+        <p data-key="fBuilt">Aqoonta Beeraha</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="script.js?v=20260618"></script>
+<script type="module" src="auth.js?v=20260618"></script>
+<script src="calculators.js?v=20260630"></script>
+<script src="analytics-config.js?v=20260618"></script>
+<script src="analytics.js?v=20260618"></script>
+
+</body>
+</html>

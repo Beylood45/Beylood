@@ -13,6 +13,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://beylood.com/weather.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://beylood.com/calculators.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://beylood.com/article-greenhouse-farming.html</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
