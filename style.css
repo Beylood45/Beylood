@@ -1350,6 +1350,34 @@ html[dir="rtl"] .chat-messages .msg-user {
 }
 .cover-cowpea-farming::after { content: none; }
 
+.cover-date-farming {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
+    #B45309 url('assets/date-farming.jpg') center/cover no-repeat;
+}
+.cover-date-farming::after { content: none; }
+
+.cover-potato-farming {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
+    #92400E url('assets/potato-farming.jpg') center/cover no-repeat;
+}
+.cover-potato-farming::after { content: none; }
+
+.cover-ipm {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
+    #246C20 url('assets/ipm.jpg') center/cover no-repeat;
+}
+.cover-ipm::after { content: none; }
+
+.cover-post-harvest {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
+    #7C5E10 url('assets/post-harvest.jpg') center/cover no-repeat;
+}
+.cover-post-harvest::after { content: none; }
+
 .cover-news-12 {
   background:
     linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
