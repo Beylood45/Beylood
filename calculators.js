@@ -75,4 +75,26 @@
       if (fn) fn();
     });
   });
+
+  // Crop presets: pick a crop to auto-fill a recommended value.
+  function preset(selectId, targetId) {
+    var sel = document.getElementById(selectId);
+    var tgt = document.getElementById(targetId);
+    if (!sel || !tgt) return;
+    sel.addEventListener('change', function () { if (sel.value) tgt.value = sel.value; });
+  }
+  preset('fertCrop', 'fertRate');   // fertilizer rate (kg/ha)
+  preset('irrCrop', 'irrMm');       // whole-season water (mm)
+
+  // Plant-population crop preset: fill row/plant spacing from "row,plant".
+  var popCrop = document.getElementById('popCrop');
+  if (popCrop) {
+    popCrop.addEventListener('change', function () {
+      var v = popCrop.value; if (!v) return;
+      var parts = v.split(',');
+      var r = document.getElementById('popRow'), p = document.getElementById('popPlant');
+      if (r && parts[0]) r.value = parts[0].trim();
+      if (p && parts[1]) p.value = parts[1].trim();
+    });
+  }
 })();

@@ -142,12 +142,43 @@
           <div class="calc-field">
             <label><span data-lang="so">Dalagga</span><span data-lang="en" hidden>Crop</span><span data-lang="ar" hidden>المحصول</span><span data-lang="sw" hidden>Zao</span></label>
             <select id="seedCrop">
-              <option value="10">Masago / Sorghum (10 kg/ha)</option>
-              <option value="22">Galley / Maize (22 kg/ha)</option>
-              <option value="60">Bariis / Rice (60 kg/ha)</option>
-              <option value="25">Digir / Cowpea (25 kg/ha)</option>
-              <option value="5">Simsim / Sesame (5 kg/ha)</option>
-              <option value="80">Digiryaal / Beans (80 kg/ha)</option>
+              <optgroup label="Hadhuudh / Cereals">
+                <option value="10">Masago / Sorghum (10 kg/ha)</option>
+                <option value="22">Galley / Maize (22 kg/ha)</option>
+                <option value="60">Bariis / Rice (60 kg/ha)</option>
+                <option value="100">Sarreen / Wheat (100 kg/ha)</option>
+                <option value="6">Dawa / Pearl millet (6 kg/ha)</option>
+                <option value="90">Shaciir / Barley (90 kg/ha)</option>
+              </optgroup>
+              <optgroup label="Digir / Legumes">
+                <option value="25">Digir / Cowpea (25 kg/ha)</option>
+                <option value="80">Digiryaal / Beans (80 kg/ha)</option>
+                <option value="80">Loox / Groundnut (80 kg/ha)</option>
+                <option value="70">Baqeyle / Chickpea (70 kg/ha)</option>
+                <option value="40">Misir / Lentil (40 kg/ha)</option>
+                <option value="70">Soybean (70 kg/ha)</option>
+                <option value="45">Digir cagaaran / Green gram (45 kg/ha)</option>
+              </optgroup>
+              <optgroup label="Saliid / Oilseeds">
+                <option value="5">Simsim / Sesame (5 kg/ha)</option>
+                <option value="6">Iniin qorrax / Sunflower (6 kg/ha)</option>
+                <option value="8">Khirwac / Castor (8 kg/ha)</option>
+              </optgroup>
+              <optgroup label="Khudaar / Vegetables">
+                <option value="0.4">Yaanyo / Tomato (0.4 kg/ha)</option>
+                <option value="4">Basal / Onion (4 kg/ha)</option>
+                <option value="1">Basbaas / Chili (1 kg/ha)</option>
+                <option value="0.5">Kaabash / Cabbage (0.5 kg/ha)</option>
+                <option value="4">Karooto / Carrot (4 kg/ha)</option>
+                <option value="8">Baamiye / Okra (8 kg/ha)</option>
+                <option value="2.5">Qare / Watermelon (2.5 kg/ha)</option>
+                <option value="2.5">Khiyaar / Cucumber (2.5 kg/ha)</option>
+                <option value="3">Bocor / Pumpkin (3 kg/ha)</option>
+                <option value="0.4">Doolshe / Kale (0.4 kg/ha)</option>
+              </optgroup>
+              <optgroup label="Xididada / Roots">
+                <option value="2000">Baradho / Potato — godad (2000 kg/ha)</option>
+              </optgroup>
             </select>
           </div>
           <div class="calc-field">
@@ -165,6 +196,30 @@
           <div class="calc-field">
             <label><span data-lang="so">Ballaca (hektar)</span><span data-lang="en" hidden>Area (hectares)</span><span data-lang="ar" hidden>المساحة (هكتار)</span><span data-lang="sw" hidden>Eneo (hekta)</span></label>
             <input id="fertArea" type="number" min="0" step="0.1" inputmode="decimal" placeholder="1.0" />
+          </div>
+          <div class="calc-field">
+            <label><span data-lang="so">Dalagga (ikhtiyaari)</span><span data-lang="en" hidden>Crop (optional)</span><span data-lang="ar" hidden>المحصول (اختياري)</span><span data-lang="sw" hidden>Zao (hiari)</span></label>
+            <select id="fertCrop">
+              <option value="">—</option>
+              <option value="150">Masago / Sorghum</option>
+              <option value="300">Galley / Maize</option>
+              <option value="250">Bariis / Rice</option>
+              <option value="250">Sarreen / Wheat</option>
+              <option value="100">Dawa / Pearl millet</option>
+              <option value="50">Digir / Cowpea</option>
+              <option value="100">Digiryaal / Beans</option>
+              <option value="100">Loox / Groundnut</option>
+              <option value="130">Simsim / Sesame</option>
+              <option value="150">Iniin qorrax / Sunflower</option>
+              <option value="400">Yaanyo / Tomato</option>
+              <option value="350">Basal / Onion</option>
+              <option value="300">Basbaas / Chili</option>
+              <option value="350">Kaabash / Cabbage</option>
+              <option value="250">Karooto / Carrot</option>
+              <option value="250">Baamiye / Okra</option>
+              <option value="300">Qare / Watermelon</option>
+              <option value="500">Baradho / Potato</option>
+            </select>
           </div>
           <div class="calc-field">
             <label><span data-lang="so">Heerka (kg/ha)</span><span data-lang="en" hidden>Rate (kg/ha)</span><span data-lang="ar" hidden>المعدل (كغ/هكتار)</span><span data-lang="sw" hidden>Kiwango (kg/ha)</span></label>
@@ -187,6 +242,30 @@
             <input id="irrArea" type="number" min="0" step="0.1" inputmode="decimal" placeholder="1.0" />
           </div>
           <div class="calc-field">
+            <label><span data-lang="so">Dalagga — biyaha xilliga (ikhtiyaari)</span><span data-lang="en" hidden>Crop — season water (optional)</span><span data-lang="ar" hidden>المحصول — ماء الموسم (اختياري)</span><span data-lang="sw" hidden>Zao — maji ya msimu (hiari)</span></label>
+            <select id="irrCrop">
+              <option value="">—</option>
+              <option value="500">Masago / Sorghum</option>
+              <option value="600">Galley / Maize</option>
+              <option value="1300">Bariis / Rice</option>
+              <option value="450">Sarreen / Wheat</option>
+              <option value="400">Dawa / Pearl millet</option>
+              <option value="400">Digir / Cowpea</option>
+              <option value="400">Digiryaal / Beans</option>
+              <option value="550">Loox / Groundnut</option>
+              <option value="450">Simsim / Sesame</option>
+              <option value="600">Iniin qorrax / Sunflower</option>
+              <option value="600">Yaanyo / Tomato</option>
+              <option value="500">Basal / Onion</option>
+              <option value="600">Basbaas / Chili</option>
+              <option value="400">Kaabash / Cabbage</option>
+              <option value="450">Karooto / Carrot</option>
+              <option value="500">Baamiye / Okra</option>
+              <option value="500">Qare / Watermelon</option>
+              <option value="550">Baradho / Potato</option>
+            </select>
+          </div>
+          <div class="calc-field">
             <label><span data-lang="so">Qoto biyood (mm)</span><span data-lang="en" hidden>Water depth (mm)</span><span data-lang="ar" hidden>عمق الماء (ملم)</span><span data-lang="sw" hidden>Kina cha maji (mm)</span></label>
             <input id="irrMm" type="number" min="0" step="1" inputmode="decimal" placeholder="25" />
           </div>
@@ -197,7 +276,32 @@
         <!-- Plant population -->
         <div class="calc-card">
           <h4>🌾 <span data-lang="so">Tirada Dhirta</span><span data-lang="en" hidden>Plant Population</span><span data-lang="ar" hidden>عدد النباتات</span><span data-lang="sw" hidden>Idadi ya Mimea</span></h4>
-          <p class="calc-note"><span data-lang="so">Masaafada safka & dhirta → dhir/hektar.</span><span data-lang="en" hidden>Row &amp; plant spacing → plants/hectare.</span><span data-lang="ar" hidden>تباعد الصفوف والنباتات → نباتات/هكتار.</span><span data-lang="sw" hidden>Nafasi ya safu na mimea → mimea/hekta.</span></p>
+          <p class="calc-note"><span data-lang="so">Dooro dalag (masaafadu si toos ah ayey u buuxsanaysaa) ama qor gacanta.</span><span data-lang="en" hidden>Pick a crop (spacing auto-fills) or enter manually.</span><span data-lang="ar" hidden>اختر محصولاً (تُملأ المسافة تلقائياً) أو أدخل يدوياً.</span><span data-lang="sw" hidden>Chagua zao (nafasi hujaza yenyewe) au ingiza mwenyewe.</span></p>
+          <div class="calc-field">
+            <label><span data-lang="so">Dalagga (ikhtiyaari)</span><span data-lang="en" hidden>Crop (optional)</span><span data-lang="ar" hidden>المحصول (اختياري)</span><span data-lang="sw" hidden>Zao (hiari)</span></label>
+            <select id="popCrop">
+              <option value="">—</option>
+              <option value="60,15">Masago / Sorghum</option>
+              <option value="75,25">Galley / Maize</option>
+              <option value="20,15">Bariis / Rice</option>
+              <option value="45,15">Dawa / Pearl millet</option>
+              <option value="45,20">Digir / Cowpea</option>
+              <option value="40,10">Digiryaal / Beans</option>
+              <option value="40,15">Loox / Groundnut</option>
+              <option value="40,10">Simsim / Sesame</option>
+              <option value="60,30">Iniin qorrax / Sunflower</option>
+              <option value="60,45">Yaanyo / Tomato</option>
+              <option value="30,10">Basal / Onion</option>
+              <option value="60,45">Basbaas / Chili</option>
+              <option value="60,45">Kaabash / Cabbage</option>
+              <option value="30,8">Karooto / Carrot</option>
+              <option value="60,30">Baamiye / Okra</option>
+              <option value="200,60">Qare / Watermelon</option>
+              <option value="120,45">Khiyaar / Cucumber</option>
+              <option value="150,90">Bocor / Pumpkin</option>
+              <option value="75,30">Baradho / Potato</option>
+            </select>
+          </div>
           <div class="calc-field">
             <label><span data-lang="so">Masaafada safafka (cm)</span><span data-lang="en" hidden>Row spacing (cm)</span><span data-lang="ar" hidden>تباعد الصفوف (سم)</span><span data-lang="sw" hidden>Nafasi ya safu (sm)</span></label>
             <input id="popRow" type="number" min="1" step="1" inputmode="decimal" placeholder="75" />
@@ -335,7 +439,7 @@
 
 <script src="script.js?v=20260618"></script>
 <script type="module" src="auth.js?v=20260618"></script>
-<script src="calculators.js?v=20260701"></script>
+<script src="calculators.js?v=20260703"></script>
 <script src="analytics-config.js?v=20260618"></script>
 <script src="analytics.js?v=20260618"></script>
 
