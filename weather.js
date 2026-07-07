@@ -226,10 +226,60 @@
     }, function () { statusEl.textContent = tr('error'); }, { timeout: 8000 });
   });
 
+  // ----- Global city search (Open-Meteo geocoding, free, worldwide) -----
+  var searchEl = document.getElementById('wxSearch');
+  var resultsEl = document.getElementById('wxResults');
+  var searchTimer = null;
+
+  function setSearchPh() {
+    if (searchEl) searchEl.placeholder = ({ so: 'Raadi magaalo…', en: 'Search any city…', ar: 'ابحث عن مدينة…', sw: 'Tafuta mji…' }[lang()] || 'Raadi magaalo…');
+  }
+  function hideResults() { if (resultsEl) { resultsEl.hidden = true; resultsEl.innerHTML = ''; } }
+
+  function renderResults(list) {
+    if (!resultsEl) return;
+    if (!list || !list.length) { hideResults(); return; }
+    resultsEl.innerHTML = '';
+    list.forEach(function (r) {
+      var li = document.createElement('li');
+      var label = document.createElement('span'); label.textContent = r.name;
+      var meta = document.createElement('small'); meta.textContent = ' ' + (r.admin1 ? r.admin1 + ', ' : '') + (r.country || '');
+      li.appendChild(label); li.appendChild(meta);
+      var place = r.name + (r.country ? ', ' + r.country : '');
+      li.addEventListener('click', function () {
+        hideResults();
+        if (searchEl) searchEl.value = r.name;
+        load(r.latitude, r.longitude, place);
+      });
+      resultsEl.appendChild(li);
+    });
+    resultsEl.hidden = false;
+  }
+
+  function geocode(name) {
+    var url = 'https://geocoding-api.open-meteo.com/v1/search?name=' + encodeURIComponent(name) + '&count=6&language=en&format=json';
+    fetch(url).then(function (r) { return r.json(); }).then(function (d) {
+      renderResults((d && d.results) || []);
+    }).catch(function () { hideResults(); });
+  }
+
+  if (searchEl) {
+    searchEl.addEventListener('input', function () {
+      var q = searchEl.value.trim();
+      if (searchTimer) clearTimeout(searchTimer);
+      if (q.length < 2) { hideResults(); return; }
+      searchTimer = setTimeout(function () { geocode(q); }, 350);
+    });
+    searchEl.addEventListener('keydown', function (e) { if (e.key === 'Escape') hideResults(); });
+  }
+  document.addEventListener('click', function (e) {
+    if (resultsEl && !resultsEl.hidden && searchEl && e.target !== searchEl && !resultsEl.contains(e.target)) hideResults();
+  });
+
   // Re-render city names + current view when language changes (via language button)
   var langBtn = document.getElementById('langBtn');
   if (langBtn) langBtn.addEventListener('click', function () {
-    setTimeout(function () { populateCities(); citySel.value = String(restoreIdx()); loadCity(restoreIdx()); }, 60);
+    setTimeout(function () { populateCities(); setSearchPh(); citySel.value = String(restoreIdx()); loadCity(restoreIdx()); }, 60);
   });
 
   function restoreIdx() {
@@ -239,6 +289,7 @@
 
   // Init
   populateCities();
+  setSearchPh();
   var start = restoreIdx();
   citySel.value = String(start);
   loadCity(start);

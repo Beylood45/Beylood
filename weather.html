@@ -31,6 +31,20 @@
     /* Namespaced weather styles — brand tokens only, no site-design change */
     .wx-wrap { max-width: 920px; margin: 0 auto; }
     .wx-controls { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 22px; }
+    .wx-searchbox { position: relative; flex: 1 1 240px; min-width: 200px; }
+    .wx-searchbox .wx-select { width: 100%; }
+    .wx-results {
+      position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 30;
+      margin: 0; padding: 6px; list-style: none; background: #fff;
+      border: 1px solid var(--gray-200, #E5E7EB); border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(11,19,32,.16); max-height: 300px; overflow-y: auto;
+    }
+    .wx-results li { padding: 10px 12px; border-radius: 8px; cursor: pointer; font-size: 14px; color: var(--gray-800, #1F2937); }
+    .wx-results li:hover, .wx-results li.active { background: #F4F8FF; }
+    .wx-results li small { color: var(--gray-500, #6B7280); }
+    html[data-theme="dark"] .wx-results { background: #111827; border-color: #374151; }
+    html[data-theme="dark"] .wx-results li { color: #E5E7EB; }
+    html[data-theme="dark"] .wx-results li:hover, html[data-theme="dark"] .wx-results li.active { background: #1f2937; }
     .wx-select {
       flex: 1 1 200px; min-width: 180px; padding: 12px 14px; font: inherit; font-size: 15px;
       border: 1px solid var(--gray-300, #D1D5DB); border-radius: 12px; background: #fff; color: var(--gray-900, #111827);
@@ -130,13 +144,17 @@
         <span data-lang="so">Cimilada & Beerashada</span><span data-lang="en" hidden>Weather & Farming</span><span data-lang="ar" hidden>الطقس والزراعة</span><span data-lang="sw" hidden>Hali ya Hewa na Kilimo</span>
       </h2>
       <p class="section-sub">
-        <span data-lang="so">Hubi hawada iyo roobka gobolkaaga — hel talo beereed oo ku saleysan xilliyada Gu iyo Deyr.</span>
-        <span data-lang="en" hidden>Check your region's weather and rain — get farming advice tied to the Gu and Deyr seasons.</span>
-        <span data-lang="ar" hidden>تحقق من طقس منطقتك والأمطار — واحصل على نصائح زراعية مرتبطة بموسمي غو وديير.</span>
-        <span data-lang="sw" hidden>Angalia hali ya hewa na mvua ya eneo lako — pata ushauri wa kilimo unaohusiana na misimu ya Gu na Deyr.</span>
+        <span data-lang="so">Raadi magaalo kasta adduunka — hubi hawada iyo roobka, hel talo beereed.</span>
+        <span data-lang="en" hidden>Search any city in the world — check weather and rain, get farming advice.</span>
+        <span data-lang="ar" hidden>ابحث عن أي مدينة في العالم — تحقق من الطقس والأمطار واحصل على نصائح زراعية.</span>
+        <span data-lang="sw" hidden>Tafuta mji wowote duniani — angalia hali ya hewa na mvua, pata ushauri wa kilimo.</span>
       </p>
 
       <div class="wx-controls">
+        <div class="wx-searchbox">
+          <input id="wxSearch" class="wx-select" type="search" autocomplete="off" placeholder="Raadi magaalo… (Search any city…)" aria-label="Search city" />
+          <ul id="wxResults" class="wx-results" hidden></ul>
+        </div>
         <select id="wxCity" class="wx-select" aria-label="City"></select>
         <button id="wxGeo" class="wx-geo" type="button">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.686-6-10a6 6 0 0 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
@@ -199,7 +217,7 @@
 
 <script src="script.js?v=20260618"></script>
 <script type="module" src="auth.js?v=20260618"></script>
-<script src="weather.js?v=20260630"></script>
+<script src="weather.js?v=20260703"></script>
 <script src="analytics-config.js?v=20260618"></script>
 <script src="analytics.js?v=20260618"></script>
 
