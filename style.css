@@ -1378,6 +1378,27 @@ html[dir="rtl"] .chat-messages .msg-user {
 }
 .cover-post-harvest::after { content: none; }
 
+.cover-gap-guide {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.55) 0%, rgba(11,19,32,.1) 45%, transparent 70%),
+    #0F3F7E url('assets/gap-guide.jpg') center/cover no-repeat;
+}
+.cover-gap-guide::after { content: none; }
+
+.cover-gap-worker-safety {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.5) 0%, rgba(11,19,32,.08) 45%, transparent 70%),
+    #1E5BB0 url('assets/gap-worker-safety.jpg') center/cover no-repeat;
+}
+.cover-gap-worker-safety::after { content: none; }
+
+.cover-gap-agrochemicals {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.5) 0%, rgba(11,19,32,.08) 45%, transparent 70%),
+    #92400E url('assets/gap-agrochemicals.jpg') center/cover no-repeat;
+}
+.cover-gap-agrochemicals::after { content: none; }
+
 .cover-news-12 {
   background:
     linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),

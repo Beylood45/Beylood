@@ -277,6 +277,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://beylood.com/article-gap-guide.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://beylood.com/article-gap-worker-safety.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://beylood.com/article-gap-agrochemicals.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://beylood.com/news-12.html</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
