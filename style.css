@@ -1399,6 +1399,34 @@ html[dir="rtl"] .chat-messages .msg-user {
 }
 .cover-gap-agrochemicals::after { content: none; }
 
+.cover-gap-water {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.5) 0%, rgba(11,19,32,.08) 45%, transparent 70%),
+    #1E5BB0 url('assets/gap-water.jpg') center/cover no-repeat;
+}
+.cover-gap-water::after { content: none; }
+
+.cover-gap-fertilizer {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.5) 0%, rgba(11,19,32,.08) 45%, transparent 70%),
+    #4D7C0F url('assets/gap-fertilizer.jpg') center/cover no-repeat;
+}
+.cover-gap-fertilizer::after { content: none; }
+
+.cover-gap-land {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.5) 0%, rgba(11,19,32,.08) 45%, transparent 70%),
+    #7C5E10 url('assets/gap-land.jpg') center/cover no-repeat;
+}
+.cover-gap-land::after { content: none; }
+
+.cover-gap-records {
+  background:
+    linear-gradient(to top, rgba(11,19,32,.5) 0%, rgba(11,19,32,.08) 45%, transparent 70%),
+    #0F3F7E url('assets/gap-records.jpg') center/cover no-repeat;
+}
+.cover-gap-records::after { content: none; }
+
 .cover-news-12 {
   background:
     linear-gradient(to top, rgba(11,19,32,.45) 0%, rgba(11,19,32,.05) 45%, transparent 70%),
