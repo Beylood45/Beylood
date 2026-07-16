@@ -12,7 +12,7 @@
      • Background Sync queue (IndexedDB) for pending requests
    Bump VERSION to ship an update (clients are notified).
    ============================================================ */
-const VERSION    = 'v9-20260703';
+const VERSION    = 'v10-20260715';
 const SHELL      = 'beylood-shell-' + VERSION;
 const STATIC     = 'beylood-static-' + VERSION;   // css / js (SWR)
 const IMAGES     = 'beylood-img-' + VERSION;       // images / fonts (cache-first)
@@ -27,7 +27,7 @@ const KEEP = [SHELL, STATIC, IMAGES, PAGES, SAVED];
 const PRECACHE = [
   './', 'index.html', 'offline.html',
   'articles.html', 'categories.html', 'news.html', 'about.html', 'contact.html', 'ask.html',
-  'weather.html', 'calculators.html', 'article-gap-guide.html',
+  'weather.html', 'calculators.html', 'faq.html', 'article-gap-guide.html',
   'style.css', 'script.js', 'cover-images.js', 'ask.css', 'ask.js', 'chatbot-knowledge.js',
   'weather.js', 'calculators.js', 'pwa.js', 'manifest.json',
   'assets/logo.png', 'assets/logo-transparent.png', 'assets/icon.png',
