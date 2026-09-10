@@ -1,0 +1,17 @@
+/* Beylood — top particle band for inner pages (.page-hero) + shared byl layers.
+   Separate file (new path) so Hostinger cache on style.css does not block it. */
+.page-hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#0a2244,#061529);
+  padding:40px 0;color:#fff;text-align:center;}
+.page-hero .ph-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:0 20px;}
+.page-hero .ph-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.22);padding:7px 16px;border-radius:999px;font-size:13px;font-weight:600;
+  letter-spacing:.02em;color:#fff;}
+.byl-stage{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;
+  background:
+    radial-gradient(1100px 700px at 80% 6%, rgba(74,168,255,.22), transparent 60%),
+    radial-gradient(1000px 800px at 12% 96%, rgba(15,63,126,.55), transparent 60%),
+    linear-gradient(180deg,#0a2244,#061529);}
+.byl-sun{position:absolute;inset:0;background:radial-gradient(420px 420px at var(--byl-mx,74%) var(--byl-my,24%),
+  rgba(74,168,255,.26), transparent 60%);filter:blur(12px);transition:background .2s;}
+.byl-seeds{position:absolute;inset:0;display:block;}
+@media (max-width:640px){.page-hero{padding:30px 0;}.page-hero .ph-eyebrow{font-size:12px;}}
