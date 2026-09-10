@@ -83,6 +83,15 @@
   <meta name="apple-mobile-web-app-title" content="Beylood" />
   <link rel="apple-touch-icon" href="assets/icon-192.png" />
   <script src="pwa.js?v=20260629" defer></script>
+<style id="heroBg">
+.hero{background:linear-gradient(180deg,#0a2244,#061529)}
+.hero::before{display:none}
+.hero::after{display:none}
+.hero-inner{position:relative;z-index:2}
+.byl-stage{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:radial-gradient(1100px 700px at 80% 6%, rgba(74,168,255,.22), transparent 60%),radial-gradient(1000px 800px at 12% 96%, rgba(15,63,126,.55), transparent 60%),linear-gradient(180deg,#0a2244,#061529)}
+.byl-sun{position:absolute;inset:0;background:radial-gradient(420px 420px at var(--byl-mx,74%) var(--byl-my,24%), rgba(74,168,255,.26), transparent 60%);filter:blur(12px);transition:background .2s}
+.byl-seeds{position:absolute;inset:0;display:block}
+</style>
 </head>
 
 <body>
