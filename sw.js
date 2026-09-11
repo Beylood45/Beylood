@@ -12,7 +12,7 @@
      • Background Sync queue (IndexedDB) for pending requests
    Bump VERSION to ship an update (clients are notified).
    ============================================================ */
-const VERSION    = 'v23-20260911b';
+const VERSION    = 'v24-20260911c';
 const SHELL      = 'beylood-shell-' + VERSION;
 const STATIC     = 'beylood-static-' + VERSION;   // css / js (SWR)
 const IMAGES     = 'beylood-img-' + VERSION;       // images / fonts (cache-first)
