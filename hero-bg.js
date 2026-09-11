@@ -1,7 +1,18 @@
 /* Beylood — interactive seed-particle background.
-   Runs for every .byl-stage (homepage .hero and inner-page .page-hero).
+   Runs for every .byl-stage: homepage .hero, inner-page top .page-hero,
+   and the footer (.site-footer — stage injected here so no per-page HTML edit).
    External file (CSP-safe: script-src 'self'). */
 (function () {
+  // Inject a particle stage into the footer (once) so the bottom of every page matches.
+  var footer = document.querySelector('.site-footer');
+  if (footer && !footer.querySelector('.byl-stage')) {
+    var st = document.createElement('div');
+    st.className = 'byl-stage byl-stage--footer';
+    st.setAttribute('aria-hidden', 'true');
+    st.innerHTML = '<div class="byl-sun"></div><canvas class="byl-seeds"></canvas>';
+    footer.insertBefore(st, footer.firstChild);
+  }
+
   function init(stage) {
     var host = stage.parentElement;
     var cv = stage.querySelector('.byl-seeds'); if (!cv) return;
@@ -16,9 +27,9 @@
     host.addEventListener('mouseleave', function () { tx = null; ty = null; });
     function resize() {
       dpr = Math.min(devicePixelRatio || 1, 2);
-      W = cv.width = host.clientWidth * dpr; H = cv.height = host.clientHeight * dpr;
+      W = cv.width = Math.max(1, host.clientWidth) * dpr; H = cv.height = Math.max(1, host.clientHeight) * dpr;
       cv.style.width = host.clientWidth + 'px'; cv.style.height = host.clientHeight + 'px';
-      var n = Math.round(host.clientWidth / 16); n = Math.max(30, Math.min(90, n)); ps = [];
+      var n = Math.round(host.clientWidth / 16); n = Math.max(24, Math.min(90, n)); ps = [];
       for (var i = 0; i < n; i++) {
         ps.push({ x: Math.random() * W, y: Math.random() * H, r: (Math.random() * 2 + 1) * dpr,
           vx: (Math.random() - .5) * 0.15 * dpr, vy: (-Math.random() * 0.32 - 0.06) * dpr,

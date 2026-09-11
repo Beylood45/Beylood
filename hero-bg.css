@@ -15,3 +15,9 @@
   rgba(74,168,255,.26), transparent 60%);filter:blur(12px);transition:background .2s;}
 .byl-seeds{position:absolute;inset:0;display:block;}
 @media (max-width:640px){.page-hero{padding:30px 0;}.page-hero .ph-eyebrow{font-size:12px;}}
+
+/* Footer particle background — stage injected by hero-bg.js; keep footer's own dark bg, particles float on top */
+.site-footer{position:relative;overflow:hidden;}
+.site-footer > .container{position:relative;z-index:2;}
+.site-footer .byl-stage{background:transparent;}
+.site-footer .byl-sun{opacity:.7;}
