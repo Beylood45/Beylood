@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jadwalka Beeritaanka Soomaaliya — goorta la beero, koraya, iyo gooyo dalag kasta xilliyada Gu', Deyr, Jilaal iyo Xagaa. Wakhtiga gurashada iyo biyaha dalag kasta. 4 luqadood." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <meta name="keywords" content="jadwal beereed, crop calendar Somalia, planting calendar, Gu Deyr, when to plant, xilliyada beeraha" />
+  <link rel="canonical" href="https://beylood.com/calendar.html" />
+  <title>Jadwalka Beeritaanka Soomaaliya — Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+  <meta property="og:title" content="Beylood — Somali Crop Calendar" />
+  <meta property="og:description" content="When to plant, grow, and harvest each crop in Somalia's Gu', Deyr, Jilaal and Xagaa seasons — with days-to-harvest and water needs." />
+  <meta property="og:image" content="https://beylood.com/assets/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Beylood — Somali Crop Calendar" />
+  <meta name="twitter:description" content="When to plant, grow, and harvest each crop in Somalia's seasons." />
+  <meta name="twitter:image" content="https://beylood.com/assets/logo.png" />
+  <link rel="stylesheet" href="style.css?v=20260618" />
+  <link rel="stylesheet" href="hero-bg.css?v=1" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Beylood" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <script src="pwa.js?v=20260629" defer></script>
+  <style>
+    .cal-now-banner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:linear-gradient(135deg,#0F3F7E,#1E5BB0);color:#fff;border-radius:16px;padding:16px 20px;margin:0 0 22px;}
+    .cal-now-badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:12px;padding:8px 14px;text-align:center;min-width:70px;}
+    .cal-now-badge b{display:block;font-size:20px;line-height:1;}
+    .cal-now-badge small{font-size:11px;opacity:.85;}
+    .cal-now-text{flex:1 1 240px;font-size:14px;line-height:1.5;}
+    .cal-now-text b{font-weight:700;}
+    .cal-wrap{max-width:1040px;margin:0 auto;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+    .cal-schint{display:none;font-size:12px;color:var(--gray-500,#6B7280);margin:0 0 8px;}
+    .cal{min-width:820px;border:1px solid var(--gray-200,#E5E7EB);border-radius:16px;overflow:hidden;background:#fff;}
+    .cal-row{display:grid;grid-template-columns:200px repeat(12,1fr);align-items:stretch;}
+    .cal-row + .cal-row{border-top:1px solid var(--gray-100,#F1F1F1);}
+    .cal-seasons .cal-season{padding:9px 4px;text-align:center;font-size:12px;font-weight:700;color:#fff;letter-spacing:.02em;}
+    .cal-jilaal{background:#C8862D;} .cal-gu{background:#3BA935;} .cal-xagaa{background:#BA7517;} .cal-deyr{background:#1E5BB0;}
+    .cal-months{background:var(--gray-50,#F9FAFB);}
+    .cal-months .m{padding:8px 0;text-align:center;font-size:11px;font-weight:700;color:var(--gray-600,#4B5563);border-left:1px solid var(--gray-100,#F1F1F1);text-transform:uppercase;}
+    .cal-months .m.is-now{background:#0F3F7E;color:#fff;border-radius:6px;}
+    .cal-name{padding:11px 14px;background:var(--gray-50,#F9FAFB);display:flex;flex-direction:column;justify-content:center;gap:2px;}
+    .cal-name b{font-size:14px;font-weight:600;color:var(--navy-900,#0F3F7E);}
+    .cal-name small{font-size:11px;color:var(--gray-500,#6B7280);}
+    .cal-croprow .c{border-left:1px solid var(--gray-100,#F1F1F1);min-height:38px;position:relative;}
+    .c.p{background:#3BA935;} .c.g{background:#C0DD97;} .c.h{background:#EF9F27;}
+    .cal-croprow .c.is-now{box-shadow:inset 0 0 0 2px #0F3F7E;}
+    .cal-croprow:hover{background:rgba(59,169,53,.05);}
+    .cal-legend{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin:24px 0 4px;font-size:13.5px;color:var(--gray-700,#374151);}
+    .cal-legend span{display:inline-flex;align-items:center;gap:8px;font-weight:500;}
+    .cal-legend i{width:17px;height:17px;border-radius:5px;display:inline-block;}
+    .cal-note{max-width:760px;margin:14px auto 0;text-align:center;font-size:13px;color:var(--gray-500,#6B7280);line-height:1.6;}
+    html[data-theme="dark"] .cal{background:#111827;border-color:#374151;}
+    html[data-theme="dark"] .cal-name,html[data-theme="dark"] .cal-months{background:#0f1623;}
+    html[data-theme="dark"] .cal-name b{color:#e5edf7;}
+    html[data-theme="dark"] .cal-row + .cal-row,html[data-theme="dark"] .cal-croprow .c,html[data-theme="dark"] .cal-months .m{border-color:#243040;}
+    @media(max-width:640px){.cal-schint{display:block;} .cal-name b{font-size:13px;} .cal-name{padding:9px 10px;}}
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo" aria-label="Beylood home"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg>
+        <span data-key="askBtn">WAYDII BEYLOOD</span>
+      </a>
+      <a href="signin.html" class="lang-btn btn-signin" aria-label="Sign in" title="Sign in">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span>
+      </a>
+      <a href="signup.html" class="btn btn-getstarted" aria-label="Get started">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span>
+      </a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
+        <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+        <span id="langLabel">Soomaali</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero" role="presentation">
+  <div class="byl-stage" aria-hidden="true"><div class="byl-sun"></div><canvas class="byl-seeds"></canvas></div>
+  <div class="ph-inner">
+    <span class="ph-eyebrow"><span data-lang="so">🌱 Madal Beeraha Soomaalida</span><span data-lang="en" hidden>🌱 Somali Agriculture Platform</span><span data-lang="ar" hidden>🌱 منصة الزراعة الصومالية</span><span data-lang="sw" hidden>🌱 Jukwaa la Kilimo la Kisomali</span></span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="section-eyebrow"><span data-lang="so">QALAB BEEREED</span><span data-lang="en" hidden>FARM TOOL</span><span data-lang="ar" hidden>أداة زراعية</span><span data-lang="sw" hidden>KIFAA CHA SHAMBA</span></span>
+    <h1 class="section-title"><span data-lang="so">Jadwalka Beeritaanka Soomaaliya</span><span data-lang="en" hidden>Somali Crop Calendar</span><span data-lang="ar" hidden>تقويم زراعة المحاصيل في الصومال</span><span data-lang="sw" hidden>Kalenda ya Kilimo Somalia</span></h1>
+    <p class="section-sub"><span data-lang="so">Ka eeg saf-tooska bisha aad joogto: 🟩 <b>Beero</b>, 🟨 <b>Koraya</b>, 🟧 <b>Guro</b>. Safka dalagga wuxuu kuu tusinayaa bilaha saxda ah ee dalag kasta lagu qabto — iyadoo lagu saleeyay xilliyada roobka Soomaaliya.</span><span data-lang="en" hidden>Read down the column for the month you're in: 🟩 <b>Plant</b>, 🟨 <b>Grow</b>, 🟧 <b>Harvest</b>. Each crop row shows the right months for that crop — based on Somalia's rainy seasons.</span><span data-lang="ar" hidden>انظر إلى عمود الشهر الحالي: 🟩 <b>ازرع</b>، 🟨 <b>ينمو</b>، 🟧 <b>احصد</b>. كل صف محصول يوضح الأشهر المناسبة — حسب مواسم الأمطار في الصومال.</span><span data-lang="sw" hidden>Angalia safu ya mwezi ulipo: 🟩 <b>Panda</b>, 🟨 <b>Kukua</b>, 🟧 <b>Vuna</b>. Kila safu ya zao inaonyesha miezi sahihi — kulingana na misimu ya mvua Somalia.</span></p>
+
+    <div class="cal-now-banner" id="calNowBanner" style="margin-top:20px">
+      <div class="cal-now-badge"><b id="calNowMonth">—</b><small><span data-lang="so">Bisha hadda</span><span data-lang="en" hidden>This month</span><span data-lang="ar" hidden>هذا الشهر</span><span data-lang="sw" hidden>Mwezi huu</span></small></div>
+      <div class="cal-now-text">
+        <span data-lang="so">Tiirka bisha hadda waa <b>midab-buluug lagu calaamadeeyay</b> jadwalka hoose — si aad si dhakhso ah u aragto waxa maanta la beeri karo, koraya, ama la gooyn karo.</span>
+        <span data-lang="en" hidden>The current month is <b>highlighted in blue</b> in the table below — so you can instantly see what can be planted, is growing, or can be harvested now.</span>
+        <span data-lang="ar" hidden>الشهر الحالي <b>مميّز بالأزرق</b> في الجدول أدناه — لترى فوراً ما يمكن زراعته أو نموه أو حصاده الآن.</span>
+        <span data-lang="sw" hidden>Mwezi wa sasa <b>umeangaziwa kwa buluu</b> kwenye jedwali hapa chini — ili uone mara moja kinachoweza kupandwa, kinakua, au kuvunwa sasa.</span>
+      </div>
+    </div>
+
+    <p class="cal-schint"><span data-lang="so">↔ Jiid dhinaca si aad u aragto dhammaan bilaha.</span><span data-lang="en" hidden>↔ Swipe sideways to see all months.</span><span data-lang="ar" hidden>↔ اسحب جانبياً لرؤية كل الأشهر.</span><span data-lang="sw" hidden>↔ Buruta pembeni kuona miezi yote.</span></p>
+
+    <div class="cal-wrap">
+      <div class="cal" id="calTable">
+        <div class="cal-row cal-seasons">
+          <div class="cal-name"></div>
+          <div class="cal-season cal-jilaal" style="grid-column:span 3"><span data-lang="so">Jilaal (qalayl)</span><span data-lang="en" hidden>Jilaal (dry)</span><span data-lang="ar" hidden>جيلال (جفاف)</span><span data-lang="sw" hidden>Jilaal (kavu)</span></div>
+          <div class="cal-season cal-gu" style="grid-column:span 3"><span data-lang="so">Gu' (roob weyn)</span><span data-lang="en" hidden>Gu' (main rains)</span><span data-lang="ar" hidden>غو (أمطار رئيسية)</span><span data-lang="sw" hidden>Gu' (mvua kuu)</span></div>
+          <div class="cal-season cal-xagaa" style="grid-column:span 3"><span data-lang="so">Xagaa (qalayl)</span><span data-lang="en" hidden>Xagaa (dry)</span><span data-lang="ar" hidden>خاجا (جفاف)</span><span data-lang="sw" hidden>Xagaa (kavu)</span></div>
+          <div class="cal-season cal-deyr" style="grid-column:span 3"><span data-lang="so">Deyr (roob gaaban)</span><span data-lang="en" hidden>Deyr (short rains)</span><span data-lang="ar" hidden>ديير (أمطار قصيرة)</span><span data-lang="sw" hidden>Deyr (mvua fupi)</span></div>
+        </div>
+        <div class="cal-row cal-months">
+          <div class="cal-name"><b><span data-lang="so">Dalagga</span><span data-lang="en" hidden>Crop</span><span data-lang="ar" hidden>المحصول</span><span data-lang="sw" hidden>Zao</span></b><small><span data-lang="so">maalmo · biyo</span><span data-lang="en" hidden>days · water</span><span data-lang="ar" hidden>أيام · ماء</span><span data-lang="sw" hidden>siku · maji</span></small></div>
+          <div class="m">Jan</div><div class="m">Feb</div><div class="m">Mar</div><div class="m">Apr</div><div class="m">May</div><div class="m">Jun</div><div class="m">Jul</div><div class="m">Aug</div><div class="m">Sep</div><div class="m">Oct</div><div class="m">Nov</div><div class="m">Dec</div>
+        </div>
+
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Galley</span><span data-lang="en" hidden>Maize</span><span data-lang="ar" hidden>الذرة</span><span data-lang="sw" hidden>Mahindi</span></b><small>90–120 · 500–800mm</small></div><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c g"></i><i class="c h"></i><i class="c h"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c h"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Masago</span><span data-lang="en" hidden>Sorghum</span><span data-lang="ar" hidden>الذرة الرفيعة</span><span data-lang="sw" hidden>Mtama</span></b><small>90–120 · 400–600mm</small></div><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c g"></i><i class="c g"></i><i class="c h"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c g"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Bariis</span><span data-lang="en" hidden>Rice</span><span data-lang="ar" hidden>الأرز</span><span data-lang="sw" hidden>Mchele</span></b><small>110–140 · 1200–1500mm</small></div><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c g"></i><i class="c h"></i><i class="c h"></i><i class="c"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Digir</span><span data-lang="en" hidden>Cowpea</span><span data-lang="ar" hidden>اللوبيا</span><span data-lang="sw" hidden>Kunde</span></b><small>60–90 · 300–500mm</small></div><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c h"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Simsim</span><span data-lang="en" hidden>Sesame</span><span data-lang="ar" hidden>السمسم</span><span data-lang="sw" hidden>Ufuta</span></b><small>90–120 · 400–600mm</small></div><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c p"></i><i class="c g"></i><i class="c g"></i><i class="c h"></i><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Digir cagaaran</span><span data-lang="en" hidden>Green gram</span><span data-lang="ar" hidden>الماش</span><span data-lang="sw" hidden>Choroko</span></b><small>60–90 · 350–550mm</small></div><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c h"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Yaanyo</span><span data-lang="en" hidden>Tomato</span><span data-lang="ar" hidden>الطماطم</span><span data-lang="sw" hidden>Nyanya</span></b><small>70–90 · 400–600mm</small></div><i class="c h"></i><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c g"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Basal</span><span data-lang="en" hidden>Onion</span><span data-lang="ar" hidden>البصل</span><span data-lang="sw" hidden>Vitunguu</span></b><small>90–120 · 350–550mm</small></div><i class="c g"></i><i class="c h"></i><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c p"></i><i class="c g"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Baradho</span><span data-lang="en" hidden>Potato</span><span data-lang="ar" hidden>البطاطس</span><span data-lang="sw" hidden>Viazi</span></b><small>90–120 · 500–700mm</small></div><i class="c g"></i><i class="c h"></i><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c g"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Bamiye</span><span data-lang="en" hidden>Okra</span><span data-lang="ar" hidden>البامية</span><span data-lang="sw" hidden>Bamia</span></b><small>50–65 · 400–600mm</small></div><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c g"></i><i class="c h"></i><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Basbaas</span><span data-lang="en" hidden>Pepper</span><span data-lang="ar" hidden>الفلفل</span><span data-lang="sw" hidden>Pilipili</span></b><small>90–120 · 600–900mm</small></div><i class="c h"></i><i class="c h"></i><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c g"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Qamadi</span><span data-lang="en" hidden>Wheat</span><span data-lang="ar" hidden>القمح</span><span data-lang="sw" hidden>Ngano</span></b><small>100–130 · 400–600mm</small></div><i class="c g"></i><i class="c h"></i><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c p"></i><i class="c p"></i><i class="c g"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Xabxab</span><span data-lang="en" hidden>Watermelon</span><span data-lang="ar" hidden>البطيخ</span><span data-lang="sw" hidden>Tikitimaji</span></b><small>80–100 · 400–600mm</small></div><i class="c"></i><i class="c p"></i><i class="c g"></i><i class="c g"></i><i class="c h"></i><i class="c h"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i></div>
+        <div class="cal-row cal-croprow"><div class="cal-name"><b><span data-lang="so">Isbinaaj</span><span data-lang="en" hidden>Spinach</span><span data-lang="ar" hidden>السبانخ</span><span data-lang="sw" hidden>Mchicha</span></b><small>30–45 · <span data-lang="so">joogto</span><span data-lang="en" hidden>steady</span><span data-lang="ar" hidden>منتظم</span><span data-lang="sw" hidden>endelevu</span></small></div><i class="c g"></i><i class="c h"></i><i class="c g"></i><i class="c h"></i><i class="c g"></i><i class="c h"></i><i class="c g"></i><i class="c h"></i><i class="c g"></i><i class="c h"></i><i class="c g"></i><i class="c h"></i></div>
+      </div>
+    </div>
+
+    <div class="cal-legend">
+      <span><i style="background:#3BA935"></i><span data-lang="so">Beero</span><span data-lang="en" hidden>Plant</span><span data-lang="ar" hidden>ازرع</span><span data-lang="sw" hidden>Panda</span></span>
+      <span><i style="background:#C0DD97"></i><span data-lang="so">Koritaan</span><span data-lang="en" hidden>Growing</span><span data-lang="ar" hidden>نمو</span><span data-lang="sw" hidden>Kukua</span></span>
+      <span><i style="background:#EF9F27"></i><span data-lang="so">Gurasho</span><span data-lang="en" hidden>Harvest</span><span data-lang="ar" hidden>حصاد</span><span data-lang="sw" hidden>Vuna</span></span>
+      <span><i style="box-shadow:inset 0 0 0 2px #0F3F7E;background:transparent"></i><span data-lang="so">Bisha hadda</span><span data-lang="en" hidden>Current month</span><span data-lang="ar" hidden>الشهر الحالي</span><span data-lang="sw" hidden>Mwezi wa sasa</span></span>
+    </div>
+
+    <p class="cal-note">
+      <span data-lang="so">📌 Tiirka "maalmo · biyo" wuxuu tusinayaa maalmaha ilaa gurashada iyo biyaha xilliga oo dhan loo baahdo. Jadwalku waa <b>hage guud</b>; roobka Soomaaliya sannad-ilaa-sannad wuu kala duwan yahay, sidaa la soco cimilada gobolkaaga. Su'aal gaar ah? <a href="ask.html">Waydii Beylood AI</a> ama akhri <a href="articles.html">maqaallada</a>.</span>
+      <span data-lang="en" hidden>📌 The "days · water" column shows days to harvest and total seasonal water needed. This calendar is a <b>general guide</b>; Somalia's rains vary year to year, so watch your region's weather. Specific question? <a href="ask.html">Ask Beylood AI</a> or read the <a href="articles.html">articles</a>.</span>
+      <span data-lang="ar" hidden>📌 عمود "أيام · ماء" يوضح أيام الحصاد والماء الموسمي الكلي. هذا التقويم <b>دليل عام</b>؛ أمطار الصومال تتغير سنوياً، فتابع طقس منطقتك. سؤال محدد؟ <a href="ask.html">اسأل Beylood AI</a> أو اقرأ <a href="articles.html">المقالات</a>.</span>
+      <span data-lang="sw" hidden>📌 Safu ya "siku · maji" inaonyesha siku hadi mavuno na maji ya msimu mzima. Kalenda hii ni <b>mwongozo wa jumla</b>; mvua za Somalia hutofautiana kila mwaka, hivyo fuatilia hali ya hewa ya eneo lako. Swali mahususi? <a href="ask.html">Uliza Beylood AI</a> au soma <a href="articles.html">makala</a>.</span>
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div>
+        <p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p>
+      </div>
+      <div>
+        <p class="footer-title" data-key="fExplore">Sahmin</p>
+        <ul class="footer-list">
+          <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+          <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
+          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+          <li><a href="weather.html" data-key="navWeather">Cimilada</a></li>
+          <li><a href="calculators.html" data-key="navCalc">Xisaabiyaha Beeraha</a></li>
+          <li><a href="calendar.html"><span data-lang="so">Jadwalka Beeritaanka</span><span data-lang="en" hidden>Crop Calendar</span><span data-lang="ar" hidden>تقويم الزراعة</span><span data-lang="sw" hidden>Kalenda ya Kilimo</span></a></li>
+          <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title" data-key="fCompany">Shirkadda</p>
+        <ul class="footer-list">
+          <li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li>
+          <li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li>
+          <li><a href="terms.html"><span data-lang="so">Shuruudaha</span><span data-lang="en" hidden>Terms</span><span data-lang="ar" hidden>الشروط</span><span data-lang="sw" hidden>Masharti</span></a></li>
+          <li><a href="privacy.html"><span data-lang="so">Siyaasadda Asturnaanta</span><span data-lang="en" hidden>Privacy</span><span data-lang="ar" hidden>الخصوصية</span><span data-lang="sw" hidden>Faragha</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+
+<script src="script.js?v=20260618"></script>
+<script type="module" src="auth.js?v=20260618"></script>
+<script src="analytics-config.js?v=20260618"></script>
+<script src="analytics.js?v=20260618"></script>
+<script src="hero-bg.js?v=1" defer></script>
+<script src="calendar.js?v=1" defer></script>
+</body>
+</html>

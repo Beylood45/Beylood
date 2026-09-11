@@ -31,6 +31,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://beylood.com/calendar.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://beylood.com/article-greenhouse-farming.html</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
