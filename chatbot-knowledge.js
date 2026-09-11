@@ -785,7 +785,7 @@ window.BeyloodKnowledge = (function () {
   /* ---------------- STOP WORDS (4 languages) ---------------- */
   var STOP = new Set([
     // Somali
-    'iyo','ama','laakiin','marka','waxay','waxa','waxaa','sidee','maxaa','sida','oo','ay','iyada','isaga','ka','ku','si','aan','la','u','aad','kale','tahay','yahay','waa','ma','ah','hadda','marwalba','dhammaan','yar','badan','tii','dii',
+    'iyo','ama','laakiin','marka','waxay','waxa','waxaa','sidee','maxaa','sida','oo','ay','iyada','isaga','ka','ku','si','aan','la','u','loo','aad','kale','tahay','yahay','waa','ma','ah','hadda','marwalba','dhammaan','yar','badan','tii','dii','miyaa','miyaad','ma','maad',
     // English
     'the','a','an','is','are','was','were','be','been','being','have','has','had','do','does','did','will','would','could','should','can','may','might','must','of','to','in','on','at','by','for','with','about','against','between','through','during','before','after','above','below','from','up','down','out','off','over','under','again','further','then','once','and','but','or','not','so','if','as','i','you','he','she','it','we','they','what','which','who','my','your','his','her','its','our','their','this','that','these','those','am','what','how','why','when','where','too','very','just','only','also',
     // Arabic
@@ -826,7 +826,7 @@ window.BeyloodKnowledge = (function () {
     disease:    ['disease','diseases','cudur','cudurro','cudurrada','jirro','magonjwa','blight','مرض','أمراض'],
     pest:       ['pest','pests','cayayaan','cayayaanka','insect','wadudu','dudu','آفة','آفات'],
     compost:    ['compost','bacri','bacrin','bacrinta','digo','samad','manure','mboji','mbolea','سماد','كمبوست'],
-    cattle:     ['cattle','cow','cows','lo','loo','lada','dairy','caano','milk','ng’ombe','ngombe','بقر','أبقار'],
+    cattle:     ['cattle','cow','cows','lo\'','lo\'da','dairy','caano','milk','maziwa','ng’ombe','ngombe','بقر','أبقار'],
     poultry:    ['poultry','chicken','hen','digaag','digaagga','kuku','دجاج'],
     goat:       ['goat','goats','sheep','ari','riyo','wan','ido','mbuzi','kondoo','ماعز','غنم'],
     drought:    ['drought','abaar','abaaro','abaaraha','ukame','dry','جفاف'],
