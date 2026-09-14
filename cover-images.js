@@ -120,7 +120,43 @@
     'cover-news-9':                   { file: 'news-9.jpg',  topic: { so: "AI & Drones", en: "AI & Drones",   ar: "AI والطائرات",  sw: "AI na drones" } },
     'cover-news-10':                  { file: 'news-10.jpg', topic: { so: "Saadaal Deyr",en: "Deyr Forecast", ar: "توقعات الديري", sw: "Utabiri Deyr" } },
     'cover-news-11':                  { file: 'news-11.jpg', topic: { so: "Digniin Ayax",en: "Locust Alert",  ar: "تحذير الجراد",  sw: "Tahadhari ya Nzige" } },
-    'cover-news-12':                  { file: 'news-12.jpg', topic: { so: "Dhoofin",     en: "Export",        ar: "التصدير",       sw: "Usafirishaji" } }
+    'cover-news-12':                  { file: 'news-12.jpg', topic: { so: "Dhoofin",     en: "Export",        ar: "التصدير",       sw: "Usafirishaji" } },
+
+    // ---------- New articles (user images in assets/ with title names) ----------
+    'cover-wheat-farming':            { file: '../Wheat Farming.jpg',                              topic: { so: "Qamadi",        en: "Wheat",        ar: "القمح",          sw: "Ngano" } },
+    'cover-millet-farming':           { file: '../Pearl Millet Farming.jpg',                       topic: { so: "Dawa",          en: "Pearl Millet", ar: "الدخن",          sw: "Uwele" } },
+    'cover-groundnut-farming':        { file: '../Groundnut Farming.jpg',                          topic: { so: "Lawas",         en: "Groundnut",    ar: "الفول السوداني", sw: "Karanga" } },
+    'cover-sunflower-farming':        { file: '../Sunflower Farming.jpg',                          topic: { so: "Gabbaldheer",   en: "Sunflower",    ar: "عباد الشمس",     sw: "Alizeti" } },
+    'cover-sweet-potato-farming':     { file: '../Sweet Potato Farming.jpg',                       topic: { so: "Baradho Macaan",en: "Sweet Potato", ar: "البطاطا الحلوة", sw: "Viazi Vitamu" } },
+    'cover-green-gram-farming':       { file: '../Green Gram (Mung Bean) Farming.jpg',             topic: { so: "Digir Cagaaran",en: "Green Gram",   ar: "الماش",          sw: "Choroko" } },
+    'cover-sugarcane-farming':        { file: '../Sugarcane Farming.jpg',                          topic: { so: "Qasab Sonkor",  en: "Sugarcane",    ar: "قصب السكر",      sw: "Miwa" } },
+    'cover-okra-farming':             { file: '../Okra Farming.jpg',                               topic: { so: "Bamiye",        en: "Okra",         ar: "البامية",        sw: "Bamia" } },
+    'cover-eggplant-farming':         { file: '../Eggplant (Aubergine).jpg',                       topic: { so: "Bidaari",       en: "Eggplant",     ar: "الباذنجان",      sw: "Biringanya" } },
+    'cover-carrot-farming':           { file: '../Carrot Farming.jpg',                             topic: { so: "Karoot",        en: "Carrot",       ar: "الجزر",          sw: "Karoti" } },
+    'cover-garlic-farming':           { file: '../Garlic Farming.jpg',                             topic: { so: "Toon",          en: "Garlic",       ar: "الثوم",          sw: "Kitunguu saumu" } },
+    'cover-spinach-farming':          { file: '../Spinach Farming.jpg',                            topic: { so: "Isbinaaj",      en: "Spinach",      ar: "السبانخ",        sw: "Mchicha" } },
+    'cover-citrus-farming':           { file: '../Citrus (Lemon and Orange) Farming.jpg',          topic: { so: "Liin & Faraanji",en: "Citrus",      ar: "الحمضيات",       sw: "Michungwa" } },
+    'cover-papaya-farming':           { file: '../Papaya Farming.jpg',                             topic: { so: "Babaay",        en: "Papaya",       ar: "البابايا",       sw: "Papai" } },
+    'cover-moringa-farming':          { file: '../Moringa Farming.jpg',                            topic: { so: "Moringa",       en: "Moringa",      ar: "المورينجا",      sw: "Mlonge" } },
+    'cover-guava-farming':            { file: '../Guava Farming.jpg',                              topic: { so: "Seytuun",       en: "Guava",        ar: "الجوافة",        sw: "Mapera" } },
+    'cover-egg-production':           { file: '../Egg Production (Layers).jpg',                     topic: { so: "Ukunta",        en: "Egg Production",ar: "إنتاج البيض",   sw: "Mayai" } },
+    'cover-dairy-goat-farming':       { file: '../Dairy Goat Farming.jpg',                         topic: { so: "Riyo Caano",    en: "Dairy Goats",  ar: "ماعز الحليب",    sw: "Mbuzi wa Maziwa" } },
+    'cover-animal-vaccination':       { file: '../Livestock Vaccination and Disease Prevention.jpg',topic: { so: "Tallaal Xoolo", en: "Vaccination",  ar: "تطعيم الماشية",  sw: "Chanjo" } },
+    'cover-silage-making':            { file: '../Silage Making (Preserved Fodder).jpg',           topic: { so: "Silage",        en: "Silage",       ar: "السيلاج",        sw: "Sailaji" } },
+    'cover-pasture-management':       { file: '../Pasture and Rangeland Management.jpg',           topic: { so: "Daaqa",         en: "Pasture",      ar: "المراعي",        sw: "Malisho" } },
+    'cover-hydroponics-farming':      { file: '../Hydroponics Farming.jpg',                        topic: { so: "Hydroponics",   en: "Hydroponics",  ar: "الزراعة المائية",sw: "Hydroponics" } },
+    'cover-solar-irrigation':         { file: '../Solar-Powered Irrigation.jpg',                   topic: { so: "Waraab Cadceed",en: "Solar Irrigation",ar: "الري الشمسي", sw: "Umwagiliaji wa Jua" } },
+    'cover-seed-saving':              { file: '../Seed Saving and Preservation.jpg',               topic: { so: "Kaydinta Iniin",en: "Seed Saving",  ar: "حفظ البذور",     sw: "Kuhifadhi Mbegu" } },
+    'cover-nursery-management':       { file: '../Nursery Management.jpg',                         topic: { so: "Beerta Dhalinta",en: "Nursery",     ar: "المشتل",         sw: "Kitalu" } },
+    'cover-grafting-budding':         { file: '../Grafting and Budding.jpg',                       topic: { so: "Tallaalka Dhirta",en: "Grafting",   ar: "التطعيم",        sw: "Kubebesha" } },
+    'cover-agri-marketing':           { file: '../Agricultural Marketing.jpg',                     topic: { so: "Suuq-geyn",     en: "Marketing",    ar: "التسويق",        sw: "Masoko" } },
+    'cover-value-addition':           { file: '../Value Addition to Farm Produce.jpg',             topic: { so: "Qiimo-dar",     en: "Value Addition",ar: "إضافة القيمة",  sw: "Kuongeza Thamani" } },
+    'cover-farmer-cooperatives':      { file: '../Farmer Cooperatives.jpg',                        topic: { so: "Iskaashato",    en: "Cooperatives", ar: "التعاونيات",     sw: "Ushirika" } },
+    'cover-agronomy-basics':          { file: '../Fundamentals of Agronomy.jpg',                   topic: { so: "Aasaaska Agronomy",en: "Agronomy",  ar: "علم المحاصيل",   sw: "Agronomia" } },
+    'cover-tillage-systems':          { file: '../Tillage Systems — Preparing the Soil.jpg',       topic: { so: "Falaarta",      en: "Tillage",      ar: "الحراثة",        sw: "Kulima" } },
+    'cover-cropping-systems':         { file: '../Cropping Systems — Intercropping and Rotation.jpg',topic: { so: "Nidaamyada Dalagga",en: "Cropping Systems",ar: "نظم المحاصيل",sw: "Mifumo ya Mazao" } },
+    'cover-green-manure':             { file: '../Green Manure.jpg',                               topic: { so: "Digada Cagaaran",en: "Green Manure",ar: "السماد الأخضر",  sw: "Samadi ya Kijani" } },
+    'cover-plant-nutrients':          { file: '../Plant Nutrients and Deficiency Signs.jpg',       topic: { so: "Nafaqada Dhirta",en: "Plant Nutrients",ar: "مغذيات النبات",sw: "Virutubisho" } }
   };
 
   function curLang() { return document.documentElement.lang || 'so'; }
@@ -174,14 +210,16 @@
       // Always inject branded fallback first
       injectFallback(cover, entry, cat);
 
-      // Try to load the real image
-      if (entry && entry.file) {
+      // Try to load the real image — from the map, or AUTO-DERIVED from the slug.
+      // Drop assets/images/<slug>.jpg and it appears automatically (mapped or not).
+      var file = (entry && entry.file) ? entry.file : key.replace(/^cover-/, '') + '.jpg';
+      if (file) {
         var img = document.createElement('img');
         img.className = 'cover-img';
         img.loading = 'lazy';
         img.decoding = 'async';
-        img.src = BASE + entry.file;
-        img.alt = buildAlt(cover, entry.topic);
+        img.src = encodeURI(BASE + file);
+        img.alt = buildAlt(cover, (entry && entry.topic) || { en: cat.tag, so: cat.tag, ar: cat.tag, sw: cat.tag });
         img.addEventListener('load', function () {
           img.classList.add('is-loaded');
           var fb = cover.querySelector('.cover-fallback');
