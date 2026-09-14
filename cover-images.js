@@ -12,11 +12,11 @@
   var IMAGE_MAP = {
     // ---------- Crops & farming ----------
     'cover-home-garden':              { file: 'home-garden.jpg',              topic: { so: "Beer-Guri",        en: "Home Garden",       ar: "حديقة منزلية",       sw: "Bustani ya Nyumbani" } },
-    'cover-greenhouse-farming':       { file: 'greenhouse-farming.jpg',       topic: { so: "Greenhouse",       en: "Greenhouse",        ar: "البيوت المحمية",     sw: "Greenhouse" } },
+    'cover-greenhouse-farming':       { file: '../Greenhouse Farming.jpg',    topic: { so: "Greenhouse",       en: "Greenhouse",        ar: "البيوت المحمية",     sw: "Greenhouse" } },
     'cover-vertical-farming':         { file: 'vertical-farming.jpg',         topic: { so: "Beerista Taalka",  en: "Vertical Farming",  ar: "الزراعة العمودية",   sw: "Kilimo Wima" } },
     'cover-organic-farming':          { file: 'organic-farming.jpg',          topic: { so: "Beerista Dabiici", en: "Organic Farming",   ar: "الزراعة العضوية",    sw: "Kilimo Asili" } },
     'cover-food-security':            { file: 'food-security.jpg',            topic: { so: "Amniga Cuntada",   en: "Food Security",     ar: "الأمن الغذائي",     sw: "Usalama wa Chakula" } },
-    'cover-precision-agriculture':    { file: 'precision-agriculture.jpg',    topic: { so: "Precision Ag",     en: "Precision Ag",      ar: "الزراعة الدقيقة",   sw: "Precision Ag" } },
+    'cover-precision-agriculture':    { file: '../Precision Agriculture.jpg', topic: { so: "Precision Ag",     en: "Precision Ag",      ar: "الزراعة الدقيقة",   sw: "Precision Ag" } },
     'cover-cabbage-farming':          { file: 'cabbage-farming.jpg',          topic: { so: "Kaabashka",        en: "Cabbage",           ar: "الملفوف",            sw: "Kabichi" } },
     'cover-banana-farming':           { file: 'banana-farming.jpg',           topic: { so: "Mooska",           en: "Bananas",           ar: "الموز",              sw: "Ndizi" } },
     'cover-mango-farming':            { file: 'mango-farming.jpg',            topic: { so: "Cambaha",          en: "Mango",             ar: "المانجو",            sw: "Maembe" } },
@@ -87,7 +87,7 @@
     'cover-drought-crops':            { file: 'drought-crops.jpg',            topic: { so: "Dalagga Abaaraha", en: "Drought Crops",     ar: "محاصيل الجفاف",      sw: "Mazao ya ukame" } },
     'cover-agroforestry':             { file: 'agroforestry.jpg',             topic: { so: "Agroforestry",     en: "Agroforestry",      ar: "زراعة حرجية",        sw: "Misitu na kilimo" } },
     'cover-weather-monitoring':       { file: 'weather-monitoring.jpg',       topic: { so: "Cimilada",         en: "Weather",           ar: "رصد الطقس",          sw: "Hali ya hewa" } },
-    'cover-greenhouse-farming':       { file: 'greenhouse-farming.jpg',       topic: { so: "Greenhouse",       en: "Greenhouse",        ar: "بيوت محمية",         sw: "Greenhouse" } },
+    'cover-greenhouse-farming':       { file: '../Greenhouse Farming.jpg',    topic: { so: "Greenhouse",       en: "Greenhouse",        ar: "بيوت محمية",         sw: "Greenhouse" } },
     'cover-climate-smart':            { file: 'climate-smart.jpg',            topic: { so: "Climate-Smart",    en: "Climate-Smart",     ar: "الزراعة الذكية",     sw: "Stahimilivu" } },
     'cover-flood-management':         { file: 'flood-management.jpg',         topic: { so: "Daadad",           en: "Floods",            ar: "الفيضانات",          sw: "Mafuriko" } },
     'cover-shade-nets':               { file: 'shade-nets.jpg',               topic: { so: "Shade Net",        en: "Shade Net",         ar: "شبكة التظليل",       sw: "Kivuli" } },
