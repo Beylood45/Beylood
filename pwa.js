@@ -32,7 +32,20 @@
     save:     { so: 'Kaydi offline',  en: 'Save offline', ar: 'حفظ دون اتصال', sw: 'Hifadhi nje ya mtandao' },
     saved:    { so: 'La kaydiyay ✓',  en: 'Saved ✓',      ar: 'تم الحفظ ✓',    sw: 'Imehifadhiwa ✓' },
     share:    { so: 'La wadaag',      en: 'Share',        ar: 'مشاركة',        sw: 'Shiriki' },
-    copied:   { so: 'Link la koobiyay', en: 'Link copied', ar: 'تم نسخ الرابط', sw: 'Kiungo kimenakiliwa' }
+    copied:   { so: 'Link la koobiyay', en: 'Link copied', ar: 'تم نسخ الرابط', sw: 'Kiungo kimenakiliwa' },
+    // ---- Install modal ----
+    mTitle:   { so: 'Rakib App-ka Beylood', en: 'Install the Beylood app', ar: 'ثبّت تطبيق Beylood', sw: 'Sakinisha programu ya Beylood' },
+    mDesc:    { so: 'Hel App-ka telefoonkaaga — dhakhso, offline wuu shaqeeyaa, mana qaadanayo meel badan.', en: 'Get the app on your phone — fast, works offline, uses little space.', ar: 'احصل على التطبيق على هاتفك — سريع، يعمل دون اتصال، ويستهلك مساحة صغيرة.', sw: 'Pata programu kwenye simu yako — haraka, hufanya kazi nje ya mtandao, hutumia nafasi ndogo.' },
+    b1:       { so: 'Dhakhso & fudud', en: 'Fast & light', ar: 'سريع وخفيف', sw: 'Haraka na nyepesi' },
+    b2:       { so: 'Offline akhris', en: 'Read offline', ar: 'قراءة دون اتصال', sw: 'Soma nje ya mtandao' },
+    b3:       { so: 'Icon shaashadda', en: 'Home-screen icon', ar: 'أيقونة على الشاشة', sw: 'Aikoni ya skrini' },
+    later:    { so: 'Ka daa hadda', en: 'Maybe later', ar: 'لاحقاً', sw: 'Baadaye' },
+    iosTitle: { so: 'Sida loogu rakibo iPhone/iPad', en: 'How to install on iPhone/iPad', ar: 'كيفية التثبيت على iPhone/iPad', sw: 'Jinsi ya kusakinisha kwenye iPhone/iPad' },
+    iosS1:    { so: 'Riix badhanka <b>La wadaag</b> (Share) ee hoose ee Safari.', en: 'Tap the <b>Share</b> button at the bottom of Safari.', ar: 'اضغط زر <b>المشاركة</b> أسفل Safari.', sw: 'Gusa kitufe cha <b>Shiriki</b> chini ya Safari.' },
+    iosS2:    { so: 'Dooro <b>“Add to Home Screen”</b>.', en: 'Choose <b>“Add to Home Screen”</b>.', ar: 'اختر <b>“Add to Home Screen”</b>.', sw: 'Chagua <b>“Add to Home Screen”</b>.' },
+    iosS3:    { so: 'Riix <b>Add</b> — App-ku wuxuu ka soo bixi doonaa shaashadda.', en: 'Tap <b>Add</b> — the app appears on your home screen.', ar: 'اضغط <b>Add</b> — سيظهر التطبيق على شاشتك.', sw: 'Gusa <b>Add</b> — programu itaonekana kwenye skrini yako.' },
+    dtTitle:  { so: 'Sida loogu rakibo kombiyuutarka', en: 'How to install on desktop', ar: 'كيفية التثبيت على الكمبيوتر', sw: 'Jinsi ya kusakinisha kwenye kompyuta' },
+    dtHint:   { so: 'Ku dhufo astaanta rakibka (⊕ / shaashad yar) oo ku taal cinwaanka barta booqashada Chrome ama Edge.', en: 'Click the install icon (⊕ / small screen) in the address bar of Chrome or Edge.', ar: 'انقر أيقونة التثبيت (⊕) في شريط العنوان في Chrome أو Edge.', sw: 'Bofya aikoni ya usakinishaji (⊕) kwenye upau wa anwani wa Chrome au Edge.' }
   };
   function t(k) { var m = TXT[k]; return (m && (m[lang()] || m.so)) || (m && m.so) || k; }
 
@@ -60,7 +73,37 @@
       '@keyframes pwaSpin{to{transform:rotate(360deg)}}' +
       'html[data-theme="dark"] .pwa-fab{background:#1f2937;color:#fff;border-color:#374151}' +
       'html[data-theme="dark"] .pwa-splash{background:#0b1320}' +
-      'html[data-theme="dark"] .pwa-splash .pwa-name{color:#fff}';
+      'html[data-theme="dark"] .pwa-splash .pwa-name{color:#fff}' +
+      /* Install FAB (persistent) */
+      '.pwa-install-fab{position:fixed;left:16px;bottom:20px;z-index:9997;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:0;border-radius:999px;padding:12px 18px;font:inherit;font-weight:700;font-size:13.5px;color:#fff;background:linear-gradient(135deg,' + NAVY + ',#1E5BB0);box-shadow:0 8px 22px rgba(15,63,126,.34);opacity:0;transform:translateY(20px);transition:opacity .3s,transform .3s}' +
+      '.pwa-install-fab.show{opacity:1;transform:translateY(0)}' +
+      '.pwa-install-fab svg{width:17px;height:17px;flex:0 0 auto}' +
+      '@media(max-width:640px){.pwa-install-fab span{display:none}.pwa-install-fab{padding:13px}}' +
+      /* Install modal */
+      '.pwa-modal{position:fixed;inset:0;z-index:100001;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(11,19,32,.55);opacity:0;transition:opacity .28s;font-family:inherit}' +
+      '.pwa-modal.show{opacity:1}' +
+      '.pwa-modal-card{width:100%;max-width:420px;background:#fff;border-radius:22px;padding:24px 22px 20px;box-shadow:0 24px 60px rgba(11,19,32,.4);transform:translateY(24px) scale(.98);transition:transform .3s cubic-bezier(.2,.8,.2,1);max-height:92vh;overflow-y:auto}' +
+      '.pwa-modal.show .pwa-modal-card{transform:translateY(0) scale(1)}' +
+      '.pwa-modal-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}' +
+      '.pwa-modal-head img{width:56px;height:56px;border-radius:14px;box-shadow:0 6px 16px rgba(15,63,126,.2)}' +
+      '.pwa-modal-head h3{margin:0;font-size:18px;font-weight:800;color:' + NAVY + ';line-height:1.25}' +
+      '.pwa-modal-head p{margin:4px 0 0;font-size:13px;color:#6B7280;line-height:1.5}' +
+      '.pwa-bens{display:flex;gap:8px;margin:0 0 18px;flex-wrap:wrap}' +
+      '.pwa-ben{flex:1 1 0;min-width:96px;text-align:center;background:#F4F8FF;border:1px solid #E3ECFA;border-radius:12px;padding:11px 6px;font-size:11.5px;font-weight:600;color:' + NAVY + '}' +
+      '.pwa-ben svg{width:20px;height:20px;display:block;margin:0 auto 5px;color:' + GREEN + '}' +
+      '.pwa-cta{display:block;width:100%;text-align:center;cursor:pointer;border:0;border-radius:13px;padding:15px;font:inherit;font-weight:800;font-size:15px;color:#fff;background:linear-gradient(135deg,' + GREEN + ',#2E8F29)}' +
+      '.pwa-later{display:block;width:100%;text-align:center;cursor:pointer;border:0;background:transparent;color:#6B7280;font:inherit;font-size:13.5px;padding:12px 0 2px;margin-top:4px}' +
+      '.pwa-steps{margin:2px 0 6px;padding:0;list-style:none;counter-reset:s}' +
+      '.pwa-steps li{position:relative;padding:0 0 14px 42px;font-size:14px;line-height:1.5;color:#374151}' +
+      '.pwa-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:' + NAVY + ';color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}' +
+      '.pwa-steps li b{color:' + NAVY + '}' +
+      '.pwa-modal-title{margin:0 0 14px;font-size:15px;font-weight:800;color:' + NAVY + '}' +
+      '.pwa-share-ic{display:inline-flex;vertical-align:middle;width:18px;height:18px;margin:0 2px;color:#1E5BB0}' +
+      'html[data-theme="dark"] .pwa-modal-card{background:#111827}' +
+      'html[data-theme="dark"] .pwa-modal-head h3,html[data-theme="dark"] .pwa-modal-title,html[data-theme="dark"] .pwa-ben{color:#e5edf7}' +
+      'html[data-theme="dark"] .pwa-ben{background:#0f1623;border-color:#243040}' +
+      'html[data-theme="dark"] .pwa-steps li{color:#c7d2e0}' +
+      'html[data-theme="dark"] .pwa-steps li b{color:#9db8e0}';
     var s = document.createElement('style');
     s.id = 'pwaStyles';
     s.textContent = css;
@@ -144,26 +187,114 @@
     });
   }
 
-  // ---- 4) Install banner ----
+  // ---- 4) Install experience (modal popup + persistent button) ----
   var deferredPrompt = null;
+  var installFab = null;
+
   function recentlyDismissed() {
     try { var ts = parseInt(localStorage.getItem(DISMISS_KEY) || '0', 10); return ts && (Date.now() - ts) < 7 * 864e5; }
     catch (e) { return false; }
   }
+  function isIOS() {
+    return /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); // iPadOS
+  }
+  var SVG = {
+    bolt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>',
+    down: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>',
+    wifi: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16.11a6 6 0 0 1 7 0M2 8.82a15 15 0 0 1 20 0"/><line x1="12" y1="20" x2="12" y2="20"/></svg>',
+    grid: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
+     share: '<svg class="pwa-share-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M8 8l4-4 4 4"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"/></svg>'
+  };
+
+  function benChip(svg, key) { return '<div class="pwa-ben">' + svg + t(key) + '</div>'; }
+
+  var modalEl = null, modalAuto = false, autoShown = false;
+  function snooze() { try { localStorage.setItem(DISMISS_KEY, Date.now().toString()); } catch (e) {} }
+  function closeModal() {
+    if (!modalEl) return;
+    if (modalAuto) snooze();            // auto-shown popup closed → don't nag for 7 days
+    modalEl.classList.remove('show');
+    var m = modalEl; modalEl = null;
+    setTimeout(function () { m.remove(); }, 300);
+  }
+  function showInstallModal(auto) {
+    if (isStandalone() || modalEl) return;
+    if (auto) { if (autoShown || recentlyDismissed()) return; autoShown = true; }
+    modalAuto = !!auto;
+    injectStyles();
+    var body;
+    if (deferredPrompt) {
+      // Android / Chromium — native prompt available
+      body = '<button type="button" class="pwa-cta" id="pwaDoInstall">' + t('install') + '</button>';
+    } else if (isIOS()) {
+      body = '<p class="pwa-modal-title">' + t('iosTitle') + '</p><ol class="pwa-steps">' +
+        '<li>' + t('iosS1').replace('(Share)', '(' + SVG.share + ')') + '</li>' +
+        '<li>' + t('iosS2') + '</li><li>' + t('iosS3') + '</li></ol>';
+    } else {
+      body = '<p class="pwa-modal-title">' + t('dtTitle') + '</p><ol class="pwa-steps"><li>' + t('dtHint') + '</li></ol>';
+    }
+    var el = document.createElement('div');
+    el.className = 'pwa-modal';
+    el.setAttribute('role', 'dialog');
+    el.setAttribute('aria-modal', 'true');
+    el.innerHTML =
+      '<div class="pwa-modal-card">' +
+        '<div class="pwa-modal-head"><img src="assets/icon-192.png" alt="Beylood">' +
+          '<div><h3>' + t('mTitle') + '</h3><p>' + t('mDesc') + '</p></div></div>' +
+        '<div class="pwa-bens">' + benChip(SVG.bolt, 'b1') + benChip(SVG.wifi, 'b2') + benChip(SVG.grid, 'b3') + '</div>' +
+        body +
+        '<button type="button" class="pwa-later" id="pwaLater">' + t('later') + '</button>' +
+      '</div>';
+    document.body.appendChild(el);
+    modalEl = el;
+    requestAnimationFrame(function () { el.classList.add('show'); });
+    // Close on backdrop click
+    el.addEventListener('click', function (ev) { if (ev.target === el) closeModal(); });
+    var later = el.querySelector('#pwaLater');
+    if (later) later.addEventListener('click', function () { snooze(); closeModal(); });
+    var doInstall = el.querySelector('#pwaDoInstall');
+    if (doInstall) doInstall.addEventListener('click', function () {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.finally(function () { deferredPrompt = null; closeModal(); hideFab(); });
+    });
+  }
+
+  function injectInstallFab() {
+    if (isStandalone() || installFab) return;
+    injectStyles();
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'pwa-install-fab';
+    b.innerHTML = SVG.down + '<span>' + t('install') + '</span>';
+    b.setAttribute('aria-label', t('install'));
+    b.addEventListener('click', function () { showInstallModal(false); });
+    document.body.appendChild(b);
+    installFab = b;
+    requestAnimationFrame(function () { b.classList.add('show'); });
+  }
+  function hideFab() { if (installFab) { installFab.classList.remove('show'); var f = installFab; installFab = null; setTimeout(function () { f.remove(); }, 300); } }
+
   window.addEventListener('beforeinstallprompt', function (e) {
     e.preventDefault(); deferredPrompt = e;
-    if (isStandalone() || recentlyDismissed()) return;
-    toast({
-      title: 'Beylood', subtitle: t('install'), action: t('install'),
-      onAction: function () {
-        if (!deferredPrompt) return;
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.finally(function () { deferredPrompt = null; });
-      },
-      onDismiss: function () { try { localStorage.setItem(DISMISS_KEY, Date.now().toString()); } catch (e) {} }
-    });
+    injectInstallFab();                                    // always give a way in
+    setTimeout(function () { showInstallModal(true); }, 2500); // gentle auto-popup once
   });
-  window.addEventListener('appinstalled', function () { deferredPrompt = null; });
+  window.addEventListener('appinstalled', function () { deferredPrompt = null; closeModal(); hideFab(); });
+
+  // Boot the install UI for platforms that never fire beforeinstallprompt (iOS, some desktops)
+  function bootInstallUI() {
+    if (isStandalone()) return;
+    if (isIOS()) {
+      injectInstallFab();
+      setTimeout(function () { showInstallModal(true); }, 2500);
+    } else {
+      // Android fires beforeinstallprompt (handled above); if it hasn't after a
+      // few seconds (desktop Firefox, unsupported), still offer the button.
+      setTimeout(function () { if (!deferredPrompt && !isStandalone()) injectInstallFab(); }, 3500);
+    }
+  }
 
   // ---- 5 & 9) Save-for-offline + Web Share (article pages only) ----
   function currentFile() { return (location.pathname.split('/').pop() || 'index.html'); }
@@ -286,6 +417,6 @@
   // ---- Boot ----
   showSplash();
   if ('serviceWorker' in navigator) window.addEventListener('load', registerSW);
-  if (document.readyState !== 'loading') buildArticleFabs();
-  else document.addEventListener('DOMContentLoaded', buildArticleFabs);
+  if (document.readyState !== 'loading') { buildArticleFabs(); bootInstallUI(); }
+  else document.addEventListener('DOMContentLoaded', function () { buildArticleFabs(); bootInstallUI(); });
 })();
