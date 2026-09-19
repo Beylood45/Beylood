@@ -14,7 +14,7 @@
 
   var U = {
     kg:    { so: 'kg', en: 'kg', ar: 'كغ', sw: 'kg' },
-    bags:  { so: 'joonyad', en: 'bags', ar: 'كيس', sw: 'magunia' },
+    bags:  { so: 'jawaan', en: 'bags', ar: 'كيس', sw: 'magunia' },
     plants:{ so: 'dhir/hektar', en: 'plants/ha', ar: 'نبتة/هكتار', sw: 'mimea/hekta' },
     total: { so: 'Wadarta', en: 'Total', ar: 'الإجمالي', sw: 'Jumla' },
     seedNeed: { so: 'Iniin loo baahan yahay', en: 'Seed required', ar: 'البذور المطلوبة', sw: 'Mbegu zinazohitajika' },

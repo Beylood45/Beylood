@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="so" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Beertayda — qorshe beereed shakhsi ah. Diiwaan geli dalagyadaada iyo taariikhda beeridda, oo hel jadwal iyo xasuusin ku saabsan goorta biyeynta, bacriminta iyo gurashada. Bilaash, offline, 4 luqadood." />
+  <meta name="theme-color" content="#0F3F7E" />
+  <meta name="keywords" content="qorshe beereed, my farm, farm planner Somalia, crop tracker, xasuusin beereed, beertayda" />
+  <link rel="canonical" href="https://beylood.com/beertayda.html" />
+  <title>Beertayda — Qorshahaaga Beereed Shakhsiga ah | Beylood</title>
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+  <meta property="og:title" content="Beertayda — My Farm Planner | Beylood" />
+  <meta property="og:description" content="Register your crops and planting dates, get a personal timeline with reminders for watering, fertilizing and harvest." />
+  <meta property="og:image" content="https://beylood.com/assets/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Beertayda — My Farm Planner | Beylood" />
+  <meta name="twitter:description" content="A free, offline personal farm planner for Somali farmers." />
+  <meta name="twitter:image" content="https://beylood.com/assets/logo.png" />
+  <link rel="stylesheet" href="style.css?v=20260618" />
+  <link rel="stylesheet" href="hero-bg.css?v=1" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Beylood" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <script src="pwa.js?v=20260629" defer></script>
+  <style>
+    .byf-intro{max-width:760px;margin:0 auto 22px;text-align:center;font-size:14.5px;line-height:1.65;color:var(--gray-600,#4B5563);}
+    .byf-note-priv{display:inline-flex;align-items:center;gap:7px;margin-top:10px;font-size:12.5px;color:var(--gray-500,#6B7280);background:var(--gray-50,#F9FAFB);border:1px solid var(--gray-200,#E5E7EB);border-radius:999px;padding:6px 14px;}
+    .byf-wrap{max-width:1020px;margin:0 auto;}
+    /* Add form */
+    .byf-form{display:grid;grid-template-columns:1.3fr 1fr 1.1fr auto;gap:12px;align-items:end;background:#fff;border:1px solid var(--gray-200,#E5E7EB);border-radius:16px;padding:18px;margin:0 0 24px;}
+    .byf-form .fld{display:flex;flex-direction:column;gap:6px;}
+    .byf-form label{font-size:12.5px;font-weight:600;color:var(--gray-700,#374151);}
+    .byf-form select,.byf-form input{width:100%;padding:11px 12px;border:1px solid var(--gray-300,#D1D5DB);border-radius:10px;font-size:14px;background:#fff;color:var(--navy-900,#0F3F7E);font-family:inherit;}
+    .byf-form select:focus,.byf-form input:focus{outline:none;border-color:#1E5BB0;box-shadow:0 0 0 3px rgba(30,91,176,.15);}
+    .byf-add{background:linear-gradient(135deg,#0F3F7E,#1E5BB0);color:#fff;border:none;border-radius:10px;padding:12px 22px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit;display:inline-flex;align-items:center;gap:8px;}
+    .byf-add:hover{filter:brightness(1.07);}
+    /* Summary */
+    #byfSummary{margin:0 0 22px;}
+    .byf-sum{background:linear-gradient(135deg,#EF9F27,#C0862D);color:#fff;border-radius:16px;padding:16px 20px;}
+    .byf-sum-h{font-weight:800;font-size:15px;margin:0 0 8px;}
+    .byf-sum ul{margin:0;padding-left:20px;font-size:13.5px;line-height:1.7;}
+    .byf-sum ul b{font-weight:700;}
+    .byf-sum-none{background:#E9F7EA;color:#1F7A2E;border:1px solid #BFE6C4;border-radius:14px;padding:13px 18px;font-size:14px;font-weight:600;text-align:center;}
+    /* Cards grid */
+    .byf-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+    .byf-card{background:#fff;border:1px solid var(--gray-200,#E5E7EB);border-radius:16px;padding:16px 18px;box-shadow:0 1px 3px rgba(0,0,0,.04);display:flex;flex-direction:column;gap:12px;}
+    .byf-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+    .byf-card-title b{font-size:16px;font-weight:700;color:var(--navy-900,#0F3F7E);}
+    .byf-field{display:block;font-size:12px;color:var(--gray-500,#6B7280);margin-top:2px;}
+    .byf-phase{color:#fff;font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap;}
+    .byf-bar{height:8px;background:var(--gray-100,#F1F1F1);border-radius:999px;overflow:hidden;}
+    .byf-bar span{display:block;height:100%;border-radius:999px;transition:width .4s ease;}
+    .byf-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;}
+    .byf-stats > div{display:flex;flex-direction:column;gap:1px;}
+    .byf-stats small{font-size:11px;color:var(--gray-500,#6B7280);}
+    .byf-stats b{font-size:13.5px;font-weight:600;color:var(--gray-800,#1F2937);}
+    .byf-next{background:var(--gray-50,#F9FAFB);border:1px solid var(--gray-100,#F1F1F1);border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.55;color:var(--gray-700,#374151);}
+    .byf-next-lbl{display:inline-block;font-weight:700;color:#0F3F7E;margin-right:4px;}
+    .byf-card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--gray-100,#F1F1F1);padding-top:11px;}
+    .byf-planted{font-size:12px;color:var(--gray-500,#6B7280);}
+    .byf-remove{background:none;border:1px solid var(--gray-300,#D1D5DB);color:var(--gray-600,#4B5563);border-radius:8px;padding:6px 12px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;}
+    .byf-remove:hover{border-color:#C0392B;color:#C0392B;}
+    /* Empty */
+    .byf-empty{text-align:center;padding:48px 20px;background:#fff;border:2px dashed var(--gray-200,#E5E7EB);border-radius:16px;}
+    .byf-empty-ic{font-size:44px;margin-bottom:10px;}
+    .byf-empty h3{font-size:18px;color:var(--navy-900,#0F3F7E);margin:0 0 8px;}
+    .byf-empty p{max-width:440px;margin:0 auto;font-size:14px;line-height:1.6;color:var(--gray-500,#6B7280);}
+    .byf-count{font-size:15px;font-weight:600;color:var(--gray-500,#6B7280);}
+    .byf-mycrops-h{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:17px;font-weight:700;color:var(--navy-900,#0F3F7E);}
+    /* dark */
+    html[data-theme="dark"] .byf-form,html[data-theme="dark"] .byf-card{background:#111827;border-color:#374151;}
+    html[data-theme="dark"] .byf-form select,html[data-theme="dark"] .byf-form input{background:#0f1623;border-color:#374151;color:#e5edf7;}
+    html[data-theme="dark"] .byf-next{background:#0f1623;border-color:#243040;color:#c7d2e0;}
+    html[data-theme="dark"] .byf-card-title b,html[data-theme="dark"] .byf-mycrops-h{color:#e5edf7;}
+    html[data-theme="dark"] .byf-stats b{color:#d7dfe9;}
+    html[data-theme="dark"] .byf-empty{background:#111827;border-color:#374151;}
+    html[data-theme="dark"] .byf-note-priv{background:#0f1623;border-color:#374151;}
+    @media(max-width:760px){.byf-form{grid-template-columns:1fr 1fr;}.byf-form .fld-crop{grid-column:1 / -1;}.byf-add{grid-column:1 / -1;justify-content:center;}}
+    @media(max-width:460px){.byf-form{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" class="logo" aria-label="Beylood home"><img src="assets/logo.png" alt="Beylood" /><span class="logo-name">BEYLOOD</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-key="navHome">Bogga Hore</a>
+      <a href="categories.html" data-key="navCats">Qaybaha</a>
+      <a href="articles.html" data-key="navArticles">Maqaallo</a>
+      <a href="news.html" data-key="navNews">Wararka</a>
+      <a href="about.html" data-key="navAbout">Nagu saabsan</a>
+      <a href="contact.html" data-key="navContact">Nala soo xidhiidh</a>
+    </nav>
+    <div class="nav-right">
+      <a href="ask.html" class="btn btn-ask">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg>
+        <span data-key="askBtn">WAYDII BEYLOOD</span>
+      </a>
+      <a href="signin.html" class="lang-btn btn-signin" aria-label="Sign in" title="Sign in">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span data-lang="so">Soo Gal</span><span data-lang="en" hidden>Sign In</span><span data-lang="ar" hidden>تسجيل الدخول</span><span data-lang="sw" hidden>Ingia</span>
+      </a>
+      <a href="signup.html" class="btn btn-getstarted" aria-label="Get started">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span data-lang="so">Bilow</span><span data-lang="en" hidden>Get Started</span><span data-lang="ar" hidden>ابدأ</span><span data-lang="sw" hidden>Anza</span>
+      </a>
+      <button id="themeBtn" class="lang-btn theme-btn" type="button" aria-label="Toggle theme">
+        <svg data-icon="moon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg data-icon="sun" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button id="langBtn" class="lang-btn" type="button" aria-label="Change language">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+        <span id="langLabel">Soomaali</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero" role="presentation">
+  <div class="byl-stage" aria-hidden="true"><div class="byl-sun"></div><canvas class="byl-seeds"></canvas></div>
+  <div class="ph-inner">
+    <span class="ph-eyebrow"><span data-lang="so">🌱 Madal Beeraha Soomaalida</span><span data-lang="en" hidden>🌱 Somali Agriculture Platform</span><span data-lang="ar" hidden>🌱 منصة الزراعة الصومالية</span><span data-lang="sw" hidden>🌱 Jukwaa la Kilimo la Kisomali</span></span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="section-eyebrow"><span data-lang="so">QALAB BEEREED</span><span data-lang="en" hidden>FARM TOOL</span><span data-lang="ar" hidden>أداة زراعية</span><span data-lang="sw" hidden>KIFAA CHA SHAMBA</span></span>
+    <h1 class="section-title"><span data-lang="so">Beertayda</span><span data-lang="en" hidden>My Farm</span><span data-lang="ar" hidden>مزرعتي</span><span data-lang="sw" hidden>Shamba Langu</span></h1>
+
+    <p class="byf-intro">
+      <span data-lang="so">Diiwaan geli dalagyada aad beertay iyo taariikhda beeridda — Beylood wuxuu kuu abuurayaa jadwal shakhsi ah: goorta uu dalagku soo baxo, koro, ubaxo iyo la gooyo, iyo <b>talaabada xigta</b> ee laga rabo maanta.</span>
+      <span data-lang="en" hidden>Register the crops you planted and their planting dates — Beylood builds you a personal timeline: when each crop germinates, grows, flowers and is harvested, plus the <b>next step</b> needed today.</span>
+      <span data-lang="ar" hidden>سجّل المحاصيل التي زرعتها وتواريخ زراعتها — يبني لك Beylood جدولاً زمنياً شخصياً: متى ينبت المحصول وينمو ويُزهر ويُحصد، بالإضافة إلى <b>الخطوة التالية</b> المطلوبة اليوم.</span>
+      <span data-lang="sw" hidden>Sajili mazao uliyopanda na tarehe zake — Beylood inakujengea ratiba binafsi: lini zao linaota, linakua, linatoa maua na kuvunwa, pamoja na <b>hatua inayofuata</b> inayohitajika leo.</span>
+    </p>
+    <p style="text-align:center;margin:0 0 26px">
+      <span class="byf-note-priv">
+        🔒 <span data-lang="so">Xogtaadu waxay ku kaydsan tahay qalabkaaga oo keliya — offline, gaar ah, bilaash.</span><span data-lang="en" hidden>Your data is saved only on your device — offline, private, free.</span><span data-lang="ar" hidden>تُحفظ بياناتك على جهازك فقط — دون اتصال، خاصة، مجانية.</span><span data-lang="sw" hidden>Data yako huhifadhiwa kwenye kifaa chako tu — nje ya mtandao, faragha, bure.</span>
+      </span>
+    </p>
+
+    <div class="byf-wrap">
+      <form id="byfForm" class="byf-form" autocomplete="off">
+        <div class="fld fld-crop">
+          <label for="byfCrop"><span data-lang="so">Dalagga</span><span data-lang="en" hidden>Crop</span><span data-lang="ar" hidden>المحصول</span><span data-lang="sw" hidden>Zao</span></label>
+          <select id="byfCrop" required></select>
+        </div>
+        <div class="fld">
+          <label for="byfDate"><span data-lang="so">Taariikhda beeridda</span><span data-lang="en" hidden>Planting date</span><span data-lang="ar" hidden>تاريخ الزراعة</span><span data-lang="sw" hidden>Tarehe ya kupanda</span></label>
+          <input type="date" id="byfDate" required />
+        </div>
+        <div class="fld">
+          <label for="byfField"><span data-lang="so">Beerta (ikhtiyaari)</span><span data-lang="en" hidden>Field name (optional)</span><span data-lang="ar" hidden>اسم الحقل (اختياري)</span><span data-lang="sw" hidden>Jina la shamba (hiari)</span></label>
+          <input type="text" id="byfField" maxlength="40" placeholder="—" />
+        </div>
+        <button type="submit" class="byf-add">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          <span data-lang="so">Ku dar</span><span data-lang="en" hidden>Add</span><span data-lang="ar" hidden>أضف</span><span data-lang="sw" hidden>Ongeza</span>
+        </button>
+      </form>
+
+      <div id="byfSummary"></div>
+
+      <h2 class="byf-mycrops-h">
+        <span data-lang="so">Dalagyadayda</span><span data-lang="en" hidden>My crops</span><span data-lang="ar" hidden>محاصيلي</span><span data-lang="sw" hidden>Mazao yangu</span>
+        <span class="byf-count" id="byfCount"></span>
+      </h2>
+      <div id="byfList" class="byf-list"></div>
+
+      <p class="cal-note" style="max-width:760px;margin:26px auto 0;text-align:center;font-size:13px;color:var(--gray-500,#6B7280);line-height:1.6;">
+        <span data-lang="so">📌 Jadwalku waa <b>hage guud</b> — maalmaha soo-baxa iyo gurashada way ku kala duwanaan karaan cimilada, ciidda iyo nooca abuurka. La soco cimilada gobolkaaga. U baahan tab dheeraad ah? Eeg <a href="calendar.html">Jadwalka Beeritaanka</a>, <a href="calculators.html">Xisaabiyaha</a>, ama <a href="ask.html">Waydii Beylood AI</a>.</span>
+        <span data-lang="en" hidden>📌 This planner is a <b>general guide</b> — germination and harvest days vary with weather, soil and seed variety. Watch your local weather. Need more? See the <a href="calendar.html">Crop Calendar</a>, <a href="calculators.html">Calculators</a>, or <a href="ask.html">Ask Beylood AI</a>.</span>
+        <span data-lang="ar" hidden>📌 هذا المخطط <b>دليل عام</b> — تختلف أيام الإنبات والحصاد حسب الطقس والتربة ونوع البذور. تابع طقس منطقتك. تحتاج المزيد؟ انظر <a href="calendar.html">تقويم الزراعة</a> أو <a href="calculators.html">الحاسبات</a> أو <a href="ask.html">اسأل Beylood AI</a>.</span>
+        <span data-lang="sw" hidden>📌 Mpangilio huu ni <b>mwongozo wa jumla</b> — siku za kuota na mavuno hutofautiana kwa hali ya hewa, udongo na aina ya mbegu. Fuatilia hali ya hewa. Unahitaji zaidi? Ona <a href="calendar.html">Kalenda ya Kilimo</a>, <a href="calculators.html">Vikokotoo</a>, au <a href="ask.html">Uliza Beylood AI</a>.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="assets/logo-transparent.png" alt="Beylood" /><div><p class="footer-name">Beylood</p><p class="footer-tagline" data-key="fTag">Aqoonta Beeraha</p></div></div>
+        <p class="footer-about" data-key="fAbout">Madal casri ah oo ku saabsan beeraha — wargeyn, waxbarid, iyo caawimaad AI ah.</p>
+      </div>
+      <div>
+        <p class="footer-title" data-key="fExplore">Sahmin</p>
+        <ul class="footer-list">
+          <li><a href="categories.html" data-key="navCats">Qaybaha</a></li>
+          <li><a href="articles.html" data-key="navArticles">Maqaallo</a></li>
+          <li><a href="news.html" data-key="navNews">Wararka</a></li>
+          <li><a href="weather.html" data-key="navWeather">Cimilada</a></li>
+          <li><a href="calculators.html" data-key="navCalc">Xisaabiyaha Beeraha</a></li>
+          <li><a href="calendar.html"><span data-lang="so">Jadwalka Beeritaanka</span><span data-lang="en" hidden>Crop Calendar</span><span data-lang="ar" hidden>تقويم الزراعة</span><span data-lang="sw" hidden>Kalenda ya Kilimo</span></a></li>
+          <li><a href="beertayda.html"><span data-lang="so">Beertayda</span><span data-lang="en" hidden>My Farm</span><span data-lang="ar" hidden>مزرعتي</span><span data-lang="sw" hidden>Shamba Langu</span></a></li>
+          <li><a href="ask.html" data-key="navAsk">WAYDII BEYLOOD</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title" data-key="fCompany">Shirkadda</p>
+        <ul class="footer-list">
+          <li><a href="about.html" data-key="navAbout">Nagu saabsan</a></li>
+          <li><a href="contact.html" data-key="navContact">Nala soo xidhiidh</a></li>
+          <li><a href="terms.html"><span data-lang="so">Shuruudaha</span><span data-lang="en" hidden>Terms</span><span data-lang="ar" hidden>الشروط</span><span data-lang="sw" hidden>Masharti</span></a></li>
+          <li><a href="privacy.html"><span data-lang="so">Siyaasadda Asturnaanta</span><span data-lang="en" hidden>Privacy</span><span data-lang="ar" hidden>الخصوصية</span><span data-lang="sw" hidden>Faragha</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="year">2026</span> Beylood · <span data-key="fRights">Dhammaan xuquuqdu way xifdiyey.</span></p><p data-key="fBuilt">Aqoonta Beeraha</p></div>
+  </div>
+</footer>
+
+<script src="script.js?v=20260618"></script>
+<script type="module" src="auth.js?v=20260618"></script>
+<script src="analytics-config.js?v=20260618"></script>
+<script src="analytics.js?v=20260618"></script>
+<script src="hero-bg.js?v=1" defer></script>
+<script src="beertayda.js?v=1" defer></script>
+</body>
+</html>
