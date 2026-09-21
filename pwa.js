@@ -21,6 +21,12 @@
   var SAVED_KEY = 'beylood_saved_articles';
   var DISMISS_KEY = 'beylood_pwa_dismissed';
   var NAVY = '#0F3F7E', GREEN = '#3BA935';
+  var WA_GREEN = '#25D366';
+  // WhatsApp contact numbers (international format, no +, no leading 0)
+  var WHATSAPP = [
+    { key: 'so', num: '252615475445' },
+    { key: 'tz', num: '255792592846' }
+  ];
 
   // ---- Localized labels ----
   function lang() { return (document.documentElement.lang || 'so').slice(0, 2); }
@@ -45,7 +51,14 @@
     iosS2:    { so: 'Dooro <b>“Add to Home Screen”</b>.', en: 'Choose <b>“Add to Home Screen”</b>.', ar: 'اختر <b>“Add to Home Screen”</b>.', sw: 'Chagua <b>“Add to Home Screen”</b>.' },
     iosS3:    { so: 'Riix <b>Add</b> — App-ku wuxuu ka soo bixi doonaa shaashadda.', en: 'Tap <b>Add</b> — the app appears on your home screen.', ar: 'اضغط <b>Add</b> — سيظهر التطبيق على شاشتك.', sw: 'Gusa <b>Add</b> — programu itaonekana kwenye skrini yako.' },
     dtTitle:  { so: 'Sida loogu rakibo kombiyuutarka', en: 'How to install on desktop', ar: 'كيفية التثبيت على الكمبيوتر', sw: 'Jinsi ya kusakinisha kwenye kompyuta' },
-    dtHint:   { so: 'Ku dhufo astaanta rakibka (⊕ / shaashad yar) oo ku taal cinwaanka barta booqashada Chrome ama Edge.', en: 'Click the install icon (⊕ / small screen) in the address bar of Chrome or Edge.', ar: 'انقر أيقونة التثبيت (⊕) في شريط العنوان في Chrome أو Edge.', sw: 'Bofya aikoni ya usakinishaji (⊕) kwenye upau wa anwani wa Chrome au Edge.' }
+    dtHint:   { so: 'Ku dhufo astaanta rakibka (⊕ / shaashad yar) oo ku taal cinwaanka barta booqashada Chrome ama Edge.', en: 'Click the install icon (⊕ / small screen) in the address bar of Chrome or Edge.', ar: 'انقر أيقونة التثبيت (⊕) في شريط العنوان في Chrome أو Edge.', sw: 'Bofya aikoni ya usakinishaji (⊕) kwenye upau wa anwani wa Chrome au Edge.' },
+    // ---- WhatsApp ----
+    waTitle:  { so: 'WhatsApp', en: 'WhatsApp', ar: 'واتساب', sw: 'WhatsApp' },
+    waContact:{ so: 'Nala soo xiriir', en: 'Contact us', ar: 'تواصل معنا', sw: 'Wasiliana nasi' },
+    waSO:     { so: 'Soomaaliya', en: 'Somalia', ar: 'الصومال', sw: 'Somalia' },
+    waTZ:     { so: 'Tanzania', en: 'Tanzania', ar: 'تنزانيا', sw: 'Tanzania' },
+    waShare:  { so: 'Wadaag maqaalkan', en: 'Share this article', ar: 'شارك هذا المقال', sw: 'Shiriki makala hii' },
+    waHello:  { so: 'Asalaamu calaykum Beylood, waxaan qabaa su\'aal beeraha ku saabsan.', en: 'Hello Beylood, I have a question about farming.', ar: 'مرحباً Beylood، لدي سؤال عن الزراعة.', sw: 'Habari Beylood, nina swali kuhusu kilimo.' }
   };
   function t(k) { var m = TXT[k]; return (m && (m[lang()] || m.so)) || (m && m.so) || k; }
 
@@ -103,7 +116,26 @@
       'html[data-theme="dark"] .pwa-modal-head h3,html[data-theme="dark"] .pwa-modal-title,html[data-theme="dark"] .pwa-ben{color:#e5edf7}' +
       'html[data-theme="dark"] .pwa-ben{background:#0f1623;border-color:#243040}' +
       'html[data-theme="dark"] .pwa-steps li{color:#c7d2e0}' +
-      'html[data-theme="dark"] .pwa-steps li b{color:#9db8e0}';
+      'html[data-theme="dark"] .pwa-steps li b{color:#9db8e0}' +
+      /* WhatsApp floating button + menu */
+      '.wa-fab{position:fixed;right:16px;bottom:20px;z-index:9998;width:56px;height:56px;border-radius:50%;border:0;cursor:pointer;background:' + WA_GREEN + ';box-shadow:0 8px 22px rgba(37,211,102,.45);display:flex;align-items:center;justify-content:center;transition:transform .2s}' +
+      '.wa-fab:hover{transform:scale(1.06)}' +
+      '.wa-fab svg{width:30px;height:30px;fill:#fff}' +
+      '.wa-menu{position:fixed;right:16px;bottom:86px;z-index:9999;width:250px;max-width:calc(100vw - 32px);background:#fff;border-radius:16px;box-shadow:0 16px 40px rgba(11,19,32,.28);overflow:hidden;opacity:0;transform:translateY(12px) scale(.96);transform-origin:bottom right;transition:opacity .2s,transform .2s;pointer-events:none}' +
+      '.wa-menu.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}' +
+      '.wa-menu-h{background:' + WA_GREEN + ';color:#fff;font-weight:700;font-size:14px;padding:12px 16px;display:flex;align-items:center;gap:8px}' +
+      '.wa-menu-h svg{width:18px;height:18px;fill:#fff}' +
+      '.wa-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:0;border-top:1px solid #F1F1F1;padding:13px 16px;cursor:pointer;font:inherit;font-size:14px;color:#1F2937}' +
+      '.wa-item:hover{background:#F4FBF6}' +
+      '.wa-item .wa-ic{width:34px;height:34px;border-radius:50%;background:#E9F9EF;display:flex;align-items:center;justify-content:center;flex:0 0 auto}' +
+      '.wa-item .wa-ic svg{width:18px;height:18px;fill:' + WA_GREEN + '}' +
+      '.wa-item b{display:block;font-weight:600}' +
+      '.wa-item small{display:block;font-size:12px;color:#6B7280}' +
+      'html[dir="rtl"] .wa-item{text-align:right}' +
+      'html[data-theme="dark"] .wa-menu{background:#111827}' +
+      'html[data-theme="dark"] .wa-item{color:#e5edf7;border-color:#243040}' +
+      'html[data-theme="dark"] .wa-item:hover{background:#0f1623}' +
+      'html[data-theme="dark"] .wa-item .wa-ic{background:#0f2a1a}';
     var s = document.createElement('style');
     s.id = 'pwaStyles';
     s.textContent = css;
@@ -296,6 +328,60 @@
     }
   }
 
+  // ---- 4b) WhatsApp: floating contact button + menu (all pages) ----
+  function buildWhatsApp() {
+    if (document.getElementById('waFab')) return;
+    injectStyles();
+    var waIcon = '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.7L.5 31.5l8-2.1a15.4 15.4 0 0 0 7.5 1.9c8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.5 0-4.8-.7-6.8-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5a12.7 12.7 0 0 1-2-6.8C3.2 8.9 8.9 3.2 16 3.2S28.8 8.9 28.8 16 23.1 28.8 16 28.8zm7-9.6c-.4-.2-2.3-1.1-2.6-1.3-.3-.1-.6-.2-.9.2-.2.4-.9 1.3-1.1 1.5-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.6.2-.8l.5-.6c.2-.2.2-.4.4-.6.1-.3 0-.5 0-.7s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.5 3.8 6 5.3.8.4 1.5.6 2 .8.8.3 1.6.2 2.2.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/></svg>';
+    var chatIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>';
+    var shareIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" stroke="#25D366" stroke-width="2"/></svg>';
+
+    var isArticle = !!document.querySelector('.article-body');
+    var items = '';
+    WHATSAPP.forEach(function (w) {
+      var label = (w.key === 'so') ? t('waSO') : t('waTZ');
+      items += '<button type="button" class="wa-item" data-num="' + w.num + '">' +
+        '<span class="wa-ic">' + chatIcon + '</span>' +
+        '<span><b>' + t('waContact') + ' — ' + label + '</b><small>+' + w.num + '</small></span></button>';
+    });
+    if (isArticle) {
+      items += '<button type="button" class="wa-item" data-share="1">' +
+        '<span class="wa-ic">' + shareIcon + '</span><span><b>' + t('waShare') + '</b></span></button>';
+    }
+
+    var menu = document.createElement('div');
+    menu.className = 'wa-menu';
+    menu.setAttribute('role', 'menu');
+    menu.innerHTML = '<div class="wa-menu-h">' + waIcon + ' ' + t('waTitle') + '</div>' + items;
+
+    var fab = document.createElement('button');
+    fab.type = 'button'; fab.id = 'waFab'; fab.className = 'wa-fab';
+    fab.setAttribute('aria-label', t('waContact'));
+    fab.innerHTML = waIcon;
+
+    document.body.appendChild(menu);
+    document.body.appendChild(fab);
+
+    var open = false;
+    function setOpen(o) { open = o; menu.classList.toggle('show', o); }
+    fab.addEventListener('click', function (e) { e.stopPropagation(); setOpen(!open); });
+    document.addEventListener('click', function (e) {
+      if (open && !menu.contains(e.target) && e.target !== fab) setOpen(false);
+    });
+    menu.addEventListener('click', function (e) {
+      var it = e.target.closest && e.target.closest('.wa-item');
+      if (!it) return;
+      if (it.getAttribute('data-share')) {
+        var txt = 'Beylood — ' + pageTitle() + ' ' + location.href;
+        window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+      } else {
+        var num = it.getAttribute('data-num');
+        window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(t('waHello')), '_blank');
+      }
+      setOpen(false);
+    });
+  }
+
   // ---- 5 & 9) Save-for-offline + Web Share (article pages only) ----
   function currentFile() { return (location.pathname.split('/').pop() || 'index.html'); }
   function readSaved() { try { return JSON.parse(localStorage.getItem(SAVED_KEY) || '[]'); } catch (e) { return []; } }
@@ -417,6 +503,6 @@
   // ---- Boot ----
   showSplash();
   if ('serviceWorker' in navigator) window.addEventListener('load', registerSW);
-  if (document.readyState !== 'loading') { buildArticleFabs(); bootInstallUI(); }
-  else document.addEventListener('DOMContentLoaded', function () { buildArticleFabs(); bootInstallUI(); });
+  if (document.readyState !== 'loading') { buildArticleFabs(); buildWhatsApp(); bootInstallUI(); }
+  else document.addEventListener('DOMContentLoaded', function () { buildArticleFabs(); buildWhatsApp(); bootInstallUI(); });
 })();
