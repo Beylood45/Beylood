@@ -58,7 +58,10 @@
     waSO:     { so: 'Soomaaliya', en: 'Somalia', ar: 'الصومال', sw: 'Somalia' },
     waTZ:     { so: 'Tanzania', en: 'Tanzania', ar: 'تنزانيا', sw: 'Tanzania' },
     waShare:  { so: 'Wadaag maqaalkan', en: 'Share this article', ar: 'شارك هذا المقال', sw: 'Shiriki makala hii' },
-    waHello:  { so: 'Asalaamu calaykum Beylood, waxaan qabaa su\'aal beeraha ku saabsan.', en: 'Hello Beylood, I have a question about farming.', ar: 'مرحباً Beylood، لدي سؤال عن الزراعة.', sw: 'Habari Beylood, nina swali kuhusu kilimo.' }
+    waHello:  { so: 'Asalaamu calaykum Beylood, waxaan qabaa su\'aal beeraha ku saabsan.', en: 'Hello Beylood, I have a question about farming.', ar: 'مرحباً Beylood، لدي سؤال عن الزراعة.', sw: 'Habari Beylood, nina swali kuhusu kilimo.' },
+    // ---- Share bar ----
+    sbTitle:  { so: 'Wadaag maqaalkan', en: 'Share this article', ar: 'شارك هذا المقال', sw: 'Shiriki makala hii' },
+    sbCopy:   { so: 'Koobi link', en: 'Copy link', ar: 'نسخ الرابط', sw: 'Nakili kiungo' }
   };
   function t(k) { var m = TXT[k]; return (m && (m[lang()] || m.so)) || (m && m.so) || k; }
 
@@ -135,7 +138,18 @@
       'html[data-theme="dark"] .wa-menu{background:#111827}' +
       'html[data-theme="dark"] .wa-item{color:#e5edf7;border-color:#243040}' +
       'html[data-theme="dark"] .wa-item:hover{background:#0f1623}' +
-      'html[data-theme="dark"] .wa-item .wa-ic{background:#0f2a1a}';
+      'html[data-theme="dark"] .wa-item .wa-ic{background:#0f2a1a}' +
+      /* Article social share bar */
+      '.byl-share{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:26px 0 8px;padding:16px;border:1px solid #E5E7EB;border-radius:14px;background:#F9FAFB}' +
+      '.byl-share-lbl{font-weight:700;font-size:14px;color:' + NAVY + ';margin-right:4px}' +
+      '.byl-share-btns{display:flex;gap:9px;flex-wrap:wrap}' +
+      '.byl-sh{width:40px;height:40px;border-radius:10px;border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:#fff;transition:transform .15s}' +
+      '.byl-sh:hover{transform:translateY(-2px)}' +
+      '.byl-sh svg{width:20px;height:20px;fill:currentColor}' +
+      '.byl-sh.fb{background:#1877F2}.byl-sh.x{background:#000}.byl-sh.tg{background:#229ED9}.byl-sh.wa{background:#25D366}.byl-sh.cp{background:#6B7280}' +
+      '.byl-sh.copied{background:#3BA935}' +
+      'html[data-theme="dark"] .byl-share{background:#0f1623;border-color:#243040}' +
+      'html[data-theme="dark"] .byl-share-lbl{color:#9db8e0}';
     var s = document.createElement('style');
     s.id = 'pwaStyles';
     s.textContent = css;
@@ -382,6 +396,44 @@
     });
   }
 
+  // ---- 4c) Article social share bar (Facebook · X · Telegram · WhatsApp · Copy) ----
+  function buildShareBar() {
+    var body = document.querySelector('.article-body');
+    if (!body || document.querySelector('.byl-share')) return;
+    injectStyles();
+    var url = encodeURIComponent(location.href);
+    var title = encodeURIComponent(pageTitle());
+    var L = {
+      fb: 'https://www.facebook.com/sharer/sharer.php?u=' + url,
+      x:  'https://twitter.com/intent/tweet?url=' + url + '&text=' + title,
+      tg: 'https://t.me/share/url?url=' + url + '&text=' + title,
+      wa: 'https://wa.me/?text=' + title + '%20' + url
+    };
+    var I = {
+      fb: '<svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>',
+      x:  '<svg viewBox="0 0 24 24"><path d="M18.2 2.25h3.3l-7.2 8.26 8.5 11.24h-6.6l-5.2-6.82-5.97 6.82H1.7l7.7-8.84L1.25 2.25H8.1l4.7 6.23zM17 19.77h1.8L7 4.13H5.1z"/></svg>',
+      tg: '<svg viewBox="0 0 24 24"><path d="M21.9 4.3l-3.3 15.6c-.2 1.1-.9 1.3-1.8.8l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.05 9.15-8.26c.4-.35-.1-.55-.62-.2L6.1 13.4l-4.86-1.52c-1.05-.33-1.07-1.05.22-1.56L20.6 2.86c.88-.32 1.65.2 1.3 1.44z"/></svg>',
+      wa: '<svg viewBox="0 0 32 32"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.7L.5 31.5l8-2.1a15.4 15.4 0 0 0 7.5 1.9c8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm7 18.7c-.4-.2-2.3-1.1-2.6-1.3-.3-.1-.6-.2-.9.2-.2.4-.9 1.3-1.1 1.5-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.6.2-.8l.5-.6c.2-.2.2-.4.4-.6.1-.3 0-.5 0-.7s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.5 3.8 6 5.3.8.4 1.5.6 2 .8.8.3 1.6.2 2.2.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8z"/></svg>',
+      cp: '<svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>'
+    };
+    var bar = document.createElement('div');
+    bar.className = 'byl-share';
+    bar.innerHTML = '<span class="byl-share-lbl">' + t('sbTitle') + '</span><div class="byl-share-btns">' +
+      '<a class="byl-sh fb" href="' + L.fb + '" target="_blank" rel="noopener" aria-label="Facebook">' + I.fb + '</a>' +
+      '<a class="byl-sh x" href="' + L.x + '" target="_blank" rel="noopener" aria-label="X (Twitter)">' + I.x + '</a>' +
+      '<a class="byl-sh tg" href="' + L.tg + '" target="_blank" rel="noopener" aria-label="Telegram">' + I.tg + '</a>' +
+      '<a class="byl-sh wa" href="' + L.wa + '" target="_blank" rel="noopener" aria-label="WhatsApp">' + I.wa + '</a>' +
+      '<button type="button" class="byl-sh cp" aria-label="' + t('sbCopy') + '" title="' + t('sbCopy') + '">' + I.cp + '</button>' +
+      '</div>';
+    body.appendChild(bar);
+    var cp = bar.querySelector('.cp');
+    cp.addEventListener('click', function () {
+      var done = function () { cp.classList.add('copied'); setTimeout(function () { cp.classList.remove('copied'); }, 1500); };
+      if (navigator.clipboard) { navigator.clipboard.writeText(location.href).then(done, done); }
+      else { try { var ta = document.createElement('textarea'); ta.value = location.href; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); } catch (e) {} }
+    });
+  }
+
   // ---- 5 & 9) Save-for-offline + Web Share (article pages only) ----
   function currentFile() { return (location.pathname.split('/').pop() || 'index.html'); }
   function readSaved() { try { return JSON.parse(localStorage.getItem(SAVED_KEY) || '[]'); } catch (e) { return []; } }
@@ -503,6 +555,6 @@
   // ---- Boot ----
   showSplash();
   if ('serviceWorker' in navigator) window.addEventListener('load', registerSW);
-  if (document.readyState !== 'loading') { buildArticleFabs(); buildWhatsApp(); bootInstallUI(); }
-  else document.addEventListener('DOMContentLoaded', function () { buildArticleFabs(); buildWhatsApp(); bootInstallUI(); });
+  if (document.readyState !== 'loading') { buildArticleFabs(); buildShareBar(); buildWhatsApp(); bootInstallUI(); }
+  else document.addEventListener('DOMContentLoaded', function () { buildArticleFabs(); buildShareBar(); buildWhatsApp(); bootInstallUI(); });
 })();
