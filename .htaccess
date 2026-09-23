@@ -112,6 +112,28 @@ DirectoryIndex index.html
 </IfModule>
 
 # ============================================================
+# LiteSpeed edge cache control (Hostinger)
+# ------------------------------------------------------------
+# Hostinger's LiteSpeed edge-caches JS/CSS and can keep serving
+# a stale copy on the same ?v= URL after the file changes. We
+# exclude JS/CSS and the service worker from the edge cache so
+# code updates ship immediately (HTML is already no-cache above).
+# Wrapped in <IfModule LiteSpeed> so it's ignored on non-LiteSpeed.
+# ============================================================
+<IfModule LiteSpeed>
+  RewriteEngine On
+  RewriteRule \.(js|css)$ - [E=Cache-Control:no-cache]
+  RewriteRule ^sw\.js$ - [E=Cache-Control:no-cache]
+</IfModule>
+# Also lower the browser TTL for code so returning visitors revalidate
+# quickly (the service worker still versions assets on top of this).
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ============================================================
 # Compression
 # ============================================================
 <IfModule mod_deflate.c>
