@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 525" width="1200" height="525" role="img" aria-label="Kaydinta Kadib Gurashada — Post-Harvest">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B9731B"/><stop offset="1" stop-color="#EFAE3F"/></linearGradient>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2.2" fill="#fff" opacity=".10"/></pattern>
+  </defs>
+  <rect width="1200" height="525" fill="url(#bg)"/><rect width="1200" height="525" fill="url(#dots)"/>
+  <g opacity=".16" fill="none" stroke="#fff" stroke-width="3"><path d="M-20 470 Q300 430 620 470 T1220 450"/><path d="M-20 505 Q300 465 620 505 T1220 485"/></g>
+  <g transform="translate(600 200)" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-120 96h240" opacity=".75"/>
+    <path d="M-74 -40c14-14 34-22 74-22s60 8 74 22c-18 10-30 14-74 14s-56-4-74-14z"/>
+    <path d="M-66 -34c-10 30-14 70-14 130h160c0-60-4-100-14-130"/>
+    <path d="M-40 10h80M-40 48h80" opacity=".6"/>
+    <g fill="#fff" stroke="none"><ellipse cx="-96" cy="80" rx="10" ry="15" transform="rotate(-20 -96 80)"/><ellipse cx="-74" cy="92" rx="10" ry="15" transform="rotate(12 -74 92)"/></g>
+  </g>
+  <text x="600" y="392" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="56" font-weight="700" fill="#fff">Post-Harvest</text>
+  <text x="600" y="436" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="29" font-weight="500" fill="#fff" opacity=".85">Kaydinta · ما بعد الحصاد · Baada ya Mavuno</text>
+  <text x="1152" y="496" text-anchor="end" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="21" font-weight="700" fill="#fff" opacity=".55" letter-spacing="4">BEYLOOD</text>
+</svg>

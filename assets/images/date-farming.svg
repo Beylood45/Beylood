@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 525" width="1200" height="525" role="img" aria-label="Timir — Date Palm">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B9731B"/><stop offset="1" stop-color="#EFAE3F"/></linearGradient>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2.2" fill="#fff" opacity=".10"/></pattern>
+  </defs>
+  <rect width="1200" height="525" fill="url(#bg)"/><rect width="1200" height="525" fill="url(#dots)"/>
+  <g opacity=".16" fill="none" stroke="#fff" stroke-width="3"><path d="M-20 470 Q300 430 620 470 T1220 450"/><path d="M-20 505 Q300 465 620 505 T1220 485"/></g>
+  <g transform="translate(600 200)" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-10 108c0-56 4-94 10-120"/>
+    <path d="M0 -12C-26-46-66-62-108-58c22 34 62 50 108 46z"/>
+    <path d="M0 -12C26-46 66-62 108-58 86-24 46-8 0-12z"/>
+    <path d="M0 -14c-16-38-10-78 14-108-30 22-44 62-14 108z"/>
+    <path d="M0 -14c30-30 68-40 106-28-30 26-70 34-106 28z" opacity=".85"/>
+    <path d="M0 -14c-36 6-76-2-106-28 38-12 76-2 106 28z" opacity=".85"/>
+    <g fill="#fff" stroke="none"><circle cx="-26" cy="18" r="9"/><circle cx="-6" cy="30" r="9"/><circle cx="16" cy="20" r="9"/><circle cx="-16" cy="44" r="9"/><circle cx="6" cy="50" r="9"/></g>
+  </g>
+  <text x="600" y="392" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="56" font-weight="700" fill="#fff">Date Palm</text>
+  <text x="600" y="436" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="29" font-weight="500" fill="#fff" opacity=".85">Timir · التمر · Tende</text>
+  <text x="1152" y="496" text-anchor="end" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="21" font-weight="700" fill="#fff" opacity=".55" letter-spacing="4">BEYLOOD</text>
+</svg>

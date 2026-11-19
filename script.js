@@ -1329,6 +1329,7 @@
 
   var CSS = '' +
     '.byls-icon-btn{display:inline-flex;align-items:center;justify-content:center}' +
+    '.byls-trigger svg{width:17px;height:17px;display:block;stroke:currentColor}' +
     '.byls-ov{position:fixed;inset:0;z-index:100002;display:flex;align-items:flex-start;justify-content:center;padding:72px 16px 16px;background:rgba(11,19,32,.55);opacity:0;transition:opacity .22s;font-family:inherit}' +
     '.byls-ov.show{opacity:1}' +
     '.byls-panel{width:100%;max-width:600px;max-height:80vh;display:flex;flex-direction:column;background:#fff;border-radius:18px;box-shadow:0 30px 70px rgba(11,19,32,.42);overflow:hidden;transform:translateY(-16px);transition:transform .24s cubic-bezier(.2,.8,.2,1)}' +

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 525" width="1200" height="525" role="img" aria-label="Maaraynta Haramaha — Weed Management">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1D6B2F"/><stop offset="1" stop-color="#4FB83C"/></linearGradient>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2.2" fill="#fff" opacity=".10"/></pattern>
+  </defs>
+  <rect width="1200" height="525" fill="url(#bg)"/><rect width="1200" height="525" fill="url(#dots)"/>
+  <g opacity=".14" fill="none" stroke="#fff" stroke-width="3"><path d="M-20 470 Q300 430 620 470 T1220 450"/><path d="M-20 505 Q300 465 620 505 T1220 485"/></g>
+  <g transform="translate(600 200)" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-120 40h240" opacity=".75"/>
+    <path d="M44 -84 10 -10"/>
+    <path d="M-12 -6h56l-10 26h-56z" fill="#fff" stroke="none"/>
+    <path d="M-66 40c0-40 14-66 30-82-4 30-10 56-30 82z"/>
+    <path d="M-66 40c-26-14-42-36-46-66 28 12 42 34 46 66z"/>
+    <path d="M-66 40V8"/>
+  </g>
+  <text x="600" y="392" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="56" font-weight="700" fill="#fff">Weed Control</text>
+  <text x="600" y="436" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="29" font-weight="500" fill="#fff" opacity=".82">Haramaha · مكافحة الأعشاب · Magugu</text>
+  <text x="1152" y="496" text-anchor="end" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="21" font-weight="700" fill="#fff" opacity=".5" letter-spacing="4">BEYLOOD</text>
+</svg>

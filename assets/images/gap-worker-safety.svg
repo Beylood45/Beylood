@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 525" width="1200" height="525" role="img" aria-label="GAP — Badbaadada Shaqaalaha">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F3F7E"/><stop offset="1" stop-color="#2A74C9"/></linearGradient>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2.2" fill="#fff" opacity=".10"/></pattern>
+  </defs>
+  <rect width="1200" height="525" fill="url(#bg)"/><rect width="1200" height="525" fill="url(#dots)"/>
+  <g opacity=".14" fill="none" stroke="#fff" stroke-width="3"><path d="M-20 470 Q300 430 620 470 T1220 450"/><path d="M-20 505 Q300 465 620 505 T1220 485"/></g>
+  <g transform="translate(600 200)" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-86 24c0-48 38-86 86-86s86 38 86 86"/>
+    <path d="M-104 24h208" />
+    <path d="M-24 -58c0-16 10-26 24-26s24 10 24 26" opacity=".75"/>
+    <path d="M0 52c-34 0-62 16-62 48h124c0-32-28-48-62-48z" opacity=".55"/>
+  </g>
+  <text x="600" y="392" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="56" font-weight="700" fill="#fff">Worker Safety</text>
+  <text x="600" y="436" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="29" font-weight="500" fill="#fff" opacity=".82">Badbaadada · سلامة العمال · Usalama</text>
+  <text x="1152" y="496" text-anchor="end" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="21" font-weight="700" fill="#fff" opacity=".5" letter-spacing="4">BEYLOOD</text>
+</svg>

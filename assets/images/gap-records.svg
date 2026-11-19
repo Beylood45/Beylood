@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 525" width="1200" height="525" role="img" aria-label="GAP — Diiwaanka iyo Raad-raaca">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F3F7E"/><stop offset="1" stop-color="#2A74C9"/></linearGradient>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2.2" fill="#fff" opacity=".10"/></pattern>
+  </defs>
+  <rect width="1200" height="525" fill="url(#bg)"/><rect width="1200" height="525" fill="url(#dots)"/>
+  <g opacity=".14" fill="none" stroke="#fff" stroke-width="3"><path d="M-20 470 Q300 430 620 470 T1220 450"/><path d="M-20 505 Q300 465 620 505 T1220 485"/></g>
+  <g transform="translate(600 200)" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-72 -82h100l44 44v138c0 10-8 18-18 18H-72c-10 0-18-8-18-18V-64c0-10 8-18 18-18z"/>
+    <path d="M28 -82v44h44" opacity=".8"/>
+    <path d="M-50 -4h78M-50 34h78M-50 70h48" opacity=".75"/>
+    <path d="M104 44l34-34 18 18-34 34-24 6z"/>
+  </g>
+  <text x="600" y="392" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="56" font-weight="700" fill="#fff">Farm Records</text>
+  <text x="600" y="436" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="29" font-weight="500" fill="#fff" opacity=".82">Diiwaanka · السجلات · Kumbukumbu</text>
+  <text x="1152" y="496" text-anchor="end" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="21" font-weight="700" fill="#fff" opacity=".5" letter-spacing="4">BEYLOOD</text>
+</svg>

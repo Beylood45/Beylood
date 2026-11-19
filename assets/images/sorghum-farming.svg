@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 525" width="1200" height="525" role="img" aria-label="Masago — Sorghum">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1D6B2F"/><stop offset="1" stop-color="#4FB83C"/>
+    </linearGradient>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="2.2" fill="#fff" opacity=".10"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="525" fill="url(#bg)"/>
+  <rect width="1200" height="525" fill="url(#dots)"/>
+  <g opacity=".14" fill="none" stroke="#fff" stroke-width="3">
+    <path d="M-20 470 Q300 430 620 470 T1220 450"/><path d="M-20 505 Q300 465 620 505 T1220 485"/>
+  </g>
+  <g transform="translate(600 205)" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 110V-18"/>
+    <g fill="#fff" stroke="none">
+      <ellipse cx="0" cy="-70" rx="15" ry="22"/>
+      <ellipse cx="-24" cy="-40" rx="14" ry="20"/><ellipse cx="24" cy="-40" rx="14" ry="20"/>
+      <ellipse cx="0" cy="-32" rx="15" ry="21"/>
+      <ellipse cx="-26" cy="-4" rx="13" ry="19"/><ellipse cx="26" cy="-4" rx="13" ry="19"/>
+      <ellipse cx="0" cy="4" rx="14" ry="20"/>
+    </g>
+    <path d="M0 58c-34-6-56-28-62-62 34 6 56 28 62 62z"/>
+    <path d="M0 96c34-6 56-28 62-62-34 6-56 28-62 62z"/>
+  </g>
+  <text x="600" y="392" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="56" font-weight="700" fill="#fff">Sorghum</text>
+  <text x="600" y="436" text-anchor="middle" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="29" font-weight="500" fill="#fff" opacity=".82">Masago · الذرة الرفيعة · Mtama</text>
+  <text x="1152" y="496" text-anchor="end" font-family="Poppins,Segoe UI,Arial,sans-serif" font-size="21" font-weight="700" fill="#fff" opacity=".5" letter-spacing="4">BEYLOOD</text>
+</svg>
