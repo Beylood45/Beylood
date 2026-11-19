@@ -56,7 +56,7 @@ export const ARTICLES = [
     keywords: ['beer guri','home garden','khudaar','balcony','urban','reer'] },
   { slug: 'vertical-farming', cat: 'tech',
     title: 'Beerista Taalka — Vertical Farming', url: 'https://beylood.com/article-vertical-farming.html',
-    summary: 'Vertical farming magaalo — 90% biyo yar, container 20ft = $15K–$25K bilow.',
+    summary: 'Beeraha taagan ee magaalada — biyo aad u yar, laakiin maalgelin iyo koronto badan ayay u baahan yihiin.',
     keywords: ['vertical','taalka','hydroponic','aeroponic','aquaponic','magaalo'] },
   { slug: 'precision-agriculture', cat: 'tech',
     title: 'Precision Agriculture', url: 'https://beylood.com/article-precision-agriculture.html',
@@ -86,7 +86,7 @@ export const ARTICLES = [
   // ---- Irrigation ----
   { slug: 'drip-irrigation', cat: 'irrigation',
     title: 'Drip Irrigation', url: 'https://beylood.com/article-drip-irrigation.html',
-    summary: 'Drip — 40–60% biyaha keydi, kit yar $200–$500/dunyad.',
+    summary: 'Waraabinta dhibcaha — inta badan 30–60% biyo ka yar waraabinta daadinta; kharashku wuu kala duwan yahay.',
     keywords: ['drip','waraab','irrigation','biyo'] },
   { slug: 'rainwater-harvesting', cat: 'irrigation',
     title: 'Biyo-keydinta Roobka', url: 'https://beylood.com/article-rainwater-harvesting.html',
@@ -100,7 +100,7 @@ export const ARTICLES = [
   // ---- Soil ----
   { slug: 'composting', cat: 'soil',
     title: 'Compost — Bacrin Dabiici', url: 'https://beylood.com/article-composting.html',
-    summary: 'Compost samee — 3 bilood, 30:1 C:N ratio, $0 kharash.',
+    summary: 'Compost samee — qiyaastii 2–3 bilood, C:N qiyaastii 25–30:1 (2–3 qaybood oo qalalan 1 qayb cagaar ah).',
     keywords: ['compost','bacrin','kombost','manure','digo'] },
   { slug: 'cover-crops', cat: 'soil',
     title: 'Cover Crops', url: 'https://beylood.com/article-cover-crops.html',
@@ -108,7 +108,7 @@ export const ARTICLES = [
     keywords: ['cover crops','dabool','clover','cowpea'] },
   { slug: 'soil-testing', cat: 'soil',
     title: 'Baadhitaan Ciid', url: 'https://beylood.com/article-soil-testing.html',
-    summary: 'pH, N-P-K test — kit $15, sannadkii laba jeer.',
+    summary: 'Tijaabada pH iyo N-P-K — qalabka gacanta waa qiyaas, shaybaadhku waa ka kalsooni badan; 2–3 sannadood kasta.',
     keywords: ['soil test','ph','nitrogen','baadh ciid'] },
 
   // ---- Climate ----
@@ -132,11 +132,11 @@ export const ARTICLES = [
     keywords: ['hilib','beef','lo','cattle','boran'] },
   { slug: 'goats-sheep', cat: 'livestock',
     title: 'Riyo iyo Ido', url: 'https://beylood.com/article-goats-sheep.html',
-    summary: 'Riyo & ido — Khaliij export, $80–$150/lo, breeds dhalaylaha.',
+    summary: 'Riyo & ido — suuqa dhoofinta Khaliijka (gaar ahaan Xajka), noocyada iyo caafimaadka xoolaha.',
     keywords: ['riyo','ido','goat','sheep','small ruminant'] },
   { slug: 'poultry-farming', cat: 'livestock',
     title: 'Digaagga', url: 'https://beylood.com/article-poultry-farming.html',
-    summary: 'Digaag layer & broiler — 6 toddobaad ilaa cooyada, $5–$8 dakhli/qof.',
+    summary: 'Digaag layer & broiler — broiler qiyaastii 2 kg 5–6 toddobaad; tallaalka Newcastle.',
     keywords: ['digaag','poultry','chicken','layer','broiler'] },
   { slug: 'camel-husbandry', cat: 'livestock',
     title: 'Geela', url: 'https://beylood.com/article-camel-husbandry.html',
@@ -178,11 +178,11 @@ export const ARTICLES = [
   // ---- News (current) ----
   { slug: 'news-11', cat: 'news',
     title: 'Digniinta Ayaxa Juun 2026', url: 'https://beylood.com/news-11.html',
-    summary: 'FAO + DLCO-EA: ayax cusub Sanaag/Bari — hotline +252 615 555 444.',
+    summary: 'FAO + DLCO-EA: ayax cusub Sanaag/Bari — u soo sheeg Wasaaradda Beeraha ama FAO/DLCO-EA.',
     keywords: ['ayax','locust','digniin','alert','dlco','fao'] },
   { slug: 'news-10', cat: 'news',
     title: 'Saadaalka Deyr 2026', url: 'https://beylood.com/news-10.html',
-    summary: 'Deyr Okt–Dec roob caadi — Koonfur +5%, Waqooyi -10%.',
+    summary: 'Saadaasha hore ee Deyr 2026 (Juun) waxay ahayd roob caadi ah; saadaalaha dambe (ICPAC/SODMA) waxay tilmaameen roob ka badan caadiga iyo khatar daad — eeg news-14.',
     keywords: ['deyr','saadaal','roob','swalim','forecast'] }
 ];
 

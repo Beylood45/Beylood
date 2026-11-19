@@ -44,10 +44,10 @@ window.BeyloodKnowledge = (function () {
         sw: 'Mchele unastawi Lower Shabelle. Siku 110-140, maji ya kuendelea, ardhi tambarare.'
       },
       answer: {
-        so: '**Beerista Bariiska:**\n\n- Goob: Lower Shabelle, Middle Shabelle (paddy fields)\n- Wakhtiga: 110–140 maalmood\n- Biyo: Joogto ah, 1200–1500 mm/xilli\n- Heerkul: 25–30°C\n- Noocyada: NERICA, Basmati 370\n- Dakhli: $800–$1,500 / hektaar\n\n**Talo:** Iska ilaali dhul fidsan oo aan biyo lumis lahayn. Beerada bariis waa adag laakiin faa\'iidada way badan tahay.',
-        en: '**Rice farming:**\n\n- Location: Lower Shabelle, Middle Shabelle (paddy fields)\n- Timing: 110–140 days\n- Water: Continuous, 1200–1500 mm/season\n- Temperature: 25–30°C\n- Varieties: NERICA, Basmati 370\n- Income: $800–$1,500 / hectare',
-        ar: '**زراعة الأرز:**\n\n- الموقع: شبيلي السفلى والوسطى\n- المدة: 110-140 يوماً\n- المياه: مستمرة، 1200-1500 ملم/موسم\n- الحرارة: 25-30°م',
-        sw: '**Kilimo cha mchele:**\n\n- Eneo: Lower Shabelle, Middle Shabelle\n- Wakati: siku 110-140\n- Maji: ya kuendelea, 1200-1500 mm/msimu\n- Joto: 25-30°C'
+        so: "**Beerista bariiska:**\n\n- Goobta: Shabeellaha Hoose iyo Dhexe (beeraha biyaha lagu fadhiisiyo)\n- Muddada: 110–140 maalmood\n- Biyaha: biyo joogto ah (paddy); habka AWD wuxuu kaydin karaa ilaa ~30% biyaha\n- Heerkulka: 25–30°C\n- Noocyada: NERICA iyo noocyo kale oo deegaanka lagu tijaabiyay\n\n**Talo:** Dakhliga ku xisaabi qiimaha suuqa deegaankaaga iyo kharashkaaga.",
+        en: "**Rice farming:**\n\n- Location: Lower and Middle Shabelle (paddy fields)\n- Duration: 110–140 days\n- Water: continuous flooding (paddy); safe AWD can save up to ~30% of water\n- Temperature: 25–30°C\n- Varieties: NERICA and other locally tested varieties\n\n**Tip:** Estimate income from your local market price and your own costs.",
+        ar: "**زراعة الأرز:**\n\n- الموقع: شبيلي السفلى والوسطى (حقول مغمورة)\n- المدة: 110–140 يوماً\n- الماء: غمر مستمر؛ ويمكن لطريقة AWD الآمنة توفير حتى ~30% من الماء\n- الحرارة: 25–30°م\n- الأصناف: NERICA وأصناف أخرى مجرّبة محلياً",
+        sw: "**Kilimo cha mpunga:**\n\n- Mahali: Shabelle ya Chini na ya Kati (mashamba ya maji)\n- Muda: siku 110–140\n- Maji: kufurisha mfululizo; AWD salama inaweza kuokoa hadi ~30% ya maji\n- Joto: 25–30°C\n- Aina: NERICA na aina nyingine zilizojaribiwa nchini"
       },
       keywords: ['bariis','bariiska','rice','mchele','shabelle','paddy','nerica','dooga','xilliga']
     },
@@ -78,10 +78,10 @@ window.BeyloodKnowledge = (function () {
         sw: 'Nyanya siku 70-90. Umwagiliaji wa drip, nafasi 50×50 sm, aina Roma VF au Anna F1.'
       },
       answer: {
-        so: '**Beerita Yaanyada:**\n\n- Iniinaha: Roma VF, Anna F1, Cal-J\n- Wakhtiga: 70–90 maalmood\n- Masaafo: 50×50 cm\n- Biyo: Drip irrigation (40–60% biyo yar)\n- Heerkul: 21–27°C\n- Bacrin: N-P-K balanced + compost\n\n**Iska ilaali:** Whiteflies (kuwii cudurka TYLCV faafiya). Beero geedo qoyaha (basbaas) si aad u qariso.',
-        en: '**Tomato cultivation:**\n\n- Varieties: Roma VF, Anna F1, Cal-J\n- Duration: 70–90 days\n- Spacing: 50×50 cm\n- Water: Drip irrigation (40–60% less water)\n- Temperature: 21–27°C\n- Fertilizer: Balanced N-P-K + compost\n\n**Watch out for:** Whiteflies (carry TYLCV virus). Plant chili nearby as a deterrent.',
-        ar: '**زراعة الطماطم:**\n\n- الأصناف: Roma VF, Anna F1, Cal-J\n- المدة: 70-90 يوماً\n- المسافة: 50×50 سم\n- المياه: ري بالتنقيط',
-        sw: '**Kilimo cha nyanya:**\n\n- Aina: Roma VF, Anna F1, Cal-J\n- Muda: siku 70-90\n- Nafasi: 50×50 sm'
+        so: "**Beerista yaanyada:**\n\n- Noocyada: Roma VF, Anna F1, Cal-J\n- Muddada: 70–90 maalmood kadib beer-u-gudbinta\n- Masaafada: 50×50 cm\n- Biyaha: drip (inta badan 30–60% biyo ka yar waraabinta daadinta)\n- Heerkulka: 21–27°C\n- Bacrinta: N-P-K isku dheelitiran + compost\n\n**Ka digtoonow:** duqsiga cad (whiteflies) — wuxuu faafiyaa fayraska TYLCV.",
+        en: "**Tomato cultivation:**\n\n- Varieties: Roma VF, Anna F1, Cal-J\n- Duration: 70–90 days after transplanting\n- Spacing: 50×50 cm\n- Water: drip irrigation (often 30–60% less water than flood irrigation)\n- Temperature: 21–27°C\n- Fertiliser: balanced N-P-K + compost\n\n**Watch out for:** whiteflies — they spread TYLCV virus.",
+        ar: "**زراعة الطماطم:**\n\n- الأصناف: Roma VF، Anna F1، Cal-J\n- المدة: 70–90 يوماً بعد الشتل\n- المسافات: 50×50 سم\n- الماء: ري بالتنقيط (غالباً أقل بنحو 30–60% من الري بالغمر)\n- الحرارة: 21–27°م\n- التسميد: N-P-K متوازن + سماد عضوي\n\n**احذر:** الذبابة البيضاء — تنقل فيروس TYLCV.",
+        sw: "**Kilimo cha nyanya:**\n\n- Aina: Roma VF, Anna F1, Cal-J\n- Muda: siku 70–90 baada ya kupandikiza\n- Nafasi: sm 50×50\n- Maji: matone (mara nyingi 30–60% maji kidogo kuliko kufurisha)\n- Joto: 21–27°C\n- Mbolea: N-P-K iliyosawazishwa + mboji\n\n**Tahadhari:** inzi weupe — hueneza virusi vya TYLCV."
       },
       keywords: ['yaanyo','yaanyada','tomato','tomatoes','nyanya','roma','solanum','cudur','whitefly','tylcv']
     },
@@ -106,16 +106,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'vertical-farming', cat: 'tech', url: 'article-vertical-farming.html',
       title: { so: 'Beerista Taalka', en: 'Vertical Farming', ar: 'الزراعة العمودية', sw: 'Kilimo Wima' },
       summary: {
-        so: 'Vertical farming: 90% biyo yar, container 20ft = $15K–$25K bilow, dakhli $1,500–$2,500/bil.',
-        en: 'Vertical farming: 90% less water, 20ft container = $15K–$25K starter, $1,500–$2,500/month income.',
-        ar: 'الزراعة العمودية: 90% أقل ماء، حاوية 20 قدم = 15-25 ألف دولار بداية.',
-        sw: 'Kilimo wima: 90% maji pungufu, kontena 20ft = $15K-$25K mwanzo.'
+        so: "Beeraha taagan (vertical/hydroponic) biyo aad u yar ayay isticmaalaan, laakiin maalgelin iyo koronto badan ayay u baahan yihiin. Hubi suuqa iyo kharashka ka hor.",
+        en: "Vertical/hydroponic farming uses far less water, but needs significant capital and electricity. Check costs and market first.",
+        ar: "الزراعة العمودية/المائية تستهلك ماءً أقل بكثير لكنها تحتاج رأس مال وكهرباء كبيرين. تحقق من التكاليف والسوق أولاً.",
+        sw: "Kilimo wima/hydroponiki hutumia maji kidogo sana, lakini huhitaji mtaji na umeme mkubwa. Kagua gharama na soko kwanza."
       },
       answer: {
-        so: '**Vertical Farming Magaalo:**\n\n- Maalgashi bilow: $15,000–$25,000 (20ft container hydroponic)\n- Wax-soo-saar: 500–800 kg caleemo bilkii\n- Dakhli: $1,500–$2,500/bil\n- Lacag-celin: 12–18 bil\n- Khurushaad bilkii: $400–$600 (koronta, biyo, abuur)\n\n**Nidaamyada:** Hydroponics, Aeroponics, Aquaponics. Magaalooyinka sida Muqdisho iyo Hargeysa, tani waa fursad cusub oo dakhli leh.',
-        en: '**Urban Vertical Farming:**\n\n- Starter capital: $15,000–$25,000 (20ft hydroponic container)\n- Output: 500–800 kg greens/month\n- Revenue: $1,500–$2,500/month\n- Payback: 12–18 months\n- Monthly running costs: $400–$600',
-        ar: '**الزراعة العمودية الحضرية:**\n\n- رأس مال: 15-25 ألف دولار\n- الإنتاج: 500-800 كغ/شهر',
-        sw: '**Kilimo wima cha mji:**\n\n- Mtaji: $15,000-$25,000\n- Mauzo: kg 500-800/mwezi'
+        so: "**Beeraha taagan ee magaalada:**\n\n- Biyo: aad bay uga yar yihiin beeraha furan (biyaha dib ayaa loo wareejiyaa)\n- Dalagyada ugu habboon: khudaar caleen ah (saladh, isbinaaj), dhir udgoon\n- Caqabadaha: maalgelin hore oo sarreysa, koronto joogto ah, aqoon farsamo\n- Kharashka iyo dakhliga aad bay u kala duwan yihiin — qaado qiimayn oo hubi iibsadayaal (hoteello, suuqyo) ka hor\n\n**Talo:** Ku bilow nidaam yar oo tijaabo ah.",
+        en: "**Urban vertical farming:**\n\n- Water: far less than open fields (water is recirculated)\n- Best crops: leafy greens (lettuce, spinach) and herbs\n- Challenges: high upfront cost, reliable electricity, technical skills\n- Costs and income vary widely — get quotes and secure buyers (hotels, supermarkets) first\n\n**Tip:** Start with a small pilot system.",
+        ar: "**الزراعة العمودية في المدن:**\n\n- الماء: أقل بكثير من الحقول المكشوفة (يُعاد تدويره)\n- أنسب المحاصيل: الخضار الورقية والأعشاب\n- التحديات: تكلفة أولية عالية، كهرباء موثوقة، مهارات تقنية\n- تختلف التكاليف والدخل كثيراً — احصل على عروض أسعار وتأكد من المشترين أولاً",
+        sw: "**Kilimo wima mjini:**\n\n- Maji: kidogo sana kuliko mashamba ya wazi (maji hurudiwa)\n- Mazao bora: mboga za majani na viungo\n- Changamoto: gharama kubwa ya awali, umeme wa uhakika, ujuzi wa kiufundi\n- Gharama na mapato hutofautiana sana — pata bei na uhakikishe wanunuzi kwanza"
       },
       keywords: ['vertical','taalka','hydroponic','aeroponic','aquaponic','magaalo','urban','container','technology']
     },
@@ -123,16 +123,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'greenhouse-farming', cat: 'tech', url: 'article-greenhouse-farming.html',
       title: { so: 'Beerista Daboolan — Greenhouse', en: 'Greenhouse Farming', ar: 'الزراعة في البيوت المحمية', sw: 'Kilimo cha Greenhouse' },
       summary: {
-        so: 'Greenhouse Soomaaliya: 3–5× wax-soosaar, 70% biyo yar. $1,500–$10,000 bilow, lacag-celin 8–12 bil.',
-        en: 'Greenhouse Somalia: 3–5× output, 70% less water. $1,500–$10,000 start, payback 8–12 months.',
-        ar: 'البيوت المحمية: 3-5× إنتاج، 70% أقل ماء.',
-        sw: 'Greenhouse: mara 3-5 mavuno, 70% maji pungufu.'
+        so: "Aqalka dhirta (greenhouse): wax-soosaar sannadka oo dhan iyo biyo aad uga yar kiilo kasta. Kharashku wuu kala duwan yahay — ku bilow mid yar.",
+        en: "Greenhouse: year-round production and much less water per kilo. Costs vary widely — start small.",
+        ar: "البيوت المحمية: إنتاج طوال العام وماء أقل بكثير لكل كيلوغرام. التكاليف متفاوتة — ابدأ صغيراً.",
+        sw: "Greenhouse: uzalishaji mwaka mzima na maji kidogo sana kwa kila kilo. Gharama hutofautiana — anza kidogo."
       },
       answer: {
-        so: '**Beerista Daboolan (Greenhouse) Soomaaliya:**\n\n- Noocyada: Tunnel plastic $1,500–$3,500 · Shade net $800–$2,000 · Polycarbonate $5,000–$10,000 · Hybrid $2,000–$4,000\n- Wax-soosaar: Yaanyo cherry 60 kg/m²/sannad ($2–$3/kg)\n- Biyo: 70% ka yar drip irrigation\n- Bilow: 8m × 24m = $3,500 maalgashi\n- Faa\'iido: $320–$620/bil saafi\n- Lacag-celin: 8–12 bil\n\n**Talo:** Bilow shade net hybrid (cheap, fudud). Iibso hotelyada Muqdisho/Hargeysa.',
-        en: '**Greenhouse farming in Somalia:**\n\n- Types: Plastic tunnel $1,500–$3,500 · Shade net $800–$2,000 · Polycarbonate $5,000–$10,000 · Hybrid $2,000–$4,000\n- Output: Cherry tomatoes 60 kg/m²/year ($2–$3/kg)\n- Water: 70% less with drip\n- Starter: 8m × 24m = $3,500 capital\n- Profit: $320–$620/month net\n- Payback: 8–12 months\n\n**Tip:** Start with hybrid shade-net (cheap, easy). Sell to hotels in Mogadishu/Hargeisa.',
-        ar: '**الزراعة في البيوت المحمية في الصومال:**\n\n- الأنواع: نفق بلاستيكي ($1,500-$3,500) · شبكة تظليل ($800-$2,000) · بولي كربونيت ($5,000-$10,000)\n- إنتاج: طماطم 60 كغ/م²\n- ري بالتنقيط 70% أقل ماء\n- استرداد 8-12 شهراً',
-        sw: '**Kilimo cha greenhouse Somalia:**\n\n- Aina: Tunnel plastiki ($1,500-$3,500) · Wavu wa kivuli ($800-$2,000)\n- Mavuno: Nyanya cherry kg 60/m²\n- Maji 70% pungufu na drip\n- Marejesho miezi 8-12'
+        so: "**Aqalka dhirta (greenhouse) Soomaaliya:**\n\n- Noocyada: tunnel caag ah, shabag hooseed (shade net), polycarbonate, ama isku-dhaf\n- Faa'iidooyinka: wax-soosaar sannadka oo dhan, tayo sare, biyo aad uga yar kiilo kasta marka drip la isticmaalo\n- Caqabadaha: kulaylka xad-dhaafka ah (hawo-gelin ayaa muhiim ah), cayayaanka, kharashka bilowga\n- Kharashka iyo faa'iidadu aad bay u kala duwan yihiin — qaado qiimayn deegaanka ah oo hubi iibsadayaal ka hor\n\n**Talo:** Ku bilow shade-net ama tunnel yar oo raqiis ah, kadib ballaari.",
+        en: "**Greenhouse farming in Somalia:**\n\n- Types: plastic tunnel, shade-net house, polycarbonate, or hybrid\n- Benefits: year-round production, higher quality, much less water per kilo with drip\n- Challenges: extreme heat (ventilation is essential), pests, upfront cost\n- Costs and profits vary widely — get local quotes and secure buyers first\n\n**Tip:** Start with a small, low-cost shade-net house or tunnel, then expand.",
+        ar: "**البيوت المحمية في الصومال:**\n\n- الأنواع: نفق بلاستيكي، بيت شبكي للتظليل، بولي كربونيت، أو هجين\n- الفوائد: إنتاج طوال العام، جودة أعلى، ماء أقل بكثير لكل كيلوغرام مع التنقيط\n- التحديات: الحرارة الشديدة (التهوية ضرورية)، الآفات، التكلفة الأولية\n- تختلف التكاليف والأرباح كثيراً — احصل على عروض أسعار محلية وتأكد من المشترين أولاً",
+        sw: "**Greenhouse nchini Somalia:**\n\n- Aina: tunnel ya plastiki, nyumba ya wavu wa kivuli, polycarbonate, au mchanganyiko\n- Faida: uzalishaji mwaka mzima, ubora wa juu, maji kidogo sana kwa kilo ukitumia matone\n- Changamoto: joto kali (uingizaji hewa ni muhimu), wadudu, gharama ya awali\n- Gharama na faida hutofautiana sana — pata bei za eneo lako na uhakikishe wanunuzi kwanza"
       },
       keywords: ['greenhouse','greenhouses','daboolan','beer daboolan','protected farming','tunnel','shade net','polycarbonate','yaanyo daboolan','tomato greenhouse','hybrid greenhouse']
     },
@@ -140,16 +140,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'organic-farming', cat: 'tech', url: 'article-organic-farming.html',
       title: { so: 'Beerista Dabiici', en: 'Organic Farming', ar: 'الزراعة العضوية', sw: 'Kilimo Asili' },
       summary: {
-        so: 'Beero dabiici ah: compost, neem oil, biological pest control. Qiimo sare suuqa $1–$2/kg yaanyo dabiici.',
-        en: 'Organic: compost, neem oil, biological pest control. Premium $1–$2/kg organic tomatoes.',
-        ar: 'الزراعة العضوية: كمبوست، زيت النيم، مكافحة بيولوجية.',
-        sw: 'Kilimo asili: mboji, mafuta ya neem, udhibiti wa kibiolojia.'
+        so: "Beeraha dabiiciga ah: compost, saliidda neem, xakamaynta noolaha. Qiimo dheeraad ah ayaa jiri kara haddii iibsadayaal la helo.",
+        en: "Organic: compost, neem oil, biological pest control. A price premium is possible where buyers exist.",
+        ar: "الزراعة العضوية: سماد عضوي، زيت النيم، مكافحة حيوية. قد يتوفر سعر أعلى حيث يوجد مشترون.",
+        sw: "Kilimo hai: mboji, mafuta ya mwarobaini, udhibiti wa kibaiolojia. Bei ya ziada inawezekana pale wanunuzi wanapopatikana."
       },
       answer: {
-        so: '**Beerista Dabiici (Organic):**\n\n- Bacrin: Compost, vermicompost, digo geel/lo\n- Cayayaan: Neem oil, saabuun-biyo, ladybugs\n- Cudurada: Milk spray 1:9, biofungicides\n- Wareeg: Sannad walba — galley → digir → yaanyo\n- Qiimo: Premium 30–50% ka badan beerada caadiga ah\n\n**Hubinta:** Iska ilaali kiimikooyinka ammaan-darrada ah. Bilowga, iibso 0.1 hektaar oo ku tijaabi.',
-        en: '**Organic farming:**\n\n- Fertilizer: Compost, vermicompost, livestock manure\n- Pests: Neem oil, soapy water, ladybugs\n- Diseases: Milk spray 1:9, biofungicides\n- Rotation: Yearly — maize → legumes → tomatoes\n- Price: Premium 30–50% above conventional',
-        ar: '**الزراعة العضوية:**\n\n- السماد: كمبوست، فيرميكمبوست\n- الآفات: زيت النيم\n- السعر: أعلى 30-50%',
-        sw: '**Kilimo asili:**\n\n- Mbolea: Mboji, vermicompost\n- Wadudu: Mafuta ya neem\n- Bei: juu 30-50%'
+        so: "**Beeraha dabiiciga ah:**\n\n- Bacrin: compost, vermicompost, digada xoolaha oo bislaatay\n- Cayayaanka: saliidda neem, biyo saabuun leh, cayayaanka faa'iidada leh (ladybirds)\n- Cudurrada: wareejinta dalagga, nadaafadda, daawooyinka noolaha (biofungicides)\n- Wareejin: tusaale galley → digir → yaanyo\n- Qiimaha: qiimo dheeraad ah ayaa jiri kara, laakiin suuqa dabiiciga ah ee Soomaaliya weli wuu yar yahay — hubi iibsadayaasha ka hor",
+        en: "**Organic farming:**\n\n- Fertiliser: compost, vermicompost, well-rotted manure\n- Pests: neem oil, soapy water, beneficial insects (ladybirds)\n- Diseases: crop rotation, sanitation, biofungicides\n- Rotation: e.g. maize → legumes → tomatoes\n- Price: a premium is possible, but the organic market in Somalia is still small — confirm buyers first",
+        ar: "**الزراعة العضوية:**\n\n- التسميد: سماد عضوي، سماد دودي، روث متحلل\n- الآفات: زيت النيم، ماء وصابون، حشرات نافعة (الدعسوقة)\n- الأمراض: الدورة الزراعية، النظافة، مبيدات حيوية\n- السعر: قد يتوفر سعر أعلى، لكن السوق العضوية في الصومال لا تزال صغيرة — تأكد من المشترين أولاً",
+        sw: "**Kilimo hai:**\n\n- Mbolea: mboji, mboji ya minyoo, samadi iliyooza vizuri\n- Wadudu: mafuta ya mwarobaini, maji ya sabuni, wadudu rafiki (kombamwiko)\n- Magonjwa: mzunguko wa mazao, usafi, viuakuvu vya kibaiolojia\n- Bei: bei ya ziada inawezekana, lakini soko la kilimo hai Somalia bado ni dogo — hakikisha wanunuzi kwanza"
       },
       keywords: ['organic','dabiici','compost','neem','natural','asili','la\'aan kiimiko','beer dabiici']
     },
@@ -159,16 +159,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'drip-irrigation', cat: 'irrigation', url: 'article-drip-irrigation.html',
       title: { so: 'Drip Irrigation', en: 'Drip Irrigation', ar: 'الري بالتنقيط', sw: 'Drip Irrigation' },
       summary: {
-        so: 'Drip irrigation: 40–60% biyo keydi, kit $200–$500 dunyad. Ku haboon yaanyo, basbaas, qaraha.',
-        en: 'Drip irrigation: save 40–60% water, kit $200–$500/acre. Great for tomatoes, peppers, watermelon.',
-        ar: 'الري بالتنقيط: توفير 40-60% من الماء، طقم 200-500$ للفدان.',
-        sw: 'Drip irrigation: hifadhi 40-60% ya maji, kifaa $200-$500/eka.'
+        so: "Waraabinta dhibcaha: inta badan 30–60% biyo ka yar waraabinta daadinta. Ku habboon yaanyo, basbaas iyo xabxab. Kharashku wuu kala duwan yahay.",
+        en: "Drip irrigation: often 30–60% less water than flood irrigation. Great for tomato, pepper and watermelon. Costs vary.",
+        ar: "الري بالتنقيط: غالباً أقل بنحو 30–60% من الري بالغمر. ممتاز للطماطم والفلفل والبطيخ. التكاليف متفاوتة.",
+        sw: "Umwagiliaji wa matone: mara nyingi 30–60% maji kidogo kuliko kufurisha. Bora kwa nyanya, pilipili na tikitimaji. Gharama hutofautiana."
       },
       answer: {
-        so: '**Drip Irrigation:**\n\n- Faa\'iidooyinka: 40–60% biyo keydi, yarayn cudur, fudud daryeel\n- Qiimo: $200–$500/dunyad (basic kit)\n- Qaybaha: Tank biyo + filter + manifold + drip lines + emitters\n- Maintenance: Nadiifin filter usbuuc walba, eeg emitters dhibsamayaal\n- Dalagga: Yaanyo, basbaas, qaraha, banaan\n\n**Talo:** Bilow tijaabin 0.1 hektaar kahor inaad scale gareyso.',
-        en: '**Drip Irrigation:**\n\n- Benefits: 40–60% water savings, less disease, easier maintenance\n- Cost: $200–$500/acre (basic kit)\n- Parts: Water tank + filter + manifold + drip lines + emitters\n- Maintenance: Weekly filter cleaning, check emitters for clogs\n- Best crops: Tomato, pepper, watermelon, cucumber',
-        ar: '**الري بالتنقيط:**\n\n- توفير 40-60% من الماء\n- تكلفة 200-500 دولار للفدان',
-        sw: '**Drip irrigation:**\n\n- Hifadhi maji 40-60%\n- Gharama $200-$500/eka'
+        so: "**Waraabinta dhibcaha (drip):**\n\n- Faa'iidooyinka: biyo badan oo la kaydiyo (inta badan 30–60%), cudur yar, haramo yar\n- Qaybaha: haan biyo + shaandho (filter) + tuubo weyn + tuubooyin dhibco leh\n- Daryeelka: nadiifi shaandhada si joogto ah, hubi dhibciyeyaasha xiran\n- Kharashka: wuxuu ku xiran yahay nooca nidaamka iyo baaxadda — qaado dhowr qiimayn\n- Dalagyada ugu fiican: yaanyo, basbaas, xabxab, khiyaar",
+        en: "**Drip irrigation:**\n\n- Benefits: large water savings (often 30–60%), less disease, fewer weeds\n- Parts: water tank + filter + mainline + drip lines with emitters\n- Maintenance: clean the filter regularly, check emitters for clogging\n- Cost: depends on system type and area — get several quotes\n- Best crops: tomato, pepper, watermelon, cucumber",
+        ar: "**الري بالتنقيط:**\n\n- الفوائد: توفير كبير للماء (غالباً 30–60%)، أمراض وأعشاب أقل\n- المكونات: خزان ماء + مرشّح + خط رئيسي + خطوط تنقيط بنقّاطات\n- الصيانة: نظّف المرشّح بانتظام وافحص انسداد النقّاطات\n- التكلفة: حسب نوع النظام والمساحة — احصل على عدة عروض",
+        sw: "**Umwagiliaji wa matone:**\n\n- Faida: kuokoa maji mengi (mara nyingi 30–60%), magonjwa na magugu machache\n- Sehemu: tanki la maji + kichujio + bomba kuu + mirija ya matone\n- Matengenezo: safisha kichujio mara kwa mara, kagua vitone vilivyoziba\n- Gharama: hutegemea aina ya mfumo na eneo — pata bei kadhaa"
       },
       keywords: ['drip','waraab','irrigation','biyo','umwagiliaji','keyd biyo','water saving']
     },
@@ -182,10 +182,10 @@ window.BeyloodKnowledge = (function () {
         sw: 'Kuvuna maji ya mvua: visima, mashimo zai.'
       },
       answer: {
-        so: '**Biyo-keydinta Roobka:**\n\n- Tank plastig: $200–$800 (1,000L–5,000L)\n- Berked dabaqyo: $1,000–$3,000\n- Zai pits: $0 (godad gacanta lagu qodo)\n- Saqaf 100m² + 1mm roob = 100L biyo\n- Filter: 3-stage (caws, ciid, charcoal)\n\n**Talo:** Saqaf shidaal-shidaal ah ka guuri si biyaha aysan u xumayn.',
-        en: '**Rainwater harvesting:**\n\n- Plastic tank: $200–$800 (1,000L–5,000L)\n- Concrete cistern: $1,000–$3,000\n- Zai pits: $0 (hand-dug)\n- 100m² roof + 1mm rain = 100L water\n- Filter: 3-stage (mesh, sand, charcoal)',
-        ar: '**حصاد مياه الأمطار:**\n\n- خزان بلاستيك: 200-800 دولار',
-        sw: '**Kuvuna maji ya mvua:**\n\n- Tanki la plastiki: $200-$800'
+        so: "**Goynta biyaha roobka:**\n\n- Haamo caag ah (1,000–5,000 L ama ka badan)\n- Berkado shub ah (cisterns) iyo ballado\n- Godad zai: gacan lagu qodo, kharash lacageed oo yar\n- Xisaab: 1 mm roob × 100 m² saqaf = qiyaastii 100 L (kahor khasaaraha)\n- Shaandhayn: ka saar biyaha ugu horreeya ee saqafka (first flush) + shaandho\n\n**Talo:** Qiimayaashu way kala duwan yihiin — weydii iibiyeyaasha deegaanka.",
+        en: "**Rainwater harvesting:**\n\n- Plastic tanks (1,000–5,000 L or more)\n- Concrete cisterns and ponds\n- Zai pits: hand-dug, very low cash cost\n- Rule of thumb: 1 mm rain × 100 m² roof ≈ 100 L (before losses)\n- Filtering: divert the first flush from the roof + use a filter\n\n**Tip:** Prices vary — ask local suppliers.",
+        ar: "**حصاد مياه الأمطار:**\n\n- خزانات بلاستيكية (1,000–5,000 لتر أو أكثر)\n- صهاريج خرسانية وبرك\n- حفر الزاي: تُحفر يدوياً بتكلفة نقدية منخفضة جداً\n- قاعدة: 1 مم مطر × 100 م² سقف ≈ 100 لتر (قبل الفاقد)\n- الترشيح: حوّل الدفعة الأولى من السقف واستخدم مرشّحاً",
+        sw: "**Uvunaji wa maji ya mvua:**\n\n- Matanki ya plastiki (lita 1,000–5,000 au zaidi)\n- Mabirika ya saruji na mabwawa\n- Mashimo ya zai: huchimbwa kwa mkono, gharama ndogo sana\n- Kanuni: mm 1 ya mvua × m² 100 za paa ≈ lita 100 (kabla ya upotevu)\n- Kuchuja: geuza maji ya kwanza ya paa na tumia kichujio"
       },
       keywords: ['roob','biyo roob','rainwater','tank','berked','zai','jiilaal','keyd biyo','harvest']
     },
@@ -195,10 +195,10 @@ window.BeyloodKnowledge = (function () {
       slug: 'composting', cat: 'soil', url: 'article-composting.html',
       title: { so: 'Compost — Bacrin Dabiici', en: 'Composting', ar: 'الكمبوست', sw: 'Mboji' },
       summary: {
-        so: 'Compost: 3 bilood, ratio 30:1 cagaar:engegan, $0 kharash. Kor u qaada wax-soo-saarka 20–40%.',
-        en: 'Compost: 3 months, 30:1 green:brown ratio, $0 cost. Boosts yields 20–40%.',
-        ar: 'الكمبوست: 3 أشهر، نسبة 30:1، مجاناً.',
-        sw: 'Mboji: miezi 3, uwiano 30:1, bure.'
+        so: "Compost: qiyaastii 2–3 bilood. Isku dheelitir walxaha qalalan (bunni) iyo kuwa cagaaran — qiyaastii 2–3 qaybood oo qalalan 1 qayb cagaar ah. Wuxuu hagaajiyaa ciidda iyo wax-soosaarka.",
+        en: "Compost: about 2–3 months. Balance dry (brown) and green materials — roughly 2–3 parts brown to 1 part green by volume. Improves soil and yields.",
+        ar: "السماد العضوي: نحو 2–3 أشهر. وازن بين المواد الجافة (البنية) والخضراء — نحو 2–3 أجزاء بنية إلى جزء أخضر حجماً. يحسّن التربة والإنتاج.",
+        sw: "Mboji: takriban miezi 2–3. Sawazisha vitu vikavu (kahawia) na vibichi — takriban sehemu 2–3 kahawia kwa sehemu 1 kijani kwa ujazo. Huboresha udongo na mavuno."
       },
       answer: {
         so: '**Sida Loo Sameeyo Compost:**\n\n1. Dooro goob hadho leh, 2m × 2m\n2. Lakab #1 (10cm): Caleemo qalalan, caws engegan (cawanjaal)\n3. Lakab #2 (10cm): Qashinka jikada, geedo cagaar ah (nitrogen)\n4. Lakab #3 (5cm): Digo geel/lo (oo bisil)\n5. Ku celi sida lakabyo\n6. Biyo siisii usbuuc walba — qoyan laakiin maaha qoyaan dhameystiran\n7. Rog 30 maalmood ka dib\n8. Diyaar 3 bilood ka dib — madow, dhadhanka madhdhaxda\n\n**Talo:** Iska ilaali hilib, caano, ama saliid — way ureeyaan oo waxay keenaan jiir.',
@@ -212,16 +212,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'soil-testing', cat: 'soil', url: 'article-soil-testing.html',
       title: { so: 'Baadhitaanka Ciidda', en: 'Soil Testing', ar: 'اختبار التربة', sw: 'Mtihani wa Udongo' },
       summary: {
-        so: 'Baadhitaan ciid: pH, N-P-K. Kit gacanta $15, lab test $25–$50. Sannad walba.',
-        en: 'Soil test: pH, N-P-K. Hand kit $15, lab test $25–$50. Once a year.',
-        ar: 'اختبار التربة: pH، N-P-K.',
-        sw: 'Mtihani wa udongo: pH, N-P-K.'
+        so: "Tijaabada ciidda: pH iyo N-P-K. Qalabka gacanta waa qiyaas; shaybaadhku waa ka kalsooni badan. Tijaabi 2–3 sannadood kasta.",
+        en: "Soil test: pH and N-P-K. Hand kits are approximate; a lab is more reliable. Test every 2–3 years.",
+        ar: "تحليل التربة: pH وN-P-K. الأطقم اليدوية تقريبية والمختبر أكثر موثوقية. افحص كل 2–3 سنوات.",
+        sw: "Kipimo cha udongo: pH na N-P-K. Vifaa vya mkono ni makadirio; maabara ni ya kuaminika zaidi. Pima kila miaka 2–3."
       },
       answer: {
-        so: '**Baadhitaan Ciid:**\n\n- pH ideal: 6.0–7.0 (khudrad), 5.5–7.0 (galley)\n- Hadii pH < 6: ku dar lime\n- Hadii pH > 7: ku dar sulfur ama compost asid\n- N (Nitrogen): cagaarka caleemaha\n- P (Phosphorus): xididada\n- K (Potassium): mira\n\n**Habka fudud:** Soo qaad samples 5 goobood (10–20 cm hoos), isku dar, qalalji, oo lab u dir.',
-        en: '**Soil testing:**\n\n- Ideal pH: 6.0–7.0 (vegetables), 5.5–7.0 (maize)\n- pH < 6: add lime\n- pH > 7: add sulfur or acidic compost\n- N: leaf greenness\n- P: roots\n- K: fruits',
-        ar: '**اختبار التربة:**\n\n- pH مثالي: 6.0-7.0',
-        sw: '**Mtihani wa udongo:**\n\n- pH bora: 6.0-7.0'
+        so: "**Tijaabada ciidda:**\n\n- pH ku habboon: 6.0–7.0 (khudaarta), 5.5–7.0 (galley)\n- pH < 6: ku dar lime beereed (qaddar ku salaysan tijaabada)\n- pH > 7.5: ciidda calcareous-ka ah hoos u dhigiddeedu way adag tahay — ku dar maaddo dabiici ah oo dooro dalagyo u adkaysta\n- Calaamadaha: yaraanta N = caleemo jaalle ah (kuwa hoose); P = koritaan gaaban, caleemo guduud ah; K = cidhifyada caleemaha oo guba",
+        en: "**Soil testing:**\n\n- Ideal pH: 6.0–7.0 (vegetables), 5.5–7.0 (maize)\n- pH < 6: add agricultural lime (rate based on the test)\n- pH > 7.5: calcareous soils are hard to acidify — add organic matter and choose tolerant crops\n- Signs: N deficiency = yellow lower leaves; P = stunted, purplish leaves; K = scorched leaf edges",
+        ar: "**تحليل التربة:**\n\n- pH المثالي: 6.0–7.0 (الخضروات)، 5.5–7.0 (الذرة)\n- pH أقل من 6: أضف الجير الزراعي (حسب التحليل)\n- pH أعلى من 7.5: يصعب تحميض التربة الكلسية — أضف مادة عضوية واختر محاصيل متحملة\n- العلامات: نقص N = اصفرار الأوراق السفلى؛ P = تقزم وأوراق أرجوانية؛ K = احتراق حواف الأوراق",
+        sw: "**Kupima udongo:**\n\n- pH bora: 6.0–7.0 (mboga), 5.5–7.0 (mahindi)\n- pH chini ya 6: weka chokaa ya kilimo (kiasi kulingana na kipimo)\n- pH juu ya 7.5: udongo wenye chokaa ni mgumu kuongeza asidi — ongeza mabaki ya viumbe hai na chagua mazao yanayostahimili\n- Dalili: upungufu wa N = majani ya chini manjano; P = kudumaa, majani ya zambarau; K = kingo za majani kuungua"
       },
       keywords: ['baadh ciid','soil test','ph','nitrogen','tijaab','mtihani udongo']
     },
@@ -231,16 +231,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'fall-armyworm', cat: 'pests', url: 'pest-fall-armyworm.html',
       title: { so: 'Diirka Galleyda (Fall Armyworm)', en: 'Fall Armyworm', ar: 'دودة الذرة الخريفية', sw: 'Viwavi Mahindi' },
       summary: {
-        so: 'Fall Armyworm cuna galleyda 12 saac gudaheed. Eeg subax hore. Biological control + early action.',
-        en: 'Fall Armyworm devours maize in 12 hours. Scout at dawn. Biological control + early action.',
-        ar: 'دودة الذرة الخريفية تأكل الذرة في 12 ساعة.',
-        sw: 'Viwavi wa mahindi hula mahindi katika masaa 12.'
+        so: "Dixirigga dagaalka (fall armyworm) wuxuu si dhakhso ah u baabi'in karaa galleyda. Baar subaxdii, tallaabo hore qaad.",
+        en: "Fall armyworm can quickly destroy maize. Scout early in the morning and act early.",
+        ar: "يمكن لدودة الحشد الخريفية أن تدمّر الذرة بسرعة. افحص الحقل صباحاً باكراً وتصرّف مبكراً.",
+        sw: "Viwavijeshi vamizi vinaweza kuharibu mahindi haraka. Kagua asubuhi mapema na chukua hatua mapema."
       },
       answer: {
-        so: '**Fall Armyworm Xakamayn:**\n\n- Eeg subax hore: gudaha caleemaha cusub\n- Calaamado: godad caleemaha, saxaro madow\n- Daawayn dabiici: neem oil 30 ml/L\n- Daawayn biological: Beauveria bassiana\n- Hubi maamulada: Wasaaradda Beeraha — +252 615 555 444\n- Sannadkii hore: 10–15 dhir/100 dhir = halal-mid; in ka badan 15 = degdeg ah!\n\n**Iska ilaali:** Daawooyinka aan la oggolayn (toxic). Beero shanqarsho ama basbaas hareeraha si aad u qariso.',
-        en: '**Fall Armyworm control:**\n\n- Scout at dawn: inside new leaves\n- Signs: leaf holes, dark frass\n- Natural treatment: neem oil 30 ml/L\n- Biological: Beauveria bassiana\n- Authorities: Ministry of Agriculture — +252 615 555 444\n- Threshold: 10–15 per 100 plants = manageable; >15 = urgent!',
-        ar: '**مكافحة دودة الذرة:**\n\n- التفقد فجراً\n- زيت النيم 30 مل/لتر',
-        sw: '**Udhibiti wa viwavi:**\n\n- Kagua alfajiri\n- Mafuta ya neem 30 ml/L'
+        so: "**Xakamaynta fall armyworm:**\n\n- Baar subaxdii: gudaha caleemaha cusub (funnel-ka)\n- Calaamadaha: daloolo caleemaha ah, saxaro madow oo qoyan\n- Habab dabiici ah: gacan ku dil, ciid/dambas funnel-ka lagu shubo, saliidda neem (qaddarka calaamadda ku qoran)\n- Noolaha: Bacillus thuringiensis (Bt), Metarhizium/Beauveria\n- Heerka tallaabada: marka ~20% geedaha yaryar ay ku dhacaan, isticmaal daawo la oggolaaday\n- La xiriir xafiiska beeraha ee gobolkaaga",
+        en: "**Fall armyworm control:**\n\n- Scout early morning: inside the whorl (funnel)\n- Signs: ragged leaf holes, moist dark frass\n- Natural methods: hand-picking, soil/ash in the funnel, neem oil (at label rate)\n- Biological: Bacillus thuringiensis (Bt), Metarhizium/Beauveria\n- Action threshold: when about 20% of young plants are infested, use an approved product\n- Contact your regional agriculture office",
+        ar: "**مكافحة دودة الحشد الخريفية:**\n\n- افحص صباحاً داخل القمع\n- العلامات: ثقوب ممزقة في الأوراق وفضلات داكنة رطبة\n- طرق طبيعية: الجمع اليدوي، تراب/رماد في القمع، زيت النيم (حسب الملصق)\n- حيوياً: Bt، Metarhizium/Beauveria\n- عتبة التدخل: عند إصابة نحو 20% من النباتات الصغيرة استخدم منتجاً معتمداً",
+        sw: "**Kudhibiti viwavijeshi vamizi:**\n\n- Kagua asubuhi ndani ya kikonyo (funnel)\n- Dalili: matundu kwenye majani, kinyesi cheusi chenye unyevu\n- Njia asilia: kuokota kwa mkono, udongo/majivu kwenye kikonyo, mafuta ya mwarobaini (kwa kipimo cha lebo)\n- Kibaiolojia: Bt, Metarhizium/Beauveria\n- Kiwango cha kuchukua hatua: takriban 20% ya mimea michanga ikiathirika, tumia dawa iliyoidhinishwa"
       },
       keywords: ['fall armyworm','faw','diirka','galley cudur','maize pest','spodoptera','viwavi','armyworm']
     },
@@ -254,10 +254,10 @@ window.BeyloodKnowledge = (function () {
         sw: 'Inzi weupe kwenye nyanya — husambaza virusi TYLCV.'
       },
       answer: {
-        so: '**Xakameynta Whiteflies:**\n\n- Sticky traps jaalle ah: ku rid beerta\n- Neem oil 30 ml/L: spray usbuuc walba\n- Insecticidal soap: hadii halis sare ah\n- Beero basal cas hareeraha (repellent)\n- Iska saar caleemaha aadka u xun\n\n**TYLCV virus:** Hadii caleemaha ay isku duubaan, koray sare ka socda, jar oo qashin ku tuur (maaha compost).',
-        en: '**Whitefly control:**\n\n- Yellow sticky traps in field\n- Neem oil 30 ml/L: spray weekly\n- Insecticidal soap for heavy infestation\n- Plant red onions around perimeter (repellent)\n- Remove badly affected leaves',
-        ar: '**مكافحة الذبابة البيضاء:**\n\n- مصائد لاصقة صفراء\n- زيت النيم',
-        sw: '**Udhibiti wa inzi weupe:**\n\n- Mitego ya manjano\n- Mafuta ya neem'
+        so: "**Xakamaynta duqsiga cad (whiteflies):**\n\n- Dabinno jaalle ah oo dhegdheg ah beerta dhig\n- Saliidda neem ama saabuunta cayayaanka (qaddarka calaamadda) — ku buufi dhinaca hoose ee caleemaha 5–7 maalmood kasta\n- Ka saar caleemaha aadka u xumaaday\n- Isticmaal geedo yaryar oo nadiif ah iyo shabag cayayaan (insect net) xannaanada",
+        en: "**Whitefly control:**\n\n- Yellow sticky traps in the field\n- Neem oil or insecticidal soap (label rate) — spray leaf undersides every 5–7 days\n- Remove badly affected leaves\n- Use clean seedlings and insect-proof net in the nursery",
+        ar: "**مكافحة الذبابة البيضاء:**\n\n- مصائد صفراء لاصقة في الحقل\n- زيت النيم أو الصابون الحشري (حسب الملصق) — رش السطح السفلي للأوراق كل 5–7 أيام\n- أزل الأوراق شديدة الإصابة\n- استخدم شتلات سليمة وشبكاً مانعاً للحشرات في المشتل",
+        sw: "**Kudhibiti inzi weupe:**\n\n- Mitego ya njano inayonata shambani\n- Mafuta ya mwarobaini au sabuni ya wadudu (kwa kipimo cha lebo) — nyunyiza upande wa chini wa majani kila siku 5–7\n- Ondoa majani yaliyoathirika sana\n- Tumia miche safi na wavu wa kuzuia wadudu kitaluni"
       },
       keywords: ['whitefly','whiteflies','duqsi cad','inzi weupe','tylcv','yaanyo cudur','tomato virus']
     },
@@ -284,16 +284,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'dairy-cattle', cat: 'livestock', url: 'article-dairy-cattle.html',
       title: { so: 'Lo\'da Caanaha', en: 'Dairy Cattle', ar: 'أبقار الحليب', sw: 'Ng\'ombe wa Maziwa' },
       summary: {
-        so: 'Lo\' caanaha: 15–25L caano/maalin, Sahiwal ama Friesian crossbreed, daaqsin + sahay.',
-        en: 'Dairy cows: 15–25L milk/day, Sahiwal or Friesian crossbreed, grazing + supplements.',
-        ar: 'أبقار الحليب: 15-25 لتر يومياً.',
-        sw: 'Ng\'ombe wa maziwa: 15-25L kwa siku.'
+        so: "Lo'da caanaha: isku-dhafka Friesian waxay bixin karaan 10–20 L maalintii marka calaf fiican la siiyo; Sahiwal wuu ka yar yahay laakiin kulaylka ayuu u adkaystaa.",
+        en: "Dairy cows: Friesian crosses can give 10–20 L/day with good feeding; Sahiwal gives less but tolerates heat better.",
+        ar: "أبقار الحليب: هجائن الفريزيان قد تعطي 10–20 لتراً يومياً مع تغذية جيدة؛ والساهيوال تعطي أقل لكنها تتحمل الحر أفضل.",
+        sw: "Ng'ombe wa maziwa: chotara wa Friesian wanaweza kutoa lita 10–20 kwa siku wakilishwa vizuri; Sahiwal hutoa kidogo lakini huvumilia joto zaidi."
       },
       answer: {
-        so: '**Lo\'da Caanaha — Sahiwal/Friesian:**\n\n- Wax-soo-saar: 15–25L caano/maalin\n- Cunto: Caws 30 kg + 3–5 kg consenterate maalintii\n- Biyo: 50–80L maalintii\n- Lacag-dhalka: Sannadkii hal jeer\n- Caafimaad: Tallaal sannad walba, daawooyinka cayayaanka 4 jeer\n\n**Dakhli:** Caano 1L = $0.40–$0.60 suuqa. Lo\' wanaagsan = $50/bishii faa\'iido.',
-        en: '**Dairy cattle — Sahiwal/Friesian:**\n\n- Production: 15–25L milk/day\n- Feed: 30 kg grass + 3–5 kg concentrate daily\n- Water: 50–80L per day\n- Calving: Once per year\n- Health: Annual vaccinations, parasite treatment 4x/year\n\n**Income:** $0.40–$0.60/L. Good cow = $50/month profit.',
-        ar: '**أبقار الحليب:**\n\n- إنتاج: 15-25 لتر',
-        sw: '**Ng\'ombe wa maziwa:**\n\n- Maziwa: lita 15-25'
+        so: "**Lo'da caanaha:**\n\n- Wax-soosaarka: isku-dhafka Friesian 10–20 L/maalin (calaf fiican); Sahiwal qiyaastii 6–10 L\n- Calafka: caws/calaf cagaar ah oo ku filan + 1 kg calaf adag 2–2.5 L kasta oo caano ah (qiyaas)\n- Biyo: 50–100 L maalintii (ka badan marka kulayl jiro ama la lisayo)\n- Dhalmada: sida ugu fiican hal mar sannadkii\n- Caafimaadka: tallaal sida uu dhakhtarka xooluhu kugula taliyo, xakamaynta shilinta iyo dirxiga\n\n**Talo:** Dakhliga ku xisaabi qiimaha caanaha ee deegaankaaga iyo kharashka calafka.",
+        en: "**Dairy cattle:**\n\n- Production: Friesian crosses 10–20 L/day (good feeding); Sahiwal about 6–10 L\n- Feed: plenty of good forage + roughly 1 kg concentrate per 2–2.5 L of milk (rule of thumb)\n- Water: 50–100 L/day (more in heat and when milking)\n- Calving: ideally once a year\n- Health: vaccinate as advised by your vet; control ticks and worms\n\n**Tip:** Estimate income from your local milk price and feed costs.",
+        ar: "**أبقار الحليب:**\n\n- الإنتاج: هجائن الفريزيان 10–20 لتراً يومياً (تغذية جيدة)؛ الساهيوال نحو 6–10 لترات\n- العلف: علف خشن جيد وفير + نحو 1 كغ مركّز لكل 2–2.5 لتر حليب (قاعدة تقريبية)\n- الماء: 50–100 لتر يومياً (أكثر في الحر وأثناء الحلب)\n- الولادة: مرة سنوياً في الوضع المثالي\n- الصحة: التطعيم حسب نصيحة البيطري ومكافحة القراد والديدان",
+        sw: "**Ng'ombe wa maziwa:**\n\n- Uzalishaji: chotara wa Friesian lita 10–20/siku (chakula kizuri); Sahiwal takriban lita 6–10\n- Chakula: malisho mazuri ya kutosha + takriban kilo 1 ya chakula cha ziada kwa kila lita 2–2.5 za maziwa (kanuni ya jumla)\n- Maji: lita 50–100/siku (zaidi wakati wa joto na kukamua)\n- Kuzaa: kwa hali bora mara moja kwa mwaka\n- Afya: chanja kwa ushauri wa daktari wa mifugo; dhibiti kupe na minyoo"
       },
       keywords: ['lo','caano','dairy','milk','cattle','ng\'ombe','sahiwal','friesian','xoolo']
     },
@@ -301,16 +301,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'poultry-farming', cat: 'livestock', url: 'article-poultry-farming.html',
       title: { so: 'Beerista Digaagga', en: 'Poultry Farming', ar: 'تربية الدواجن', sw: 'Ufugaji wa Kuku' },
       summary: {
-        so: 'Digaag: Layer ukunta 250–300/sannad. Broiler 1.8kg 6 toddobaad. Bilow $300–$500.',
-        en: 'Poultry: Layers 250–300 eggs/year. Broiler 1.8kg at 6 weeks. Start $300–$500.',
-        ar: 'الدواجن: بياض 250-300 بيضة/سنة.',
-        sw: 'Kuku: mayai 250-300/mwaka.'
+        so: "Digaagga: kuwa ukunta (layers) 250–300 ukun sannadkii; broiler ~2 kg 5–6 toddobaad. Tallaal Newcastle. Kharashka bilowga wuu kala duwan yahay.",
+        en: "Poultry: layers 250–300 eggs/year; broilers about 2 kg in 5–6 weeks. Vaccinate against Newcastle. Start-up costs vary.",
+        ar: "الدواجن: البياض 250–300 بيضة سنوياً؛ اللاحم نحو 2 كغ خلال 5–6 أسابيع. طعّم ضد نيوكاسل. تكاليف البدء متفاوتة.",
+        sw: "Kuku: wa mayai 250–300 kwa mwaka; kuku wa nyama takriban kilo 2 ndani ya wiki 5–6. Chanja dhidi ya Newcastle. Gharama za kuanza hutofautiana."
       },
       answer: {
-        so: '**Beerista Digaagga:**\n\n- Layers: 250–300 ukun/sannad/digaag, $0.10/ukun\n- Broilers: 1.8 kg 6 toddobaad, $3–$5/digaag\n- Bilow: 100 digaag = $300–$500 (cooyada, cunto, daawooyinka)\n- Hooyga: 1 m² per 8 digaag, hawo iyo nadiifin muhiim\n- Cuntada: Layers mash 120g/maalin, broilers starter→grower→finisher\n\n**Halis:** Newcastle disease — tallaal asal ah!',
-        en: '**Poultry farming:**\n\n- Layers: 250–300 eggs/year/bird, $0.10/egg\n- Broilers: 1.8 kg in 6 weeks, $3–$5/bird\n- Startup: 100 birds = $300–$500 (chicks, feed, meds)\n- Housing: 1 m² per 8 birds\n- Feed: Layers mash 120g/day\n\n**Risk:** Newcastle disease — vaccinate at day one!',
-        ar: '**تربية الدواجن:**\n\n- بياض: 250-300 بيضة سنوياً',
-        sw: '**Ufugaji wa kuku:**\n\n- Mayai: 250-300 kwa mwaka'
+        so: "**Dhaqidda digaagga:**\n\n- Layers: 250–300 ukun digaag kasta sannadkii (noocyada ganacsiga, calaf fiican)\n- Broilers: qiyaastii 2 kg 5–6 toddobaad\n- Hoyga: qiyaastii 1 m² 5–8 digaag oo ukun dhala ah (sagxad)\n- Calafka: layer mash qiyaastii 110–120 g digaagkii maalintii\n- Kharashka iyo qiimayaasha: hubi suuqa deegaankaaga\n\n**Khatar:** cudurka Newcastle — tallaal toddobaadka ugu horreeya oo ku celi sida jadwalka.",
+        en: "**Poultry farming:**\n\n- Layers: 250–300 eggs per bird per year (commercial strains, good feed)\n- Broilers: about 2 kg in 5–6 weeks\n- Housing: about 1 m² per 5–8 laying hens (floor system)\n- Feed: layer mash about 110–120 g per bird per day\n- Costs and prices: check your local market\n\n**Risk:** Newcastle disease — vaccinate in the first week and follow the booster schedule.",
+        ar: "**تربية الدواجن:**\n\n- البياض: 250–300 بيضة للطائر سنوياً (سلالات تجارية وعلف جيد)\n- اللاحم: نحو 2 كغ خلال 5–6 أسابيع\n- المسكن: نحو 1 م² لكل 5–8 دجاجات بياضة (نظام أرضي)\n- العلف: نحو 110–120 غ للطائر يومياً\n\n**خطر:** مرض نيوكاسل — طعّم في الأسبوع الأول واتبع جدول الجرعات المعززة.",
+        sw: "**Ufugaji wa kuku:**\n\n- Wa mayai: mayai 250–300 kwa kuku kwa mwaka (aina za kibiashara, chakula bora)\n- Wa nyama: takriban kilo 2 ndani ya wiki 5–6\n- Banda: takriban m² 1 kwa kuku 5–8 wa mayai (sakafuni)\n- Chakula: takriban g 110–120 kwa kuku kwa siku\n\n**Hatari:** ugonjwa wa Newcastle — chanja wiki ya kwanza na fuata ratiba ya nyongeza."
       },
       keywords: ['digaag','poultry','chicken','kuku','layer','broiler','ukun','egg','newcastle']
     },
@@ -318,16 +318,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'goats-sheep', cat: 'livestock', url: 'article-goats-sheep.html',
       title: { so: 'Riyo iyo Ido', en: 'Goats and Sheep', ar: 'الماعز والأغنام', sw: 'Mbuzi na Kondoo' },
       summary: {
-        so: 'Riyo & ido: Khaliij export, $80–$150/lo, breeds Black Head Persian (ido), Galla (riyo).',
-        en: 'Goats & sheep: Gulf export, $80–$150/head, Black Head Persian (sheep), Galla (goats).',
-        ar: 'الماعز والأغنام: تصدير الخليج.',
-        sw: 'Mbuzi na kondoo: mauzo Ghuba.'
+        so: "Riyaha iyo idaha: Khaliijka ayaa ah suuqa dhoofinta ugu weyn, gaar ahaan xilliga Xajka. Noocyada: Ido Madax-madow (Blackhead Somali), riyaha Galla iyo Soomaali.",
+        en: "Goats and sheep: the Gulf is the main export market, especially during Hajj. Breeds: Blackhead Somali sheep, Galla and Somali goats.",
+        ar: "الماعز والأغنام: الخليج هو سوق التصدير الرئيسي خاصة في موسم الحج. السلالات: الأغنام الصومالية سوداء الرأس، ماعز الغالا والماعز الصومالي.",
+        sw: "Mbuzi na kondoo: Ghuba ndilo soko kuu la kuuza nje, hasa msimu wa Hija. Aina: kondoo wa Kisomali wenye kichwa cheusi, mbuzi wa Galla na wa Kisomali."
       },
       answer: {
-        so: '**Riyo iyo Ido:**\n\n- Suuqa Khaliij: 5 milyan halaad/sannad ($300M dakhli Soomaaliya)\n- Qiimaha: $80–$150/halaad ($30/halaad gudaha)\n- Daaqsin: 0.5 hektaar/halaad\n- Biyo: 4–6L/halaad/maalin\n- Lacag-dhalka: 2 jeer sannad (riyo 2 ilmo), (ido 1 ilmo)\n\n**Bilow:** 20 halaad + xayawaan-dhakhtar = $2,000.',
-        en: '**Goats and sheep:**\n\n- Gulf market: 5M head/year ($300M Somalia income)\n- Price: $80–$150/head export ($30/head local)\n- Grazing: 0.5 hectare/head\n- Water: 4–6L/head/day\n- Birth rate: 2/year (goats can have twins)',
-        ar: '**الماعز والأغنام:**\n\n- السعر: 80-150 دولار',
-        sw: '**Mbuzi na kondoo:**\n\n- Bei: $80-$150'
+        so: "**Riyaha iyo idaha:**\n\n- Suuqa: Khaliijka — Xajku waa in ka badan 80% dhoofinta sannadlaha ah ee ido/riyo (Bangiga Dhexe)\n- Qiimayaasha: way isbeddelaan xilli ilaa xilli — hubi ganacsato la isku halleyn karo\n- Biyo: qiyaastii 4–6 L neefkii maalintii (ka badan kulaylka)\n- Taranka: riyuhu badanaa waxay dhalaan 3 jeer 2 sannadood gudahood, mataano badan\n- Caafimaadka: tallaal PPR iyo CCPP; shahaadada caafimaadka ayaa loo baahan yahay dhoofinta",
+        en: "**Goats and sheep:**\n\n- Market: the Gulf — Hajj accounts for over 80% of yearly sheep and goat exports (Central Bank of Somalia)\n- Prices: change from season to season — check with trusted traders\n- Water: about 4–6 L per head per day (more in heat)\n- Breeding: goats can kid about 3 times in 2 years, often with twins\n- Health: vaccinate against PPR and CCPP; health certificates are needed for export",
+        ar: "**الماعز والأغنام:**\n\n- السوق: الخليج — يمثل الحج أكثر من 80% من صادرات الأغنام والماعز السنوية (البنك المركزي الصومالي)\n- الأسعار: تتغير من موسم لآخر — تحقق لدى تجار موثوقين\n- الماء: نحو 4–6 لترات للرأس يومياً (أكثر في الحر)\n- التكاثر: قد تلد الماعز نحو 3 مرات في سنتين وغالباً توائم\n- الصحة: التطعيم ضد طاعون المجترات الصغيرة وذات الرئة؛ الشهادات الصحية مطلوبة للتصدير",
+        sw: "**Mbuzi na kondoo:**\n\n- Soko: Ghuba — Hija ni zaidi ya 80% ya mauzo ya kila mwaka ya kondoo na mbuzi (Benki Kuu ya Somalia)\n- Bei: hubadilika msimu hadi msimu — uliza wafanyabiashara wa kuaminika\n- Maji: takriban lita 4–6 kwa mnyama kwa siku (zaidi wakati wa joto)\n- Uzazi: mbuzi wanaweza kuzaa takriban mara 3 ndani ya miaka 2, mara nyingi mapacha\n- Afya: chanja dhidi ya PPR na CCPP; vyeti vya afya vinahitajika kwa kusafirisha nje"
       },
       keywords: ['riyo','ido','goat','sheep','mbuzi','kondoo','khaliij','export','xoolo yar yar']
     },
@@ -337,16 +337,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'drought-tolerant', cat: 'climate', url: 'article-drought-tolerant-crops.html',
       title: { so: 'Dalagga Abaaraha u Adkaysi Leh', en: 'Drought-Tolerant Crops', ar: 'محاصيل مقاومة للجفاف', sw: 'Mazao ya Ukame' },
       summary: {
-        so: 'Abaar: masaggu (90 maalmood), cowpea (60), pearl millet (90), sorghum (100). 200mm biyo kahor.',
-        en: 'Drought: sorghum (100d), cowpea (60d), pearl millet (90d), masaggu (90d). 200mm minimum.',
-        ar: 'الجفاف: الذرة الرفيعة، اللوبيا، الدخن.',
-        sw: 'Ukame: mtama, kunde, mtama mdogo.'
+        so: "Dalagyada abaarta u adkaysta: masago (90–120 maalmood), digir (60–90), heed/pearl millet (75–90), kasaafa. Isku beer masago iyo digir.",
+        en: "Drought-tolerant crops: sorghum (90–120 days), cowpea (60–90), pearl millet (75–90), cassava. Intercrop sorghum with cowpea.",
+        ar: "محاصيل متحملة للجفاف: الذرة الرفيعة (90–120 يوماً)، اللوبيا (60–90)، الدخن اللؤلؤي (75–90)، الكسافا. ازرع الذرة الرفيعة مع اللوبيا.",
+        sw: "Mazao yanayostahimili ukame: mtama (siku 90–120), kunde (60–90), uwele (75–90), muhogo. Changanya mtama na kunde."
       },
       answer: {
-        so: '**Dalagga Abaaraha:**\n\n- Masaggu (sorghum): 100 maalmood, 200–400mm, dakhli sare\n- Cowpea (digir): 60 maalmood, 200mm, nitrogen ku darayaa ciidda\n- Pearl millet: 90 maalmood, 150–300mm, abaar adkaysi leh\n- Cassava: 9 bilood, 500mm, dakhli mustaqbal\n\n**Talo:** Iskaaday masaggu (madow) + cowpea — masaggu cidladaha sare wuxuu nasaha cowpea-da hoose, isla mark dalaga la sii daadinayaa.',
-        en: '**Drought-tolerant crops:**\n\n- Sorghum: 100 days, 200–400mm, good income\n- Cowpea: 60 days, 200mm, fixes nitrogen\n- Pearl millet: 90 days, 150–300mm, ultra-drought tolerant\n- Cassava: 9 months, 500mm, food security\n\n**Tip:** Intercrop sorghum + cowpea — sorghum canopy shades cowpea below.',
-        ar: '**محاصيل الجفاف:**\n\n- الذرة الرفيعة: 100 يوم\n- اللوبيا: 60 يوم',
-        sw: '**Mazao ya ukame:**\n\n- Mtama: siku 100\n- Kunde: siku 60'
+        so: "**Dalagyada abaarta u adkaysta:**\n\n- Masago: 90–120 maalmood, wuxuu u adkaystaa roob yar oo kulayl ah\n- Digir (cowpea): 60–90 maalmood, nitrojiin ayay qabataa\n- Heed (pearl millet): 75–90 maalmood, ka mid ah hadhuudhka ugu adkaysiga badan\n- Kasaafa: 9–12 bilood, kayd cunto oo muhiim ah\n\n**Talo:** Isku beer masago iyo digir — digirtu ciidda ayay daboolaysaa oo nitrojiin ku dartaa.",
+        en: "**Drought-tolerant crops:**\n\n- Sorghum: 90–120 days, tolerates low rainfall and heat\n- Cowpea: 60–90 days, fixes nitrogen\n- Pearl millet: 75–90 days, one of the most drought-tolerant cereals\n- Cassava: 9–12 months, an important food reserve\n\n**Tip:** Intercrop sorghum with cowpea — the cowpea covers the soil and adds nitrogen.",
+        ar: "**المحاصيل المتحملة للجفاف:**\n\n- الذرة الرفيعة: 90–120 يوماً، تتحمل قلة المطر والحر\n- اللوبيا: 60–90 يوماً، تثبّت النيتروجين\n- الدخن اللؤلؤي: 75–90 يوماً، من أكثر الحبوب تحملاً للجفاف\n- الكسافا: 9–12 شهراً، مخزون غذائي مهم",
+        sw: "**Mazao yanayostahimili ukame:**\n\n- Mtama: siku 90–120, huvumilia mvua kidogo na joto\n- Kunde: siku 60–90, huweka nitrojeni\n- Uwele: siku 75–90, miongoni mwa nafaka zinazostahimili ukame zaidi\n- Muhogo: miezi 9–12, akiba muhimu ya chakula"
       },
       keywords: ['abaar','drought','sorghum','masaggu','millet','cowpea','digir','ukame','cassava']
     },
@@ -356,16 +356,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'news-11', cat: 'news', url: 'news-11.html',
       title: { so: 'Digniinta Ayaxa Juun 2026', en: 'June 2026 Locust Alert', ar: 'تحذير الجراد يونيو 2026', sw: 'Tahadhari ya Nzige Juni 2026' },
       summary: {
-        so: 'FAO + DLCO-EA digniin: ayax cusub Sanaag, Bari, Puntland. Hotline degdeg +252 615 555 444.',
-        en: 'FAO + DLCO-EA alert: new locust in Sanaag, Bari, Puntland. Emergency hotline +252 615 555 444.',
-        ar: 'تحذير الجراد يونيو 2026: صوماليلاند، بونتلاند.',
-        sw: 'Tahadhari ya nzige Juni 2026: Somaliland, Puntland.'
+        so: 'FAO + DLCO-EA digniin: ayax cusub Sanaag, Bari iyo Puntland. U soo sheeg Wasaaradda Beeraha ee gobolkaaga ama xafiiska FAO/DLCO-EA.',
+        en: 'FAO + DLCO-EA alert: new locust activity in Sanaag, Bari and Puntland. Report to your regional Ministry of Agriculture or the FAO/DLCO-EA office.',
+        ar: 'تحذير الجراد يونيو 2026: نشاط للجراد في سناج وباري وبونتلاند. أبلغ وزارة الزراعة في منطقتك أو مكتب الفاو/DLCO-EA.',
+        sw: 'Tahadhari ya nzige Juni 2026: nzige katika Sanaag, Bari na Puntland. Ripoti kwa Wizara ya Kilimo ya eneo lako au ofisi ya FAO/DLCO-EA.'
       },
       answer: {
-        so: '**Digniinta Ayaxa Juun 2026:**\n\n- Heer: Caution Sanaag/Bari, halis dhexdhexaad Puntland\n- Hotline: +252 615 555 444 (DLCO Mogadishu)\n- SMS: "AYAX [degmo]" → 4477\n- Tijaabi maalin walba subax hore\n- Hadii kooxo aragto: degdeg u soo sheeg\n\n**Difaac:** Sanqadho dhawaaq, jar dalagga hadii uu 80% bislay, isticmaal Metarhizium fungus oo DLCO ka helo.',
-        en: '**June 2026 Locust Alert:**\n\n- Level: Caution Sanaag/Bari, moderate Puntland\n- Hotline: +252 615 555 444 (DLCO Mogadishu)\n- SMS: "LOCUST [district]" → 4477\n- Scout at dawn daily\n- Report sightings immediately\n\n**Defense:** Loud noise, harvest early if 80% mature, use Metarhizium fungus from DLCO.',
-        ar: '**تحذير الجراد:**\n\n- خط طوارئ: +252 615 555 444',
-        sw: '**Tahadhari ya nzige:**\n\n- Simu ya dharura: +252 615 555 444'
+        so: '**Digniinta Ayaxa Juun 2026:**\n\n- Heer: digtoonaan Sanaag/Bari, khatar dhexdhexaad ah Puntland\n- Warbixin: la xiriir Wasaaradda Beeraha ee gobolkaaga ama xafiiska FAO/DLCO-EA; isticmaal oo keliya lambarrada rasmiga ah\n- App: eLocust3m (FAO)\n- Subax walba waaberiga baadh beerta\n- Haddii aad kooxo aragto: isla markiiba soo sheeg\n\n**Difaac:** sanqar weyn (xal ku-meel-gaar ah), goor hore goo dalagga ku dhow bislaanshaha, ha buufin kiimiko aan la oggolayn — xakamaynta waxaa fuliya kooxaha rasmiga ah (tusaale fangaska Metarhizium).',
+        en: '**June 2026 Locust Alert:**\n\n- Level: caution in Sanaag/Bari, moderate risk in Puntland\n- Reporting: contact your regional Ministry of Agriculture or the FAO/DLCO-EA office; use only official numbers\n- App: eLocust3m (FAO)\n- Scout fields at dawn daily\n- Report sightings immediately\n\n**Defence:** loud noise (short-term only), harvest early if the crop is near maturity, never spray unapproved chemicals — control is done by official teams (e.g. Metarhizium fungus).',
+        ar: '**تحذير الجراد يونيو 2026:**\n\n- المستوى: حذر في سناج/باري، وخطر متوسط في بونتلاند\n- الإبلاغ: تواصل مع وزارة الزراعة في منطقتك أو مكتب الفاو/DLCO-EA؛ واستخدم الأرقام الرسمية فقط\n- التطبيق: eLocust3m (الفاو)\n- تفقّد الحقول عند الفجر يومياً\n\n**الحماية:** الضجيج (مؤقت فقط)، والحصاد المبكر إذا اقترب المحصول من النضج، وعدم رش مبيدات غير معتمدة.',
+        sw: '**Tahadhari ya nzige Juni 2026:**\n\n- Kiwango: tahadhari Sanaag/Bari, hatari ya wastani Puntland\n- Kuripoti: wasiliana na Wizara ya Kilimo ya eneo lako au ofisi ya FAO/DLCO-EA; tumia namba rasmi tu\n- Programu: eLocust3m (FAO)\n- Kagua mashamba alfajiri kila siku\n\n**Kinga:** kelele (kwa muda mfupi tu), vuna mapema zao likikaribia kukomaa, usinyunyizie kemikali zisizoidhinishwa.'
       },
       keywords: ['ayax','locust','digniin','alert','dlco','fao','tahadhari','nzige']
     },
@@ -373,16 +373,16 @@ window.BeyloodKnowledge = (function () {
       slug: 'news-10', cat: 'news', url: 'news-10.html',
       title: { so: 'Saadaalka Deyr 2026', en: 'Deyr 2026 Forecast', ar: 'توقعات الديري 2026', sw: 'Utabiri wa Deyr 2026' },
       summary: {
-        so: 'Deyr Oct–Dec roob caadi. Koonfur 250–350mm (+5%), Bartamaha 180–250mm, Waqooyi 100–180mm (-10%).',
-        en: 'Deyr Oct–Dec near-normal rains. South 250–350mm (+5%), Central 180–250mm, North 100–180mm (-10%).',
-        ar: 'الديري أكتوبر-ديسمبر: أمطار قريبة من الطبيعية.',
-        sw: 'Deyr Oktoba-Desemba: mvua za karibu kawaida.'
+        so: "Saadaasha hore ee Deyr 2026 (Juun) waxay ahayd roob caadi ah; saadaalaha dambe (ICPAC/SODMA) waxay tilmaameen roob ka badan caadiga iyo khatar daad.",
+        en: "The early (June) Deyr 2026 outlook was near-normal; later forecasts (ICPAC/SODMA) pointed to above-average rains and flood risk.",
+        ar: "كانت التوقعات المبكرة للدير 2026 (يونيو) قريبة من المعدل؛ وأشارت التوقعات اللاحقة (ICPAC/SODMA) إلى أمطار فوق المعدل وخطر فيضانات.",
+        sw: "Utabiri wa awali wa Deyr 2026 (Juni) ulikuwa wa kawaida; utabiri wa baadaye (ICPAC/SODMA) ulionyesha mvua juu ya wastani na hatari ya mafuriko."
       },
       answer: {
-        so: '**Saadaalka Deyr 2026 (FAO/SWALIM):**\n\n- Koonfur: 250–350mm (+5% caadi sare)\n- Bartamaha: 180–250mm (caadi)\n- Waqooyi: 100–180mm (-10% hoos caadi)\n- Heerkul: 0.5°C ka sare caadi\n- Bilow beerista 5–10 Oktoobar\n\n**Talo:** Dalagga xilli-gaaban dooro: masaggu, digir, salaaqada (90–110 maalmood). Diyaari biyo-keyd bilkii Diseembar.',
-        en: '**Deyr 2026 forecast (FAO/SWALIM):**\n\n- South: 250–350mm (+5% above normal)\n- Central: 180–250mm (normal)\n- North: 100–180mm (-10% below normal)\n- Temperature: 0.5°C above average\n- Start planting 5–10 October\n\n**Tip:** Choose short-cycle crops (90–110 days). Prepare water storage for December dry spell.',
-        ar: '**توقعات الديري 2026:**\n\n- الجنوب: 250-350 ملم',
-        sw: '**Utabiri wa Deyr 2026:**\n\n- Kusini: 250-350 mm'
+        so: "**Deyr 2026 — cusboonaysiin:**\n\n- Saadaashii hore (Juun): roob caadi ah\n- Saadaalaha dambe: ICPAC iyo SODMA — roob ka badan caadiga iyo khatar daad oo sare (eeg news-14)\n- Beer marka roobka waxtarka lihi da'o oo ciiddu qoyan tahay\n- Dooro dalagyo wareeg gaaban (90–110 maalmood)\n- Deegaannada webiyada: diyaari bullaacado oo raac digniinaha rasmiga ah",
+        en: "**Deyr 2026 — update:**\n\n- Early outlook (June): near-normal rains\n- Later forecasts: ICPAC and SODMA — above-average rains and high flood risk (see news-14)\n- Plant once effective rains have wetted the soil\n- Choose short-cycle crops (90–110 days)\n- Riverine areas: prepare drainage and follow official warnings",
+        ar: "**الدير 2026 — تحديث:**\n\n- التوقعات المبكرة (يونيو): أمطار قريبة من المعدل\n- التوقعات اللاحقة: ICPAC وSODMA — أمطار فوق المعدل وخطر فيضانات مرتفع (راجع news-14)\n- ازرع بعد أن ترطّب الأمطار الفعالة التربة\n- اختر محاصيل قصيرة الدورة (90–110 أيام)\n- المناطق النهرية: جهّز الصرف واتبع التحذيرات الرسمية",
+        sw: "**Deyr 2026 — taarifa mpya:**\n\n- Utabiri wa awali (Juni): mvua za kawaida\n- Utabiri wa baadaye: ICPAC na SODMA — mvua juu ya wastani na hatari kubwa ya mafuriko (tazama news-14)\n- Panda baada ya mvua zenye manufaa kulowesha udongo\n- Chagua mazao ya muda mfupi (siku 90–110)\n- Maeneo ya mito: andaa mifereji na fuata tahadhari rasmi"
       },
       keywords: ['deyr','saadaal','roob','swalim','fao','forecast','utabiri','cimilo','xilliga']
     },
