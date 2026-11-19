@@ -12,7 +12,7 @@
      • Background Sync queue (IndexedDB) for pending requests
    Bump VERSION to ship an update (clients are notified).
    ============================================================ */
-const VERSION    = 'v33-20261119';
+const VERSION    = 'v34-20261119';
 const SHELL      = 'beylood-shell-' + VERSION;
 const STATIC     = 'beylood-static-' + VERSION;   // css / js (SWR)
 const IMAGES     = 'beylood-img-' + VERSION;       // images / fonts (cache-first)
@@ -29,7 +29,7 @@ const PRECACHE = [
   'articles.html', 'categories.html', 'news.html', 'about.html', 'contact.html', 'ask.html',
   'weather.html', 'calculators.html', 'calendar.html', 'beertayda.html', 'faq.html', 'article-gap-guide.html',
   'style.css', 'script.js', 'cover-images.js', 'ask.css', 'ask.js', 'chatbot-knowledge.js',
-  'weather.js', 'calculators.js', 'pwa.js', 'hero-bg.js', 'hero-bg.css', 'calendar.js', 'beertayda.js', 'manifest.json',
+  'weather.js', 'calculators.js', 'pwa.js', 'hero-bg.js', 'hero-bg.css', 'calendar.js', 'beertayda.js', 'home-news.js', 'manifest.json',
   'assets/logo.png', 'assets/logo-transparent.png', 'assets/icon.png',
   'assets/icon-192.png', 'assets/icon-512.png',
   'fonts/poppins-400.woff2', 'fonts/poppins-500.woff2', 'fonts/poppins-600.woff2', 'fonts/poppins-700.woff2',
