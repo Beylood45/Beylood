@@ -12,7 +12,7 @@
      • Background Sync queue (IndexedDB) for pending requests
    Bump VERSION to ship an update (clients are notified).
    ============================================================ */
-const VERSION    = 'v32-20261119';
+const VERSION    = 'v33-20261119';
 const SHELL      = 'beylood-shell-' + VERSION;
 const STATIC     = 'beylood-static-' + VERSION;   // css / js (SWR)
 const IMAGES     = 'beylood-img-' + VERSION;       // images / fonts (cache-first)
@@ -43,7 +43,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(SHELL).then((cache) =>
       Promise.all(PRECACHE.map((url) =>
-        cache.add(url).catch((e) => console.warn('[SW] precache skip', url, e && e.message))
+        cache.add(new Request(url, { cache: 'reload' })).catch((e) => console.warn('[SW] precache skip', url, e && e.message))
       ))
     ).then(() => self.skipWaiting())
   );
@@ -84,7 +84,9 @@ async function cacheFirst(request, cacheName) {
 async function staleWhileRevalidate(request, cacheName) {
   const cache = await caches.open(cacheName);
   const cached = await cache.match(request, { ignoreSearch: false });
-  const network = fetch(request).then((res) => {
+  // cache:'no-cache' → always revalidate with the server, so an old copy held in
+  // the browser's HTTP cache (from the former 1-month JS/CSS header) can't win.
+  const network = fetch(request.url, { cache: 'no-cache', credentials: 'same-origin' }).then((res) => {
     if (res && res.ok) cache.put(request, res.clone());
     return res;
   }).catch(() => null);

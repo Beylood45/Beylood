@@ -217,7 +217,11 @@
       if (file) {
         var img = document.createElement('img');
         img.className = 'cover-img';
-        img.loading = 'lazy';
+        // The article hero cover is above the fold → load it eagerly (lazy can
+        // fail to trigger on an opacity-0 image). Card covers in grids stay lazy.
+        var isHero = cover.classList.contains('article-cover');
+        img.loading = isHero ? 'eager' : 'lazy';
+        if (isHero) img.setAttribute('fetchpriority', 'high');
         img.decoding = 'async';
         img.src = encodeURI(BASE + file);
         img.alt = buildAlt(cover, (entry && entry.topic) || { en: cat.tag, so: cat.tag, ar: cat.tag, sw: cat.tag });
