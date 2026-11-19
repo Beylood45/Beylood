@@ -22,6 +22,9 @@
   var DISMISS_KEY = 'beylood_pwa_dismissed';
   var NAVY = '#0F3F7E', GREEN = '#3BA935';
   var WA_GREEN = '#25D366';
+  // Microsoft Store product ID (e.g. '9NXXXXXXXXXX'). Leave '' until the app is approved —
+  // the Store button appears automatically on Windows once this is filled in.
+  var MS_STORE_ID = '';
   // WhatsApp contact numbers (international format, no +, no leading 0)
   var WHATSAPP = [
     { key: 'so', num: '252615475445' },
@@ -52,6 +55,8 @@
     iosS3:    { so: 'Riix <b>Add</b> — App-ku wuxuu ka soo bixi doonaa shaashadda.', en: 'Tap <b>Add</b> — the app appears on your home screen.', ar: 'اضغط <b>Add</b> — سيظهر التطبيق على شاشتك.', sw: 'Gusa <b>Add</b> — programu itaonekana kwenye skrini yako.' },
     dtTitle:  { so: 'Sida loogu rakibo kombiyuutarka', en: 'How to install on desktop', ar: 'كيفية التثبيت على الكمبيوتر', sw: 'Jinsi ya kusakinisha kwenye kompyuta' },
     dtHint:   { so: 'Ku dhufo astaanta rakibka (⊕ / shaashad yar) oo ku taal cinwaanka barta booqashada Chrome ama Edge.', en: 'Click the install icon (⊕ / small screen) in the address bar of Chrome or Edge.', ar: 'انقر أيقونة التثبيت (⊕) في شريط العنوان في Chrome أو Edge.', sw: 'Bofya aikoni ya usakinishaji (⊕) kwenye upau wa anwani wa Chrome au Edge.' },
+    msStore:  { so: 'Ka hel Microsoft Store', en: 'Get it from Microsoft Store', ar: 'احصل عليه من Microsoft Store', sw: 'Ipate kutoka Microsoft Store' },
+    msOr:     { so: 'ama ku rakib browser-ka', en: 'or install from your browser', ar: 'أو ثبّته من المتصفح', sw: 'au sakinisha kupitia kivinjari' },
     // ---- WhatsApp ----
     waTitle:  { so: 'WhatsApp', en: 'WhatsApp', ar: 'واتساب', sw: 'WhatsApp' },
     waContact:{ so: 'Nala soo xiriir', en: 'Contact us', ar: 'تواصل معنا', sw: 'Wasiliana nasi' },
@@ -98,6 +103,9 @@
       /* Install modal */
       '.pwa-modal{position:fixed;inset:0;z-index:100001;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(11,19,32,.55);opacity:0;transition:opacity .28s;font-family:inherit}' +
       '.pwa-modal.show{opacity:1}' +
+      '.pwa-cta.pwa-ms{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;background:#111827 !important;color:#fff !important}' +
+      '.pwa-ms svg{width:20px;height:20px;flex:0 0 auto}' +
+      '.pwa-ms-or{margin:8px 0 10px;text-align:center;font-size:12px;color:#6B7280}' +
       '.pwa-modal-card{width:100%;max-width:420px;background:#fff;border-radius:22px;padding:24px 22px 20px;box-shadow:0 24px 60px rgba(11,19,32,.4);transform:translateY(24px) scale(.98);transition:transform .3s cubic-bezier(.2,.8,.2,1);max-height:92vh;overflow-y:auto}' +
       '.pwa-modal.show .pwa-modal-card{transform:translateY(0) scale(1)}' +
       '.pwa-modal-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}' +
@@ -255,6 +263,15 @@
 
   function benChip(svg, key) { return '<div class="pwa-ben">' + svg + t(key) + '</div>'; }
 
+  function isWindows() { return /Windows NT/i.test(navigator.userAgent); }
+  function msStoreBtn() {
+    if (!MS_STORE_ID || !isWindows()) return '';
+    var href = 'https://apps.microsoft.com/detail/' + encodeURIComponent(MS_STORE_ID) + '?mode=direct';
+    return '<a class="pwa-cta pwa-ms" href="' + href + '" target="_blank" rel="noopener">' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9.5" height="9.5" fill="#F25022"/><rect x="12.5" y="2" width="9.5" height="9.5" fill="#7FBA00"/><rect x="2" y="12.5" width="9.5" height="9.5" fill="#00A4EF"/><rect x="12.5" y="12.5" width="9.5" height="9.5" fill="#FFB900"/></svg>' +
+      t('msStore') + '</a><p class="pwa-ms-or">' + t('msOr') + '</p>';
+  }
+
   var modalEl = null, modalAuto = false, autoShown = false;
   function snooze() { try { localStorage.setItem(DISMISS_KEY, Date.now().toString()); } catch (e) {} }
   function closeModal() {
@@ -289,7 +306,7 @@
         '<div class="pwa-modal-head"><img src="assets/icon-192.png" alt="Beylood">' +
           '<div><h3>' + t('mTitle') + '</h3><p>' + t('mDesc') + '</p></div></div>' +
         '<div class="pwa-bens">' + benChip(SVG.bolt, 'b1') + benChip(SVG.wifi, 'b2') + benChip(SVG.grid, 'b3') + '</div>' +
-        body +
+        msStoreBtn() + body +
         '<button type="button" class="pwa-later" id="pwaLater">' + t('later') + '</button>' +
       '</div>';
     document.body.appendChild(el);
