@@ -42,7 +42,7 @@ DirectoryIndex index.html
 </IfModule>
 
 # ---- Block obvious source files from the web ----
-<FilesMatch "(^\.|\.(rules|md|log|bak|orig|swp)$|^package(-lock)?\.json$|^vercel\.json$|^firebase\.json$|^README)">
+<FilesMatch "(^\.|\.(rules|md|log|bak|orig|swp|patch|py|pyc|toml)$|^sediME8Az$|^package(-lock)?\.json$|^vercel\.json$|^firebase\.json$|^README)">
   Require all denied
 </FilesMatch>
 

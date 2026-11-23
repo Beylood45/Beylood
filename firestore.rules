@@ -71,8 +71,8 @@ service cloud.firestore {
         && validUser()
         && (!('email' in request.resource.data) || !('email' in resource.data) || request.resource.data.email == resource.data.email);
 
-      // Profiles are never deleted from the client.
-      allow delete: if false;
+      // Users may delete their own profile (in-app "Delete account").
+      allow delete: if isOwner(uid);
 
       // ---- Saved articles (bookmarks) ----
       match /bookmarks/{docId} {

@@ -1381,7 +1381,7 @@ html[dir="rtl"] .chat-messages .msg-user {
 .cover-gap-guide {
   background:
     linear-gradient(to top, rgba(11,19,32,.55) 0%, rgba(11,19,32,.1) 45%, transparent 70%),
-    #0F3F7E url('assets/gap-guide.jpg') center/cover no-repeat;
+    #0F3F7E url('assets/images/gap-guide.svg') center/cover no-repeat;
 }
 .cover-gap-guide::after { content: none; }
 
@@ -4263,3 +4263,87 @@ html[data-theme="dark"] .article-refs p,html[data-theme="dark"] .article-refs .r
   background:radial-gradient(420px 420px at var(--byl-mx,74%) var(--byl-my,24%), rgba(74,168,255,.26), transparent 60%);
   filter:blur(12px); transition:background .2s; }
 .byl-seeds{ position:absolute; inset:0; display:block; }
+
+/* =====================================================================
+   MOBILE — app-like layout (≤ 640px)  ·  added 2026-11-23
+   • Compact header that fits every phone (360px+)
+   • Smaller hero, 2-column cards, swipeable article rows
+   • No accidental zoom: 16px form fields (iOS) + no double-tap zoom
+   ===================================================================== */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+a, button, input, select, textarea, label, summary { touch-action: manipulation; }
+.byls-trigger svg { width: 17px; height: 17px; display: block; stroke: currentColor; }
+
+@media (max-width: 640px) {
+  /* Form fields ≥16px stop iPhone from zooming in when tapped */
+  input, select, textarea { font-size: 16px !important; }
+
+  /* ---- Header ---- */
+  .site-header .nav { gap: 8px; }
+  .site-header .logo img { height: 34px; width: auto; }
+  .nav-right { gap: 6px !important; }
+  .nav-right > .btn-getstarted { display: none !important; }      /* sign-up is reachable from Sign in */
+  .nav-right > .btn-ask,
+  .nav-right > #authSlot > a.lang-btn,
+  .nav-right > .lang-btn,
+  .nav-right > .menu-btn {
+    width: 34px; height: 34px; min-width: 34px; padding: 0 !important;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%; flex: 0 0 auto;
+  }
+  .nav-right > .btn-ask span,
+  .nav-right > #authSlot > a.lang-btn span,
+  .nav-right > #langBtn #langLabel { display: none; }
+
+  /* ---- Hero ---- */
+  .hero { padding: 52px 0 76px !important; }
+  .hero-inner { padding: 0 20px !important; }
+  .hero h1 { font-size: clamp(26px, 7.4vw, 31px) !important; line-height: 1.18 !important; margin: 10px 0 12px !important; }
+  .hero-inner > p { font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 20px !important; }
+  .hero-ctas { gap: 10px !important; }
+  .hero-ctas .btn { padding: 13px 18px !important; font-size: 14px !important; }
+  .hero-trust { font-size: 12px !important; gap: 8px 14px !important; margin-top: 18px !important; }
+
+  /* ---- Section rhythm (homepage) ---- */
+  #services, #search, #tools, #latest-news, #coming-soon, #featured { padding: 44px 0 !important; }
+  #services .section-title, #tools .section-title, #latest-news .section-title,
+  #coming-soon .section-title, #featured .section-title { font-size: 23px !important; line-height: 1.25 !important; }
+  #services .section-sub, #tools .section-sub, #latest-news .section-sub,
+  #coming-soon .section-sub, #featured .section-sub { font-size: 14px !important; }
+
+  /* ---- Services & tools: 2 compact columns ---- */
+  .services-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .service-card { padding: 16px 14px !important; border-radius: 16px !important; }
+  .service-card .service-icon { width: 42px !important; height: 42px !important; margin-bottom: 10px !important; }
+  .service-card h3 { font-size: 15px !important; line-height: 1.3 !important; margin: 0 0 6px !important; }
+  .service-card p { font-size: 13px !important; line-height: 1.5 !important; margin: 0 0 8px !important;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .service-card .service-link { font-size: 12px !important; }
+
+  #tools .grid-cats, #coming-soon .grid-cats { grid-template-columns: 1fr 1fr !important; gap: 12px !important; margin-top: 24px !important; }
+  #tools .card-cat, #coming-soon .card-cat { padding: 16px 14px !important; border-radius: 16px !important; }
+  #tools .cat-icon, #coming-soon .cat-icon { width: 42px !important; height: 42px !important; }
+  #tools .card-cat h3, #coming-soon .card-cat h3 { font-size: 15px !important; line-height: 1.3 !important; margin: 10px 0 6px !important; }
+  #tools .card-cat p, #coming-soon .card-cat p { font-size: 13px !important; line-height: 1.5 !important; margin: 0 !important;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* ---- News & featured articles: swipeable row ---- */
+  #latest-news .grid-articles, #featured .grid-articles {
+    display: flex !important; gap: 12px !important; margin: 20px -20px 0 !important;
+    padding: 0 20px 10px !important; overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  #latest-news .grid-articles::-webkit-scrollbar, #featured .grid-articles::-webkit-scrollbar { display: none; }
+  #latest-news .card-article, #featured .card-article { flex: 0 0 80%; max-width: 300px; scroll-snap-align: start; }
+  #latest-news .card-cover, #featured .card-cover { aspect-ratio: 16 / 9 !important; }
+  #latest-news .card-body, #featured .card-body { padding: 14px !important; }
+  #latest-news .card-body h3, #featured .card-body h3 { font-size: 15px !important; line-height: 1.35 !important; }
+  #latest-news .card-summary, #featured .card-summary { display: none; }
+}
+
+@media (max-width: 360px) {
+  .nav-right { gap: 4px !important; }
+  .nav-right > .btn-ask, .nav-right > #authSlot > a.lang-btn,
+  .nav-right > .lang-btn, .nav-right > .menu-btn { width: 32px; height: 32px; min-width: 32px; }
+  .services-grid, #tools .grid-cats, #coming-soon .grid-cats { gap: 10px !important; }
+}

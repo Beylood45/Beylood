@@ -11,13 +11,14 @@
    ============================================ */
 
 import {
-  onAuthStateChanged, updateProfile
+  onAuthStateChanged, updateProfile, deleteUser,
+  reauthenticateWithPopup, reauthenticateWithCredential, EmailAuthProvider
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
-  doc, getDoc, setDoc, collection, getDocs, query, orderBy, serverTimestamp
+  doc, getDoc, setDoc, deleteDoc, collection, getDocs, query, orderBy, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-import { auth, db, configReady } from "./firebase-init.js";
+import { auth, db, googleProvider, configReady } from "./firebase-init.js";
 
 /* ---------- Helpers ---------- */
 function curLang() { return document.documentElement.lang || 'so'; }
@@ -135,6 +136,9 @@ if (!configReady()) {
 
     // Step 6 — Always wire the edit modal
     try { wireEdit(user, profile); } catch (e) { console.warn('wireEdit:', e); }
+
+    // Step 7 — Account deletion (required by app stores + privacy policy)
+    try { wireDelete(user); } catch (e) { console.warn('wireDelete:', e); }
   });
 }
 
@@ -402,6 +406,91 @@ function wireEdit(user, initial) {
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = '<span data-lang="so">Kaydi isbeddelka</span><span data-lang="en" hidden>Save changes</span><span data-lang="ar" hidden>حفظ التغييرات</span><span data-lang="sw" hidden>Hifadhi mabadiliko</span>';
+    }
+  });
+}
+
+
+/* ---------- Delete account ----------
+   Removes the user's Firestore data (bookmarks, AI chats + messages,
+   profile document) and then the Firebase Auth account itself.
+   Firebase requires a recent sign-in to delete an account, so we
+   re-authenticate (Google popup or password prompt) when needed.   */
+async function deleteAllUserData(uid) {
+  // bookmarks
+  try {
+    const bms = await getDocs(collection(db, 'users', uid, 'bookmarks'));
+    for (const d of bms.docs) await deleteDoc(d.ref);
+  } catch (e) { console.warn('delete bookmarks:', e); }
+  // chats + messages
+  try {
+    const chats = await getDocs(collection(db, 'users', uid, 'chats'));
+    for (const c of chats.docs) {
+      try {
+        const msgs = await getDocs(collection(db, 'users', uid, 'chats', c.id, 'messages'));
+        for (const m of msgs.docs) await deleteDoc(m.ref);
+      } catch (e) { console.warn('delete messages:', e); }
+      await deleteDoc(c.ref);
+    }
+  } catch (e) { console.warn('delete chats:', e); }
+  // profile document (needs `allow delete: if isOwner(uid)` in firestore.rules)
+  try { await deleteDoc(doc(db, 'users', uid)); }
+  catch (e) { console.warn('delete profile doc:', e); }
+}
+
+async function reauth(user) {
+  const isGoogle = (user.providerData || []).some(p => p && p.providerId === 'google.com');
+  if (isGoogle) { await reauthenticateWithPopup(user, googleProvider); return; }
+  const pw = window.prompt(tr({
+    so: 'Amni darteed, geli furahaaga sirta ah (password) si aad u xaqiijiso tirtirka:',
+    en: 'For security, enter your password to confirm deletion:',
+    ar: 'لأسباب أمنية، أدخل كلمة المرور لتأكيد الحذف:',
+    sw: 'Kwa usalama, weka nenosiri lako kuthibitisha kufuta:'
+  }));
+  if (!pw) throw new Error('cancelled');
+  await reauthenticateWithCredential(user, EmailAuthProvider.credential(user.email, pw));
+}
+
+function wireDelete(user) {
+  const btn = $('profDeleteBtn');
+  const msg = $('profDeleteMsg');
+  if (!btn || btn.dataset.wired) return;
+  btn.dataset.wired = '1';
+  btn.addEventListener('click', async () => {
+    const ok = window.confirm(tr({
+      so: 'Ma hubtaa inaad tirtirto akoonkaaga? Profile-kaaga, maqaallada aad kaydisay iyo wada-sheekaysiga AI waa la tirtiri doonaa. Tan dib looma celin karo.',
+      en: 'Are you sure you want to delete your account? Your profile, saved articles and AI chats will be deleted. This cannot be undone.',
+      ar: 'هل أنت متأكد من حذف حسابك؟ سيتم حذف ملفك الشخصي ومقالاتك المحفوظة ومحادثات الذكاء الاصطناعي. لا يمكن التراجع عن ذلك.',
+      sw: 'Una uhakika unataka kufuta akaunti yako? Wasifu wako, makala ulizohifadhi na mazungumzo ya AI yatafutwa. Hili haliwezi kutenduliwa.'
+    }));
+    if (!ok) return;
+    btn.disabled = true;
+    if (msg) { msg.className = 'auth-msg'; msg.textContent = tr({ so: 'Waa la tirtirayaa…', en: 'Deleting…', ar: 'جارٍ الحذف…', sw: 'Inafuta…' }); }
+    try {
+      // Re-authenticate first so the final step cannot fail half-way.
+      await reauth(user);
+      await deleteAllUserData(user.uid);
+      await deleteUser(user);
+      try { localStorage.removeItem('beylood_farm_v1'); } catch (e) {}
+      alert(tr({
+        so: 'Akoonkaaga waa la tirtiray. Mahadsanid inaad isticmaashay Beylood.',
+        en: 'Your account has been deleted. Thank you for using Beylood.',
+        ar: 'تم حذف حسابك. شكراً لاستخدامك Beylood.',
+        sw: 'Akaunti yako imefutwa. Asante kwa kutumia Beylood.'
+      }));
+      window.location.replace('index.html');
+    } catch (err) {
+      console.warn('Account deletion failed:', err);
+      btn.disabled = false;
+      if (msg) {
+        msg.className = 'auth-msg is-err';
+        msg.textContent = (err && err.message === 'cancelled') ? '' : tr({
+          so: 'Tirtirku ma dhammaan. Isku day mar kale ama nala soo xiriir.',
+          en: 'Deletion did not complete. Please try again or contact us.',
+          ar: 'لم يكتمل الحذف. حاول مرة أخرى أو تواصل معنا.',
+          sw: 'Kufuta hakukukamilika. Jaribu tena au wasiliana nasi.'
+        });
+      }
     }
   });
 }

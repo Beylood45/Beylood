@@ -9,7 +9,7 @@
   <title>Profile-kayga — Beylood</title>
   <link rel="icon" href="assets/icon.png" />
   <link rel="apple-touch-icon" href="assets/icon.png" />
-  <link rel="stylesheet" href="style.css?v=20260618" />
+  <link rel="stylesheet" href="style.css?v=20261123" />
   <link rel="manifest" href="manifest.json" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -173,9 +173,25 @@
         </div>
       </section>
 
+      <!-- DELETE ACCOUNT -->
+      <section class="profile-danger reveal" aria-labelledby="dangerHeading">
+        <h2 id="dangerHeading" class="profile-h2"><span data-lang="so">Tirtir akoonka</span><span data-lang="en" hidden>Delete account</span><span data-lang="ar" hidden>حذف الحساب</span><span data-lang="sw" hidden>Futa akaunti</span></h2>
+        <p class="profile-danger-text"><span data-lang="so">Tani waxay si joogto ah u tirtiraysaa akoonkaaga, profile-kaaga, maqaallada aad kaydisay iyo wada-sheekaysiga AI. Dib looma celin karo.</span><span data-lang="en" hidden>This permanently deletes your account, profile, saved articles and AI chats. It cannot be undone.</span><span data-lang="ar" hidden>يؤدي هذا إلى حذف حسابك وملفك الشخصي ومقالاتك المحفوظة ومحادثات الذكاء الاصطناعي نهائياً. لا يمكن التراجع عنه.</span><span data-lang="sw" hidden>Hii inafuta kabisa akaunti yako, wasifu, makala ulizohifadhi na mazungumzo ya AI. Haiwezi kutenduliwa.</span></p>
+        <button type="button" id="profDeleteBtn" class="profile-danger-btn"><span data-lang="so">Tirtir akoonkayga</span><span data-lang="en" hidden>Delete my account</span><span data-lang="ar" hidden>احذف حسابي</span><span data-lang="sw" hidden>Futa akaunti yangu</span></button>
+        <p class="auth-msg" id="profDeleteMsg" aria-live="polite"></p>
+      </section>
+
     </div>
   </div>
 </main>
+<style>
+.profile-danger{margin-top:28px;padding:20px;border:1px solid #F3C2C2;border-radius:16px;background:#FFF7F7}
+.profile-danger-text{margin:6px 0 14px;font-size:14px;color:#6B7280;line-height:1.6}
+.profile-danger-btn{cursor:pointer;border:1px solid #DC2626;background:#fff;color:#DC2626;border-radius:999px;padding:10px 18px;font:inherit;font-weight:700}
+.profile-danger-btn:hover{background:#DC2626;color:#fff}
+.profile-danger-btn:disabled{opacity:.6;cursor:wait}
+html[data-theme="dark"] .profile-danger{background:#1f1416;border-color:#5b2a2a}
+</style>
 
 <!-- EDIT MODAL -->
 <div id="profModal" class="prof-modal" hidden>
@@ -265,10 +281,10 @@
   </div>
 </footer>
 
-<script src="script.js?v=20260618"></script>
+<script src="script.js?v=20261123"></script>
 <script src="cover-images.js?v=20260618"></script>
 <script type="module" src="auth.js?v=20260618"></script>
-<script type="module" src="profile.js?v=20260618"></script>
+<script type="module" src="profile.js?v=20261123"></script>
 <script src="analytics-config.js?v=20260618"></script>
 <script src="analytics.js?v=20260618"></script>
 
