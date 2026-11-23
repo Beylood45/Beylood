@@ -4293,6 +4293,7 @@ a, button, input, select, textarea, label, summary { touch-action: manipulation;
   }
   .nav-right > .btn-ask span,
   .nav-right > #authSlot > a.lang-btn span,
+  .nav-right > a.lang-btn span,
   .nav-right > #langBtn #langLabel { display: none; }
 
   /* ---- Hero ---- */
@@ -4346,4 +4347,83 @@ a, button, input, select, textarea, label, summary { touch-action: manipulation;
   .nav-right > .btn-ask, .nav-right > #authSlot > a.lang-btn,
   .nav-right > .lang-btn, .nav-right > .menu-btn { width: 32px; height: 32px; min-width: 32px; }
   .services-grid, #tools .grid-cats, #coming-soon .grid-cats { gap: 10px !important; }
+}
+
+/* =====================================================================
+   ALL PAGES — professional layout on phone + computer · 2026-11-23
+   ===================================================================== */
+
+/* ---- Desktop/laptop header: never wrap or overflow ---- */
+.nav-links a { white-space: nowrap; }
+.nav-right > * { flex: 0 0 auto; white-space: nowrap; }
+@media (min-width: 1025px) {
+  .nav { gap: 12px; }
+  .nav-links { gap: 2px; }
+  .nav-links a { padding: 8px 10px; }
+  .nav-right { gap: 6px; }
+  .nav-right > .btn-getstarted { display: none; }                 /* sign-up stays reachable from Sign in */
+  .nav-right > #authSlot > a.lang-btn span,
+  .nav-right > a.lang-btn span,
+  .nav-right > #langBtn #langLabel { display: none; }
+  .nav-right > #authSlot > a.lang-btn,
+  .nav-right > .lang-btn { width: 38px; height: 38px; padding: 0; justify-content: center; border-radius: 50%; }
+}
+@media (min-width: 1025px) and (max-width: 1199px) {
+  .logo-name { display: none; }
+  .nav-links a { padding: 8px 8px; font-size: 13.5px; }
+  .nav-right > .btn-ask span { display: none; }
+  .nav-right > .btn-ask { width: 38px; height: 38px; padding: 0; justify-content: center; border-radius: 50%; }
+}
+
+/* ---- Phones ---- */
+@media (max-width: 640px) {
+  /* Thin brand band on inner pages */
+  .page-hero { padding: 16px 0 !important; }
+
+  /* Article lists (Maqaallo, Qaybaha, Wararka, related): compact app-style rows */
+  .grid-articles { grid-template-columns: 1fr !important; gap: 12px !important; margin-top: 20px !important; }
+  .grid-articles > .card-article {
+    display: grid !important; grid-template-columns: 112px 1fr; align-items: stretch;
+    border-radius: 14px !important; min-height: 112px; transform: none !important;
+  }
+  .grid-articles > .card-article .card-cover {
+    aspect-ratio: auto !important; height: 100% !important; min-height: 112px; border-radius: 0 !important;
+  }
+  .grid-articles > .card-article .card-cover::before,
+  .grid-articles > .card-article .card-cover::after { display: none !important; }   /* no watermark on small thumbnails */
+  .grid-articles > .card-article .card-body {
+    padding: 12px 14px !important; display: flex; flex-direction: column; gap: 4px; min-width: 0;
+    background: none !important;
+  }
+  .grid-articles > .card-article .pill { align-self: flex-start; font-size: 10.5px; padding: 2px 8px; }
+  .grid-articles > .card-article h3 {
+    font-size: 15px !important; line-height: 1.35 !important; margin: 4px 0 2px !important;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .grid-articles > .card-article .card-summary { display: none !important; }
+  .grid-articles > .card-article .card-meta { font-size: 12px !important; margin-top: auto !important; gap: 8px !important; }
+  .grid-articles > .card-article .card-foot { font-size: 11px !important; padding-top: 6px !important; margin-top: 6px !important; }
+
+  /* Homepage keeps its swipeable rows */
+  #latest-news .grid-articles > .card-article, #featured .grid-articles > .card-article {
+    display: block !important; min-height: 0;
+  }
+  #latest-news .grid-articles > .card-article .card-cover, #featured .grid-articles > .card-article .card-cover {
+    height: auto !important; min-height: 0; aspect-ratio: 16 / 9 !important;
+  }
+  #latest-news .grid-articles > .card-article .card-cover::before,
+  #featured .grid-articles > .card-article .card-cover::before { display: block !important; }
+
+  /* Floating article buttons: small round icons instead of wide labels */
+  .pwa-fabs { bottom: 88px !important; gap: 8px !important; }
+  .pwa-fabs .pwa-fab { width: 44px; height: 44px; padding: 0 !important; justify-content: center; }
+  .pwa-fabs .pwa-fab span { display: none !important; }
+  .pwa-fabs .pwa-fab svg { width: 18px !important; height: 18px !important; }
+
+  /* General: headings and section spacing on inner pages */
+  .section { padding-top: 44px; padding-bottom: 44px; }
+  .section-title { font-size: clamp(22px, 6.2vw, 26px); line-height: 1.25; }
+  .grid-cats { gap: 12px !important; }
+  .article-body table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  img, video, iframe { max-width: 100%; }
 }
