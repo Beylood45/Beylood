@@ -126,6 +126,9 @@
     'cover-news-14':                  { file: 'news-14.svg', topic: { so: "Digniin Daad", en: "Flood Alert", ar: "تحذير الفيضانات", sw: "Tahadhari ya Mafuriko" } },
     'cover-news-15':                  { file: 'news-15.svg', topic: { so: "Amniga Cuntada", en: "Food Security", ar: "الأمن الغذائي", sw: "Usalama wa Chakula" } },
     'cover-news-16':                  { file: 'news-16.svg', topic: { so: "Qiimaha Hadhuudhka", en: "Cereal Prices", ar: "أسعار الحبوب", sw: "Bei za Nafaka" } },
+    'cover-news-17':                  { file: 'news-17.svg', topic: { so: "Digniin Webiyada", en: "River Flood Watch", ar: "مراقبة فيضانات الأنهار", sw: "Tahadhari ya Mito" } },
+    'cover-news-18':                  { file: 'news-18.svg', topic: { so: "Xaaladda Gaajada", en: "Hunger Outlook", ar: "توقعات الجوع", sw: "Hali ya Njaa" } },
+    'cover-news-19':                  { file: 'news-19.svg', topic: { so: "Maalgelinta Beeraha", en: "Farm Investment", ar: "الاستثمار الزراعي", sw: "Uwekezaji wa Kilimo" } },
 
     // ---------- New articles (user images in assets/ with title names) ----------
     'cover-wheat-farming':            { file: '../Wheat Farming.jpg',                              topic: { so: "Qamadi",        en: "Wheat",        ar: "القمح",          sw: "Ngano" } },

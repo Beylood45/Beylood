@@ -183,7 +183,19 @@ export const ARTICLES = [
   { slug: 'news-10', cat: 'news',
     title: 'Saadaalka Deyr 2026', url: 'https://beylood.com/news-10.html',
     summary: 'Saadaasha hore ee Deyr 2026 (Juun) waxay ahayd roob caadi ah; saadaalaha dambe (ICPAC/SODMA) waxay tilmaameen roob ka badan caadiga iyo khatar daad — eeg news-14.',
-    keywords: ['deyr','saadaal','roob','swalim','forecast'] }
+    keywords: ['deyr','saadaal','roob','swalim','forecast'] },
+  { slug: 'news-17', cat: 'news',
+    title: 'Wabiga Shabeelle oo Gaaray Heerka Khatarta Daadka ee Beledweyne', url: 'https://beylood.com/news-17.html',
+    summary: 'FAO SWALIM: Shabeelle Beledweyne 6.70 m 28 Okt 2026 (khatar dhexdhexaad 6.50 m); Jowhar 2.48→4.70 m 7–13 Okt. La soco heerarka webiyada.',
+    keywords: ['daad','flood','shabeelle','beledweyne','jowhar','webi','river','swalim','deyr'] },
+  { slug: 'news-18', cat: 'news',
+    title: 'IPC: 5.4 Milyan oo Wajahaya Gaajo Heer Xaalad Adag (Okt–Dis 2026)', url: 'https://beylood.com/news-18.html',
+    summary: 'IPC (23 Sep 2026): 5.4M IPC3+ Okt–Dis 2026, 1.5M heer degdeg; 1.92M carruur ah oo u baahan daaweyn nafaqo-darro; khatar abaar-gaajo barakacayaasha Baydhabo.',
+    keywords: ['ipc','gaajo','hunger','amniga cuntada','food security','nafaqo','malnutrition','baydhabo'] },
+  { slug: 'news-19', cat: 'news',
+    title: 'Soomaaliya iyo FAO oo ka Wada-hadlay Maalgelin Muddo-dheer oo Beeraha', url: 'https://beylood.com/news-19.html',
+    summary: 'Wasiirka Maaliyadda iyo wakiilka FAO (18 Nof 2026): maalgelin muddo-dheer, EmergenSys (diiwaan beeraleyda, foojar dijitaal). Lacag cayiman lama shaacin.',
+    keywords: ['fao','maalgelin','financing','investment','emergensys','diiwaan','voucher'] }
 ];
 
 // Lightweight scorer: how many keywords from `query` match this article

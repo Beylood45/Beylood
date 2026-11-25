@@ -563,6 +563,13 @@
 
     const label = document.getElementById('langLabel');
     if (label) label.textContent = t.label;
+    const codeEl = document.getElementById('langCode');
+    if (codeEl) codeEl.textContent = code.toUpperCase();
+    document.querySelectorAll('.lang-menu [data-set-lang]').forEach(b => {
+      const on = b.getAttribute('data-set-lang') === code;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
 
     document.querySelectorAll('[data-key]').forEach(el => {
       const k = el.getAttribute('data-key');
@@ -626,19 +633,72 @@
       });
     }
 
+    // ---- Header extras: language menu + compact mobile menu items ----
+    (function buildHeaderExtras() {
+      const lb = document.getElementById('langBtn');
+      if (lb && !document.getElementById('langCode')) {
+        const c = document.createElement('span');
+        c.id = 'langCode'; c.className = 'lang-code'; c.textContent = 'SO';
+        lb.appendChild(c);
+        lb.setAttribute('aria-haspopup', 'menu');
+        lb.setAttribute('aria-expanded', 'false');
+        const wrap = document.createElement('span');
+        wrap.className = 'lang-wrap';
+        lb.parentNode.insertBefore(wrap, lb);
+        wrap.appendChild(lb);
+        const m = document.createElement('div');
+        m.className = 'lang-menu'; m.setAttribute('role', 'menu'); m.hidden = true;
+        [['so', 'Soomaali'], ['en', 'English'], ['ar', 'العربية'], ['sw', 'Kiswahili']].forEach(([k, name]) => {
+          const b = document.createElement('button');
+          b.type = 'button'; b.setAttribute('role', 'menuitemradio'); b.setAttribute('data-set-lang', k);
+          b.innerHTML = '<span class="lm-code">' + k.toUpperCase() + '</span><span class="lm-name"' + (k === 'ar' ? ' dir="rtl"' : '') + '>' + name + '</span><span class="lm-check" aria-hidden="true">✓</span>';
+          m.appendChild(b);
+        });
+        wrap.appendChild(m);
+      }
+      // Items that move into the ☰ menu on phones (hidden on desktop via CSS)
+      const nl = document.querySelector('.nav-links');
+      if (nl && !nl.querySelector('.nav-extra')) {
+        const ex = document.createElement('div');
+        ex.className = 'nav-extra';
+        ex.innerHTML =
+          '<a href="signin.html" class="nav-extra-link"><span data-lang="so">Soo gal / Akoonkaaga</span><span data-lang="en" hidden>Sign in / My account</span><span data-lang="ar" hidden>تسجيل الدخول / حسابي</span><span data-lang="sw" hidden>Ingia / Akaunti yangu</span></a>' +
+          '<button type="button" class="nav-extra-link" id="themeBtnMenu"><span data-lang="so">Habka mugdiga / iftiinka</span><span data-lang="en" hidden>Dark / light mode</span><span data-lang="ar" hidden>الوضع الداكن / الفاتح</span><span data-lang="sw" hidden>Hali ya giza / mwanga</span></button>';
+        nl.appendChild(ex);
+        const tb = ex.querySelector('#themeBtnMenu');
+        tb.addEventListener('click', () => {
+          applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+        });
+      }
+    })();
+
     // Restore saved language or fall back to Somali
     let saved = 'so';
     try { saved = localStorage.getItem('beylood_lang') || 'so'; } catch (e) { }
     current = Math.max(0, order.indexOf(saved));
     applyLang(order[current]);
 
-    // Language toggle button — cycles through SO → EN → AR
+    // Language button opens a menu with all 4 languages
     const langBtn = document.getElementById('langBtn');
-    if (langBtn) {
-      langBtn.addEventListener('click', () => {
-        current = (current + 1) % order.length;
-        applyLang(order[current]);
+    const langMenu = document.querySelector('.lang-menu');
+    if (langBtn && langMenu) {
+      const close = () => { langMenu.hidden = true; langBtn.setAttribute('aria-expanded', 'false'); };
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = langMenu.hidden;
+        langMenu.hidden = !open;
+        langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
+      langMenu.addEventListener('click', (e) => {
+        const b = e.target.closest('[data-set-lang]');
+        if (!b) return;
+        const code = b.getAttribute('data-set-lang');
+        current = Math.max(0, order.indexOf(code));
+        applyLang(code);
+        close();
+      });
+      document.addEventListener('click', (e) => { if (!e.target.closest('.lang-wrap')) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
     }
 
     // Mobile menu toggle
