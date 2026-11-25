@@ -243,6 +243,9 @@
     });
   }
 
+  // Public hook so scripts that inject cards later (e.g. home-news.js) can add covers
+  window.BeyloodCovers = { apply: apply };
+
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply);
   else apply();
 })();

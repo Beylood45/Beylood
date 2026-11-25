@@ -53,6 +53,14 @@
       grid.innerHTML = '';
       grid.appendChild(frag);
       localize(grid);
+      // Cards were injected after cover-images.js ran → add their cover images now
+      if (window.BeyloodCovers && typeof window.BeyloodCovers.apply === 'function') {
+        window.BeyloodCovers.apply();
+      } else {
+        document.addEventListener('DOMContentLoaded', function () {
+          if (window.BeyloodCovers) window.BeyloodCovers.apply();
+        });
+      }
     })
     .catch(function () { /* keep the static fallback cards */ });
 })();
